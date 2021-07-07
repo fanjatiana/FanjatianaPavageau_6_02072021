@@ -40,7 +40,7 @@ const getPictures = async () => {
         `<article>
            <section id="id-photograph">
                <a href="#">
-                   <img src="/Photos/Sample Photos/Photographers ID Photos/${portrait}">
+                   <img src="/Photos/gallery/Photographers-Photos/${portrait}">
                    <h2>${name}</h2>
                </a>
            </section>
