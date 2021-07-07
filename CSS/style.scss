@@ -34,6 +34,7 @@ body{
     height: 200px;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: auto;
     &.logo{
         width: 20%;
@@ -42,8 +43,10 @@ body{
         width: 80%;
         & ul {
             display: flex;
+            flex-wrap: wrap;
+          
             & li {
-                margin: 0 10px;
+                margin: 0 5px;
                 border: 0.2px gray solid;
                 border-radius: 20px;
                 padding : 5px 10px;
@@ -70,7 +73,6 @@ body{
 }
 
 /*div container*/
-
 #container {
     display: flex;
     justify-content: space-around;
@@ -93,6 +95,7 @@ body{
         height:300px;
         border-radius: 50%;
         text-align: center;
+        object-fit: cover;
     }
     h2{
         font-size: 2rem;

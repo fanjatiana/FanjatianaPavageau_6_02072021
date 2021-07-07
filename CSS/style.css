@@ -37,6 +37,8 @@ body ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: auto;
 }
 
@@ -52,10 +54,12 @@ body ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #banner .nav-tag-links ul li {
-  margin: 0 10px;
+  margin: 0 5px;
   border: 0.2px gray solid;
   border-radius: 20px;
   padding: 5px 10px;
@@ -112,6 +116,8 @@ body ul {
   height: 300px;
   border-radius: 50%;
   text-align: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #id-photograph h2 {

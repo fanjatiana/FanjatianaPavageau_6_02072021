@@ -1,0 +1,23 @@
+@media screen and (min-width: 2000px) {
+  body {
+    max-width: 2000px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #index-title {
+    left: 82%;
+    top: 30px;
+  }
+  #index-title h1 {
+    font-size: 1.5rem;
+  }
+  #banner.logo {
+    width: 20%;
+  }
+  #banner .nav-tag-links {
+    margin: auto;
+  }
+}
+/*# sourceMappingURL=mediaqueries-index.css.map */
