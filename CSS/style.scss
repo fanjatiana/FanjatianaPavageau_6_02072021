@@ -5,10 +5,18 @@ $color-secondary-bg:#D3573C;
 $color-secondary : #901C1C;
 
 
+
+/*propriétés css générales*/
+*{
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;  
+}
 body{
     position:relative;
     h2 , p {
         text-align: center;
+        margin: 5px auto;
     }
     a{
         text-decoration: none;
@@ -19,74 +27,105 @@ body{
     }
 }
 
-*{
-    font-size: 1rem;
- 
-   
-}
-
-#container {
-  
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 90%;
-    margin: auto;
-    article{
-        width: 30%;
-        margin : 30px 10px;
-        
-    }
-}
-
+/*header*/
 #banner {
     display: flex;
-    width: 70%;
+    width: 90%;
     height: 200px;
     align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    &.logo{
+        width: 20%;
+    }
     .nav-tag-links{
+        width: 80%;
         & ul {
             display: flex;
+            & li {
+                margin: 0 10px;
+                border: 0.2px gray solid;
+                border-radius: 20px;
+                padding : 5px 10px;
+            }
         }
     }
 }
 
-#id-photograph {
-    display: flex;
-    justify-content: center;
-    h2{
+/*main*/
+#gallery-photographers {
+    width: 95%;
+    margin:auto;
+}
+
+/*titre de la gallerie*/
+#index-title{
+    position: absolute;
+    top: 75px;
+    left: 80%;
+    & h1{
+        color:$color-primary;
         font-size: 2rem;
+    }    
+}
+
+/*div container*/
+
+#container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    & article{
+        width: 20%;
+        margin : 30px 90px;   
     }
 }
 
+/*propriétés des différentes parties des articles*/
+
+/*photo et nom des photographes*/
+#id-photograph {
+    display: flex;
+    justify-content: center;
+    img {
+        width: 300px;
+        height:300px;
+        border-radius: 50%;
+        text-align: center;
+    }
+    h2{
+        font-size: 2rem;
+        color: $color-primary;
+    }
+}
+
+/*infos des photographes*/
 #infos-photograph{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    & p:nth-child(1){
+        color: $color-secondary-bg;
+    }
+    p:nth-child(2){
+        font-weight: bold;
+    }
+    p:nth-child(3){
+        font-weight: lighter;
+    }
 }
 
+/*liens tag des photographes*/
 #tag-links{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-}
+    & a{
+        color: $color-secondary-bg;
+        font-weight: bold;
+    }
+}    
 
-#index-title{
-    h1{
-        color:$color-primary;
-        position: absolute;
-        top: 60px;
-        left: 1000px;
-        font-size: 2rem;
-    
-    }    
-}
 
-img {
-    width: 300px;
-    height:300px;
-    border-radius: 50%;
-    text-align: center;
-}
+

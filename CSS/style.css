@@ -1,10 +1,19 @@
+@charset "UTF-8";
 /*variables*/
+/*propriétés css générales*/
+* {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   position: relative;
 }
 
 body h2, body p {
   text-align: center;
+  margin: 5px auto;
 }
 
 body a {
@@ -15,36 +24,28 @@ body ul {
   list-style-type: none;
 }
 
-* {
-  font-size: 1rem;
-}
-
-#container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 90%;
-  margin: auto;
-}
-
-#container article {
-  width: 30%;
-  margin: 30px 10px;
-}
-
+/*header*/
 #banner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 70%;
+  width: 90%;
   height: 200px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+}
+
+#banner.logo {
+  width: 20%;
+}
+
+#banner .nav-tag-links {
+  width: 80%;
 }
 
 #banner .nav-tag-links ul {
@@ -53,6 +54,50 @@ body ul {
   display: flex;
 }
 
+#banner .nav-tag-links ul li {
+  margin: 0 10px;
+  border: 0.2px gray solid;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+/*main*/
+#gallery-photographers {
+  width: 95%;
+  margin: auto;
+}
+
+/*titre de la gallerie*/
+#index-title {
+  position: absolute;
+  top: 75px;
+  left: 80%;
+}
+
+#index-title h1 {
+  color: #D3573C;
+  font-size: 2rem;
+}
+
+/*div container*/
+#container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+#container article {
+  width: 20%;
+  margin: 30px 90px;
+}
+
+/*propriétés des différentes parties des articles*/
+/*photo et nom des photographes*/
 #id-photograph {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,10 +107,19 @@ body ul {
           justify-content: center;
 }
 
-#id-photograph h2 {
-  font-size: 2rem;
+#id-photograph img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  text-align: center;
 }
 
+#id-photograph h2 {
+  font-size: 2rem;
+  color: #D3573C;
+}
+
+/*infos des photographes*/
 #infos-photograph {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,34 +136,30 @@ body ul {
           align-items: center;
 }
 
+#infos-photograph p:nth-child(1) {
+  color: #D3573C;
+}
+
+#infos-photograph p:nth-child(2) {
+  font-weight: bold;
+}
+
+#infos-photograph p:nth-child(3) {
+  font-weight: lighter;
+}
+
+/*liens tag des photographes*/
 #tag-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-#index-title h1 {
+#tag-links a {
   color: #D3573C;
-  position: absolute;
-  top: 60px;
-  left: 1000px;
-  font-size: 2rem;
-}
-
-img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  text-align: center;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */
