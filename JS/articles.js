@@ -1,10 +1,12 @@
 /********************************* DOM ****************************************/
-const article = document.querySelector('article');
+const article = document.getElementById('id-photographers');
 const idPhotograph = document.getElementById('id-photograph');
 const infosPhotograph = document.getElementById('infos-photograph');
 const tagLinks= document.getElementById('tag-links');
 const paragraph = document.getElementsByClassName('.paragraph');
 const container = document.getElementById('container');
+const list = document.querySelector('.list');
+console.log(article)
 
 /*************************************************************************** */
 
@@ -22,6 +24,7 @@ const getPictures = async () => {
     let response = await fetch('https://cors-anywhere.herokuapp.com/https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json')
     let data = await response.json()
     console.log(data.photographers);
+   
 
    
     let photographersList = data.photographers;
@@ -36,8 +39,8 @@ const getPictures = async () => {
         let tagline = element.tagline;
         let tags = element.tags;
         
-        container.innerHTML += 
-        `<article>
+        article.innerHTML += 
+        `
            <section id="id-photograph">
                <a href="#">
                    <img src="/Photos/gallery/Photographers-Photos/${portrait}">
@@ -49,51 +52,19 @@ const getPictures = async () => {
                <p>${tagline}</p>
                <p>${price}€/jour</p>
            </section>
-           <section id="tag-links">
-               <ul>
-                   <li><a href="#">#${tags}</a></li>
 
-               </ul>
-           </section>
-       </article>`;
-            
-           
-           
-           
-           /*"<h3>" + data.photographers[0]['name'] + "</h3>" 
-            + "<p>" + data.photographers[0]['id'] + "</p>" +
-            "<p>" + data.photographers[0]['city'] + "</p>" +
-            "<p>" + data.photographers[0]['country'] + "</p>" +
-            "<ul>" + "<li>" + "<a href='#'>" + "#" +data.photographers[0]['tags']+ "</a>" + "</li>" + "</ul>" ;*/
-           
+       `;
+
+       for (var j = 0; j < tags.length; j++) {
+        var listTags = document.createElement('li');
+        listTags.textContent = tags[j];
+       article.appendChild(listTags);
+      }
     
-
+    
     }
     
     
-
-    
-    
-    //const name = data['photographers'][0]['name'];
-
-    
-  
-  
-
-       
-   
-
-    
-    
-    /*for (let element of photographersList){
-       
-       article.innerHTML= "<h3>" + element.name + "</h3>" +
-       "<p>" + element.id + "</p>" +
-       "<p>" + element.city + "</p>" +
-       "<p>" + element.country + "</p>" +
-       "<ul>" + "<li>" + "<a href='#'>" + "#" +element.tags[0] + "</a>" + "</li>" + "</ul>" +
-       "<ul>" + "<li>" + "<a href='#'>" + "#" +element.tags[1] + "</a>" + "</li>" + "</ul>" ;
-    }*/
 
     
     
@@ -107,4 +78,9 @@ const getPictures = async () => {
 
 
 
+/*  <section id="tag-links">
+<ul>
+<li><a href="#">#${tags}</a></li>
 
+</ul>
+</section>*/
