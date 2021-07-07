@@ -102,7 +102,7 @@ body ul {
 
 /*propriétés des différentes parties des articles*/
 /*photo et nom des photographes*/
-#id-photograph {
+.id-photograph {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,7 +111,7 @@ body ul {
           justify-content: center;
 }
 
-#id-photograph img {
+.id-photograph img {
   width: 300px;
   height: 300px;
   border-radius: 50%;
@@ -120,13 +120,13 @@ body ul {
      object-fit: cover;
 }
 
-#id-photograph h2 {
+.id-photograph h2 {
   font-size: 2rem;
   color: #D3573C;
 }
 
 /*infos des photographes*/
-#infos-photograph {
+.infos-photograph {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,20 +142,20 @@ body ul {
           align-items: center;
 }
 
-#infos-photograph p:nth-child(1) {
+.infos-photograph p:nth-child(1) {
   color: #D3573C;
 }
 
-#infos-photograph p:nth-child(2) {
+.infos-photograph p:nth-child(2) {
   font-weight: bold;
 }
 
-#infos-photograph p:nth-child(3) {
+.infos-photograph p:nth-child(3) {
   font-weight: lighter;
 }
 
 /*liens tag des photographes*/
-#tag-links {
+.tag-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -164,7 +164,7 @@ body ul {
           justify-content: center;
 }
 
-#tag-links a {
+.tag-links a {
   color: #D3573C;
   font-weight: bold;
 }

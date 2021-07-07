@@ -87,7 +87,7 @@ body{
 /*propriétés des différentes parties des articles*/
 
 /*photo et nom des photographes*/
-#id-photograph {
+.id-photograph {
     display: flex;
     justify-content: center;
     img {
@@ -104,7 +104,7 @@ body{
 }
 
 /*infos des photographes*/
-#infos-photograph{
+.infos-photograph{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -121,7 +121,7 @@ body{
 }
 
 /*liens tag des photographes*/
-#tag-links{
+.tag-links{
     display: flex;
     justify-content: center;
     & a{
