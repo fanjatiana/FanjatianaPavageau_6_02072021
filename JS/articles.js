@@ -15,16 +15,17 @@ const container = document.getElementById('container');
 const getPictures = async () => {
     let response = await fetch("./JS/data.json")
     let data = await response.json();
-    let err = function(err){
+    let err = function (err) {
         // Une erreur est survenue
         alert(err);
     };
-    err;    
+    err;
 
 
 
     /* on cré une variable pour réccupérer la liste des photographes du json*/
     let photographersList = data.photographers;
+
 
 
 
@@ -79,22 +80,81 @@ const getPictures = async () => {
 }
 getPictures();
 
+
+/* Requête liens tags*/
+
+
+
 const getTags = async () => {
     let responseTags = await fetch("./JS/data.json");
     let tagsLinks = await responseTags.json();
-    let err2 = function(err2){
+    let err2 = function (err2) {
         // Une erreur est survenue
         alert(err2);
     };
-    err2;    
+    err2;
+
+    let listOfPhotographers = tagsLinks.photographers;
+
+    console.log(listOfPhotographers);
 
     const tagPortrait = document.getElementById('portrait');
+    const nav = document.querySelector('.nav-tag-links');
+
+    let personList = 0;
+    for (let i = 0; i < tagsLinks.photographers.length; i++) {
+        personList++;
+        console.log(personList);
+    }
 
 
-    let listTags = tagsLinks.photographers;
-    console.log(listTags);
+   let tagsArray = [];
+    for (let tags of listOfPhotographers) {
+        
+        let arrayList = tags.tags;
+        for(let tagName of arrayList){
+            console.log(tagName);
+            tagsArray.push(tagName);
+        }
+        /*let array1 = tags.tags[0];
+        let array2 = tags.tags[1];
+        let array3 = tags.tags[2];
+        let array4 = tags.tags[3];
 
-/**************************************************************************************************************************************************************/
+        
+        tagsArray.push(array1,array2,);*/
+
+       
+    };
+
+   
+    console.log(tagsArray);
+
+
+
+
+
+
+
+
+    nav.innerHTML = `<ul id="tag">
+    <li><a id ="portrait" href="#">#Portrait</a></li>
+    <li><a href="">#Art</a></li>
+    <li><a href="">#Fashion</a></li>
+    <li><a href="">#Architecture</a></li>
+    <li><a href="">#Travel</a></li>
+    <li><a href="">#Sport</a></li>
+    <li><a href="">#Animals</a></li>
+    <li><a href="">#Events</a></li>
+</ul>`;
+
+
+
+
+
+
+
+    /**************************************************************************************************************************************************************/
     /*function monfiltre (element, index, self){
         console.log(element);
         console.log(index);
@@ -103,7 +163,7 @@ const getTags = async () => {
 
     monfiltre();*/
 
-    
+
     /*premiere methode pour filtrer les #portrait
     let listTagPortrait = listTags.filter(function (element) {
         for (let i = 0; i < element.tags.length; i++) {
@@ -119,7 +179,7 @@ const getTags = async () => {
 /**************************************************************************************************************************************************************/
 
 
- 
+
 
 
 
