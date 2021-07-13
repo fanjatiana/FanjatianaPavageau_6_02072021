@@ -13,8 +13,13 @@ const container = document.getElementById('container');
 
 /*chargement du fichier Json avec l'URL*/
 const getPictures = async () => {
-    let response = await fetch('https://cors-anywhere.herokuapp.com/https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json')
+    let response = await fetch("./JS/data.json")
     let data = await response.json();
+    let err = function(err){
+        // Une erreur est survenue
+        alert(err);
+    };
+    err;    
 
 
 
@@ -75,8 +80,14 @@ const getPictures = async () => {
 getPictures();
 
 const getTags = async () => {
-    let responseTags = await fetch('https://cors-anywhere.herokuapp.com/https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json')
+    let responseTags = await fetch("./JS/data.json");
     let tagsLinks = await responseTags.json();
+    let err2 = function(err2){
+        // Une erreur est survenue
+        alert(err2);
+    };
+    err2;    
+
     const tagPortrait = document.getElementById('portrait');
 
 
