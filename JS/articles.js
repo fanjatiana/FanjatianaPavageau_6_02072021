@@ -60,7 +60,7 @@ const getPictures = async () => {
 getPictures();
 
 
-/****************************************** Requête pour la partie navigation***************************************/
+/****************************************** Requête pour la partie navigation**********************************************************************************/
 
 const getTags = async () => {
     let responseTags = await fetch("./JS/data.json");
@@ -109,7 +109,7 @@ const getTags = async () => {
 getTags();
 
 
-/***********************************************************Requête Filtre **********************************************************************/
+/***********************************************************Requête Filtre ******************************************************************************/
 
 const getFilter = async () => {
     let responsefiltre = await fetch("./JS/data.json")
@@ -120,19 +120,18 @@ const getFilter = async () => {
     };
     err;
 
-    let listTags = dataLinks.photographers;
     /*on cré et initialise une variable pour le nombre de liens tag des photographes*/
 
-    function filterOfPhotographers() {
-        container.innerHTML = "";
-        listTags.filter(function (element) {
+    let photographersListForFilter = dataLinks.photographers;
+    container.innerHTML = "";
+    photographersListForFilter.filter(function (element) {
 
-            if (element.tags.includes('portrait')) {
-                let photographTags = element.tags;
-                console.log(photographTags)
+        if (element.tags.includes('events')) {
 
-                container.innerHTML +=
-                    `<article>
+            let photographTags = element.tags;
+
+            container.innerHTML +=
+                `<article>
                <section class="id-photograph">
                    <a href="#">
                        <img src="/Photos/gallery/Photographers-Photos/${element.portrait}">
@@ -145,28 +144,19 @@ const getFilter = async () => {
                    <p>${element.price}€/jour</p>
                </section>
                <section class="tag-links">
-                   <ul id="tagList">${element.tags}</ul>
+                   <ul id="tagListOfFilter${element.id}"></ul>
                </section>
            </article>`
+
+            let tagList = document.getElementById("tagListOfFilter" + element.id);
+            photographTags.forEach(tagShow => {
+
+                tagList.innerHTML +=
+                    ` <li class = "tags" "><a class = "links" href="#">#${tagShow}</a></li>`
             }
-        });
-    }
 
-    filterOfPhotographers();
-
+        )}
+    })   
 }
 
 getFilter();
-
-
-
-
-
-
-
-
-
-
-
-
-
