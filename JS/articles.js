@@ -23,35 +23,31 @@ const getPictures = async () => {
     err;
 
 
-
     /* on cré une variable pour réccupérer la liste des photographes du json*/
     let photographersList = data.photographers;
-
-
-
 
     /*on cré et initialise une variable pour le nombre de liens tag des photographes*/
     let numbTags = 0;
 
-    function articles() {
-        /*boucle for pour ajouter les articles des photographes*/
-        for (let element of photographersList) {
 
-            /* création de variables pour recupérer les données json*/
-            let portrait = element.portrait;
-            let name = element.name;
-            let city = element.city;
-            let price = element.price;
-            let country = element.country;
-            let tagline = element.tagline;
-            let tags = element.tags;
+    /*boucle for pour ajouter les articles des photographes*/
+    for (let element of photographersList) {
 
-            /*on incrémente la variable pour recupérer le nombre de tags des photographes*/
-            numbTags++;
+        /* création de variables pour recupérer les données json*/
+        let portrait = element.portrait;
+        let name = element.name;
+        let city = element.city;
+        let price = element.price;
+        let country = element.country;
+        let tagline = element.tagline;
+        let tags = element.tags;
 
-            /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
-            container.innerHTML +=
-                `<article>
+        /*on incrémente la variable pour recupérer le nombre de tags des photographes*/
+        numbTags++;
+
+        /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
+        container.innerHTML +=
+            `<article>
            <section class="id-photograph">
                <a href="#">
                    <img src="/Photos/gallery/Photographers-Photos/${portrait}">
@@ -68,23 +64,32 @@ const getPictures = async () => {
            </section>
        </article>`;
 
-            /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
-            let tagList = document.getElementById("tagList" + numbTags);
-            [...tags].forEach(photographersTags => {
-                tagList.innerHTML +=
-                    ` <li class = "tags"><a href="#">#${photographersTags}</a></li>`
-            })
-        }
-    }
-    articles();
+        /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
+        let tagList = document.getElementById("tagList" + numbTags);
+        [...tags].forEach(photographersTags => {
+            tagList.innerHTML +=
+                ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
+        })
 
-}
+    }
+
+  
+    let listTags = data.photographers;
+    let listTagPortrait = listTags.filter(function (element) {
+        for (let i = 0; i < element.tags.length; i++) {
+            if (element.tags[i] === 'events') {
+                return element;
+            } 
+        }
+    }); console.log(listTagPortrait);
+   
+
+}  
+
 getPictures();
 
 
 /****************************************** Requête pour la partie navigation***************************************/
-
-
 
 const getTags = async () => {
     let responseTags = await fetch("./JS/data.json");
@@ -99,75 +104,41 @@ const getTags = async () => {
     /*création d'une variable contenant la liste des photographes*/
     let listOfPhotographers = tagsLinks.photographers;
 
+
     /*on recherche dans le DOM la balise NAV contenant la classe nav-tag-links pour pouvoir plus tard y afficher la liste des liens de navigation*/
     const nav = document.querySelector('.nav-tag-links');
 
-    /*let personList = 0;
-    for (let i = 0; i < tagsLinks.photographers.length; i++) {
-        personList++;
-        console.log(personList);
-    }*/
-
-    /*on cré un  tableau vide et on utilise des boucles pour rechercher et recupérer toute la liste des tags qu'on va ajouter dans ce tableau*/ 
+    /*on cré un  tableau vide et on utilise des boucles pour rechercher et recupérer toute la liste des tags qu'on va ajouter dans ce tableau*/
     let tagsArray = [];
     for (let tags of listOfPhotographers) {
 
         let arrayList = tags.tags;
         for (let tagName of arrayList) {
-            console.log(tagName);
             tagsArray.push(tagName);
         }
     };
-   
-    
+
     /*on supprimer les tags doublons du tableau*/
     let uniqueSet = new Set(tagsArray);
     let backToArrayTags = [...uniqueSet];
-    console.log(backToArrayTags);
 
 
     /*on affiche le nouveau tableau des tags en tant que liens de navigation dans le html. Pour celà on cré une boucle for*/
-   
+
     const navUl = document.querySelector(".links-list");
-    
-    for (let elements of backToArrayTags ){
+
+    for (let elements of backToArrayTags) {
         let tagsTheme = elements;
 
         navUl.innerHTML += `
         
-                <li><a href=""># ${tagsTheme}</a></li>
+                <li><a class = "links" href=""># ${tagsTheme}</a></li>
             `
-        }
+    }
 
-        
-        
-       
+    /*on applique le systeme de filtre*/
 
-
-
-
-
-
-
-
-
-
-
-
-    /*nav.innerHTML = `<ul id="tag">
-    <li><a id ="portrait" href="#">#Portrait</a></li>
-    <li><a href="">#Art</a></li>
-    <li><a href="">#Fashion</a></li>
-    <li><a href="">#Architecture</a></li>
-    <li><a href="">#Travel</a></li>
-    <li><a href="">#Sport</a></li>
-    <li><a href="">#Animals</a></li>
-    <li><a href="">#Events</a></li>
-</ul>`;*/
-
-
-
-
+ 
 
 
 
@@ -194,12 +165,6 @@ const getTags = async () => {
 
 
 /**************************************************************************************************************************************************************/
-
-
-
-
-
-
 
 }
 
