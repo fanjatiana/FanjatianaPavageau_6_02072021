@@ -75,13 +75,52 @@ const getPictures = async () => {
 
   
     let listTags = data.photographers;
-    let listTagPortrait = listTags.filter(function (element) {
+
+  
+  function filterOfPhotographers () {
+    container.innerHTML = ""; 
+  listTags.filter(function (element) {
+    
         for (let i = 0; i < element.tags.length; i++) {
+            container.innerHTML += " ";
             if (element.tags[i] === 'events') {
-                return element;
+                
+                console.log(element)
+               
+
+                let photographName = element.name;
+                let photographCity = element.city;
+                let photographCountry = element.country;
+                let photographPrice = element.price;
+                let photographTagline = element.tagline;
+                let photographPortrait = element.portrait;
+
+                container.innerHTML +=
+            `<article>
+           <section class="id-photograph">
+               <a href="#">
+                   <img src="/Photos/gallery/Photographers-Photos/${photographPortrait}">
+                   <h2>${photographName}</h2>
+               </a>
+           </section>
+           <section class="infos-photograph">
+               <p>${photographCountry}, ${photographCity} </p>
+               <p>${photographTagline}</p>
+               <p>${photographPrice}€/jour</p>
+           </section>
+           <section class="tag-links">
+               <ul id="tagList${numbTags}"></ul>
+           </section>
+       </article>`
+                
             } 
         }
-    }); console.log(listTagPortrait);
+    }); 
+  }
+
+  filterOfPhotographers();
+    
+
    
 
 }  
