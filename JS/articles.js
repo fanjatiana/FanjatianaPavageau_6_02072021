@@ -49,9 +49,9 @@ const getPictures = async () => {
        </article>`;
 
         /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
-        let tagList = document.getElementById("tagList" + element.tags);
+        let listOfTags = document.getElementById("tagList" + element.tags);
         element.tags.forEach(photographersTags => {
-            tagList.innerHTML +=
+            listOfTags.innerHTML +=
                 ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
         })
     }
@@ -74,9 +74,6 @@ const getTags = async () => {
     /*création d'une variable contenant la liste des photographes*/
     let listOfPhotographers = data.photographers;
 
-    /*on recherche dans le DOM la balise NAV contenant la classe nav-tag-links pour pouvoir plus tard y afficher la liste des liens de navigation*/
-    const nav = document.querySelector('.nav-tag-links');
-
     /*on cré un  tableau vide et on utilise des boucles pour rechercher et recupérer toute la liste des tags qu'on va ajouter dans ce tableau*/
     let tagsArray = [];
     for (let tags of listOfPhotographers) {
@@ -86,31 +83,28 @@ const getTags = async () => {
         }
     };
 
-    /*on supprimer les tags doublons du tableau*/
+    /*on supprime les tags doublons du tableau*/
     let uniqueSet = new Set(tagsArray);
     let backToArrayTags = [...uniqueSet];
 
-    /*on affiche le nouveau tableau des tags en tant que liens de navigation, dans le html. Pour celà on cré une boucle for*/
-    const navUl = document.querySelector(".links-list");
+    /*on affiche le nouveau tableau des tags et on les ajoute en tant que liens dans la partie navigation (nav) du html. Pour celà on cré une boucle for*/
+    const baliseUL = document.querySelector(".links-list");
 
-    for (let elements of backToArrayTags) {
-        let tagsTheme = elements;
-        navUl.innerHTML += `<li><a class = "links links-filter" href=""># ${tagsTheme}</a></li>`
+    for (let el of backToArrayTags) {
+        let tagsTheme = el;
+        baliseUL.innerHTML += `<li><a class = "links links-filter" href="">#${tagsTheme}</a></li>`
     }
 
     /*on vient appliquer un addEventListener sur les liens de la navigation et on les relie à la fonction filtre, pour afficher les éléments filtrés*/
     const listLinksA = document.querySelectorAll('.links-filter');
-        for (let navLinks of listLinksA){
-            navLinks.addEventListener('click', e =>{
-                e.preventDefault();
-                getFilter("events");
-            })
-        }
-        
 
-
-
-
+    for (let navLinks of listLinksA) {
+        let filter = navLinks.innerHTML.replace("#", "");
+        navLinks.addEventListener('click', e => {
+            getFilter(filter)
+            e.preventDefault();
+        })
+    }
 }
 getTags();
 
@@ -122,15 +116,15 @@ const getFilter = async (filter) => {
     let err = function (err) {
         // Une erreur est survenue
         alert(err);
-    };
-    err;
+    }; err;
 
-
-    /* on cré une variable pour réccupérer la liste des photographes du json*/
-
+    /* on vide la div container des articles*/
     container.innerHTML = "";
-    /*boucle for pour ajouter les articles des photographes*/
+
+    
+    /*boucle forEach pour appliquer la fonction filtre sur les tags de chaque photographes puis on ajoute la liste des photographes filtrées dans le html*/
     data.photographers.forEach(photograph => {
+       
 
         if (photograph.tags.includes(filter)) {
             /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
@@ -153,13 +147,13 @@ const getFilter = async (filter) => {
        </article>`;
 
             /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
-            let tagList = document.getElementById("tagList" + photograph.id);
+            let listOfTags = document.getElementById("tagList" + photograph.id);
             photograph.tags.forEach(photographersTags => {
-                tagList.innerHTML +=
+                listOfTags.innerHTML +=
                     ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
             })
         }
-    })    
+    })
 }
 
 //getFilter();
