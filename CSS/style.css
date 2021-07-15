@@ -102,7 +102,7 @@ body ul {
 
 /*propriétés des différentes parties des articles*/
 /*photo et nom des photographes*/
-.id-photograph {
+.photograph {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,7 +111,7 @@ body ul {
           justify-content: center;
 }
 
-.id-photograph img {
+.photograph img {
   width: 300px;
   height: 300px;
   border-radius: 50%;
@@ -120,7 +120,7 @@ body ul {
      object-fit: cover;
 }
 
-.id-photograph h2 {
+.photograph h2 {
   font-size: 2rem;
   color: #D3573C;
 }

@@ -31,8 +31,8 @@ const getPictures = async () => {
 
         /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
         container.innerHTML +=
-            `<article>
-           <section class="id-photograph">
+            `<article id="${element.id}">
+           <section class="photograph">
                <a href="#">
                    <img src="/Photos/gallery/Photographers-Photos/${element.portrait}">
                    <h2>${element.name}</h2>
@@ -50,7 +50,7 @@ const getPictures = async () => {
 
         /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
         let tagList = document.getElementById("tagList" + element.tags);
-        [...element.tags].forEach(photographersTags => {
+        element.tags.forEach(photographersTags => {
             tagList.innerHTML +=
                 ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
         })
@@ -63,18 +63,16 @@ getPictures();
 /****************************************** Requête pour la partie navigation**********************************************************************************/
 
 const getTags = async () => {
-    let responseTags = await fetch("./JS/data.json");
-    let tagsLinks = await responseTags.json();
+    let response = await fetch("./JS/data.json");
+    let data = await response.json();
     let err2 = function (err2) {
         // Une erreur est survenue
         alert(err2);
     };
     err2;
 
-
     /*création d'une variable contenant la liste des photographes*/
-    let listOfPhotographers = tagsLinks.photographers;
-
+    let listOfPhotographers = data.photographers;
 
     /*on recherche dans le DOM la balise NAV contenant la classe nav-tag-links pour pouvoir plus tard y afficher la liste des liens de navigation*/
     const nav = document.querySelector('.nav-tag-links');
@@ -82,7 +80,6 @@ const getTags = async () => {
     /*on cré un  tableau vide et on utilise des boucles pour rechercher et recupérer toute la liste des tags qu'on va ajouter dans ce tableau*/
     let tagsArray = [];
     for (let tags of listOfPhotographers) {
-
         let arrayList = tags.tags;
         for (let tagName of arrayList) {
             tagsArray.push(tagName);
@@ -93,70 +90,77 @@ const getTags = async () => {
     let uniqueSet = new Set(tagsArray);
     let backToArrayTags = [...uniqueSet];
 
-
-    /*on affiche le nouveau tableau des tags en tant que liens de navigation dans le html. Pour celà on cré une boucle for*/
-
+    /*on affiche le nouveau tableau des tags en tant que liens de navigation, dans le html. Pour celà on cré une boucle for*/
     const navUl = document.querySelector(".links-list");
 
     for (let elements of backToArrayTags) {
         let tagsTheme = elements;
-
-        navUl.innerHTML += `
-        
-                <li><a class = "links" href=""># ${tagsTheme}</a></li>    `
+        navUl.innerHTML += `<li><a class = "links links-filter" href=""># ${tagsTheme}</a></li>`
     }
+
+    /*on vient appliquer un addEventListener sur les liens de la navigation et on les relie à la fonction filtre, pour afficher les éléments filtrés*/
+    const listLinksA = document.querySelectorAll('.links-filter');
+        for (let navLinks of listLinksA){
+            navLinks.addEventListener('click', e =>{
+                e.preventDefault();
+                getFilter("events");
+            })
+        }
+        
+
+
+
+
 }
 getTags();
 
 
 /***********************************************************Requête Filtre ******************************************************************************/
-
-const getFilter = async () => {
-    let responsefiltre = await fetch("./JS/data.json")
-    let dataLinks = await responsefiltre.json();
+const getFilter = async (filter) => {
+    let response = await fetch("./JS/data.json")
+    let data = await response.json();
     let err = function (err) {
         // Une erreur est survenue
         alert(err);
     };
     err;
 
-    /*on cré et initialise une variable pour le nombre de liens tag des photographes*/
 
-    let photographersListForFilter = dataLinks.photographers;
+    /* on cré une variable pour réccupérer la liste des photographes du json*/
+
     container.innerHTML = "";
-    photographersListForFilter.filter(function (element) {
+    /*boucle for pour ajouter les articles des photographes*/
+    data.photographers.forEach(photograph => {
 
-        if (element.tags.includes('events')) {
-
-            let photographTags = element.tags;
-
+        if (photograph.tags.includes(filter)) {
+            /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
             container.innerHTML +=
-                `<article>
-               <section class="id-photograph">
-                   <a href="#">
-                       <img src="/Photos/gallery/Photographers-Photos/${element.portrait}">
-                       <h2>${element.name}</h2>
-                   </a>
-               </section>
-               <section class="infos-photograph">
-                   <p>${element.country}, ${element.city} </p>
-                   <p>${element.tagline}</p>
-                   <p>${element.price}€/jour</p>
-               </section>
-               <section class="tag-links">
-                   <ul id="tagListOfFilter${element.id}"></ul>
-               </section>
-           </article>`
+                `<article id="${photograph.id}">
+           <section class="photograph">
+               <a href="#">
+                   <img src="/Photos/gallery/Photographers-Photos/${photograph.portrait}">
+                   <h2>${photograph.name}</h2>
+               </a>
+           </section>
+           <section class="infos-photograph">
+               <p>${photograph.country}, ${photograph.city}</p>
+               <p>${photograph.tagline}</p>
+               <p>${photograph.price}€/jour</p>
+           </section>
+           <section class="tag-links">
+               <ul id="tagList${photograph.id}"></ul>
+           </section>
+       </article>`;
 
-            let tagList = document.getElementById("tagListOfFilter" + element.id);
-            photographTags.forEach(tagShow => {
-
+            /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
+            let tagList = document.getElementById("tagList" + photograph.id);
+            photograph.tags.forEach(photographersTags => {
                 tagList.innerHTML +=
-                    ` <li class = "tags" "><a class = "links" href="#">#${tagShow}</a></li>`
-            }
-
-        )}
-    })   
+                    ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
+            })
+        }
+    })    
 }
 
-getFilter();
+//getFilter();
+
