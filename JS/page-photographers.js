@@ -11,31 +11,7 @@ const idPhotograph = async () => {
     let photographersList = data.photographers;
     const showPhotograph = document.getElementById("show-id-photograph");
 
-    showPhotograph.innerHTML += 
-    `<div id = "presentation ${photographersList[0].id}">
-        <h1>${photographersList[0].name}</h1>
-        <p>${photographersList[0].city}, ${photographersList[0].country}</p>
-        <p>${photographersList[0].tagline}</p>
-        <ul id="tagsList${photographersList[0].tags}"></ul>
-    </div>
-    <div id ="id-photo">
-        <img src="/Photos/gallery/Photographers-Photos/${photographersList[0].portrait}">
-    </div>
-    `
-    let showTagsList = document.getElementById("tagsList" + photographersList[0].tags);
-    photographersList[0].tags.forEach(allTags => {
-        showTagsList.innerHTML +=
-            `
-                <li class ="tags"><a class = "links" href="#"> #${allTags}</a></li>
-            `
-                 
-    })
 
-
-    
-    
-  
-  
     //rechercher l id dans l url
     var getUrl_id = window.location.search;
   
@@ -55,6 +31,23 @@ const idPhotograph = async () => {
     console.log(photographSelected)
 
     
+
+    showPhotograph.innerHTML += 
+    `<div id = "presentation ${photographSelected.id}">
+        <h1>${photographSelected.name}</h1>
+        <p>${photographSelected.city}, ${photographSelected.country}</p>
+        <p>${photographSelected.tagline}</p>
+        <ul id="tagsList${photographSelected.tags}"></ul>
+    </div>
+    <div id ="id-photo">
+        <img src="/Photos/gallery/Photographers-Photos/${photographSelected.portrait}">
+    </div>
+    `
+    let showTagsList = document.getElementById("tagsList" + photographSelected.tags);
+    photographSelected.tags.forEach(allTags => {
+        showTagsList.innerHTML +=
+            `<li class ="tags"><a class = "links" href="#"> #${allTags}</a></li>`           
+    })
 
     
 }
