@@ -33,7 +33,7 @@ const getPictures = async () => {
         container.innerHTML +=
             `<article id="${element.id}">
            <section class="photograph">
-               <a href="#">
+               <a id ="go-to-photograph-page" href="page-photographers.html?id-${element.id}">
                    <img src="/Photos/gallery/Photographers-Photos/${element.portrait}">
                    <h2>${element.name}</h2>
                </a>
@@ -55,6 +55,8 @@ const getPictures = async () => {
                 ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
         })
     }
+
+   
 }
 
 getPictures();

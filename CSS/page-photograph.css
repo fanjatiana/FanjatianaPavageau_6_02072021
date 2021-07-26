@@ -7,6 +7,16 @@
   text-decoration: none;
 }
 
+body {
+  width: 90%;
+  margin: auto;
+}
+
+/************************header*******************************************/
+#banner {
+  margin: 2em 0 3em;
+}
+
 /********************* 1ere section :  show-id-photograph*******************/
 #show-id-photograph {
   display: -webkit-box;
@@ -15,6 +25,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 /*************div 1 : presentation********/
@@ -27,17 +40,21 @@
 #presentation > h1 {
   color: #D3573C;
   font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 #presentation p:nth-child(2) {
   color: #901C1C;
   font-size: 1.2rem;
+  margin-top: 0;
 }
 
 #presentation ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 0;
 }
 
 #presentation ul > .tags {
@@ -61,8 +78,8 @@
 }
 
 #id-photo img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
 }
 
