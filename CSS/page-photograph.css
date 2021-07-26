@@ -1,0 +1,84 @@
+/*variables*/
+* li {
+  list-style-type: none;
+}
+
+* a {
+  text-decoration: none;
+}
+
+/********************* 1ere section :  show-id-photograph*******************/
+#show-id-photograph {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/*************div 1 : presentation********/
+#presentation {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+#presentation > h1 {
+  color: #D3573C;
+  font-size: 3rem;
+}
+
+#presentation p:nth-child(2) {
+  color: #901C1C;
+  font-size: 1.2rem;
+}
+
+#presentation ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#presentation ul > .tags {
+  margin: 0 5px;
+}
+
+/*liens tags*/
+.links {
+  border: 0.5px #ebebeb solid;
+  border-radius: 20px;
+  padding: 3px 10px;
+  color: #901C1C;
+  font-weight: bold;
+}
+
+/*********div 2 : photo du photograph************/
+#id-photo {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+#id-photo img {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+}
+
+/************div 3 : bouton contactez-moi************/
+#btn-contact {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+#btn-contact > button {
+  background-color: #901C1C;
+  color: #FFF;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=page-photograph.css.map */
