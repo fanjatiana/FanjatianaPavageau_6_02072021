@@ -6,20 +6,13 @@ const idPhotograph = async () => {
         alert(err);
     };
     err;
+  
+    
     let photographersList = data.photographers;
     const showPhotograph = document.getElementById("show-id-photograph");
-    console.log(showPhotograph);
-
-    /*const bodyPage = document.querySelector("body");
-
-    for (let photograph of photographersList){
-        bodyPage.setAttribute('id','${photograph.id}')
-    }*/
-
-    console.log(photographersList)
 
     showPhotograph.innerHTML += 
-    `<div id = "presentation">
+    `<div id = "presentation ${photographersList[0].id}">
         <h1>${photographersList[0].name}</h1>
         <p>${photographersList[0].city}, ${photographersList[0].country}</p>
         <p>${photographersList[0].tagline}</p>
@@ -38,8 +31,28 @@ const idPhotograph = async () => {
                  
     })
 
-   
-   
+
+    
+    
+  
+  
+    //rechercher l id dans l url
+    var getUrl_id = window.location.search;
+  
+    //extraire l id
+    let getId = getUrl_id.slice(4);
+    console.log(typeof(getId));
+
+    //afficher les photographes en fonction de l id avec la methode find
+
+    console.log(photographersList);
+
+    //modification type de GetId string--> number
+    const newGetId = Number(getId);
+    
+
+    const photographSelected = photographersList.find((element) => element.id === newGetId);
+    console.log(photographSelected)
 
     
 
