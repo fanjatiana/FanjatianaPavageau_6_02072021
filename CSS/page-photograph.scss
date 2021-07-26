@@ -39,27 +39,31 @@ body{
 /*************div 1 : presentation********/
 #presentation{
     order:1;
-    > h1{
-        color: $color-primary;
-        font-size: 3rem;
-        margin-top:0;
-        margin-bottom: 5px;
-    }
-
-    p:nth-child(2){
-        color: $color-primary-bg;
-        font-size: 1.2rem;
-        margin-top:0;
-    }
-    ul {
-        display: flex;
-        padding:0;
-        > .tags{
-            margin: 0 5px;
-        }
-        
-    }
+}    
+h1{
+color: $color-primary;
+font-size: 3rem;
+margin-top:0;
+margin-bottom: 5px;
 }
+
+p:nth-child(2){
+    color: $color-primary-bg;
+    font-size: 1.2rem;
+    margin-top:0;
+}
+
+
+ul {
+    display: flex;
+    padding:0;
+    > .tags{
+        margin: 0 5px;
+    }
+    
+}
+
+
 /*liens tags*/
 .links{
     border : 0.5px rgb(235, 235, 235) solid;
@@ -76,8 +80,8 @@ body{
 #id-photo {
     order:3;
     & img{
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
         border-radius: 100%;
     }
 }
@@ -91,7 +95,7 @@ body{
         background-color: $color-primary-bg;
         color: #FFF;
         padding:10px;
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: bold;
         border-radius: 5px;
     }

@@ -11,6 +11,8 @@ const idPhotograph = async () => {
     let photographersList = data.photographers;
     const showPhotograph = document.getElementById("show-id-photograph");
 
+   
+
 
     //rechercher l id dans l url
     var getUrl_id = window.location.search;
@@ -26,11 +28,10 @@ const idPhotograph = async () => {
     //modification type de GetId string--> number
     const newGetId = Number(getId);
     
-
+    //
     const photographSelected = photographersList.find((element) => element.id === newGetId);
     console.log(photographSelected)
 
-    
 
     showPhotograph.innerHTML += 
     `<div id = "presentation ${photographSelected.id}">
@@ -49,7 +50,9 @@ const idPhotograph = async () => {
             `<li class ="tags"><a class = "links" href="#"> #${allTags}</a></li>`           
     })
 
-    
+    const titlePagePhotograph = document.getElementById("photograph-name");
+
+    titlePagePhotograph.innerHTML += photographSelected.name;
 }
 
 idPhotograph();

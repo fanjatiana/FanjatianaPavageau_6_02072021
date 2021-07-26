@@ -37,27 +37,27 @@ body {
           order: 1;
 }
 
-#presentation > h1 {
+h1 {
   color: #D3573C;
   font-size: 3rem;
   margin-top: 0;
   margin-bottom: 5px;
 }
 
-#presentation p:nth-child(2) {
+p:nth-child(2) {
   color: #901C1C;
   font-size: 1.2rem;
   margin-top: 0;
 }
 
-#presentation ul {
+ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0;
 }
 
-#presentation ul > .tags {
+ul > .tags {
   margin: 0 5px;
 }
 
@@ -78,8 +78,8 @@ body {
 }
 
 #id-photo img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 100%;
 }
 
@@ -94,7 +94,7 @@ body {
   background-color: #901C1C;
   color: #FFF;
   padding: 10px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   border-radius: 5px;
 }
