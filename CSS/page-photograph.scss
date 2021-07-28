@@ -138,8 +138,34 @@ ul {
     }
 }
 
-.picturesList{
-    width: 20%;
+#works-list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    > article{
+        margin : 10px 0;
+         
+    }
+}
+
+.info_media{
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline;
+    > h3{
+        font-size: 1.5rem;
+        color: $color-primary;
+    }
+    & p{
+        color: $color-primary;
+        font-weight: bold;
+    }
+}
+
+.pictures-list{
+    width: 500px;
+    height: 500px;
 }
 
 

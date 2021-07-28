@@ -120,95 +120,53 @@ const photographersWorks = async () => {
 
     //on modifie type de GetId string--> number
     const newGetId = Number(getId);
-  
 
 
-/************************************************************************************ajout des articles******************************************************** */
-   
-        let lastName = "";
-            for ( let namePhotograph of photographersList){
-                if(namePhotograph.id === newGetId){
-                    let name = namePhotograph.name;
-                    let nameCut = name.split(' ');
-                    lastName = nameCut[1];
-                }   
-            } 
 
-            for(let element of photographersMedia){
-            if(element.photographerId === newGetId && element.image){
-                console.log(element)
-                works.innerHTML +=
-                `<article id ="artistArticle ${element.photographerId}" class = "pictures video">
-                <img class="picturesList" src = "./Photos/gallery/${lastName}/${element.image}">
-                <h3>${element.title}</h3>
-                <p>${element.likes}</p>
+    /************************************************************************************ajout des articles******************************************************** */
+
+    let lastName = "";
+    for (let namePhotograph of photographersList) {
+        if (namePhotograph.id === newGetId) {
+            let name = namePhotograph.name;
+            let nameCut = name.split(' ');
+            lastName = nameCut[1];
+        }
+    }
+
+    for (let element of photographersMedia) {
+        if (element.photographerId === newGetId && element.image) {
+            console.log(element)
+            works.innerHTML +=
+                `<article id ="${element.photographerId}">
+                    <div>
+                        <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}">
+                    </div>
+                    <div class="info_media">
+                        <h3>${element.title}</h3>
+                        <p>${element.likes}</p>
+                    </div>
              </article>`
         }
     }
 
-    for(let e of photographersMedia){   
-        if(e.photographerId === newGetId && e.video){
+    for (let e of photographersMedia) {
+        if (e.photographerId === newGetId && e.video) {
             works.innerHTML +=
-        `<article id ="artistArticle ${e.photographerId}" class = "pictures video">
+                `<article id ="${e.photographerId}">
+            <div>
                 <video controls width="500">
-            <source src="./Photos/gallery/${lastName}/${e.video}" type="video/mp4">
-        </video>
+                    <source src="./Photos/gallery/${lastName}/${e.video}" type="video/mp4">
+                </video>
+            </div>
+            <div class="info_media">
                 <h3>${e.title}</h3>
                 <p>${e.likes}</p>
-             </article>`
+            </div>   
+        </article>`
+        }
     }
-}
-   
+
 };
 
 photographersWorks();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/****************************************************************************************************************************************************** */
-
-
-    /*boucle pour récupérer tous les noms des photographes;
-
-    
-    for (i = 0; i < photographersList.length; i++) {
-        let name = photographersList[i].name;
-        let nameCut = name.split(' ');
-        let lastName=nameCut[1];
-        console.log(lastName)
-
-        /*works.innerHTML +=
-        `<article id ="${mediaSelected.photographerId}" class = "video">
-        <video controls width="500">
-            <source src="./Photos/gallery/${lastName}/${mediaSelected.video}" type="video/mp4">
-        </video>
-        <h3>${mediaSelected.title}</h3>
-        <p>${mediaSelected.likes}</p>
-     </article>`*/
-
-
- /*works.innerHTML +=
-             `<article id ="${mediaSelected.photographerId}" class = "video">
-             <video controls width="500">
-                 <source src="./Photos/gallery/${lastName}/${mediaSelected.video}" type="video/mp4">
-             </video>
-             <h3>${mediaSelected.title}</h3>
-             <p>${mediaSelected.likes}</p>
-          </article>`*/
