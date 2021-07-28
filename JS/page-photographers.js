@@ -125,17 +125,15 @@ const photographersWorks = async () => {
 
 /************************************************************************************ajout des articles******************************************************** */
    
-        
-          
+        let lastName = "";
             for ( let namePhotograph of photographersList){
-                
-                let name = namePhotograph.name;
-                let nameCut = name.split(' ');
-                lastName = nameCut[1];
-                console.log(lastName)
-                   
+                if(namePhotograph.id === newGetId){
+                    let name = namePhotograph.name;
+                    let nameCut = name.split(' ');
+                    lastName = nameCut[1];
+                }   
             } 
-         
+
             for(let element of photographersMedia){
             if(element.photographerId === newGetId && element.image){
                 console.log(element)
@@ -145,16 +143,10 @@ const photographersWorks = async () => {
                 <h3>${element.title}</h3>
                 <p>${element.likes}</p>
              </article>`
-
-           
         }
-
-       
-
     }
 
-    for(let e of photographersMedia){
-        
+    for(let e of photographersMedia){   
         if(e.photographerId === newGetId && e.video){
             works.innerHTML +=
         `<article id ="artistArticle ${e.photographerId}" class = "pictures video">
@@ -167,51 +159,6 @@ const photographersWorks = async () => {
     }
 }
    
-
-
-
-
-/*photographersMedia.forEach(element => {
-
-
-        if (element.photographerId === newGetId) {
-            console.log(element)
-            works.innerHTML +=
-            `<article id ="${element.photographerId}" class = "pictures">
-            
-            <h3>${element.title}</h3>
-            <p>${element.likes}</p>
-         </article>`
-
-        }
-        
-        
-    });$*/
-
-
-
-
-   
-
-
-/***********************************************************************ajout des images************************************************************************ */
-    /*for (i = 0; i < photographersList.length; i++) {
-        const pictures = document.querySelector(".pictures");
-        console.log(pictures)
-        let name = photographersList[i].name;
-        let nameCut = name.split(' ');
-        let lastName = nameCut[1];
-
-        photographersMedia.forEach(element => {
-            if (element.photographerId === newGetId) {
-                pictures.innerHTML +=
-                    `<img class="picturesList" src = "./Photos/gallery/${lastName}/${element.image}">`
-            }
-
-
-        })
-
-    }  */
 };
 
 photographersWorks();
