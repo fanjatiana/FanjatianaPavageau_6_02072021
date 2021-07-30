@@ -170,12 +170,16 @@ const photographersWorks = async () => {
     }
 
 
-//on recupere tous les prix du photographe associé et on les ajoute dans un tableau
+/*************partie compteur prix/jour****************/
+
+//on recupere tous les prix et les likes du photographe associé et on les ajoute dans un tableau
 let totalPrice = [];
+let totalLikes = [];
 for (let value of photographersMedia) {
    
     if (value.photographerId === newGetId) {
         totalPrice.push(value.price);
+        totalLikes.push(value.likes);
 }
 }
 
@@ -184,17 +188,23 @@ let priceOfPhotographers = 0;
 for(let t = 0; t < totalPrice.length; t++){
     priceOfPhotographers += parseFloat(totalPrice[t])
 }
+//on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
+let likesOfPhotographers = 0;
+for(let l = 0; l < totalLikes.length; l++){
+    likesOfPhotographers += parseFloat(totalLikes[l])
+}
+
+
 
 
 
 // ajout du bloc compteur de like
 works.innerHTML+=
 `<div id="like_counter">
-    <p><i class="fas fa-heart"></i></p>
-    <p>${priceOfPhotographers}/jour</p>
+    <p>${likesOfPhotographers}<i class="fas fa-heart"></i></p>
+    <p>${priceOfPhotographers}€ / jour</p>
 </div>`
-
-
-
 }
+
+
 photographersWorks();
