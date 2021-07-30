@@ -125,6 +125,7 @@ const photographersWorks = async () => {
 
     /************************************************************************************ajout des articles******************************************************** */
 
+    //recupérer la liste des noms et prénoms des photographes dans le fichier json (photographers.name) puis découpage en 2 tableau et récupération des noms de familles avec la methode split
     let lastName = "";
     for (let namePhotograph of photographersList) {
         if (namePhotograph.id === newGetId) {
@@ -132,11 +133,11 @@ const photographersWorks = async () => {
             let nameCut = name.split(' ');
             lastName = nameCut[1];
         }
-    }
+    };
 
+    //ajout des images
     for (let element of photographersMedia) {
         if (element.photographerId === newGetId && element.image) {
-            console.log(element)
             works.innerHTML +=
                 `<article id ="${element.photographerId}">
                     <div>
@@ -144,29 +145,56 @@ const photographersWorks = async () => {
                     </div>
                     <div class="info_media">
                         <h3>${element.title}</h3>
-                        <p>${element.likes}</p>
+                        <p>${element.likes}<a href=""><i class="fas fa-heart"></i></a></p>
                     </div>
              </article>`
         }
-    }
+    };
 
-    for (let e of photographersMedia) {
-        if (e.photographerId === newGetId && e.video) {
+    //ajout des vidéos
+    for (let info of photographersMedia) {
+        if (info.photographerId === newGetId && info.video) {
             works.innerHTML +=
-                `<article id ="${e.photographerId}">
+                `<article id ="${info.photographerId}">
             <div>
                 <video controls width="500">
-                    <source src="./Photos/gallery/${lastName}/${e.video}" type="video/mp4">
+                    <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
                 </video>
             </div>
             <div class="info_media">
-                <h3>${e.title}</h3>
-                <p>${e.likes}</p>
+                <h3>${info.title}</h3>
+                <p>${info.likes}<a href=""><i class="fas fa-heart"></i></a></p>
             </div>   
         </article>`
         }
     }
 
-};
 
+//on recupere tous les prix du photographe associé et on les ajoute dans un tableau
+let totalPrice = [];
+for (let value of photographersMedia) {
+   
+    if (value.photographerId === newGetId) {
+        totalPrice.push(value.price);
+}
+}
+
+//on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
+let priceOfPhotographers = 0;
+for(let t = 0; t < totalPrice.length; t++){
+    priceOfPhotographers += parseFloat(totalPrice[t])
+}
+
+
+
+// ajout du bloc compteur de like
+works.innerHTML+=
+`<div id="like_counter">
+    <p><i class="fas fa-heart"></i></p>
+    <p>${priceOfPhotographers}/jour</p>
+</div>`
+
+
+
+}
 photographersWorks();

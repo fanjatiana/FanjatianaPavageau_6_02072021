@@ -180,8 +180,42 @@ ul > .tags {
   font-weight: bold;
 }
 
+.info_media p > a {
+  text-decoration: none;
+  margin-left: 0.5em;
+}
+
+.info_media p > a .fa-heart {
+  color: #D3573C;
+}
+
 .pictures-list {
   width: 500px;
   height: 500px;
+}
+
+#like_counter {
+  width: 300px;
+  height: 55px;
+  background-color: #D3573C;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+#like_counter > p {
+  color: #000;
+  font-size: 1.3em;
+  padding: 0;
 }
 /*# sourceMappingURL=page-photograph.css.map */
