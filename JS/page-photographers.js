@@ -1,3 +1,7 @@
+//import { newGetId } from "./constantes.js";
+ import { showPhotograph,titlePagePhotograph, works, worksFilter} from "./DOM-constantes.js";
+
+
 const idPhotograph = async () => {
     let response = await fetch("./JS/data.json")
     let data = await response.json();
@@ -6,14 +10,13 @@ const idPhotograph = async () => {
         alert(err);
     };
     err;
+  
+
 
     //on recupère la nodeliste des photographes dans le Json
-    let photographersList = data.photographers;
+    const photographersList = data.photographers;
 
-    //on recupère dans le DOM l'Id de la section show-id-photograph 
-    const showPhotograph = document.getElementById("show-id-photograph");
-
-
+    
     //on recherche l id dans l url
     var getUrl_id = window.location.search;
 
@@ -45,9 +48,9 @@ const idPhotograph = async () => {
             `<li class ="tags"><a class = "links" href="#"> #${allTags}</a></li>`
     })
 
-    const titlePagePhotograph = document.getElementById("photograph-name");
-
+    //ajout du nom du photographe en tant que titre de la page
     titlePagePhotograph.innerHTML += photographSelected.name;
+    
 }
 idPhotograph();
 
@@ -97,7 +100,7 @@ const photographersWorks = async () => {
     console.log(photographersMedia);
 
     //on recupère dans le DOM l'Id de la section works-list
-    const works = document.getElementById("works-list");
+    //const works = document.getElementById("works-list");
 
 
 
@@ -264,8 +267,7 @@ const navFilter = async () => {
     const newGetId = Number(getId);
 
 
-    //on recupère dans le DOM l'Id de la section works-list
-    const works = document.getElementById("works-list");
+  
 
     //on recupère la nodeliste des photographes dans le Json
     let photographersList = data.photographers;
@@ -273,8 +275,7 @@ const navFilter = async () => {
 
 
 
-    //on recupère dans le DOM l'Id de la section filter-sort-by
-    const worksFilter = document.getElementById("filter-sort-by");
+
     /*************************************************************************************************** */
     let lastName = "";
     for (let namePhotograph of photographersList) {
@@ -304,8 +305,8 @@ const navFilter = async () => {
                 arrayDate.push(valueDate.date)
             }
         }
-        arrayDate.sort();
-        console.log(arrayDate)
+        arrayDate.sort().reverse();
+        console.log(arrayDate);
     }
     sortByDate();
 
@@ -330,8 +331,6 @@ const navFilter = async () => {
     const showTitle = document.getElementsByTagName("h3")
         console.log(showTitle);
     const sortByABC = () => {
-       
-     
 
         let arrayMediaTitle = [];
         for (let titleMedia of photographersMedia) {
@@ -364,24 +363,9 @@ const navFilter = async () => {
      </article>`;
 
 
-        }
-    
-       
-
-       
+        }  
         
     }
-
-
-   
-
-
-
-
-
-
-
-   
     }
 
    
@@ -414,7 +398,11 @@ navFilter();
 
 
 
+/************************************************************************Requête formulaire***********************************************************************/
 
+
+
+/***********************************************************************************************************************************************/
 
 
 
