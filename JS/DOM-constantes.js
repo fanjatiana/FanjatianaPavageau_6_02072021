@@ -12,6 +12,10 @@ export const worksFilter = document.getElementById("filter-sort-by");
 // id de la section 3 du fichier html : liste des photos et video du photographe
 export const works = document.getElementById("works-list");
 
+//id div modale
+export const modale = document.getElementById("modale");
+
+
 
 
 

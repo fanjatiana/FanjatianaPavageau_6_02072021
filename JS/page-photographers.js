@@ -48,9 +48,108 @@ const idPhotograph = async () => {
     //ajout du nom du photographe en tant que titre de la page
     titlePagePhotograph.innerHTML += photographSelected.name;
 
+
+
+
+    
+ 
 }
+
 idPhotograph();
 
+/************************************************************************Requête formulaire***********************************************************************/
+
+const form = async () => {
+    let response =  await fetch("./JS/data.json")
+    let data =  await response.json();
+    let err = function (err) {
+        // Une erreur est survenue
+        alert(err);
+    };
+    err;
+//on recupère la nodeliste des photographes dans le Json
+const photographersList = data.photographers;
+
+
+
+    /***************************************************************************pour recuperer l id des photographes*************************************/
+    //on extrait l id en supprimant les 4 premiers caractères
+    let getId = getUrl_id.slice(4);
+
+    //on modifie type de GetId string--> number
+    const newGetId = Number(getId);
+
+    /***********************************************************ajout du formulaire************************************ */
+    const modale = document.getElementById("modale");
+    for (let element of photographersList) {
+        if (element.id === newGetId) {
+            modale.innerHTML +=
+                `<div class="content">
+    <span class="close"></span>
+    <div class="modal-content">
+        <form name="contact" id="photographContact" action="" method="POST" onsubmit=" return validate()">
+            <h2>Contactez-moi<br>${element.name}</h2> 
+            <div>
+                <label for="first">Prénom</label>
+                <input class="text-control" type="text" id="first" name="first" minlength = "2" maxlength="30" required>
+            </div>
+            <div >
+                <label for="last">Nom</label>
+                <input class="text-control " type="text" id="last"  name="last" minlength = "2" maxlength="30" required>
+            </div>
+            <div>
+                <label for="email">E-mail</label>
+                <input class="text-control" type="email" id="email" name="email" value="" required/>
+            </div>
+            <div>
+                <label for="yourmessage">Votre message</label>
+                <textarea id="yourmessage" name="yourmessage" rows="5" cols="33"></textarea>
+            </div>
+            <div>
+                <label for="submit-form"></label>
+                <input class="btn-submit button" id="submit-form" type="button"  value="Envoyer"  />
+            </div>
+            </div>			
+        </form>
+    </div>
+</div>`
+        }
+    }
+
+const btnCloseModal = document.querySelector(".close");
+console.log(btnCloseModal);
+
+const btnContact = document.querySelector(".btn");
+console.log(btnContact)
+
+const modalWindow = document.getElementById("modale");
+console.log(modalWindow);
+
+
+//affichage du formulaire
+// ouvrir le modal 
+function launchModal() {
+    modalWindow.style.display = "block";
+  }
+
+//ouverture de la modale au click du bouton contactez moi
+btnContact.addEventListener("click", launchModal());
+
+
+btnCloseModal.addEventListener("click", closeModal());
+/*on définit une fonction pour faire fonctionner la croix de fermeture de la modale puis on l'applique avec l'évènement onclick*/ 
+const closeModal = () => {
+    modalWindow.style.display = "none";
+ }
+
+
+
+
+
+
+}
+form();
+/***********************************************************************************************************************************************/
 
 
 
@@ -389,11 +488,6 @@ navFilter();
 
 
 
-/************************************************************************Requête formulaire***********************************************************************/
-
-
-
-/***********************************************************************************************************************************************/
 
 
 

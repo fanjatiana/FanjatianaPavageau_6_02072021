@@ -9,15 +9,17 @@
 
 body {
   width: 90%;
+  z-index: 1;
+  position: relative;
   margin: auto;
 }
 
-/************************header*******************************************/
+/**************************************************************************header*******************************************/
 #banner {
   margin: 2em 0 3em;
 }
 
-/********************* 1ere section :  show-id-photograph*******************/
+/******************************************************** 1ere section :  show-id-photograph*****************************************************/
 #show-id-photograph {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -99,7 +101,7 @@ ul > .tags {
   border-radius: 0.4em;
 }
 
-/************************************************section filtre**************/
+/*****************************************************************************section filtre************************************************************/
 #filter-sort-by {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -158,6 +160,7 @@ ul > .tags {
   margin: 10px 0;
 }
 
+/**********************************************************************section gallery photographe******************************************************/
 .info_media {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -194,6 +197,7 @@ ul > .tags {
   height: 500px;
 }
 
+/*********************************************************************bloc compteur de likes******************************************************************/
 #like_counter {
   width: 300px;
   height: 55px;
@@ -217,5 +221,114 @@ ul > .tags {
   color: #000;
   font-size: 1.3em;
   padding: 0;
+}
+
+/***************************************************************************************formulaire*************************************************************/
+#modale {
+  width: 600px;
+  height: 800px;
+  z-index: 2;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#modale > .content {
+  width: 100%;
+  height: 800px;
+  background-color: #D3573C;
+}
+
+#modale .modal-content {
+  height: 750px;
+  padding: 1.5em;
+}
+
+#photographContact {
+  height: 730px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#photographContact div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#photographContact div > label {
+  font-size: 2rem;
+}
+
+#photographContact div .text-control {
+  height: 50px;
+  font-size: 1.8rem;
+}
+
+#photographContact h2 {
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 60px;
+  height: 60px;
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 60px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.close:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.close:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+#yourmessage {
+  font-size: 1.5rem;
+  overflow-y: scroll;
+}
+
+.btn-submit {
+  width: 30%;
+  height: 50px;
+  background-color: #901C1C;
+  color: #FFF;
+  font-size: 1.1rem;
 }
 /*# sourceMappingURL=page-photograph.css.map */
