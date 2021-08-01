@@ -1,24 +1,21 @@
-//import { newGetId } from "./constantes.js";
- import { showPhotograph,titlePagePhotograph, works, worksFilter} from "./DOM-constantes.js";
+// import des constantes de DOM-constantes
+import { showPhotograph, titlePagePhotograph, works, worksFilter } from "./DOM-constantes.js";
+import { getUrl_id } from "./variables.js";
+
 
 
 const idPhotograph = async () => {
     let response = await fetch("./JS/data.json")
     let data = await response.json();
+
     let err = function (err) {
         // Une erreur est survenue
         alert(err);
     };
     err;
-  
-
 
     //on recupère la nodeliste des photographes dans le Json
     const photographersList = data.photographers;
-
-    
-    //on recherche l id dans l url
-    var getUrl_id = window.location.search;
 
     // on extrait l id
     let getId = getUrl_id.slice(4);
@@ -50,7 +47,7 @@ const idPhotograph = async () => {
 
     //ajout du nom du photographe en tant que titre de la page
     titlePagePhotograph.innerHTML += photographSelected.name;
-    
+
 }
 idPhotograph();
 
@@ -99,8 +96,7 @@ const photographersWorks = async () => {
     let photographersMedia = data.media;
     console.log(photographersMedia);
 
-    //on recupère dans le DOM l'Id de la section works-list
-    //const works = document.getElementById("works-list");
+
 
 
 
@@ -108,11 +104,7 @@ const photographersWorks = async () => {
 
 
     /***************************************************************************pour recuperer l id des photographes*************************************/
-
-    //on recherche l id dans l url
-    var getUrl_id = window.location.search;
-
-    // on extrait l id
+    //on extrait l id en supprimant les 4 premiers caractères
     let getId = getUrl_id.slice(4);
 
     //on modifie type de GetId string--> number
@@ -257,8 +249,7 @@ const navFilter = async () => {
 
     /***************************************************************************pour recuperer l id des photographes*************************************/
 
-    //on recherche l id dans l url
-    var getUrl_id = window.location.search;
+
 
     // on extrait l id
     let getId = getUrl_id.slice(4);
@@ -267,11 +258,11 @@ const navFilter = async () => {
     const newGetId = Number(getId);
 
 
-  
+
 
     //on recupère la nodeliste des photographes dans le Json
-    let photographersList = data.photographers;
-    let photographersMedia = data.media;
+    const photographersList = data.photographers;
+    const photographersMedia = data.media;
 
 
 
@@ -329,7 +320,7 @@ const navFilter = async () => {
 
     //fonction trier par ordre alphabetique
     const showTitle = document.getElementsByTagName("h3")
-        console.log(showTitle);
+    console.log(showTitle);
     const sortByABC = () => {
 
         let arrayMediaTitle = [];
@@ -340,19 +331,19 @@ const navFilter = async () => {
         }
         arrayMediaTitle.sort();
 
-       
+
         arrayMediaTitle.forEach(t => {
-          
+
             works.innerHTML += `<h3>${t}</h3>`
-    }); 
-      
+        });
+
         for (let work of photographersMedia) {
-            
-            
-        
+
+
+
             if (work.photographerId === newGetId) {
-            works.innerHTML +=
-                `<article id ="${work.photographerId}">
+                works.innerHTML +=
+                    `<article id ="${work.photographerId}">
             <div class = "gallery">
                 <img class="pictures-list" src = "./Photos/gallery/${lastName}/${work.image}">
             </div>
@@ -363,14 +354,14 @@ const navFilter = async () => {
      </article>`;
 
 
-        }  
-        
-    }
+            }
+
+        }
     }
 
-   
 
-    
+
+
     /*********************************************************************************************************************/
 
 
