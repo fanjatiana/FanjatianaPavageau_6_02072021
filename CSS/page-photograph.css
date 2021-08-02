@@ -86,13 +86,13 @@ ul > .tags {
 }
 
 /************div 3 : bouton contactez-moi************/
-#btn-contact {
+.btn-contact {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
 }
 
-#btn-contact > button {
+.btn-contact > button {
   background-color: #901C1C;
   color: #FFF;
   padding: 10px;
@@ -234,6 +234,7 @@ ul > .tags {
   top: 0;
   bottom: 0;
   margin: auto;
+  display: none;
 }
 
 #modale > .content {
@@ -330,5 +331,26 @@ ul > .tags {
   background-color: #901C1C;
   color: #FFF;
   font-size: 1.1rem;
+}
+
+/*champs de saisi*/
+.info-form[data-error]::after {
+  content: attr(data-error);
+  font-weight: bold;
+  font-size: 1rem;
+  color: #FFF;
+  display: block;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  text-align: left;
+  opacity: 1;
+}
+
+.info-form[data-error-visible="true"]::after {
+  opacity: 1;
+}
+
+.info-form[data-error-visible="true"] .text-control {
+  border: 5px solid #4b0aff;
 }
 /*# sourceMappingURL=page-photograph.css.map */

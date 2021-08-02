@@ -16,10 +16,40 @@
     </header>
     <main>
        <section id="show-id-photograph">
-           <div id = "btn-contact">
-               <button class="btn">Contactez-moi</button>
+           <div class = "btn-contact">
+               <button id="btn">Contactez-moi</button>
            </div>
-           <div id="modale"></div>
+           <div id="modale">
+            <div class="content">
+                <span class="close" onclick="closeModal()"></span>
+                <div class="modal-content">
+                    <form name="contact" id="photographContact" action="/cible.php"  method="POST" onsubmit=" return controlValidateForm()">
+                        <h2 id="recipient-name"></h2> 
+                        <div class="info-form">
+                            <label for="first">Prénom</label>
+                            <input class="text-control info-id" type="text" id="first" name="first" minlength = "2" maxlength="30" required>
+                        </div>
+                        <div class="info-form">
+                            <label for="last">Nom</label>
+                            <input class="text-control info-id " type="text" id="last"  name="last"  minlength = "2" maxlength="30" required>
+                        </div>
+                        <div class="info-form">
+                            <label for="email">E-mail</label>
+                            <input class="text-control" type="email" id="email" name="email" value="" required/>
+                        </div>
+                        <div class="info-form">
+                            <label for="yourmessage">Votre message</label>
+                            <textarea id="yourmessage" name="yourmessage" rows="5" cols="33" required></textarea>
+                        </div>
+                        <div class="">
+                            <label for="submit-form"></label>
+                            <input class="btn-submit button" id="submit-form" type="button"  value="Envoyer"  />
+                        </div>
+                        </div>			
+                    </form>
+                </div>
+            </div>
+           </div>
        </section>
        <section id="filter-sort-by"></section>
        <section id ="works-list"></section>

@@ -27,6 +27,9 @@ const idPhotograph = async () => {
     const photographSelected = photographersList.find((element) => element.id === newGetId);
 
 
+
+    /***********************************************ajout des informations du photographe************************************************************/
+
     //on ajoute le contenu html avec les données de chaques photographes correspondant à l Id de l'url
     showPhotograph.innerHTML +=
         `<div id = "presentation ${photographSelected.id}">
@@ -48,108 +51,145 @@ const idPhotograph = async () => {
     //ajout du nom du photographe en tant que titre de la page
     titlePagePhotograph.innerHTML += photographSelected.name;
 
+    /**********************************************************************************************************************************************/
 
 
 
-    
- 
+
+
+    /*********************fonction ouverture/fermeture du formulaire + ajout du nom du photographe en dynamique******************************************/
+
+    const btnContact = document.getElementById("btn");
+    const modaleWindow = document.getElementById("modale");
+    const btnCloseModal = document.querySelector(".close");
+
+    //fonction affichage  du formulaire
+    function launchModal() {
+        modaleWindow.style.display = "block";
+    }
+
+    btnContact.addEventListener("click", launchModal);
+
+    //fonction fermeture du formulaire 
+    const closeModal = () => {
+        modaleWindow.style.display = "none";
+    }
+
+    btnCloseModal.addEventListener("click", closeModal);
+
+
+
+    //h2 : ajout nom du photographe dans le formulaire avec une boucle for
+    const titleName = document.getElementById("recipient-name");
+    console.log(titleName)
+    for (let element of photographersList) {
+        if (element.id === newGetId) {
+            titleName.innerHTML = `Contactez-moi<br>${element.name}`;
+
+        }
+    }
+    /**********************************************************************************************************************************************/
+
+
+
+
+
+
+    /*************************************************controles de saisi du formulaire***************************************************************/
+
+
+    //variables regex
+    let regexNameAndLastName = /^[A-Za-z ,.'-]+$/i;
+    let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+
+    const infoGuest = document.querySelectorAll('.info-id');
+    const submitForm = document.getElementById("submit-form");
+    console.log(submitForm);
+    const infoEmail = document.getElementById("email");
+    const message = document.getElementById("yourmessage");
+    console.log(message);
+
+    const controlInput = () => {
+        infoGuest.forEach(info => {
+            console.log(info)
+            if (info.validity.valueMissing) {
+                info.closest(".info-form").setAttribute("data-error", "Veuillez remplir le formulaire");
+                info.style.borderColor = "#e54858";
+            } else if (info.value.length < 2) {
+                info.closest(".info-form").setAttribute("data-error", "Veuillez entrer entre 2 et 30 caractères pour valider ce champ ");
+                info.style.borderColor = "#e54858";
+            } else if (!regexNameAndLastName.test(info.value)) {
+                info.closest(".info-form").setAttribute("data-error", " Ecrivez en miniscule ou majuscule , pas de nombre, seuls caractères autorisés: . - ' et espaces");
+                info.style.borderColor = "#e54858";
+
+            } else {
+                info.closest(".info-form").setAttribute("data-error", "");
+                info.style.borderColor = "";
+                return true;
+            }
+        });
+    }
+
+    const controlEmail = () => {
+        if (infoEmail.validity.valueMissing) {
+            infoEmail.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
+            infoEmail.style.borderColor = "#e54858";
+        } else if (!regexEmail.test(infoEmail.value)) {
+            infoEmail.closest(".info-form").setAttribute("data-error", "Veuillez rentrer une adresse email valide (par exemple: monemail@yahoo.com");
+            infoEmail.style.borderColor = "#e54858";
+
+        } else {
+            infoEmail.closest(".info-form").setAttribute("data-error", "");
+            infoEmail.style.borderColor = "";
+            return true;
+        }
+
+    }
+
+    const controlMessage = () => {
+        if (message.validity.valueMissing) {
+            message.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
+            message.style.borderColor = "#e54858";
+        } else {
+            message.closest(".info-form").setAttribute("data-error", "");
+            message.style.borderColor = "";
+            return true;
+        }
+    }
+    /************************************************************Envoie duformulaire******************************************************************/
+
+    /* on crée une fonction validation du formulaire, 
+    on annule les messages d'alerte par défaut */
+
+    const controlValidateForm = (event) => {
+        event.preventDefault();
+        /*on appelle toutes les fonctions*/
+        controlInput();
+        controlEmail();
+        controlMessage();
+
+
+        /*on verifie la validité de chaques input puis on ferme le modale si c'est "true" 
+        et enfin on  affiche un message de validation d'envoie du formulaire*/
+        if ((controlInput() == true) && (controlEmail() == true) && (controlMessage() == true)) {
+            alert("dvds");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    /*on cré un évènement au click sur le bouton submit avec la fonction validate  pour l'envoie du formulaire, 
+    et l'action par défaut du submit n'est pas exécuté tant que les valeurs sont : false*/
+    submitForm.addEventListener("click", controlValidateForm, (event) => {
+        event.preventDefault();
+    });
+
 }
 
 idPhotograph();
 
-/************************************************************************Requête formulaire***********************************************************************/
-
-const form = async () => {
-    let response =  await fetch("./JS/data.json")
-    let data =  await response.json();
-    let err = function (err) {
-        // Une erreur est survenue
-        alert(err);
-    };
-    err;
-//on recupère la nodeliste des photographes dans le Json
-const photographersList = data.photographers;
-
-
-
-    /***************************************************************************pour recuperer l id des photographes*************************************/
-    //on extrait l id en supprimant les 4 premiers caractères
-    let getId = getUrl_id.slice(4);
-
-    //on modifie type de GetId string--> number
-    const newGetId = Number(getId);
-
-    /***********************************************************ajout du formulaire************************************ */
-    const modale = document.getElementById("modale");
-    for (let element of photographersList) {
-        if (element.id === newGetId) {
-            modale.innerHTML +=
-                `<div class="content">
-    <span class="close"></span>
-    <div class="modal-content">
-        <form name="contact" id="photographContact" action="" method="POST" onsubmit=" return validate()">
-            <h2>Contactez-moi<br>${element.name}</h2> 
-            <div>
-                <label for="first">Prénom</label>
-                <input class="text-control" type="text" id="first" name="first" minlength = "2" maxlength="30" required>
-            </div>
-            <div >
-                <label for="last">Nom</label>
-                <input class="text-control " type="text" id="last"  name="last" minlength = "2" maxlength="30" required>
-            </div>
-            <div>
-                <label for="email">E-mail</label>
-                <input class="text-control" type="email" id="email" name="email" value="" required/>
-            </div>
-            <div>
-                <label for="yourmessage">Votre message</label>
-                <textarea id="yourmessage" name="yourmessage" rows="5" cols="33"></textarea>
-            </div>
-            <div>
-                <label for="submit-form"></label>
-                <input class="btn-submit button" id="submit-form" type="button"  value="Envoyer"  />
-            </div>
-            </div>			
-        </form>
-    </div>
-</div>`
-        }
-    }
-
-const btnCloseModal = document.querySelector(".close");
-console.log(btnCloseModal);
-
-const btnContact = document.querySelector(".btn");
-console.log(btnContact)
-
-const modalWindow = document.getElementById("modale");
-console.log(modalWindow);
-
-
-//affichage du formulaire
-// ouvrir le modal 
-function launchModal() {
-    modalWindow.style.display = "block";
-  }
-
-//ouverture de la modale au click du bouton contactez moi
-btnContact.addEventListener("click", launchModal());
-
-
-btnCloseModal.addEventListener("click", closeModal());
-/*on définit une fonction pour faire fonctionner la croix de fermeture de la modale puis on l'applique avec l'évènement onclick*/ 
-const closeModal = () => {
-    modalWindow.style.display = "none";
- }
-
-
-
-
-
-
-}
-form();
-/***********************************************************************************************************************************************/
 
 
 
@@ -174,9 +214,7 @@ form();
 
 
 
-
-
-/************************************************REQUETE LISTE PHOTOS ET VIDEOS*********************************************/
+/************************************************************************REQUETE LISTE PHOTOS ET VIDEOS****************************************************/
 
 const photographersWorks = async () => {
     let response = await fetch("./JS/data.json")
@@ -202,7 +240,7 @@ const photographersWorks = async () => {
 
 
 
-    /***************************************************************************pour recuperer l id des photographes*************************************/
+    /*********************pour recuperer l id des photographes*************************************/
     //on extrait l id en supprimant les 4 premiers caractères
     let getId = getUrl_id.slice(4);
 
@@ -484,12 +522,6 @@ const navFilter = async () => {
 
 
 navFilter();
-
-
-
-
-
-
 
 
 
