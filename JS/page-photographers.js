@@ -114,20 +114,20 @@ const idPhotograph = async () => {
             if (info.validity.valueMissing) {
                 info.closest(".info-form").setAttribute("data-error", "Veuillez remplir le formulaire");
                 info.style.borderColor = "#f70707";
-                
+
             } else if (info.value.length < 2) {
                 info.closest(".info-form").setAttribute("data-error", "Veuillez entrer entre 2 et 30 caractères pour valider ce champ ");
                 info.style.borderColor = "#f70707";
-                
+
             } else if (!regexNameAndLastName.test(info.value)) {
                 info.closest(".info-form").setAttribute("data-error", " Ecrivez en miniscule ou majuscule , pas de nombre, seuls caractères autorisés: . - ' et espaces");
                 info.style.borderColor = "#f70707";
-                
+
 
             } else {
                 info.closest(".info-form").setAttribute("data-error", "");
                 info.style.borderColor = "";
-                count ++
+                count++
             }
         });
         if (count == infoGuest.length) {
@@ -139,11 +139,11 @@ const idPhotograph = async () => {
         if (infoEmail.validity.valueMissing) {
             infoEmail.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
             infoEmail.style.borderColor = "#f70707";
-            
+
         } else if (!regexEmail.test(infoEmail.value)) {
             infoEmail.closest(".info-form").setAttribute("data-error", "Veuillez rentrer une adresse email valide (par exemple: monemail@yahoo.com");
             infoEmail.style.borderColor = "#f70707";
-            
+
         } else {
             infoEmail.closest(".info-form").setAttribute("data-error", "");
             infoEmail.style.borderColor = "";
@@ -156,7 +156,7 @@ const idPhotograph = async () => {
         if (message.value == "") {
             message.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
             message.style.borderColor = "#f70707";
-            
+
         } else {
             message.closest(".info-form").setAttribute("data-error", "");
             message.style.borderColor = "";
@@ -167,7 +167,7 @@ const idPhotograph = async () => {
 
     /* on crée une fonction validation du formulaire, 
     on annule les messages d'alerte par défaut */
-    
+
     const controlValidateForm = (event) => {
         event.preventDefault();
         /*on appelle toutes les fonctions*/
@@ -419,60 +419,49 @@ const navFilter = async () => {
         }
     };
     /****************************************************************************************************** */
-   
+
     worksFilter.innerHTML +=
         `<h2>Trier par</h2>
     <div id="list-filter">
         <div id="click-for-show" ><a href="" class = "by-popular">Popularité<i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i></a></div>
         <div class="sous-menu" >
-            <div><a id="sort_by_date"  href="">Date</a></div>
-            <div><a href="">Titre</a></div>
+            <div><a class="sort_by_date menu-hidden"  href="">Date</a></div>
+            <div><a class = "sort_by_title menu-hidden" href="">Titre</a></div>
         <div>
     </div>`
 
 
-  
+/*filtre déroulant*/
     const arrowDown = document.querySelector(".fa-chevron-down");
-    const chevronUp= document.querySelector(".fa-chevron-up")
+    const chevronUp = document.querySelector(".fa-chevron-up")
     console.log(chevronUp);
     const linksPopular = document.getElementById("click-for-show");
     const sousMenu = document.querySelector(".sous-menu");
     const byPop = document.querySelector(".by-popular");
-    const divContentNav = document.getElementById("list-filter")
-    console.log(sousMenu)
+    const divContentNav = document.getElementById("list-filter");
+    const byTitle = document.querySelector(".sort_by_title");
+    console.log(byTitle);
 
-    function shownav(){
-        divContentNav.addEventListener("mouseover",function(){
-        
-                sousMenu.style.display = "block";
-               arrowDown.style.display ="none";
-                chevronUp.style.display ="block";
-               
-    })
-}
 
+    function shownav() {
+        divContentNav.addEventListener("mouseover", function () {
+            sousMenu.style.display = "block";
+            arrowDown.style.display = "none";
+            chevronUp.style.display = "block";
+        })
+    }
     shownav();
 
-    function livenav(){
-        divContentNav.addEventListener("mouseleave", function(){
-            sousMenu.style.display = "none"; 
-            arrowDown.style.display ="block";
-            chevronUp.style.display ="none";
-         
-        },true)
+    function livenav() {
+        divContentNav.addEventListener("mouseleave", function () {
+            sousMenu.style.display = "none";
+            arrowDown.style.display = "block";
+            chevronUp.style.display = "none";
+
+        }, true)
     }
-
     livenav();
-    
 
-
-        
-   
-   
-               
-   
-  
-      
 
 
     /*****************************************************************************************************************/
@@ -547,7 +536,7 @@ const navFilter = async () => {
 
         }
     }
-
+    sortByABC();
 
 
 
@@ -558,9 +547,9 @@ const navFilter = async () => {
 
 
 
-    const dates = document.getElementById("sort_by_date");
+  
 
-    dates.addEventListener("click", function (event) {
+    byTitle.addEventListener("click", function (event) {
         works.innerHTML = "";
         event.preventDefault();
         sortByABC();
