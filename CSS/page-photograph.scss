@@ -127,8 +127,14 @@ ul {
 
     & li {
         margin: 0.5em 2.5em 0.5em;
+        &:hover,
+        &:active,
+        &:focus{
+            background-color: #FFF;
+            color: $color-primary-bg;
+        }
     }
-
+    
     /*& li:nth-child(-n+3){
         padding-top: 0.5em;
         margin:0.5em 2.5em;
@@ -138,9 +144,20 @@ ul {
     & a {
         font-size: 1.3rem;
         color: $color-primary;
+       
         
     }
 }
+
+.click-for-show{
+    display: block;
+}
+.sous-menu{
+    display: none;
+   
+
+}
+
 
 #works-list{
     display: flex;

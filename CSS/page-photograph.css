@@ -139,9 +139,22 @@ ul > .tags {
   margin: 0.5em 2.5em 0.5em;
 }
 
+#list-filter li:hover, #list-filter li:active, #list-filter li:focus {
+  background-color: #FFF;
+  color: #901C1C;
+}
+
 #list-filter a {
   font-size: 1.3rem;
   color: #D3573C;
+}
+
+.click-for-show {
+  display: block;
+}
+
+.sous-menu {
+  display: none;
 }
 
 #works-list {

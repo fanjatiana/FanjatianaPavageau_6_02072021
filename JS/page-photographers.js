@@ -419,14 +419,46 @@ const navFilter = async () => {
         }
     };
     /****************************************************************************************************** */
-
+   
     worksFilter.innerHTML +=
         `<h2>Trier par</h2>
-    <ul id="list-filter">
-        <li><a href="">Popularité</a></li>
-        <li><a id="sort_by_date" href="">Date</a></li>
-        <li><a href="">Titre</a></li>
-    </ul>`
+    <div id="list-filter">
+        <div class="click-for-show"><a href="" class = "by-popular">Popularité</a></div>
+        <div id="sous-menu" >
+            <div><a id="sort_by_date"  href="">Date</a></div>
+            <div><a href="">Titre</a></div>
+        <div>
+    </div>`
+
+
+    /**********************menu déroulant*****************/
+    
+    function afficheMenu(obj){
+	
+    
+        var sousMenu   = document.getElementById("sous-menu");
+        
+        /*****************************************************/
+        /**	si le sous-menu correspondant au menu cliqué    **/
+        /** est caché alors on l'affiche, sinon on le cache **/
+        /*****************************************************/
+        if(sousMenu.style.display == "none"){
+            sousMenu.style.display = "block";
+        }
+        else{
+            sousMenu.style.display = "none";
+        }
+        
+    }  
+    const linkPopular =  document.querySelector(".by-popular");
+
+   linkPopular.addEventListener("click", afficheMenu());
+        
+               
+   
+  
+      
+
 
     /*****************************************************************************************************************/
 
