@@ -423,37 +423,52 @@ const navFilter = async () => {
     worksFilter.innerHTML +=
         `<h2>Trier par</h2>
     <div id="list-filter">
-        <div class="click-for-show"><a href="" class = "by-popular">Popularité</a></div>
-        <div id="sous-menu" >
+        <div id="click-for-show" ><a href="" class = "by-popular">Popularité<i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i></a></div>
+        <div class="sous-menu" >
             <div><a id="sort_by_date"  href="">Date</a></div>
             <div><a href="">Titre</a></div>
         <div>
     </div>`
 
 
-    /**********************menu déroulant*****************/
-    
-    function afficheMenu(obj){
-	
-    
-        var sousMenu   = document.getElementById("sous-menu");
-        
-        /*****************************************************/
-        /**	si le sous-menu correspondant au menu cliqué    **/
-        /** est caché alors on l'affiche, sinon on le cache **/
-        /*****************************************************/
-        if(sousMenu.style.display == "none"){
-            sousMenu.style.display = "block";
-        }
-        else{
-            sousMenu.style.display = "none";
-        }
-        
-    }  
-    const linkPopular =  document.querySelector(".by-popular");
+  
+    const arrowDown = document.querySelector(".fa-chevron-down");
+    const chevronUp= document.querySelector(".fa-chevron-up")
+    console.log(chevronUp);
+    const linksPopular = document.getElementById("click-for-show");
+    const sousMenu = document.querySelector(".sous-menu");
+    const byPop = document.querySelector(".by-popular");
+    const divContentNav = document.getElementById("list-filter")
+    console.log(sousMenu)
 
-   linkPopular.addEventListener("click", afficheMenu());
+    function shownav(){
+        divContentNav.addEventListener("mouseover",function(){
         
+                sousMenu.style.display = "block";
+               arrowDown.style.display ="none";
+                chevronUp.style.display ="block";
+               
+    })
+}
+
+    shownav();
+
+    function livenav(){
+        divContentNav.addEventListener("mouseleave", function(){
+            sousMenu.style.display = "none"; 
+            arrowDown.style.display ="block";
+            chevronUp.style.display ="none";
+         
+        },true)
+    }
+
+    livenav();
+    
+
+
+        
+   
+   
                
    
   
