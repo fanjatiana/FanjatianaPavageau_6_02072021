@@ -255,9 +255,10 @@ const photographersWorks = async () => {
                     <div class = "gallery">
                         <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}">
                     </div>
-                    <div class="info_media">
+                    <div id="info_media">
                         <h3>${element.title}</h3>
-                        <p>${element.likes}<a href=""><button><i class="fas fa-heart likes_media"></i></a></p>
+                        <p class= "nb-likes">${element.likes}</p>
+                        <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
                     </div>
              </article>`
         }
@@ -273,9 +274,10 @@ const photographersWorks = async () => {
                     <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
                 </video>
             </div>
-            <div class="info_media">
+            <div id="info_media">
                 <h3>${info.title}</h3>
-                <p>${info.likes}<a href=""><i class="fas fa-heart likes_media"></i></a></p>
+                <p class="nb-likes">${info.likes}</p>
+                <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
             </div>   
         </article>`
         }
@@ -325,12 +327,66 @@ const photographersWorks = async () => {
     /***************************************************partie incrémentation au click des likes***********************/
 
 
-    const linksOfHearts = document.querySelectorAll(".info_media p>a");
+    const buttonHearts = document.querySelectorAll(".likes_media");
+    const nbLikes = document.querySelectorAll(".nb-likes");
+    console.log(nbLikes)
+  
+
+
+
+
+
+
+
+buttonHearts.forEach(heart => {
+    //let count=0;
+    heart.addEventListener("click", function(){
+        let arrayValue = heart.previousElementSibling;
+        let getNumber= Number(arrayValue.innerText)
+       
+       //count = getNumber++;
+       getNumber++
+       console.log(getNumber)
+       
+      
+          nbLikes.textContent = getNumber ;
+        
+       
+    
+    
+    })
+    
+});
+    
+    
+    
+
+    
+   
+     
+  
+
+
+
+
+
+
+
+}
+photographersWorks();
+
+
+
+
+
+
+
+
 
     /******************************************************************************************************************* */
 
 
-    /***************************************************************LIGHTBOX***************************************************/
+    /***************************************************************LIGHTBOX*****************************************
     
     
     
@@ -358,25 +414,7 @@ const photographersWorks = async () => {
     const lightboxContainer = document.querySelector(".ligthbox__container")
 
 
-
-
-
-
-
-
-
-}
-photographersWorks();
-
-
-
-
-
-
-
-
-
-
+**********/
 
 
 
