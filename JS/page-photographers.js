@@ -26,8 +26,6 @@ const idPhotograph = async () => {
     // on va rechercher dans le Json l'id correspondant à la variable newGetId avec la methode find
     const photographSelected = photographersList.find((element) => element.id === newGetId);
 
-
-
     /***********************************************ajout des informations du photographe************************************************************/
 
     //on ajoute le contenu html avec les données de chaques photographes correspondant à l Id de l'url
@@ -52,9 +50,6 @@ const idPhotograph = async () => {
     titlePagePhotograph.innerHTML += photographSelected.name;
 
     /**********************************************************************************************************************************************/
-
-
-
 
 
     /*********************fonction ouverture/fermeture du formulaire + ajout du nom du photographe en dynamique******************************************/
@@ -89,10 +84,6 @@ const idPhotograph = async () => {
         }
     }
     /**********************************************************************************************************************************************/
-
-
-
-
 
 
     /*************************************************controles de saisi du formulaire***************************************************************/
@@ -192,7 +183,6 @@ const idPhotograph = async () => {
     });
 
 }
-
 idPhotograph();
 
 
@@ -219,7 +209,7 @@ idPhotograph();
 
 
 
-/************************************************************************REQUETE LISTE PHOTOS ET VIDEOS****************************************************/
+
 
 const photographersWorks = async () => {
     let response = await fetch("./JS/data.json")
@@ -239,19 +229,12 @@ const photographersWorks = async () => {
     console.log(photographersMedia);
 
 
-
-
-
-
-
-
     /*********************pour recuperer l id des photographes*************************************/
     //on extrait l id en supprimant les 4 premiers caractères
     let getId = getUrl_id.slice(4);
 
     //on modifie type de GetId string--> number
     const newGetId = Number(getId);
-
 
 
     /************************************************************************************ajout des articles******************************************************** */
@@ -339,10 +322,47 @@ const photographersWorks = async () => {
     <p>${priceOfPhotographers}€ / jour</p>
     </div>`
 
-    /***********************************reste à faire*********************partie incrémentation au click des likes********************** */
+
+
+    /***************************************************partie incrémentation au click des likes***********************/
 
 
     const linksOfHearts = document.querySelectorAll(".info_media p>a");
+
+    /******************************************************************************************************************* */
+
+
+    /***************************************************************LIGHTBOX***************************************************/
+    const addLightBox = () => {
+        photographersMedia.forEach(element => {
+            if (element.photographerId === newGetId && element.image){
+                console.log(element.image)
+                console.log(element.image)
+                works.innerHTML +=
+                `<div id="lightbox">
+                    <button class = "lightbox__close">fermer</button>
+                    <button class = "lightbox__next">suivant</button>
+                    <button class = "lightbox__prev">précédent</button>
+                    <div class= "ligthbox__container">
+                        <img class="ligthbox_img" src ="./Photos/gallery/${lastName}/${element.image}">  
+                    </div>
+                </div>`
+            };
+            })
+           
+       
+    }
+    addLightBox();
+
+
+    const lightboxContainer = document.querySelector(".ligthbox__container")
+    console.log(lightboxContainer)
+
+
+
+
+
+
 
 
 }
@@ -376,7 +396,7 @@ photographersWorks();
 
 
 
-/*******************************************************************REQUETE FILTRE************************************************************************************* */
+
 
 const navFilter = async () => {
     let response = await fetch("./JS/data.json")
@@ -389,7 +409,7 @@ const navFilter = async () => {
 
 
 
-    /***************************************************************************pour recuperer l id des photographes*************************************/
+    /*************pour recuperer l id des photographes*********************************/
 
 
 
@@ -409,7 +429,7 @@ const navFilter = async () => {
 
 
 
-    /*************************************************************************************************** */
+    /***************************************************/
     let lastName = "";
     for (let namePhotograph of photographersList) {
         if (namePhotograph.id === newGetId) {
@@ -418,7 +438,7 @@ const navFilter = async () => {
             lastName = nameCut[1];
         }
     };
-    /****************************************************************************************************** */
+    /**************************************************/
 
     worksFilter.innerHTML +=
         `<h2>Trier par</h2>
@@ -431,7 +451,7 @@ const navFilter = async () => {
     </div>`
 
 
-/*filtre déroulant*/
+    /*filtre déroulant*/
     const arrowDown = document.querySelector(".fa-chevron-down");
     const chevronUp = document.querySelector(".fa-chevron-up")
     console.log(chevronUp);
@@ -464,7 +484,7 @@ const navFilter = async () => {
 
 
 
-    /*****************************************************************************************************************/
+    /********************************************************************************************************/
 
     //fonction trier les dates des images 
     const sortByDate = () => {
@@ -536,32 +556,18 @@ const navFilter = async () => {
 
         }
     }
-    sortByABC();
+    //sortByABC();
 
 
 
     /*********************************************************************************************************************/
-
-
-
-
-
-
-  
-
     byTitle.addEventListener("click", function (event) {
         works.innerHTML = "";
         event.preventDefault();
         sortByABC();
 
     })
-
-
-
 }
-
-
-
 navFilter();
 
 
