@@ -26,9 +26,7 @@ const idPhotograph = async () => {
     // on va rechercher dans le Json l'id correspondant à la variable newGetId avec la methode find
     const photographSelected = photographersList.find((element) => element.id === newGetId);
 
-
-
-    /**********************************************************************ajout des informations du photographe***********************************************************************/
+    /***********************************************ajout des informations du photographe************************************************************/
 
     //on ajoute le contenu html avec les données de chaques photographes correspondant à l Id de l'url
     showPhotograph.innerHTML +=
@@ -51,19 +49,14 @@ const idPhotograph = async () => {
     //ajout du nom du photographe en tant que titre de la page
     titlePagePhotograph.innerHTML += photographSelected.name;
 
-    /***********************************************************************************************************************************************************************************/
+    /**********************************************************************************************************************************************/
 
 
-
-
-
-    /***************************************************fonction ouverture/fermeture du formulaire + ajout du nom du photographe en dynamique******************************************/
+    /*********************fonction ouverture/fermeture du formulaire + ajout du nom du photographe en dynamique******************************************/
 
     const btnContact = document.getElementById("btn");
     const modaleWindow = document.getElementById("modale");
     const btnCloseModal = document.querySelector(".close");
-
-
 
     //fonction affichage  du formulaire
     function launchModal() {
@@ -89,20 +82,15 @@ const idPhotograph = async () => {
 
         }
     }
-    /********************************************************************************************************************************************************************************/
+    /**********************************************************************************************************************************************/
 
 
-
-
-
-
-    /*******************************************************************************controles de saisi du formulaire******************************************************************/
+    /*************************************************controles de saisi du formulaire***************************************************************/
 
 
     //variables regex
     let regexNameAndLastName = /^[A-Za-z ,.'-]+$/i;
     let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-
 
     const infoGuest = document.querySelectorAll('.info-id');
     const submitForm = document.getElementById("submit-form");
@@ -185,7 +173,7 @@ const idPhotograph = async () => {
         }
     }
 
-
+   
     /*on cré un évènement au click sur le bouton submit avec la fonction validate  pour l'envoie du formulaire, 
     et l'action par défaut du submit n'est pas exécuté tant que les valeurs sont : false*/
     submitForm.addEventListener("click", controlValidateForm, (event) => {
@@ -193,7 +181,6 @@ const idPhotograph = async () => {
     });
 
 }
-
 idPhotograph();
 
 
@@ -220,7 +207,7 @@ idPhotograph();
 
 
 
-/************************************************************************REQUETE AJOUT DE LA LISTE DE  PHOTOS ET VIDEOS****************************************************/
+
 
 const photographersWorks = async () => {
     let response = await fetch("./JS/data.json")
@@ -237,12 +224,6 @@ const photographersWorks = async () => {
 
     //on recupère la nodeliste des medias des photographes dans le Json
     let photographersMedia = data.media;
-    console.log(photographersMedia);
-
-
-
-
-
 
 
 
@@ -252,7 +233,6 @@ const photographersWorks = async () => {
 
     //on modifie type de GetId string--> number
     const newGetId = Number(getId);
-
 
 
     /************************************************************************************ajout des articles******************************************************** */
@@ -277,8 +257,7 @@ const photographersWorks = async () => {
                     </div>
                     <div class="info_media">
                         <h3>${element.title}</h3>
-                        <p class="total-like-media">${element.likes}</p>
-                        <button class="button-likes"><i class="fas fa-heart likes_media"></i></button>
+                        <p>${element.likes}<a href=""><button><i class="fas fa-heart likes_media"></i></a></p>
                     </div>
              </article>`
         }
@@ -296,8 +275,7 @@ const photographersWorks = async () => {
             </div>
             <div class="info_media">
                 <h3>${info.title}</h3>
-                <p class ="nb-likes">${info.likes}</p>
-                <button class="button-likes"><i class="fas fa-heart likes_media"></i></button>
+                <p>${info.likes}<a href=""><i class="fas fa-heart likes_media"></i></a></p>
             </div>   
         </article>`
         }
@@ -306,16 +284,16 @@ const photographersWorks = async () => {
 
     /****************************************************partie compteur prix/jour********************************/
 
-    //boucle for of pour recupérer les prix journaliers des photographes
+    //on recupere tous les prix et les likes du photographe associé et on les ajoute dans un tableau
     let totalPrice = [];
+    let totalLikes = [];
+
     for (let euro of photographersList) {
         if (euro.id === newGetId) {
             totalPrice.push(euro.price);
         }
     }
 
-    //boucle for of  pour recupérer tous les likes de chaques médias
-    let totalLikes = [];
     for (let value of photographersMedia) {
 
         if (value.photographerId === newGetId) {
@@ -324,23 +302,16 @@ const photographersWorks = async () => {
         }
     }
 
-    //fonction calcule du total des prix journaliers
+    //on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
     let priceOfPhotographers = 0;
-    const incrementPrices = () => {
-        for (let t = 0; t < totalPrice.length; t++) {
-            priceOfPhotographers += parseFloat(totalPrice[t])
-        }
+    for (let t = 0; t < totalPrice.length; t++) {
+        priceOfPhotographers += parseFloat(totalPrice[t])
     }
-    incrementPrices();
-
-    //fonction calcule du total des likes des médias du photographes
+    //on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
     let likesOfPhotographers = 0;
-    const incrementLikes = () => {
-        for (let l = 0; l < totalLikes.length; l++) {
-            likesOfPhotographers += parseFloat(totalLikes[l])
-        }
+    for (let l = 0; l < totalLikes.length; l++) {
+        likesOfPhotographers += parseFloat(totalLikes[l])
     }
-    incrementLikes();
 
     // ajout du bloc compteur de like
     works.innerHTML +=
@@ -351,31 +322,48 @@ const photographersWorks = async () => {
 
 
 
-
-    /*********partie incrémentation des likes des medias ********************** */
-
-    const infoDiv = document.querySelector(".info_media");
-    const textCount = document.querySelectorAll(".total-like-media");
-    const buttonHeart = document.querySelectorAll(".button-likes");
-
-    let getNbLinks = 0;
-
-    buttonHeart.forEach(icon => {
-        let elementSibling = icon.previousElementSibling;//on vient chercher l'element situé avant l'élément cible : ici la balise button
-        getNbLinks = Number(elementSibling.innerText); // on transforme la chaine de caractère en nombre + affichage du resultat dans la variable
-    });
-
-    buttonHeart.forEach(heart => {
-        heart.addEventListener("click", () => {
-            getNbLinks++;
-            console.log(getNbLinks)
+    /***************************************************partie incrémentation au click des likes***********************/
 
 
+    const linksOfHearts = document.querySelectorAll(".info_media p>a");
 
-        });
+    /******************************************************************************************************************* */
 
 
-    })
+    /***************************************************************LIGHTBOX***************************************************/
+    
+    
+    
+    
+    const addLightBox = () => {
+        photographersMedia.forEach(element => {
+            if (element.photographerId === newGetId && element.image){
+                works.innerHTML +=
+                `<div id="lightbox">
+                    <button class = "lightbox__close">fermer</button>
+                    <button class = "lightbox__next">suivant</button>
+                    <button class = "lightbox__prev">précédent</button>
+                    <div class= "ligthbox__container">
+                        <img class="ligthbox_img" src ="./Photos/gallery/${lastName}/${element.image}">  
+                    </div>
+                </div>`
+            };
+            })
+           
+       
+    }
+    addLightBox();
+
+
+    const lightboxContainer = document.querySelector(".ligthbox__container")
+
+
+
+
+
+
+
+
 
 }
 photographersWorks();
@@ -410,9 +398,6 @@ photographersWorks();
 
 
 
-
-/*******************************************************************REQUETE FILTRE************************************************************************************* */
-
 const navFilter = async () => {
     let response = await fetch("./JS/data.json")
     let data = await response.json();
@@ -424,7 +409,7 @@ const navFilter = async () => {
 
 
 
-    /***************************************************************************pour recuperer l id des photographes*************************************/
+    /*************pour recuperer l id des photographes*********************************/
 
 
 
@@ -444,7 +429,7 @@ const navFilter = async () => {
 
 
 
-    /*************************************************************************************************** */
+    /***************************************************/
     let lastName = "";
     for (let namePhotograph of photographersList) {
         if (namePhotograph.id === newGetId) {
@@ -453,7 +438,7 @@ const navFilter = async () => {
             lastName = nameCut[1];
         }
     };
-    /****************************************************************************************************** */
+    /**************************************************/
 
     worksFilter.innerHTML +=
         `<h2>Trier par</h2>
@@ -498,7 +483,7 @@ const navFilter = async () => {
 
 
 
-    /*****************************************************************************************************************/
+    /********************************************************************************************************/
 
     //fonction trier les dates des images 
     const sortByDate = () => {
@@ -509,7 +494,6 @@ const navFilter = async () => {
             }
         }
         arrayDate.sort().reverse();
-
     }
     sortByDate();
 
@@ -532,7 +516,6 @@ const navFilter = async () => {
 
     //fonction trier par ordre alphabetique
     const showTitle = document.getElementsByTagName("h3")
-
     const sortByABC = () => {
 
         let arrayMediaTitle = [];
@@ -570,32 +553,18 @@ const navFilter = async () => {
 
         }
     }
-
+    //sortByABC();
 
 
 
     /*********************************************************************************************************************/
-
-
-
-
-
-
-
-
     byTitle.addEventListener("click", function (event) {
         works.innerHTML = "";
         event.preventDefault();
         sortByABC();
 
     })
-
-
-
 }
-
-
-
 navFilter();
 
 
