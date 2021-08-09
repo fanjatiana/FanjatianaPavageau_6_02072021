@@ -255,7 +255,7 @@ const photographersWorks = async () => {
                     <div class = "gallery">
                         <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}">
                     </div>
-                    <div id="info_media">
+                    <div class="info_media">
                         <h3>${element.title}</h3>
                         <p class= "nb-likes">${element.likes}</p>
                         <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
@@ -274,7 +274,7 @@ const photographersWorks = async () => {
                     <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
                 </video>
             </div>
-            <div id="info_media">
+            <div class="info_media">
                 <h3>${info.title}</h3>
                 <p class="nb-likes">${info.likes}</p>
                 <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
@@ -318,7 +318,7 @@ const photographersWorks = async () => {
     // ajout du bloc compteur de like
     works.innerHTML +=
         `<div id="like_counter">
-    <p>${likesOfPhotographers}<i class="fas fa-heart"></i></p>
+    <p id="total-likes">${likesOfPhotographers}<i class="fas fa-heart"></i></p>
     <p>${priceOfPhotographers}€ / jour</p>
     </div>`
 
@@ -329,37 +329,31 @@ const photographersWorks = async () => {
 
     const buttonHearts = document.querySelectorAll(".likes_media");
     const nbLikes = document.querySelectorAll(".nb-likes");
-    console.log(nbLikes)
+
   
+        buttonHearts.forEach(heart => {
 
-
-
-
-
-
-
-buttonHearts.forEach(heart => {
-    //let count=0;
-    heart.addEventListener("click", function(){
-        let arrayValue = heart.previousElementSibling;
-        let getNumber= Number(arrayValue.innerText)
-       
-       //count = getNumber++;
-       getNumber++
-       console.log(getNumber)
-       
+            heart.addEventListener("click", function(){
+                
+                let arrayValue = heart.previousElementSibling;
+                let getNumber= Number(arrayValue.innerText);
+                getNumber++;
+              
+               works.innerHTML = getNumber;
+              
+            });
+          
+           
+        })
       
-          nbLikes.textContent = getNumber ;
+    
+    
         
-       
+
+
     
     
-    })
-    
-});
-    
-    
-    
+
 
     
    
