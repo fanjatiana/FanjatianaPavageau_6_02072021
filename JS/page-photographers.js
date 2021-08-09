@@ -173,7 +173,7 @@ const idPhotograph = async () => {
         }
     }
 
-   
+
     /*on cré un évènement au click sur le bouton submit avec la fonction validate  pour l'envoie du formulaire, 
     et l'action par défaut du submit n'est pas exécuté tant que les valeurs sont : false*/
     submitForm.addEventListener("click", controlValidateForm, (event) => {
@@ -327,36 +327,36 @@ const photographersWorks = async () => {
     const buttonHearts = document.querySelectorAll(".likes_media");
     const nbLikes = document.querySelectorAll(".nb-likes");
 
-  
-        buttonHearts.forEach(heart => {
 
-            heart.addEventListener("click", function(){
-                
-                let arrayValue = heart.previousElementSibling;
-                let getNumber= Number(arrayValue.innerText);
-                getNumber++;
-                console.log(getNumber)
-              
-               works.innerHTML = getNumber;
-              
-            });
-          
-           
-        })
-      
-    
-    
-        
+    buttonHearts.forEach(heart => {
+
+        heart.addEventListener("click", function () {
+
+            let arrayValue = heart.previousElementSibling;
+            let getNumber = Number(arrayValue.innerText);
+            getNumber++;
+            console.log(getNumber)
+
+            works.innerHTML = getNumber;
+
+        });
 
 
-    
-    
+    })
 
 
-    
-   
-     
-  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -410,35 +410,35 @@ photographersWorks();
 
 
 
-    /******************************************************************************************************************* */
+/******************************************************************************************************************* */
 
 
-    /***************************************************************LIGHTBOX*****************************************
-    
-    
-    
-    
-    const addLightBox = () => {
-        photographersMedia.forEach(element => {
-            if (element.photographerId === newGetId && element.image){
-                works.innerHTML +=
-                `<div id="lightbox">
-                    <button class = "lightbox__close">fermer</button>
-                    <button class = "lightbox__next">suivant</button>
-                    <button class = "lightbox__prev">précédent</button>
-                    <div class= "ligthbox__container">
-                        <img class="ligthbox_img" src ="./Photos/gallery/${lastName}/${element.image}">  
-                    </div>
-                </div>`
-            };
-            })
-           
+/***************************************************************LIGHTBOX*****************************************
+ 
+ 
+ 
+ 
+const addLightBox = () => {
+    photographersMedia.forEach(element => {
+        if (element.photographerId === newGetId && element.image){
+            works.innerHTML +=
+            `<div id="lightbox">
+                <button class = "lightbox__close">fermer</button>
+                <button class = "lightbox__next">suivant</button>
+                <button class = "lightbox__prev">précédent</button>
+                <div class= "ligthbox__container">
+                    <img class="ligthbox_img" src ="./Photos/gallery/${lastName}/${element.image}">  
+                </div>
+            </div>`
+        };
+        })
        
-    }
-    addLightBox();
+   
+}
+addLightBox();
 
 
-    const lightboxContainer = document.querySelector(".ligthbox__container")
+const lightboxContainer = document.querySelector(".ligthbox__container")
 
 
 **********/
@@ -520,12 +520,11 @@ const navFilter = async () => {
     /*filtre déroulant*/
     const arrowDown = document.querySelector(".fa-chevron-down");
     const chevronUp = document.querySelector(".fa-chevron-up")
-    const linksPopular = document.getElementById("click-for-show");
     const sousMenu = document.querySelector(".sous-menu");
-    const byPop = document.querySelector(".by-popular");
     const divContentNav = document.getElementById("list-filter");
     const byTitle = document.querySelector(".sort_by_title");
-
+    const byDate = document.querySelector(".sort_by_date");
+    const byPopular = document.querySelector(".by-popular");
 
 
     function shownav() {
@@ -551,35 +550,115 @@ const navFilter = async () => {
 
     /********************************************************************************************************/
 
-    //fonction trier les dates des images 
+    //fonction : trier par dates
     const sortByDate = () => {
         let arrayDate = [];
         for (let valueDate of photographersMedia) {
             if (valueDate.photographerId === newGetId) {
-                arrayDate.push(valueDate.date)
+                //arrayDate.push(valueDate.date)
+                arrayDate.push(valueDate)
             }
         }
-        arrayDate.sort().reverse();
+
+        const date = e => e.date;
+        let orderByDate = []
+        orderByDate = arrayDate.sort(date).reverse();
+
+        orderByDate.forEach(objet => {
+            if (objet.photographerId === newGetId && objet.image) {
+                works.innerHTML +=
+                    `<article id ="${objet.photographerId}">
+                    <div class = "gallery">
+                        <img class="pictures-list" src = "./Photos/gallery/${lastName}/${objet.image}">
+                    </div>
+                    <div class="info_media">
+                        <h3>${objet.title}</h3>
+                        <p class= "nb-likes">${objet.likes}</p>
+                        <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
+                    </div>
+             </article>`
+            }
+            if (objet.photographerId === newGetId && objet.video) {
+                works.innerHTML +=
+                    `<article id ="${objet.photographerId}">
+            <div>
+                <video controls width="500">
+                    <source src="./Photos/gallery/${lastName}/${objet.video}" type="video/mp4">
+                </video>
+            </div>
+            <div class="info_media">
+                <h3>${objet.title}</h3>
+                <p class="nb-likes">${objet.likes}</p>
+                <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
+            </div>   
+        </article>`
+            }
+        });
     }
-    sortByDate();
 
+    byDate.addEventListener("click", function (event) {
+        works.innerHTML = "";
+        event.preventDefault();
+        sortByDate();
+    })
 
-    //fonction trier les likes
+    /****************************************************************************************************************************/
+    //fonction : trier par popularité
     const sortByLikes = () => {
+
         let arrayLikes = [];
         for (let nbLikes of photographersMedia) {
             if (nbLikes.photographerId === newGetId) {
-                arrayLikes.push(nbLikes.likes);
+                arrayLikes.push(nbLikes);
             }
         }
-        const arraySort = (a, b) => b - a;
-        arrayLikes.sort(arraySort);
 
+        const byLikes = (a, b) => {
+            return b.likes - a.likes
+        }
 
+        let orderByLikes = arrayLikes.sort(byLikes);
+        orderByLikes.forEach(valueLikes => {
+            if (valueLikes.photographerId === newGetId && valueLikes.image) {
+                works.innerHTML +=
+                    `<article id ="${valueLikes.photographerId}">
+                <div class = "gallery">
+                    <img class="pictures-list" src = "./Photos/gallery/${lastName}/${valueLikes.image}">
+                </div>
+                <div class="info_media">
+                    <h3>${valueLikes.title}</h3>
+                    <p class= "nb-likes">${valueLikes.likes}</p>
+                    <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
+                </div>
+         </article>`
+            }
+            if (valueLikes.photographerId === newGetId && valueLikes.video) {
+                works.innerHTML +=
+                    `<article id ="${valueLikes.photographerId}">
+        <div>
+            <video controls width="500">
+                <source src="./Photos/gallery/${lastName}/${valueLikes.video}" type="video/mp4">
+            </video>
+        </div>
+        <div class="info_media">
+            <h3>${valueLikes.title}</h3>
+            <p class="nb-likes">${valueLikes.likes}</p>
+            <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
+        </div>   
+    </article>`
+            }
+        });
     }
-    sortByLikes();
 
 
+    byPopular.addEventListener("click", function (event) {
+        works.innerHTML = "";
+        event.preventDefault();
+        sortByLikes();
+    })
+
+
+    /****************************************************************************************************************************/
     //fonction trier par ordre alphabetique
     const showTitle = document.getElementsByTagName("h3")
     const sortByABC = () => {
@@ -587,43 +666,50 @@ const navFilter = async () => {
         let arrayMediaTitle = [];
         for (let titleMedia of photographersMedia) {
             if (titleMedia.photographerId === newGetId) {
-                arrayMediaTitle.push(titleMedia.title)
+                arrayMediaTitle.push(titleMedia)
             }
         }
-        arrayMediaTitle.sort();
-
-
-        arrayMediaTitle.forEach(t => {
-
-            works.innerHTML += `<h3>${t}</h3>`
+        let orderByTitle = arrayMediaTitle.sort(function compare(a, b) {
+            if (a.title < b.title)
+                return -1;
+            if (a.title > b.title)
+                return 1;
+            return 0;
         });
 
-        for (let work of photographersMedia) {
-
-
-
-            if (work.photographerId === newGetId) {
+        orderByTitle.forEach(infoTitle => {
+            if (infoTitle.photographerId === newGetId && infoTitle.image) {
                 works.innerHTML +=
-                    `<article id ="${work.photographerId}">
-            <div class = "gallery">
-                <img class="pictures-list" src = "./Photos/gallery/${lastName}/${work.image}">
+                    `<article id ="${infoTitle.photographerId}">
+                    <div class = "gallery">
+                        <img class="pictures-list" src = "./Photos/gallery/${lastName}/${infoTitle.image}">
+                    </div>
+                    <div class="info_media">
+                        <h3>${infoTitle.title}</h3>
+                        <p class= "nb-likes">${infoTitle.likes}</p>
+                        <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
+                    </div>
+             </article>`
+            }
+            if (infoTitle.photographerId === newGetId && infoTitle.video) {
+                works.innerHTML +=
+                    `<article id ="${infoTitle.photographerId}">
+            <div>
+                <video controls width="500">
+                    <source src="./Photos/gallery/${lastName}/${infoTitle.video}" type="video/mp4">
+                </video>
             </div>
             <div class="info_media">
-                
-                <p>${work.likes}<a href=""><i class="fas fa-heart likes_media"></i></a></p>
-            </div>
-     </article>`;
-
-
+                <h3>${infoTitle.title}</h3>
+                <p class="nb-likes">${infoTitle.likes}</p>
+                <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
+            </div>   
+        </article>`
             }
-
-        }
+        });
     }
-    //sortByABC();
 
 
-
-    /*********************************************************************************************************************/
     byTitle.addEventListener("click", function (event) {
         works.innerHTML = "";
         event.preventDefault();
