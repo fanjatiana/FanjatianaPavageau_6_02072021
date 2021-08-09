@@ -124,7 +124,8 @@ ul > .tags {
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 5px;
-  position: relative;
+  position: absolute;
+  left: 150px;
   width: 150px;
   background-color: #901C1C;
   /*padding : 0.8em 2em;*/
@@ -185,9 +186,6 @@ ul > .tags {
   background-color: #a74343;
 }
 
-/*#list-filter:hover .sous-menu{
-    display: block;
-}*/
 #works-list {
   display: -webkit-box;
   display: -ms-flexbox;

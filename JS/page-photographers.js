@@ -76,7 +76,6 @@ const idPhotograph = async () => {
 
     //h2 : ajout nom du photographe dans le formulaire avec une boucle for
     const titleName = document.getElementById("recipient-name");
-    console.log(titleName)
     for (let element of photographersList) {
         if (element.id === newGetId) {
             titleName.innerHTML = `Contactez-moi<br>${element.name}`;
@@ -92,7 +91,6 @@ const idPhotograph = async () => {
     //variables regex
     let regexNameAndLastName = /^[A-Za-z ,.'-]+$/i;
     let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-    console.log(regexEmail)
 
     const infoGuest = document.querySelectorAll('.info-id');
     const submitForm = document.getElementById("submit-form");
@@ -175,7 +173,7 @@ const idPhotograph = async () => {
         }
     }
 
-    console.log(submitForm);
+   
     /*on cré un évènement au click sur le bouton submit avec la fonction validate  pour l'envoie du formulaire, 
     et l'action par défaut du submit n'est pas exécuté tant que les valeurs sont : false*/
     submitForm.addEventListener("click", controlValidateForm, (event) => {
@@ -226,8 +224,6 @@ const photographersWorks = async () => {
 
     //on recupère la nodeliste des medias des photographes dans le Json
     let photographersMedia = data.media;
-    console.log(photographersMedia);
-
 
     /*********************pour recuperer l id des photographes*************************************/
     //on extrait l id en supprimant les 4 premiers caractères
@@ -259,7 +255,8 @@ const photographersWorks = async () => {
                     </div>
                     <div class="info_media">
                         <h3>${element.title}</h3>
-                        <p>${element.likes}<a href=""><i class="fas fa-heart likes_media"></i></a></p>
+                        <p class= "nb-likes">${element.likes}</p>
+                        <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
                     </div>
              </article>`
         }
@@ -277,7 +274,8 @@ const photographersWorks = async () => {
             </div>
             <div class="info_media">
                 <h3>${info.title}</h3>
-                <p>${info.likes}<a href=""><i class="fas fa-heart likes_media"></i></a></p>
+                <p class="nb-likes">${info.likes}</p>
+                <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
             </div>   
         </article>`
         }
@@ -318,21 +316,57 @@ const photographersWorks = async () => {
     // ajout du bloc compteur de like
     works.innerHTML +=
         `<div id="like_counter">
-    <p>${likesOfPhotographers}<i class="fas fa-heart"></i></p>
+    <p id="total-likes">${likesOfPhotographers}<i class="fas fa-heart"></i></p>
     <p>${priceOfPhotographers}€ / jour</p>
     </div>`
-
 
 
     /***************************************************partie incrémentation au click des likes***********************/
 
 
-    const linksOfHearts = document.querySelectorAll(".info_media p>a");
+    const buttonHearts = document.querySelectorAll(".likes_media");
+    const nbLikes = document.querySelectorAll(".nb-likes");
+
+  
+        buttonHearts.forEach(heart => {
+
+            heart.addEventListener("click", function(){
+                
+                let arrayValue = heart.previousElementSibling;
+                let getNumber= Number(arrayValue.innerText);
+                getNumber++;
+                console.log(getNumber)
+              
+               works.innerHTML = getNumber;
+              
+            });
+          
+           
+        })
+      
+    
+    
+        
+
+
+    
+    
+
+
+    
+   
+     
+  
+
+
+
+
+
 
     /******************************************************************************************************************* */
 
 
-    /***************************************************************LIGHTBOX***************************************************/
+    /***************************************************************LIGHTBOX*******************************************
     const addLightBox = () => {
         photographersMedia.forEach(element => {
             if (element.photographerId === newGetId && element.image){
@@ -364,7 +398,7 @@ const photographersWorks = async () => {
 
 
 
-
+*/
 }
 photographersWorks();
 
@@ -376,6 +410,38 @@ photographersWorks();
 
 
 
+    /******************************************************************************************************************* */
+
+
+    /***************************************************************LIGHTBOX*****************************************
+    
+    
+    
+    
+    const addLightBox = () => {
+        photographersMedia.forEach(element => {
+            if (element.photographerId === newGetId && element.image){
+                works.innerHTML +=
+                `<div id="lightbox">
+                    <button class = "lightbox__close">fermer</button>
+                    <button class = "lightbox__next">suivant</button>
+                    <button class = "lightbox__prev">précédent</button>
+                    <div class= "ligthbox__container">
+                        <img class="ligthbox_img" src ="./Photos/gallery/${lastName}/${element.image}">  
+                    </div>
+                </div>`
+            };
+            })
+           
+       
+    }
+    addLightBox();
+
+
+    const lightboxContainer = document.querySelector(".ligthbox__container")
+
+
+**********/
 
 
 
@@ -454,13 +520,12 @@ const navFilter = async () => {
     /*filtre déroulant*/
     const arrowDown = document.querySelector(".fa-chevron-down");
     const chevronUp = document.querySelector(".fa-chevron-up")
-    console.log(chevronUp);
     const linksPopular = document.getElementById("click-for-show");
     const sousMenu = document.querySelector(".sous-menu");
     const byPop = document.querySelector(".by-popular");
     const divContentNav = document.getElementById("list-filter");
     const byTitle = document.querySelector(".sort_by_title");
-    console.log(byTitle);
+
 
 
     function shownav() {
@@ -495,7 +560,6 @@ const navFilter = async () => {
             }
         }
         arrayDate.sort().reverse();
-        console.log(arrayDate);
     }
     sortByDate();
 
@@ -518,7 +582,6 @@ const navFilter = async () => {
 
     //fonction trier par ordre alphabetique
     const showTitle = document.getElementsByTagName("h3")
-    console.log(showTitle);
     const sortByABC = () => {
 
         let arrayMediaTitle = [];
