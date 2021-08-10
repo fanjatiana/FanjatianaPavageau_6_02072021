@@ -251,7 +251,9 @@ const photographersWorks = async () => {
             works.innerHTML +=
                 `<article id ="${element.photographerId}">
                     <div class = "gallery">
-                        <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}">
+                        <a href>
+                            <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}">
+                        </a>
                     </div>
                     <div class="info_media">
                         <h3>${element.title}</h3>
@@ -267,10 +269,12 @@ const photographersWorks = async () => {
         if (info.photographerId === newGetId && info.video) {
             works.innerHTML +=
                 `<article id ="${info.photographerId}">
-            <div>
-                <video controls width="500">
-                    <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
-                </video>
+            <div class="gallery">
+                <a href ="">
+                    <video controls width="500">
+                        <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
+                    </video>
+                </a>
             </div>
             <div class="info_media">
                 <h3>${info.title}</h3>
@@ -346,59 +350,96 @@ const photographersWorks = async () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /******************************************************************************************************************* */
-
-
-    /***************************************************************LIGHTBOX*******************************************
+    /***************************************************************LIGHTBOX*******************************************/
     const addLightBox = () => {
-        photographersMedia.forEach(element => {
-            if (element.photographerId === newGetId && element.image){
-                console.log(element.image)
-                console.log(element.image)
-                works.innerHTML +=
-                `<div id="lightbox">
-                    <button class = "lightbox__close">fermer</button>
+
+
+        works.innerHTML +=
+            `<div class="lightbox">
+                    <button class = "lightbox__close fadeOut">fermer</button>
                     <button class = "lightbox__next">suivant</button>
                     <button class = "lightbox__prev">précédent</button>
-                    <div class= "ligthbox__container">
-                        <img class="ligthbox_img" src ="./Photos/gallery/${lastName}/${element.image}">  
+                    <div class= "lightbox__container">
+                    <div id = "lightbox__gallery">
+                        
+                    </div>
+                        <div class = "lightbox__loader"></div>
                     </div>
                 </div>`
-            };
-            })
-           
-       
+
+        
     }
     addLightBox();
 
+    const lightBoxGallery = document.getElementById("lightbox__gallery")
+        
+                photographersMedia.forEach(element => {
+            if (element.photographerId === newGetId && element.image) {
+                
+                    lightBoxGallery.innerHTML += `<img src = "./Photos/gallery/${lastName}/${element.image}" alt = ""></img>`
+                
+            }
+        });
 
-    const lightboxContainer = document.querySelector(".ligthbox__container")
-    console.log(lightboxContainer)
+
+        photographersMedia.forEach(element => {
+            if (element.photographerId === newGetId && element.video) {
+                
+                    lightBoxGallery.innerHTML += `<video controls width="500">
+                    <source src="./Photos/gallery/${lastName}/${element.video}" type="video/mp4">
+                </video>`
+                
+            }
+        });
 
 
+    const lightbox = document.querySelector(".lightbox");
 
 
+    /*ouverture de la lightbox */
+
+    const listOfMediaLinks = document.querySelectorAll(".gallery > a");
+
+    const lightboxShow = (e) => {
+        e.preventDefault();
+        lightbox.style.display = "block"
+    }
+
+    listOfMediaLinks.forEach(links => {
+        links.addEventListener("click", lightboxShow);
+    });
+    console.log(listOfMediaLinks);
 
 
+    /*fermeture de la lightBox*/
+    const lightboxClose = document.querySelector(".lightbox__close");
+    const close = (e) => {
+        e.preventDefault();
+        lightbox.style.display = "none";
+    }
+    works.querySelector(".lightbox__close").addEventListener("click", close);
 
-*/
+    /*fermeture clavier de la la lightBox*/
+
+    const onKeyUp = (e) => {
+        if (e.key === "Escape") {
+            close(e)
+        }
+    }
+    works.addEventListener("keyup", onKeyUp);
+
+
+    const loadImage= (url) => {
+        const container = works.querySelector(".lightbox__container");
+        const loader = works.querySelector(".lightbox__loader");
+
+    }
+loadImage();
+
+
+// RESTE A AFFICHER LES PHOTOS
+
+
 }
 photographersWorks();
 
@@ -410,38 +451,26 @@ photographersWorks();
 
 
 
-/******************************************************************************************************************* */
 
 
-/***************************************************************LIGHTBOX*****************************************
- 
- 
- 
- 
-const addLightBox = () => {
-    photographersMedia.forEach(element => {
-        if (element.photographerId === newGetId && element.image){
-            works.innerHTML +=
-            `<div id="lightbox">
-                <button class = "lightbox__close">fermer</button>
-                <button class = "lightbox__next">suivant</button>
-                <button class = "lightbox__prev">précédent</button>
-                <div class= "ligthbox__container">
-                    <img class="ligthbox_img" src ="./Photos/gallery/${lastName}/${element.image}">  
-                </div>
-            </div>`
-        };
-        })
-       
-   
-}
-addLightBox();
 
 
-const lightboxContainer = document.querySelector(".ligthbox__container")
 
 
-**********/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

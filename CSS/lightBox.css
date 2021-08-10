@@ -1,0 +1,125 @@
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+  overflow: auto;
+  -webkit-animation: lightboxIn 0.5s;
+          animation: lightboxIn 0.5s;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  display: none;
+}
+
+.lightbox button {
+  opacity: .5;
+  cursor: pointer;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.lightbox button:hover {
+  opacity: 1;
+}
+
+.lightbox .fadeOut {
+  opacity: 0.5;
+}
+
+.lightbox__next,
+.lightbox__prev {
+  border: none;
+  background: url(/img/arrow.svg) center center/24px 40px no-repeat;
+  width: 40px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: -14px;
+  z-index: 20;
+  opacity: .8;
+  text-indent: -4000px;
+}
+
+.lightbox__prev {
+  right: auto;
+  left: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.lightbox__close {
+  border: none;
+  background: url("/img/cross.svg") center center/100% 100% no-repeat transparent;
+  width: 34px;
+  height: 34px;
+  color: #FFF;
+  position: fixed;
+  text-indent: -4000px;
+  top: 20px;
+  right: 20px;
+  z-index: 15;
+}
+
+.lightbox__container {
+  margin-left: 50px;
+  margin-right: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+}
+
+.lightbox__containerimg {
+  max-width: 100%;
+  height: auto;
+  -webkit-animation: lightboxIn 0.5s;
+          animation: lightboxIn 0.5s;
+}
+
+.lightbox__loader {
+  width: 100px;
+  height: 100px;
+  opacity: .5;
+  background: url(/img/loader.svg) center center/100% 100% no-repeat;
+  z-index: 20000;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+}
+
+#lightbox__gallery {
+  margin: auto;
+}
+
+#lightbox__gallery img {
+  width: 100%;
+}
+
+@-webkit-keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=lightBox.css.map */
