@@ -69,10 +69,8 @@ export class Lightbox {
             }
             image.src = url;
         } else if (".mp4"){
-            //container.innerHTML = "";
-            const video = document.innerHTML = `<video controls width="500">
-            <source src="" type="video/mp4">
-        </video>`
+            container.innerHTML = "";
+            const video = document.createElement("video");
             video.onload = () => {
                 container.appendChild(video);
                 this.url = url;

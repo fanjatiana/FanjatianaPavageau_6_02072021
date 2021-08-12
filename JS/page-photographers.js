@@ -328,7 +328,7 @@ const photographersWorks = async () => {
     </div>`
 
   
-    /***************************************************partie incrémentation au click des likes*******************
+    /***************************************************partie incrémentation au click des likes*******************/
 
 
     const buttonHearts = document.querySelectorAll(".likes_media");
@@ -340,17 +340,17 @@ const photographersWorks = async () => {
         heart.addEventListener("click", function () {
 
             let arrayValue = heart.previousElementSibling;
-            let getNumber = Number(arrayValue.innerText);
-            getNumber++;
-            console.log(getNumber)
+            let likeCount = Number(arrayValue.innerText);
+            likeCount++;
+            console.log(likeCount)
 
-            works.innerHTML = getNumber;
+           nbLikes.innerHTML = likeCount;
 
         });
 
 
     })
-*/
+
     
    
     Lightbox.init();
