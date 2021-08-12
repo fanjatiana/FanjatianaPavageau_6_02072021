@@ -328,7 +328,7 @@ const photographersWorks = async () => {
     </div>`
 
   
-    /***************************************************partie incrémentation au click des likes***********************/
+    /***************************************************partie incrémentation au click des likes*******************
 
 
     const buttonHearts = document.querySelectorAll(".likes_media");
@@ -350,7 +350,7 @@ const photographersWorks = async () => {
 
 
     })
-
+*/
     
    
     Lightbox.init();
