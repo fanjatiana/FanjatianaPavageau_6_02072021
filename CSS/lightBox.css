@@ -1,3 +1,25 @@
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #FFF;
+  padding: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 4px;
+}
+
+.lightbox::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+.lightbox::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .lightbox {
   position: fixed;
   top: 0;
@@ -11,7 +33,6 @@
           animation: lightboxIn 0.5s;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  display: none;
 }
 
 .lightbox button {
@@ -25,15 +46,15 @@
   opacity: 1;
 }
 
-.lightbox .fadeOut {
-  opacity: 0.5;
+.fadeOut {
+  opacity: 0;
 }
 
 .lightbox__next,
 .lightbox__prev {
   border: none;
   background: url(/img/arrow.svg) center center/24px 40px no-repeat;
-  width: 40px;
+  width: 10%;
   height: 100%;
   position: fixed;
   top: 0;
@@ -56,12 +77,12 @@
   background: url("/img/cross.svg") center center/100% 100% no-repeat transparent;
   width: 34px;
   height: 34px;
-  color: #FFF;
+  color: #ec0e0e;
   position: fixed;
   text-indent: -4000px;
   top: 20px;
   right: 20px;
-  z-index: 15;
+  z-index: 1500;
 }
 
 .lightbox__container {
@@ -76,35 +97,35 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 100vh;
+  min-height: auto;
+  margin: auto;
+  width: 80%;
 }
 
-.lightbox__containerimg {
+.lightbox__container > img {
   max-width: 100%;
-  height: auto;
+  max-height: 100vh;
   -webkit-animation: lightboxIn 0.5s;
           animation: lightboxIn 0.5s;
 }
 
-.lightbox__loader {
-  width: 100px;
-  height: 100px;
-  opacity: .5;
-  background: url(/img/loader.svg) center center/100% 100% no-repeat;
-  z-index: 20000;
-  position: absolute;
-  top: 50%;
-  bottom: 50%;
-}
+/* .lightbox__loader{
+        width: 100px;
+        height: 100px;
+        opacity: .5;
+       background: url(/img/loader.svg) center center / 100% 100% no-repeat;
+        z-index: 20000;
+        position: absolute;
+        top:50%;
+        bottom: 50%;
 
-#lightbox__gallery {
-  margin: auto;
-}
-
-#lightbox__gallery img {
-  width: 100%;
-}
-
+    }*/
+/* #lightbox__gallery{
+        margin:auto;
+        img{
+            width: 100%;
+        }
+    }*/
 @-webkit-keyframes lightboxIn {
   from {
     opacity: 0;
@@ -113,7 +134,6 @@
     opacity: 1;
   }
 }
-
 @keyframes lightboxIn {
   from {
     opacity: 0;

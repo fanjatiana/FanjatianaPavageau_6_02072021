@@ -1,6 +1,9 @@
 // import des constantes de DOM-constantes
 import { showPhotograph, titlePagePhotograph, works, worksFilter } from "./DOM-constantes.js";
+
 import { getUrl_id } from "./variables.js";
+import { Lightbox } from "./lightbox.js";
+
 
 
 
@@ -251,7 +254,7 @@ const photographersWorks = async () => {
             works.innerHTML +=
                 `<article id ="${element.photographerId}">
                     <div class = "gallery">
-                        <a href>
+                        <a href="./Photos/gallery/${lastName}/${element.image}">
                             <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}">
                         </a>
                     </div>
@@ -270,7 +273,7 @@ const photographersWorks = async () => {
             works.innerHTML +=
                 `<article id ="${info.photographerId}">
             <div class="gallery">
-                <a href ="">
+                <a href="./Photos/gallery/${lastName}/${info.video}">
                     <video controls width="500">
                         <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
                     </video>
@@ -284,8 +287,8 @@ const photographersWorks = async () => {
         </article>`
         }
     }
-
-
+  
+    
     /****************************************************partie compteur prix/jour********************************/
 
     //on recupere tous les prix et les likes du photographe associé et on les ajoute dans un tableau
@@ -324,7 +327,7 @@ const photographersWorks = async () => {
     <p>${priceOfPhotographers}€ / jour</p>
     </div>`
 
-
+  
     /***************************************************partie incrémentation au click des likes***********************/
 
 
@@ -348,114 +351,13 @@ const photographersWorks = async () => {
 
     })
 
+    
+   
+    Lightbox.init();
+}   
 
 
-    /***************************************************************LIGHTBOX*******************************************/
-    const addLightBox = () => {
-
-
-        works.innerHTML +=
-            `<div class="lightbox">
-                    <button class = "lightbox__close fadeOut">fermer</button>
-                    <button class = "lightbox__next">suivant</button>
-                    <button class = "lightbox__prev">précédent</button>
-                    <div class= "lightbox__container">
-                    <div id = "lightbox__gallery">
-                        
-                    </div>
-                        <div class = "lightbox__loader"></div>
-                    </div>
-                </div>`
-
-        
-    }
-    addLightBox();
-
-    const lightBoxGallery = document.getElementById("lightbox__gallery")
-        
-                photographersMedia.forEach(element => {
-            if (element.photographerId === newGetId && element.image) {
-                
-                    lightBoxGallery.innerHTML += `<img src = "./Photos/gallery/${lastName}/${element.image}" alt = ""></img>`
-                
-            }
-        });
-
-
-        photographersMedia.forEach(element => {
-            if (element.photographerId === newGetId && element.video) {
-                
-                    lightBoxGallery.innerHTML += `<video controls width="500">
-                    <source src="./Photos/gallery/${lastName}/${element.video}" type="video/mp4">
-                </video>`
-                
-            }
-        });
-
-
-    const lightbox = document.querySelector(".lightbox");
-
-
-    /*ouverture de la lightbox */
-
-    const listOfMediaLinks = document.querySelectorAll(".gallery > a");
-
-    const lightboxShow = (e) => {
-        e.preventDefault();
-        lightbox.style.display = "block"
-    }
-
-    listOfMediaLinks.forEach(links => {
-        links.addEventListener("click", lightboxShow);
-    });
-    console.log(listOfMediaLinks);
-
-
-    /*fermeture de la lightBox*/
-    const lightboxClose = document.querySelector(".lightbox__close");
-    const close = (e) => {
-        e.preventDefault();
-        lightbox.style.display = "none";
-    }
-    works.querySelector(".lightbox__close").addEventListener("click", close);
-
-    /*fermeture clavier de la la lightBox*/
-
-    const onKeyUp = (e) => {
-        if (e.key === "Escape") {
-            close(e)
-        }
-    }
-    works.addEventListener("keyup", onKeyUp);
-
-
-    const loadImage= (url) => {
-        const container = works.querySelector(".lightbox__container");
-        const loader = works.querySelector(".lightbox__loader");
-
-    }
-loadImage();
-
-
-// RESTE A AFFICHER LES PHOTOS
-
-
-}
 photographersWorks();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -538,7 +440,12 @@ const navFilter = async () => {
     worksFilter.innerHTML +=
         `<h2>Trier par</h2>
     <div id="list-filter">
-        <div id="click-for-show" ><a href="" class = "by-popular">Popularité<i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i></a></div>
+        <div id="click-for-show" >
+            <a href="" class = "by-popular">Popularité
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-up"></i>
+            </a>
+        </div>
         <div class="sous-menu" >
             <div><a class="sort_by_date menu-hidden"  href="">Date</a></div>
             <div><a class = "sort_by_title menu-hidden" href="">Titre</a></div>
@@ -598,7 +505,9 @@ const navFilter = async () => {
                 works.innerHTML +=
                     `<article id ="${objet.photographerId}">
                     <div class = "gallery">
-                        <img class="pictures-list" src = "./Photos/gallery/${lastName}/${objet.image}">
+                        <a href="./Photos/gallery/${lastName}/${objet.image}">
+                            <img class="pictures-list" src = "./Photos/gallery/${lastName}/${objet.image}">
+                        </a>    
                     </div>
                     <div class="info_media">
                         <h3>${objet.title}</h3>
@@ -610,10 +519,12 @@ const navFilter = async () => {
             if (objet.photographerId === newGetId && objet.video) {
                 works.innerHTML +=
                     `<article id ="${objet.photographerId}">
-            <div>
-                <video controls width="500">
-                    <source src="./Photos/gallery/${lastName}/${objet.video}" type="video/mp4">
-                </video>
+            <div class = "gallery">
+                <a href="./Photos/gallery/${lastName}/${objet.video}">
+                    <video controls width="500">
+                        <source src="./Photos/gallery/${lastName}/${objet.video}" type="video/mp4">
+                    </video>
+                </a>    
             </div>
             <div class="info_media">
                 <h3>${objet.title}</h3>
@@ -629,6 +540,7 @@ const navFilter = async () => {
         works.innerHTML = "";
         event.preventDefault();
         sortByDate();
+        Lightbox.init();
     })
 
     /****************************************************************************************************************************/
@@ -652,7 +564,9 @@ const navFilter = async () => {
                 works.innerHTML +=
                     `<article id ="${valueLikes.photographerId}">
                 <div class = "gallery">
-                    <img class="pictures-list" src = "./Photos/gallery/${lastName}/${valueLikes.image}">
+                    <a href="./Photos/gallery/${lastName}/${valueLikes.image}">
+                        <img class="pictures-list" src = "./Photos/gallery/${lastName}/${valueLikes.image}">
+                    </a>
                 </div>
                 <div class="info_media">
                     <h3>${valueLikes.title}</h3>
@@ -664,10 +578,12 @@ const navFilter = async () => {
             if (valueLikes.photographerId === newGetId && valueLikes.video) {
                 works.innerHTML +=
                     `<article id ="${valueLikes.photographerId}">
-        <div>
-            <video controls width="500">
-                <source src="./Photos/gallery/${lastName}/${valueLikes.video}" type="video/mp4">
-            </video>
+        <div class = "gallery">
+            <a href="./Photos/gallery/${lastName}/${valueLikes.video}">
+                <video controls width="500">
+                    <source src="./Photos/gallery/${lastName}/${valueLikes.video}" type="video/mp4">
+                </video>
+            </a>
         </div>
         <div class="info_media">
             <h3>${valueLikes.title}</h3>
@@ -684,6 +600,7 @@ const navFilter = async () => {
         works.innerHTML = "";
         event.preventDefault();
         sortByLikes();
+        Lightbox.init();
     })
 
 
@@ -711,8 +628,10 @@ const navFilter = async () => {
                 works.innerHTML +=
                     `<article id ="${infoTitle.photographerId}">
                     <div class = "gallery">
-                        <img class="pictures-list" src = "./Photos/gallery/${lastName}/${infoTitle.image}">
-                    </div>
+                        <a href="./Photos/gallery/${lastName}/${infoTitle.image}">
+                            <img class="pictures-list" src = "./Photos/gallery/${lastName}/${infoTitle.image}">
+                        </a>
+                            </div>
                     <div class="info_media">
                         <h3>${infoTitle.title}</h3>
                         <p class= "nb-likes">${infoTitle.likes}</p>
@@ -723,10 +642,12 @@ const navFilter = async () => {
             if (infoTitle.photographerId === newGetId && infoTitle.video) {
                 works.innerHTML +=
                     `<article id ="${infoTitle.photographerId}">
-            <div>
-                <video controls width="500">
-                    <source src="./Photos/gallery/${lastName}/${infoTitle.video}" type="video/mp4">
-                </video>
+            <div class = "gallery">
+                <a href="./Photos/gallery/${lastName}/${infoTitle.video}">
+                    <video controls width="500">
+                        <source src="./Photos/gallery/${lastName}/${infoTitle.video}" type="video/mp4">
+                    </video>
+                </a>    
             </div>
             <div class="info_media">
                 <h3>${infoTitle.title}</h3>
@@ -743,11 +664,11 @@ const navFilter = async () => {
         works.innerHTML = "";
         event.preventDefault();
         sortByABC();
+        Lightbox.init();
 
     })
 }
 navFilter();
-
 
 
 

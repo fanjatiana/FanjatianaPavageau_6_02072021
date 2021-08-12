@@ -1,3 +1,25 @@
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #FFF ;
+    padding: 1px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: red;
+    border-radius : 4px
+}
+.lightbox::-webkit-scrollbar-track {
+    background-color: #000 ;
+
+}
+
+.lightbox::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,0.3)
+}
+
 .lightbox {
     position: fixed;
     top: 0;
@@ -10,7 +32,7 @@
     overflow: auto;
     animation: lightboxIn 0.5s;
     transition: opacity 0.3s;
-    display: none;
+  
     & button{
         opacity: .5;
         cursor: pointer;
@@ -20,17 +42,19 @@
         opacity: 1;
     }
 
-    & .fadeOut{
-        opacity: 0.5;
-    }
+   
     
+}
+
+.fadeOut{
+    opacity: 0;
 }
 
 .lightbox__next,
     .lightbox__prev{
         border : none;
         background: url(/img/arrow.svg) center center / 24px 40px no-repeat;
-        width:40px;
+        width:10%;
         height: 100%;
         position:fixed;
         top: 0;
@@ -56,12 +80,12 @@
         background: url('/img/cross.svg')center center / 100% 100% no-repeat transparent;
         width: 34px;
         height: 34px;
-        color: #FFF;
+        color: rgb(236, 14, 14);
         position: fixed;
         text-indent: -4000px;
         top:20px;
         right: 20px;
-        z-index: 15;
+        z-index: 1500;
 
     }
 
@@ -72,34 +96,36 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
-        &img{
+        min-height: auto;
+        margin:auto;
+        width: 80%;
+        > img{
             max-width: 100%;
-            height: auto;
+            max-height: 100vh;
             animation: lightboxIn 0.5s;
         }
         
         
     }
 
-    .lightbox__loader{
+   /* .lightbox__loader{
         width: 100px;
         height: 100px;
         opacity: .5;
-        background: url(/img/loader.svg) center center / 100% 100% no-repeat;
+       background: url(/img/loader.svg) center center / 100% 100% no-repeat;
         z-index: 20000;
         position: absolute;
         top:50%;
         bottom: 50%;
 
-    }
+    }*/
 
-    #lightbox__gallery{
+   /* #lightbox__gallery{
         margin:auto;
         img{
             width: 100%;
         }
-    }
+    }*/
 
 
     @keyframes lightboxIn{
