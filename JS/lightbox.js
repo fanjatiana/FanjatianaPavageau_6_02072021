@@ -56,16 +56,34 @@ export class Lightbox {
     */
 
     loadImage(url) {
+
         this.url = null
-        const image = new Image();
         const container = this.element.querySelector(".lightbox__container");
-        container.innerHTML = "";
-        image.onload = () => {
-            container.appendChild(image);
-            this.url = url;
+       
+        if(".jpg") {
+            container.innerHTML = "";
+            const image = new Image();
+            image.onload = () => {
+                container.appendChild(image);
+                this.url = url;
+            }
+            image.src = url;
+        } else if (".mp4"){
+            container.innerHTML = "";
+            const video = document.createElement("video");
+            video.onload = () => {
+                container.appendChild(video);
+                this.url = url;
+            }
+            video.src = url;
         }
-        image.src = url;
+       
+        
+        
+       
     }
+
+   
 
 
     /**
