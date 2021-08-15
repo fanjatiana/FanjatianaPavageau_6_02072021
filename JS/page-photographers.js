@@ -26,6 +26,7 @@ const idPhotograph = async () => {
     //on modifie type de GetId string--> number
     const newGetId = Number(getId);
 
+    
     // on va rechercher dans le Json l'id correspondant à la variable newGetId avec la methode find
     const photographSelected = photographersList.find((element) => element.id === newGetId);
 
