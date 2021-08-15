@@ -1,5 +1,5 @@
 // import des constantes de DOM-constantes
-import { showPhotograph, titlePagePhotograph, works, worksFilter } from "./DOM-constantes_page-photographers.js"
+import { showPhotograph, titlePagePhotograph, works, worksFilter } from "./let-and-const_page-photographers.js"
 
 import { getUrl_id } from "./variables.js";
 import { Lightbox } from "../LightBox/lightbox.js";

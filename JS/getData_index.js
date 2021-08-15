@@ -12,8 +12,8 @@ import {addPhotographersList, addPhotographersTags,showPhotographersListFiltered
 
 
 /*requête pour le contenu de la page d'accueil : liste des photographes*/
-const getPhotographersList= async (data) => {
-    let response = await fetch("./JS/data.json")
+const getPhotographersList= async (data, response) => {
+    response = await fetch("./JS/data.json")
     data = await response.json()
     .catch(function error (err) {
         // Une erreur est survenue
@@ -26,8 +26,8 @@ getPhotographersList();
 
 
 /*requête pour l'affichage des tags de chaque photographes*/
-const getPhotographersTags= async (data) => {
-    let response = await fetch("./JS/data.json")
+const getPhotographersTags= async (data, response) => {
+    response = await fetch("./JS/data.json")
     data = await response.json()
     .catch(function error (err) {
         // Une erreur est survenue
@@ -41,8 +41,8 @@ getPhotographersTags();
 
 
 /*requête pour le filtre de navigation et l'affichage de la liste des photographes filtrés*/
-const getMenuFilter= async (data) => {
-    let response = await fetch("./JS/data.json")
+const getMenuFilter= async (data, response) => {
+    response = await fetch("./JS/data.json")
     data = await response.json()
     .catch(function error (err) {
         // Une erreur est survenue
