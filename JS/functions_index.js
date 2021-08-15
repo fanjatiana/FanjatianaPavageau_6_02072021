@@ -1,24 +1,4 @@
-//fetch to Json
-let response = await fetch("./JS/data.json")
-let data = await response.json();
-
-/* on cré une constante pour réccupérer la liste des photographes du json*/
-let photographersList = data.photographers;
-
-/*création d'une variable contenant la liste des photographes*/
-let listOfPhotographers = data.photographers;
-
-
-
-
-/******************************************DOM************************************************/
-
-const container = document.getElementById('container');
-//const article = document.querySelector('article');
-
-/*******************************************************************************/
-
-
+import { photographersList,container } from "./let-and-const_index.js";
 
 
 export function addPhotographersList() {
@@ -57,7 +37,7 @@ export function addPhotographersList() {
 export function addPhotographersTags() {
     /*on cré un  tableau vide et on utilise des boucles pour rechercher et recupérer toute la liste des tags qu'on va ajouter dans ce tableau*/
     let tagsArray = [];
-    listOfPhotographers.forEach(tags => {
+    photographersList.forEach(tags => {
         let arrayList = tags.tags;
         for (let tagName of arrayList) {
             tagsArray.push(tagName);
@@ -80,7 +60,7 @@ export function addPhotographersTags() {
 
 
 
-export function showPhotographersListFiltred() {
+export function showPhotographersListFiltered() {
 /*on vient appliquer un addEventListener sur les liens de la navigation et on les relie à la fonction filtre, pour afficher les éléments filtrés*/
 const listLinksA = document.querySelectorAll('.links-filter');
         (function(){
@@ -99,7 +79,7 @@ const listLinksA = document.querySelectorAll('.links-filter');
         container.innerHTML = "";
 
         /*boucle forEach pour appliquer la fonction filtre sur les tags de chaque photographes puis on ajoute la liste des photographes filtrées dans le html*/
-        data.photographers.forEach(photograph => {
+        photographersList.forEach(photograph => {
 
             if (photograph.tags.includes(filter)) {
                 /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/

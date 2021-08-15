@@ -1,4 +1,4 @@
-import {addPhotographersList, addPhotographersTags,showPhotographersListFiltred } from "./functions_index.js";
+import {addPhotographersList, addPhotographersTags,showPhotographersListFiltered } from "./functions_index.js";
 
 /**********************************************Requête pour l'affichage de la liste de photographes********************************************************/
 
@@ -11,8 +11,8 @@ import {addPhotographersList, addPhotographersTags,showPhotographersListFiltred 
 
 
 
-/*chargement du fichier Json en locale*/
-const getHomePage= async (data) => {
+/*requête pour le contenu de la page d'accueil : liste des photographes*/
+const getPhotographersList= async (data) => {
     let response = await fetch("./JS/data.json")
     data = await response.json()
     .catch(function error (err) {
@@ -20,14 +20,35 @@ const getHomePage= async (data) => {
         alert(err);
     });
 
-    addPhotographersList();
-    addPhotographersTags();
-    showPhotographersListFiltred();
-  
-    
+    addPhotographersList();   
 }
+getPhotographersList();
 
-getHomePage();
+
+/*requête pour l'affichage des tags de chaque photographes*/
+const getPhotographersTags= async (data) => {
+    let response = await fetch("./JS/data.json")
+    data = await response.json()
+    .catch(function error (err) {
+        // Une erreur est survenue
+        alert(err);
+    });
+
+    addPhotographersTags();  
+}
+getPhotographersTags();
 
 
+
+/*requête pour le filtre de navigation et l'affichage de la liste des photographes filtrés*/
+const getMenuFilter= async (data) => {
+    let response = await fetch("./JS/data.json")
+    data = await response.json()
+    .catch(function error (err) {
+        // Une erreur est survenue
+        alert(err);
+    });
+    showPhotographersListFiltered();   
+}
+getMenuFilter();
 
