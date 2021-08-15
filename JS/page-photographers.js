@@ -1,15 +1,16 @@
 // import des constantes de DOM-constantes
-import { showPhotograph, titlePagePhotograph, works, worksFilter } from "./let-and-const_page-photographers.js"
-
+import { works, worksFilter } from "./let-and-const_page-photographers.js"
+import { addInfoOfPhotographer, showModal, addNameOnModal } from "./functions_page-photographers.js";
 import { getUrl_id } from "./variables.js";
 import { Lightbox } from "../LightBox/lightbox.js";
+import { photographersList } from "./let-and-const_index.js";
 
 
 
 
-const idPhotograph = async () => {
-    let response = await fetch("./JS/data.json")
-    let data = await response.json();
+const idPhotograph = async (data, response) => {
+    response = await fetch("./JS/data.json")
+    data = await response.json();
 
     let err = function (err) {
         // Une erreur est survenue
@@ -17,75 +18,19 @@ const idPhotograph = async () => {
     };
     err;
 
-    //on recupère la nodeliste des photographes dans le Json
-    const photographersList = data.photographers;
+//ajout des infos du photographes
+addInfoOfPhotographer();
 
-    // on extrait l id
-    let getId = getUrl_id.slice(4);
+//mise en service de la modale
+showModal();
 
-    //on modifie type de GetId string--> number
-    const newGetId = Number(getId);
-
-    
-    // on va rechercher dans le Json l'id correspondant à la variable newGetId avec la methode find
-    const photographSelected = photographersList.find((element) => element.id === newGetId);
-
-    /***********************************************ajout des informations du photographe************************************************************/
-
-    //on ajoute le contenu html avec les données de chaques photographes correspondant à l Id de l'url
-    showPhotograph.innerHTML +=
-        `<div id = "presentation ${photographSelected.id}">
-        <h1>${photographSelected.name}</h1>
-        <p>${photographSelected.city}, ${photographSelected.country}</p>
-        <p>${photographSelected.tagline}</p>
-        <ul id="tagsList${photographSelected.tags}"></ul>
-    </div>
-    <div id ="id-photo">
-        <img src="/Photos/gallery/Photographers-Photos/${photographSelected.portrait}">
-    </div>
-    `
-    let showTagsList = document.getElementById("tagsList" + photographSelected.tags);
-    photographSelected.tags.forEach(allTags => {
-        showTagsList.innerHTML +=
-            `<li class ="tags"><a class = "links" href="#"> #${allTags}</a></li>`
-    })
-
-    //ajout du nom du photographe en tant que titre de la page
-    titlePagePhotograph.innerHTML += photographSelected.name;
+//ajout du nom des photographes dans la modale 
+addNameOnModal();
 
     /**********************************************************************************************************************************************/
 
 
-    /*********************fonction ouverture/fermeture du formulaire + ajout du nom du photographe en dynamique******************************************/
-
-    const btnContact = document.getElementById("btn");
-    const modaleWindow = document.getElementById("modale");
-    const btnCloseModal = document.querySelector(".close");
-
-    //fonction affichage  du formulaire
-    function launchModal() {
-        modaleWindow.style.display = "block";
-    }
-
-    btnContact.addEventListener("click", launchModal);
-
-    //fonction fermeture du formulaire 
-    const closeModal = () => {
-        modaleWindow.style.display = "none";
-    }
-
-    btnCloseModal.addEventListener("click", closeModal);
-
-
-
-    //h2 : ajout nom du photographe dans le formulaire avec une boucle for
-    const titleName = document.getElementById("recipient-name");
-    for (let element of photographersList) {
-        if (element.id === newGetId) {
-            titleName.innerHTML = `Contactez-moi<br>${element.name}`;
-
-        }
-    }
+    
     /**********************************************************************************************************************************************/
 
 
@@ -288,19 +233,19 @@ const photographersWorks = async () => {
         </article>`
         }
     }
-  
-    
+
+
     /****************************************************partie compteur prix/jour********************************/
 
     //on recupere tous les prix et les likes du photographe associé et on les ajoute dans un tableau
     let totalPrice = [];
-    
+
     photographersList.forEach(value => {
         if (value.id === newGetId) {
             totalPrice.push(value.price);
         }
     });
-    
+
 
     let totalLikes = [];
     photographersMedia.forEach(value => {
@@ -309,7 +254,7 @@ const photographersWorks = async () => {
             totalLikes.push(value.likes);
         }
     });
-   
+
 
     //on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
     let priceOfPhotographers = 0;
@@ -329,7 +274,7 @@ const photographersWorks = async () => {
     <p>${priceOfPhotographers}€ / jour</p>
     </div>`
 
-  
+
     /***************************************************partie incrémentation au click des likes*******************/
 
 
@@ -346,17 +291,17 @@ const photographersWorks = async () => {
             likeCount++;
             console.log(likeCount)
 
-           nbLikes.innerHTML = likeCount;
+            nbLikes.innerHTML = likeCount;
 
         });
 
 
     })
 
-    
-   
+
+
     Lightbox.init();
-}   
+}
 
 
 photographersWorks();
