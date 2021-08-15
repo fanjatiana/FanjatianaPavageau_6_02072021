@@ -2,7 +2,7 @@
 import { showPhotograph, titlePagePhotograph, works, worksFilter } from "./DOM-constantes_page-photographers.js"
 
 import { getUrl_id } from "./variables.js";
-import { Lightbox } from "./lightbox.js";
+import { Lightbox } from "../LightBox/lightbox.js";
 
 
 

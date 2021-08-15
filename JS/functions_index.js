@@ -106,7 +106,7 @@ const listLinksA = document.querySelectorAll('.links-filter');
                 container.innerHTML +=
                     `<article id="${photograph.id}">
             <section class="photograph">
-                <a href="#">
+                <a id ="go-to-photograph-page" href="page-photographers.html?id-${photograph.id}">
                     <img src="/Photos/gallery/Photographers-Photos/${photograph.portrait}">
                     <h2>${photograph.name}</h2>
                 </a>
