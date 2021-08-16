@@ -1,9 +1,7 @@
 //export........ ;
-/*******************************formulaire*************************************** */
 
-export const btnContact = document.getElementById("btn");
-export const modaleWindow = document.getElementById("modale");
-export const btnCloseModal = document.querySelector(".close");
+
+
 //id de la balise title du fichier html : nom du photographe en titre de page html
 export const titlePagePhotograph = document.getElementById("photograph-name");
 
@@ -18,8 +16,7 @@ export const works = document.getElementById("works-list");
 
 
 
-
-
+ 
 
 
 

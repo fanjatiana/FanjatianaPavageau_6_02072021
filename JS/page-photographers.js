@@ -1,14 +1,14 @@
 // import des constantes de DOM-constantes
 import { works, worksFilter } from "./let-and-const_page-photographers.js"
-import { addInfoOfPhotographer, showModal, addNameOnModal } from "./functions_page-photographers.js";
+import { addInfoOfPhotographer, showModal,controlForm } from "./functions_showInfoPhotographer_page2.js";
 import { getUrl_id } from "./variables.js";
 import { Lightbox } from "../LightBox/lightbox.js";
 import { photographersList } from "./let-and-const_index.js";
 
 
 
-
-const idPhotograph = async (data, response) => {
+//requête pour afficher les infos du photographes et du formulaire de contact
+const showInfoPhotographer = async (data, response) => {
     response = await fetch("./JS/data.json")
     data = await response.json();
 
@@ -20,117 +20,13 @@ const idPhotograph = async (data, response) => {
 
 //ajout des infos du photographes
 addInfoOfPhotographer();
-
 //mise en service de la modale
 showModal();
-
-//ajout du nom des photographes dans la modale 
-addNameOnModal();
-
-    /**********************************************************************************************************************************************/
-
-
-    
-    /**********************************************************************************************************************************************/
-
-
-    /*************************************************controles de saisi du formulaire***************************************************************/
-
-
-    //variables regex
-    let regexNameAndLastName = /^[A-Za-z ,.'-]+$/i;
-    let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-
-    const infoGuest = document.querySelectorAll('.info-id');
-    const submitForm = document.getElementById("submit-form");
-    const infoEmail = document.getElementById("email");
-    const message = document.getElementById("yourmessage");
-
-    const controlInput = () => {
-        let count = 0;
-        infoGuest.forEach(info => {
-            if (info.validity.valueMissing) {
-                info.closest(".info-form").setAttribute("data-error", "Veuillez remplir le formulaire");
-                info.style.borderColor = "#f70707";
-
-            } else if (info.value.length < 2) {
-                info.closest(".info-form").setAttribute("data-error", "Veuillez entrer entre 2 et 30 caractères pour valider ce champ ");
-                info.style.borderColor = "#f70707";
-
-            } else if (!regexNameAndLastName.test(info.value)) {
-                info.closest(".info-form").setAttribute("data-error", " Ecrivez en miniscule ou majuscule , pas de nombre, seuls caractères autorisés: . - ' et espaces");
-                info.style.borderColor = "#f70707";
-
-
-            } else {
-                info.closest(".info-form").setAttribute("data-error", "");
-                info.style.borderColor = "";
-                count++
-            }
-        });
-        if (count == infoGuest.length) {
-            return true;
-        }
-    }
-
-    const controlEmail = () => {
-        if (infoEmail.validity.valueMissing) {
-            infoEmail.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
-            infoEmail.style.borderColor = "#f70707";
-
-        } else if (!regexEmail.test(infoEmail.value)) {
-            infoEmail.closest(".info-form").setAttribute("data-error", "Veuillez rentrer une adresse email valide (par exemple: monemail@yahoo.com");
-            infoEmail.style.borderColor = "#f70707";
-
-        } else {
-            infoEmail.closest(".info-form").setAttribute("data-error", "");
-            infoEmail.style.borderColor = "";
-            return true;
-        }
-
-    }
-
-    const controlMessage = () => {
-        if (message.value == "") {
-            message.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
-            message.style.borderColor = "#f70707";
-
-        } else {
-            message.closest(".info-form").setAttribute("data-error", "");
-            message.style.borderColor = "";
-            return true;
-        }
-    }
-    /************************************************************Envoie duformulaire******************************************************************/
-
-    /* on crée une fonction validation du formulaire, 
-    on annule les messages d'alerte par défaut */
-
-    const controlValidateForm = (event) => {
-        event.preventDefault();
-        /*on appelle toutes les fonctions*/
-        const inputValid = controlInput();
-        const emailValid = controlEmail();
-        const messageValid = controlMessage();
-
-        /*on verifie la validité de chaques input puis on ferme le modale si c'est "true" 
-        et enfin on  affiche un message de validation d'envoie du formulaire*/
-        if (inputValid && emailValid && messageValid) {
-            closeModal();
-        } else {
-            return false;
-        }
-    }
-
-
-    /*on cré un évènement au click sur le bouton submit avec la fonction validate  pour l'envoie du formulaire, 
-    et l'action par défaut du submit n'est pas exécuté tant que les valeurs sont : false*/
-    submitForm.addEventListener("click", controlValidateForm, (event) => {
-        event.preventDefault();
-    });
+//controle du formulaire    
+controlForm();
 
 }
-idPhotograph();
+showInfoPhotographer();
 
 
 
@@ -156,7 +52,7 @@ idPhotograph();
 
 
 
-
+//une requête pour afficher la gallerie du photographe
 
 const photographersWorks = async () => {
     let response = await fetch("./JS/data.json")
@@ -341,7 +237,7 @@ photographersWorks();
 
 
 
-
+//une requête pour le fonctionnement du filtre et l'affichage de la gallerie filtrée
 const navFilter = async () => {
     let response = await fetch("./JS/data.json")
     let data = await response.json();
