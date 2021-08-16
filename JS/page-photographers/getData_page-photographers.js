@@ -14,13 +14,11 @@ import { addMenuSortBy, showMediaByDate, showMediaByLikes, showMediaByABC} from 
 
 const getInfoPhotographer = async (data, response) => {
     response = await fetch("./JS/data.json")
-    data = await response.json();
-
-    let err = function (err) {
+    data = await response.json()
+    .catch(function error (err) {
         // Une erreur est survenue
         alert(err);
-    };
-    err;
+    });
 
 //ajout des informations sur le photographe
 addInfoOfPhotographer();
@@ -41,12 +39,11 @@ getInfoPhotographer();
 
 const getPhotographersWorks = async (data, response) => {
     response = await fetch("./JS/data.json")
-    data = await response.json();
-    let err = function (err) {
+    data = await response.json()
+    .catch(function error (err) {
         // Une erreur est survenue
         alert(err);
-    };
-    err;
+    });
 
 //fonction pour afficher les images dans la gallerie
 addImages();
@@ -73,12 +70,11 @@ getPhotographersWorks();
 
 const getNavFilter = async (data, response) => {
     response = await fetch("./JS/data.json")
-    data = await response.json();
-    let err = function (err) {
+    data = await response.json()
+    .catch(function error (err) {
         // Une erreur est survenue
         alert(err);
-    };
-    err;
+    });
 
 //ajout du menu déroulant : trier par
   addMenuSortBy();
