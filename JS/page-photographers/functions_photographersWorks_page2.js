@@ -4,7 +4,7 @@ import { photographersList } from "../page-index/let-and-const_index.js";
 
 
 //recupérer la liste des noms et prénoms des photographes dans le fichier json (photographers.name) puis découpage en 2 tableau et récupération des noms de familles avec la methode split
-let lastName = "";
+export let lastName = "";
 (function () {
     for (let namePhotograph of photographersList) {
         if (namePhotograph.id === newGetId) {

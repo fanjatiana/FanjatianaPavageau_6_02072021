@@ -19,8 +19,7 @@ export const works = document.getElementById("works-list");
 //on recherche l id dans l url
 export let getUrl_id = window.location.search;
 
-
-    //on recupère la nodeliste des medias des photographes dans le Json
+//on recupère la nodeliste des medias des photographes dans le Json
     export const photographersMedia = data.media;
 
  
