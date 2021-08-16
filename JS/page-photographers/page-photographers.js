@@ -1,9 +1,10 @@
 // import des constantes de DOM-constantes
 import { works, worksFilter,getUrl_id } from "./let-and-const_page-photographers.js"
-import { addInfoOfPhotographer, showModal,controlForm } from "./functions_showInfoPhotographer_page2.js";
+import { addInfoOfPhotographer, showModal,controlForm, } from "./functions_showInfoPhotographer_page2.js";
 import { Lightbox } from "./LightBox/lightbox.js";
 import {photographersList} from "../page-index/let-and-const_index.js";
-
+import { addCounterLiker, addImages,addVideo, incrementMediaLikes } from "./functions_photographersWorks_page2.js";
+import { newGetId } from "./functions_showInfoPhotographer_page2.js";
 
 
 //requête pour afficher les infos du photographes et du formulaire de contact
@@ -30,27 +31,6 @@ showInfoPhotographer();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //une requête pour afficher la gallerie du photographe
 
 const photographersWorks = async () => {
@@ -62,142 +42,22 @@ const photographersWorks = async () => {
     };
     err;
 
+//fonction pour afficher les images dans la gallerie
+addImages();
 
-    //on recupere la liste des photographes dans le data
-    let photographersList = data.photographers;
-
-    //on recupère la nodeliste des medias des photographes dans le Json
-    let photographersMedia = data.media;
-
-    /*********************pour recuperer l id des photographes*************************************/
-    //on extrait l id en supprimant les 4 premiers caractères
-    let getId = getUrl_id.slice(4);
-
-    //on modifie type de GetId string--> number
-    const newGetId = Number(getId);
-
-
+//fonction pour afficher la(les) video(s) dans la gallerie
+addVideo();
     /************************************************************************************ajout des articles******************************************************** */
+//fonction pour afficher le compteur de like    
+addCounterLiker();
 
-    //recupérer la liste des noms et prénoms des photographes dans le fichier json (photographers.name) puis découpage en 2 tableau et récupération des noms de familles avec la methode split
-    let lastName = "";
-    for (let namePhotograph of photographersList) {
-        if (namePhotograph.id === newGetId) {
-            let name = namePhotograph.name;
-            let nameCut = name.split(' ');
-            lastName = nameCut[1];
-        }
-    };
-
-    //ajout des images
-    for (let element of photographersMedia) {
-        if (element.photographerId === newGetId && element.image) {
-            works.innerHTML +=
-                `<article id ="${element.photographerId}">
-                    <div class = "gallery">
-                        <a href="./Photos/gallery/${lastName}/${element.image}">
-                            <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}">
-                        </a>
-                    </div>
-                    <div class="info_media">
-                        <h3>${element.title}</h3>
-                        <p class= "nb-likes">${element.likes}</p>
-                        <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
-                    </div>
-             </article>`
-        }
-    };
-
-    //ajout des vidéos
-    for (let info of photographersMedia) {
-        if (info.photographerId === newGetId && info.video) {
-            works.innerHTML +=
-                `<article id ="${info.photographerId}">
-            <div class="gallery">
-                <a href="./Photos/gallery/${lastName}/${info.video}">
-                    <video controls width="500">
-                        <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
-                    </video>
-                </a>
-            </div>
-            <div class="info_media">
-                <h3>${info.title}</h3>
-                <p class="nb-likes">${info.likes}</p>
-                <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
-            </div>   
-        </article>`
-        }
-    }
+//fonction pour afficher l'incrémentation des likes au clic des coeurs
+incrementMediaLikes();
 
 
-    /****************************************************partie compteur prix/jour********************************/
-
-    //on recupere tous les prix et les likes du photographe associé et on les ajoute dans un tableau
-    let totalPrice = [];
-
-    photographersList.forEach(value => {
-        if (value.id === newGetId) {
-            totalPrice.push(value.price);
-        }
-    });
-
-
-    let totalLikes = [];
-    photographersMedia.forEach(value => {
-        if (value.photographerId === newGetId) {
-
-            totalLikes.push(value.likes);
-        }
-    });
-
-
-    //on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
-    let priceOfPhotographers = 0;
-    for (let price = 0; price < totalPrice.length; price++) {
-        priceOfPhotographers += parseFloat(totalPrice[price])
-    }
-    //on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
-    let likesOfPhotographers = 0;
-    for (let nbLike = 0; nbLike < totalLikes.length; nbLike++) {
-        likesOfPhotographers += parseFloat(totalLikes[nbLike])
-    }
-
-    // ajout du bloc compteur de like
-    works.innerHTML +=
-        `<div id="like_counter">
-    <p id="total-likes">${likesOfPhotographers}<i class="fas fa-heart"></i></p>
-    <p>${priceOfPhotographers}€ / jour</p>
-    </div>`
-
-
-    /***************************************************partie incrémentation au click des likes*******************/
-
-
-    const buttonHearts = document.querySelectorAll(".likes_media");
-    const nbLikes = document.querySelectorAll(".nb-likes");
-
-
-    buttonHearts.forEach(heart => {
-
-        heart.addEventListener("click", function () {
-
-            let arrayValue = heart.previousElementSibling;
-            let likeCount = Number(arrayValue.innerText);
-            likeCount++;
-            console.log(likeCount)
-
-            nbLikes.innerHTML = likeCount;
-
-        });
-
-
-    })
-
-
-
-    Lightbox.init();
+//fonction pour afficher la lightBox
+Lightbox.init();
 }
-
 
 photographersWorks();
 

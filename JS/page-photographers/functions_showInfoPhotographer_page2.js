@@ -3,7 +3,7 @@
 
  
 // fonction pour récupérer l'id des photographes dans l'URL
- let newGetId = "";
+ export let newGetId = "";
  (function() {
       // on extrait l id
     let getId = getUrl_id.slice(4);

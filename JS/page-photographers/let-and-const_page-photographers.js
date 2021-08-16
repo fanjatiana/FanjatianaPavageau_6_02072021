@@ -1,5 +1,7 @@
 //export........ ;
-
+//fetch to Json
+let response = await fetch("./JS/data.json")
+let data = await response.json();
 
 
 //id de la balise title du fichier html : nom du photographe en titre de page html
@@ -16,6 +18,10 @@ export const works = document.getElementById("works-list");
 
 //on recherche l id dans l url
 export let getUrl_id = window.location.search;
+
+
+    //on recupère la nodeliste des medias des photographes dans le Json
+    export const photographersMedia = data.media;
 
  
 
