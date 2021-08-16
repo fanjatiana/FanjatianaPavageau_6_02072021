@@ -11,7 +11,14 @@ import {addPhotographersList, addPhotographersTags,showPhotographersListFiltered
 
 
 
-/*requête pour le contenu de la page d'accueil : liste des photographes*/
+
+
+
+/***********************************************************************************************************************/
+                    /*REQUETE POUR AFFICHER LE CONTENU DE LA PAGE D'ACCUEIL : LISTE DES PHOTOGRAPHES*/
+
+/***********************************************************************************************************************/
+
 const getPhotographersList= async (data, response) => {
     response = await fetch("./JS/data.json")
     data = await response.json()
@@ -25,7 +32,11 @@ const getPhotographersList= async (data, response) => {
 getPhotographersList();
 
 
-/*requête pour l'affichage des tags de chaque photographes*/
+/***********************************************************************************************************************/
+                    /*REQUETE POUR AFFICHER LES TAGS DE CHAQUE PHOTOGRAPHE*/
+
+/***********************************************************************************************************************/
+
 const getPhotographersTags= async (data, response) => {
     response = await fetch("./JS/data.json")
     data = await response.json()
@@ -39,8 +50,12 @@ const getPhotographersTags= async (data, response) => {
 getPhotographersTags();
 
 
+/***********************************************************************************************************************/
+                    /*REQUETE POUR LA MISE EN PLACE DU FILTRE DE NAVIGATION 
+                    ET POUR L'AFFICHAGE DE LA LISTE DES PHOTOGRAPHES FILTRES*/
 
-/*requête pour le filtre de navigation et l'affichage de la liste des photographes filtrés*/
+/***********************************************************************************************************************/
+
 const getMenuFilter= async (data, response) => {
     response = await fetch("./JS/data.json")
     data = await response.json()

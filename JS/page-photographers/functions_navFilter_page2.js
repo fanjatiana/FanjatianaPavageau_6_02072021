@@ -7,9 +7,9 @@ import { Lightbox } from "./LightBox/lightbox.js";
 export function addMenuSortBy() {
 
     //ajout du contenu html
-    (function(){
+    (function () {
         worksFilter.innerHTML +=
-        `<h2>Trier par</h2>
+            `<h2>Trier par</h2>
 <div id="list-filter">
 <div id="click-for-show" >
     <a href="" class = "by-popular">Popularité
@@ -23,7 +23,7 @@ export function addMenuSortBy() {
 <div>
 </div>`
     })();
-    
+
 
     const arrowDown = document.querySelector(".fa-chevron-down");
     const chevronUp = document.querySelector(".fa-chevron-up")
@@ -54,13 +54,13 @@ export function addMenuSortBy() {
 
 //fonction pour afficher les medias par date
 export function showMediaByDate() {
-    
+
     //fonction de trie des dates dans le fichier JSON
     function sortByDate() {
 
         let arrayDate = [];
         //fonction pour récuperer toutes les dates des médias correspondant à l id du photographe, et on les ajoute dans un tableau
-        (function(){
+        (function () {
             photographersMedia.forEach(valueDate => {
                 if (valueDate.photographerId === newGetId) {
                     //arrayDate.push(valueDate.date)
@@ -68,14 +68,14 @@ export function showMediaByDate() {
                 }
             });
         })();
-       
+
 
         //fonction pour organiser les médias du photographes en fonction des dates (de la plus récente à la plus ancienne)
-        function toOrderMediaByDate(){
+        function toOrderMediaByDate() {
             const date = e => e.date;
             let orderByDate = [];
             orderByDate = arrayDate.sort(date).reverse();
-    
+
             orderByDate.forEach(objet => {
                 //on affiche toutes les images liées à l'Id du photographe
                 if (objet.photographerId === newGetId && objet.image) {
@@ -127,23 +127,23 @@ export function showMediaByDate() {
 
 //fonction afficher les medias par likes
 export function showMediaByLikes() {
-    
+
     //fonction de trie des likes dans le fichier JSON
     const sortByLikes = () => {
         //fonction pour récuperer toutes les likes des médias correspondant à l id du photographe, et on les ajoute dans un tableau
         let arrayLikes = [];
-        (function(){
+        (function () {
             photographersMedia.forEach(nbLikes => {
                 if (nbLikes.photographerId === newGetId) {
                     arrayLikes.push(nbLikes);
                 }
             });
         })();
-        
-      
+
+
         //fonction pour organiser les médias du photographes en fonction des likes (ordre décroissant)
-        function orderMediaByPop(){
-            
+        function orderMediaByPop() {
+
             //fonction pour ranger les likes dans l'ordre décroissant
             const byLikes = (a, b) => {
                 return b.likes - a.likes
@@ -201,7 +201,7 @@ export function showMediaByLikes() {
 
 //fonction afficher les medias par ordre alphabétique
 export function showMediaByABC() {
-    
+
     //fonction de trie des titres dans le fichier JSON
     const sortByABC = () => {
         let arrayMediaTitle = [];
@@ -213,7 +213,7 @@ export function showMediaByABC() {
         });
 
         //fonction pour organiser les médias du photographes en fonction des titres (ordre alphabétique)
-        function toOrderMediaByABC(){
+        function toOrderMediaByABC() {
             let orderByTitle = arrayMediaTitle.sort(function compare(a, b) {
                 if (a.title < b.title)
                     return -1;
@@ -221,7 +221,7 @@ export function showMediaByABC() {
                     return 1;
                 return 0;
             });
-    
+
             orderByTitle.forEach(infoTitle => {
                 if (infoTitle.photographerId === newGetId && infoTitle.image) {
                     //on affiche toutes les images liées à l'Id du photographe

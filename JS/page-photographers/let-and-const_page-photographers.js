@@ -1,4 +1,4 @@
-//export........ ;
+
 //fetch to Json
 let response = await fetch("./JS/data.json")
 let data = await response.json();
@@ -20,7 +20,7 @@ export const works = document.getElementById("works-list");
 export let getUrl_id = window.location.search;
 
 //on recupère la nodeliste des medias des photographes dans le Json
-    export const photographersMedia = data.media;
+export const photographersMedia = data.media;
 
  
 

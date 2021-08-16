@@ -1,6 +1,6 @@
 import { photographersList,container } from "./let-and-const_index.js";
 
-
+//fonction pour ajouter la liste des photographes
 export function addPhotographersList() {
 
     /*boucle for pour ajouter les articles des photographes*/
@@ -33,7 +33,7 @@ export function addPhotographersList() {
     });
 }
 
-
+//fonction pour ajouter les tags de chaques photographes
 export function addPhotographersTags() {
     /*on cré un  tableau vide et on utilise des boucles pour rechercher et recupérer toute la liste des tags qu'on va ajouter dans ce tableau*/
     let tagsArray = [];
@@ -57,9 +57,7 @@ export function addPhotographersTags() {
 
 }
 
-
-
-
+//fonction pour filtrer et afficher la liste des photographes filtrée
 export function showPhotographersListFiltered() {
 /*on vient appliquer un addEventListener sur les liens de la navigation et on les relie à la fonction filtre, pour afficher les éléments filtrés*/
 const listLinksA = document.querySelectorAll('.links-filter');

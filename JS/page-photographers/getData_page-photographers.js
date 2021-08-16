@@ -12,7 +12,7 @@ import { addMenuSortBy, showMediaByDate, showMediaByLikes, showMediaByABC} from 
 
 /***********************************************************************************************************************/
 
-const showInfoPhotographer = async (data, response) => {
+const getInfoPhotographer = async (data, response) => {
     response = await fetch("./JS/data.json")
     data = await response.json();
 
@@ -30,7 +30,7 @@ showModal();
 controlForm();
 
 }
-showInfoPhotographer();
+getInfoPhotographer();
 
 
 /***********************************************************************************************************************/
@@ -39,7 +39,7 @@ showInfoPhotographer();
 /***********************************************************************************************************************/
 
 
-const showPhotographersWorks = async (data, response) => {
+const getPhotographersWorks = async (data, response) => {
     response = await fetch("./JS/data.json")
     data = await response.json();
     let err = function (err) {
@@ -64,14 +64,14 @@ incrementMediaLikes();
 Lightbox.init();
 
 }
-showPhotographersWorks();
+getPhotographersWorks();
 
 /***********************************************************************************************************************/
                     /*REQUETE POUR AFFICHER LE MENU DEROULANT ET LES MEDIAS FILTRES DU PHOTOGRAPHE*/
 
 /***********************************************************************************************************************/
 
-const navFilter = async (data, response) => {
+const getNavFilter = async (data, response) => {
     response = await fetch("./JS/data.json")
     data = await response.json();
     let err = function (err) {
@@ -91,7 +91,7 @@ showMediaByDate();
 showMediaByABC();
 
 }
-navFilter();
+getNavFilter();
 
 
 
