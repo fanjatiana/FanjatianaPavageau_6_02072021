@@ -1,6 +1,6 @@
- import { showPhotograph, titlePagePhotograph} from "./let-and-const_page-photographers.js";
- import { photographersList } from "./let-and-const_index.js";
- import {getUrl_id} from "./variables.js";
+ import { showPhotograph, titlePagePhotograph,getUrl_id} from "./let-and-const_page-photographers.js";
+ import {photographersList} from "../page-index/let-and-const_index.js";
+
  
 // fonction pour récupérer l'id des photographes dans l'URL
  let newGetId = "";

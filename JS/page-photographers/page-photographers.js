@@ -1,9 +1,8 @@
 // import des constantes de DOM-constantes
-import { works, worksFilter } from "./let-and-const_page-photographers.js"
+import { works, worksFilter,getUrl_id } from "./let-and-const_page-photographers.js"
 import { addInfoOfPhotographer, showModal,controlForm } from "./functions_showInfoPhotographer_page2.js";
-import { getUrl_id } from "./variables.js";
-import { Lightbox } from "../LightBox/lightbox.js";
-import { photographersList } from "./let-and-const_index.js";
+import { Lightbox } from "./LightBox/lightbox.js";
+import {photographersList} from "../page-index/let-and-const_index.js";
 
 
 
