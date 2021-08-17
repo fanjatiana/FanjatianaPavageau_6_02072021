@@ -76,11 +76,7 @@ export class Lightbox {
             this.url = url;
             video.controls = true;
             video.src = url;
-        }
-       
-        
-        
-       
+        }  
     }
 
    

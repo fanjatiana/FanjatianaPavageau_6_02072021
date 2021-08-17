@@ -8,7 +8,8 @@
         "tags": ["portrait", "events", "travel", "animals"],
         "tagline": "Voir le beau dans le quotidien",
         "price": 400,
-        "portrait": "MimiKeel.jpg"
+        "portrait": "MimiKeel.jpg",
+        "description": "portrait du photographe Mimi Keel" 
       },
       {
         "name": "Ellie-Rose Wilkens",
@@ -18,7 +19,8 @@
         "tags": ["sports", "architecture"],
         "tagline": "Capturer des compositions complexes",
         "price": 250,
-        "portrait": "EllieRoseWilkens.jpg"
+        "portrait": "EllieRoseWilkens.jpg",
+        "description": "Portrait du photographe Ellie-Rose Wilkens" 
       },
       {
         "name": "Tracy Galindo",
@@ -28,7 +30,8 @@
         "tags": ["art", "fashion", "events"],
         "tagline": "Photographe freelance",
         "price": 500,
-        "portrait": "TracyGalindo.jpg"
+        "portrait": "TracyGalindo.jpg",
+        "description": "Portrait en noir et blanc du photographe Tracy Galindo" 
       },
       {
         "name": "Nabeel Bradford",
@@ -38,7 +41,8 @@
         "tags": ["travel", "portrait"],
         "tagline": "Toujours aller de l'avant",
         "price": 350,
-        "portrait": "NabeelBradford.jpg"
+        "portrait": "NabeelBradford.jpg",
+        "description": "Photo du photographe Nabeel Bradford" 
       },
       {
         "name": "Rhode Dubois",
@@ -48,7 +52,8 @@
         "tags": ["sport", "fashion", "events", "animals"],
         "tagline": "Je crée des souvenirs",
         "price": 275,
-        "portrait": "RhodeDubois.jpg"
+        "portrait": "RhodeDubois.jpg",
+        "description": "Portrait du photographe Rhode Dubois" 
       },
       {
         "name": "Marcel Nikolic",
@@ -58,7 +63,8 @@
         "tags": ["travel", "architecture"],
         "tagline": "Toujours à la recherche de LA photo",
         "price": 300,
-        "portrait": "MarcelNikolic.jpg"
+        "portrait": "MarcelNikolic.jpg",
+        "description": "Portrait en noir et blanc du photographe Marcel Nikolic" 
       }
     ],
     "media": [
@@ -70,7 +76,8 @@
         "tags": ["fashion"],
         "likes": 62,
         "date": "2011-12-08",
-        "price": 55
+        "price": 55,
+        "description": "femme brune en tenue de survêtement jaune au bord de la mer"  
       },
       {
         "id": 8520927,
@@ -80,7 +87,8 @@
         "tags": ["fashion"],
         "likes": 11,
         "date": "2011-11-06",
-        "price": 55
+        "price": 55,
+        "description": "femme blonde en pantalon et top court avec des motifs sur le theme de la jungle, accroupie au milieu d'un pont" 
       },
       {
         "id": 9025895,
@@ -90,7 +98,8 @@
         "tags": ["fashion"],
         "likes": 72,
         "date": "2013-08-12",
-        "price": 55
+        "price": 55,
+        "description": "Photo d'une femme brune portant une tunique courte à rayures,qui pose devant un mur avec des losanges gris et blancs"
       },
       {
         "id": 9275938,
@@ -100,7 +109,8 @@
         "tags": ["events"],
         "likes": 69,
         "date": "2018-02-22",
-        "price": 55
+        "price": 55,
+        "description": "Photo d'une décoration de mariage dans un espace vert " 
       },
       {
         "id": 2053494,
@@ -110,7 +120,8 @@
         "tags": ["events"],
         "likes": 2,
         "date": "2020-05-25",
-        "price": 55
+        "price": 55,
+        "description": "Photo de jeunes mariés vue de dos, lors de la soirée nocturne éclairés par des cierges magiques" 
       },
       {
         "id": 7324238,
@@ -120,7 +131,8 @@
         "tags": ["events"],
         "likes": 33,
         "date": "2019-06-12",
-        "price": 55
+        "price": 55,
+        "description": "Photo d'une table avec au dessus un ballon d'anniversaire alluminium en forme de 18"
       },
       {
         "id": 8328953,
@@ -130,7 +142,9 @@
         "tags": ["art"],
         "likes": 24,
         "date": "2011-12-08",
-        "price": 100
+        "price": 100,
+        "description": "video d'une sculpture de cheval en bois" 
+       
       },
       {
         "id": 7502053,
@@ -140,7 +154,9 @@
         "tags": ["art"],
         "likes": 88,
         "date": "2007-05-07",
-        "price": 55
+        "price": 55,
+        "description": "Photo d'une peinture murale représentant un homme coloré en jaune et bleu derrière un triangle blanc" 
+        
       },
       {
         "id": 8523492,
@@ -150,7 +166,9 @@
         "tags": ["art"],
         "likes": 24,
         "date": "2018-05-05",
-        "price": 55
+        "price": 55,
+        "description": "Photo d'un couloir avec des graffitis colorés" 
+       
       },
       {
         "id": 75902334,
@@ -160,7 +178,8 @@
         "tags": ["art"],
         "likes": 75,
         "date": "2019-11-25",
-        "price": 55
+        "price": 55,
+        "description": "Photo d'une peinture murale représentant des pigeons bleus et rouges" 
       },
   
       {
@@ -171,7 +190,8 @@
         "tags": ["sport"],
         "likes": 52,
         "date": "2013-02-30",
-        "price": 70
+        "price": 70,
+        "description": "Photo vue de haut de 4 hommes entrain de ramer sur un bateau" 
       },
       {
         "id": 92758372,
@@ -181,7 +201,8 @@
         "tags": ["fashion"],
         "likes": 58,
         "date": "2018-07-17",
-        "price": 70
+        "price": 70,
+        "description": "Photo d'un homme albinos et d'une femme noire, dans une pose artistique" 
       },
       {
         "id": 32958383,
@@ -191,7 +212,7 @@
         "tags": ["fashion"],
         "likes": 11,
         "date": "2019-08-12",
-        "price": 70
+        "description": "Photo d'une femme noire vêtue d'une robe rouge descendant des escaliers, à l'extérieur" 
       },
       {
         "id": 928587383,
@@ -201,7 +222,9 @@
         "tags": ["events"],
         "likes": 2,
         "date": "2019-01-02",
-        "price": 70
+        "price": 70,
+        "description": "Photo d'une réunion d'entreprise, dans un bureau au décor blanc épuré" 
+
       },
       {
         "id": 725639493,
@@ -211,7 +234,8 @@
         "tags": ["events"],
         "likes": 3,
         "date": "2019-05-20",
-        "price": 70
+        "price": 70,
+        "description": "Photo d'un homme animant une conférence, dans un local style industriel" 
       },
       {
         "id": 23394384,
@@ -221,7 +245,8 @@
         "tags": ["events"],
         "likes": 52,
         "date": "2019-07-18",
-        "price": 70
+        "price": 70,
+        "description": "Photo en noir et blanc d'une femme  jouant du piano électrique, en festival " 
       },
       {
         "id": 87367293,
@@ -231,7 +256,8 @@
         "tags": ["events"],
         "likes": 23,
         "date": "2018-02-22",
-        "price": 70
+        "price": 70,
+        "description": "Photo d'une chanteuse sur scene en festival" 
       },
       {
         "id": 593834784,
@@ -241,7 +267,8 @@
         "tags": ["animals"],
         "likes": 52,
         "date": "2017-03-13",
-        "price": 70
+        "price": 70,
+        "description": "Photo d'un cerf" 
       },
       {
         "id": 83958935,
@@ -251,7 +278,8 @@
         "tags": ["animals"],
         "likes": 52,
         "date": "2016-06-12",
-        "price": 70
+        "price": 70,
+        "description": "Photo d'un chiot jouant sur la plage devant un coucher de soleil" 
       },
   
       {
@@ -262,7 +290,8 @@
         "tags": ["travel"],
         "likes": 23,
         "date": "2017-03-18",
-        "price": 45
+        "price": 45,
+        "description": "video vue du ciel, d'une montagne rocheuse" 
       },
       {
         "id": 343423425,
@@ -272,7 +301,8 @@
         "tags": ["travel"],
         "likes": 101,
         "date": "2017-04-03",
-        "price": 45
+        "price": 45,
+        "description": "photo de baigneurs dans une source chaude " 
       },
       {
         "id": 73434243,
@@ -282,7 +312,8 @@
         "tags": ["travel"],
         "likes": 99,
         "date": "2018-04-30",
-        "price": 45
+        "price": 45,
+        "description": "Photo d'une route qui serpente un paysage vallonné " 
       },
       {
         "id": 23425523,
@@ -292,7 +323,8 @@
         "tags": ["travel"],
         "likes": 34,
         "date": "2016-04-05",
-        "price": 45
+        "price": 45,
+        "description": "Photo d'un pont situé en forêt" 
       },
       {
         "id": 23134513,
@@ -302,7 +334,8 @@
         "tags": ["travel"],
         "likes": 23,
         "date": "2017-03-18",
-        "price": 45
+        "price": 45,
+        "description": "Photo d'un bateau flottant sur un lac avec vue sur la foret et des montagnes" 
       },
       {
         "id": 92352352,
@@ -312,7 +345,8 @@
         "tags": ["portrait"],
         "likes": 66,
         "date": "2018-05-24",
-        "price": 45
+        "price": 45,
+        "description": "Portrait d'une femme rousse souriante" 
       },
       {
         "id": 34513453,
@@ -322,7 +356,8 @@
         "tags": ["portait"],
         "likes": 52,
         "date": "2017-04-21",
-        "price": 45
+        "price": 45,
+        "description": "Portrait en noir et blanc d'une homme.Seuls son visage et son cou sont visibles" 
       },
       {
         "id": 23523533,
@@ -332,7 +367,8 @@
         "tags": ["portait"],
         "likes": 95,
         "date": "2018-11-02",
-        "price": 45
+        "price": 45,
+        "description": "Portrait d'une jeune femme noire aux cheveux blancs" 
       },
       {
         "id": 525834234,
@@ -342,7 +378,8 @@
         "tags": ["portait"],
         "likes": 25,
         "date": "2019-01-02",
-        "price": 45
+        "price": 45,
+        "description": "Portrait d'une homme agé" 
       },
   
       {
@@ -353,7 +390,8 @@
         "tags": ["travel"],
         "likes": 88,
         "date": "2019-02-03",
-        "price": 45
+        "price": 45,
+        "description": "Photo vue de loin d'un randonneur en haut d'une montagne" 
       },
       {
         "id": 625025343,
@@ -363,7 +401,8 @@
         "tags": ["travel"],
         "likes": 85,
         "date": "2019-04-03",
-        "price": 45
+        "price": 45,
+        "description": "Photo d'une ville aux maisons colorées, au bord de la mer" 
       },
       {
         "id": 2525345343,
@@ -373,7 +412,8 @@
         "tags": ["portait"],
         "likes": 34,
         "date": "2019-04-07",
-        "price": 45
+        "price": 45,
+        "description": "Portrait en noir et blanc d'une petite fille faisant une grimace" 
       },
       {
         "id": 2523434634,
@@ -383,7 +423,8 @@
         "tags": ["portait"],
         "likes": 63,
         "date": "2019-04-07",
-        "price": 45
+        "price": 45,
+        "description": "Portrait d'une femme noire aux cheveux courts et lunette " 
       },
       {
         "id": 398847109,
@@ -393,7 +434,8 @@
         "tags": ["portait"],
         "likes": 55,
         "date": "2019-06-20",
-        "price": 45
+        "price": 45,
+        "description": "Portrait en noir et blanc d'une femme, dont seuls le visage et le cou sont visibles" 
       },
       {
         "id": 2534342,
@@ -403,7 +445,8 @@
         "tags": ["events"],
         "likes": 25,
         "date": "2019-06-21",
-        "price": 45
+        "price": 45,
+        "description": "Photo d'une table de mariage décorée sur une plage" 
       },
       {
         "id": 65235234,
@@ -413,7 +456,8 @@
         "tags": ["events"],
         "likes": 52,
         "date": "2019-06-25",
-        "price": 45
+        "price": 45,
+        "description": "Photo de mariage en pleine nature" 
       },
       {
         "id": 23523434,
@@ -423,7 +467,8 @@
         "tags": ["events"],
         "likes": 77,
         "date": "2019-06-28",
-        "price": 45
+        "price": 45,
+        "description": "Photo de mariés sous les arbres, éclairés par des girlandes" 
       },
       {
         "id": 5234343,
@@ -433,7 +478,8 @@
         "tags": ["animals"],
         "likes": 142,
         "date": "2019-08-23",
-        "price": 60
+        "price": 60,
+        "description": "video de chevaux sauvages" 
       },
       {
         "id": 95234343,
@@ -443,7 +489,8 @@
         "tags": ["animals"],
         "likes": 59,
         "date": "2019-07-02",
-        "price": 60
+        "price": 60,
+        "description": "Photo d'un oiseau coloré, posé sur une branche" 
       },
   
       {
@@ -454,7 +501,8 @@
         "tags": ["travel"],
         "likes": 25,
         "date": "2019-04-03",
-        "price": 60
+        "price": 60,
+        "description": "Photo de deux japonaises en kimono dans un quartier traditionnel" 
       },
       {
         "id": 2523434,
@@ -464,7 +512,8 @@
         "tags": ["travel"],
         "likes": 53,
         "date": "2019-05-06",
-        "price": 60
+        "price": 60,
+        "description": "Photo d'une barque à Venise" 
       },
       {
         "id": 95293534,
@@ -474,7 +523,8 @@
         "tags": ["travel"],
         "likes": 33,
         "date": "2019-05-12",
-        "price": 60
+        "price": 60,
+        "description": "Photo d'un lac avec les montagnes en arrière plan" 
       },
       {
         "id": 356234343,
@@ -484,7 +534,8 @@
         "tags": ["travel"],
         "likes": 53,
         "date": "2019-06-20",
-        "price": 60
+        "price": 60,
+        "description": "Photo d'un vélo garé à coté d'un escalier extérieur,à Paris" 
       },
       {
         "id": 235234343,
@@ -494,7 +545,8 @@
         "tags": ["travel"],
         "likes": 63,
         "date": "2019-06-26",
-        "price": 60
+        "price": 60,
+        "description": "Photo d'une vue d'une ville depuis l'intérieur d'un monument indien " 
       },
       {
         "id": 6234234343,
@@ -504,7 +556,8 @@
         "tags": ["architecture"],
         "likes": 52,
         "date": "2019-06-30",
-        "price": 60
+        "price": 60,
+        "description": "Photo d'un monument de St Petersburg" 
       },
       {
         "id": 6525666253,
@@ -514,7 +567,8 @@
         "tags": ["architecture"],
         "likes": 63,
         "date": "2019-07-20",
-        "price": 60
+        "price": 60,
+        "description": "Photo d'un village au Tibet" 
       },
       {
         "id": 98252523433,
@@ -524,7 +578,8 @@
         "tags": ["architecture"],
         "likes": 88,
         "date": "2020-01-05",
-        "price": 60
+        "price": 60,
+        "description": "Photo de la tour de pizz, en Italie" 
       },
       {
         "id": 9259398453,
@@ -534,7 +589,9 @@
         "tags": ["architecture"],
         "likes": 57,
         "date": "2020-01-20",
-        "price": 65
+        "price": 65,
+        "description": "video vue du ciel de l'autoroute de Buenos Aires " 
+      
       },
       {
         "id": 3523523534,
@@ -544,7 +601,8 @@
         "tags": ["architecture"],
         "likes": 54,
         "date": "2020-05-05",
-        "price": 60
+        "price": 60,
+        "description": "Photo de l'angle d'un building, sous un ciel bleu" 
       },
   
       {
@@ -555,7 +613,9 @@
         "tags": ["sport"],
         "likes": 150,
         "date": "2018-02-30",
-        "price": 70
+        "price": 70,
+        "description": "video d'une danseuse aérienne " 
+       
       },
       {
         "id": 235234343,
@@ -565,7 +625,9 @@
         "tags": ["sport"],
         "likes": 101,
         "date": "2018-03-05",
-        "price": 65
+        "price": 65,
+        "description": "Photo d'une femme escaladant une montagne" 
+       
       },
       {
         "id": 235343222,
@@ -575,7 +637,9 @@
         "tags": ["sport"],
         "likes": 103,
         "date": "2018-03-10",
-        "price": 70
+        "price": 70,
+        "description": "Photo d'un homme surfant dans un tube" 
+
       },
       {
         "id": 7775342343,
@@ -585,7 +649,8 @@
         "tags": ["sport"],
         "likes": 77,
         "date": "2018-04-16",
-        "price": 50
+        "price": 50,
+        "description": "Photo d'un skieur effectuant un saut" 
       },
       {
         "id": 9253445784,
@@ -595,7 +660,8 @@
         "tags": ["sport"],
         "likes": 88,
         "date": "2018-04-22",
-        "price": 65
+        "price": 65,
+        "description": "Photo d'un groupe féminin en compétition d'athlétisme" 
       },
       {
         "id": 22299394,
@@ -605,7 +671,8 @@
         "tags": ["sport"],
         "likes": 95,
         "date": "2018-04-27",
-        "price": 70
+        "price": 70,
+        "description": "Photo de jeunes skateurs effectuant des figures dans un skate Park" 
       },
       {
         "id": 3452342633,
@@ -615,7 +682,8 @@
         "tags": ["architecture"],
         "likes": 52,
         "date": "2018-05-03",
-        "price": 75
+        "price": 75,
+        "description": "Photo de l'intérieur d'un monument tout blanc, avec une vue du dessous d'un toit en verre" 
       },
       {
         "id": 939234243,
@@ -625,7 +693,8 @@
         "tags": ["architecture"],
         "likes": 55,
         "date": "2018-05-10",
-        "price": 72
+        "price": 72,
+        "description": "Photo d'un bassin au dessus d'un building au formes artistiques" 
       },
       {
         "id": 222959233,
@@ -635,7 +704,8 @@
         "tags": ["architecture"],
         "likes": 85,
         "date": "2018-05-15",
-        "price": 71
+        "price": 71,
+        "description": "Photo vue du dessous en noir et blanc d'une architecture aux formes artistiques" 
       },
       {
         "id": 965933434,
@@ -645,7 +715,8 @@
         "tags": ["architecture"],
         "likes": 66,
         "date": "2018-05-20",
-        "price": 58
+        "price": 58,
+        "description": "Photo vue du dessous d'une architecture " 
       },
       {
         "id": 777723343,
@@ -655,7 +726,9 @@
         "tags": ["architecture"],
         "likes": 79,
         "date": "2018-05-21",
-        "price": 80
+        "price": 80,
+        "description": "Photo d'une architecture aux formes courbées" 
+
       }
     ]
   }
