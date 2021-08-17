@@ -10,7 +10,7 @@ export function addPhotographersList() {
             `<article id="${element.id}">
            <section class="photograph">
                <a id ="go-to-photograph-page" href="page-photographers.html?id-${element.id}">
-                   <img src="/Photos/gallery/Photographers-Photos/${element.portrait}">
+                   <img src="/Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
                    <h2>${element.name}</h2>
                </a>
            </section>
@@ -85,7 +85,7 @@ const listLinksA = document.querySelectorAll('.links-filter');
                     `<article id="${photograph.id}">
             <section class="photograph">
                 <a id ="photographersFiltered-to-photograph-page" href="page-photographers.html?id-${photograph.id}">
-                    <img src="/Photos/gallery/Photographers-Photos/${photograph.portrait}">
+                    <img src="/Photos/gallery/Photographers-Photos/${photograph.portrait}" alt="${photograph.description}">
                     <h2>${photograph.name}</h2>
                 </a>
             </section>

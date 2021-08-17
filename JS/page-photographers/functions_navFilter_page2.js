@@ -83,7 +83,7 @@ export function showMediaByDate() {
                         `<article id ="${objet.photographerId}">
                         <div class = "gallery">
                             <a href="./Photos/gallery/${lastName}/${objet.image}">
-                                <img class="pictures-list" src = "./Photos/gallery/${lastName}/${objet.image}">
+                                <img class="pictures-list" src = "./Photos/gallery/${lastName}/${objet.image}" alt ="${objet.description}">
                             </a>    
                         </div>
                         <div class="info_media">
@@ -157,7 +157,7 @@ export function showMediaByLikes() {
                         `<article id ="${valueLikes.photographerId}">
                     <div class = "gallery">
                         <a href="./Photos/gallery/${lastName}/${valueLikes.image}">
-                            <img class="pictures-list" src = "./Photos/gallery/${lastName}/${valueLikes.image}">
+                            <img class="pictures-list" src = "./Photos/gallery/${lastName}/${valueLikes.image}" alt ="${valueLikes.description}">
                         </a>
                     </div>
                     <div class="info_media">
@@ -229,7 +229,7 @@ export function showMediaByABC() {
                         `<article id ="${infoTitle.photographerId}">
                         <div class = "gallery">
                             <a href="./Photos/gallery/${lastName}/${infoTitle.image}">
-                                <img class="pictures-list" src = "./Photos/gallery/${lastName}/${infoTitle.image}">
+                                <img class="pictures-list" src = "./Photos/gallery/${lastName}/${infoTitle.image}"alt ="${infoTitle.description}">
                             </a>
                                 </div>
                         <div class="info_media">

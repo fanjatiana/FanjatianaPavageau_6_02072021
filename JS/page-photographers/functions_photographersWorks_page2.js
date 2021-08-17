@@ -25,7 +25,7 @@ export function addImages() {
                 `<article id ="${element.photographerId}">
                     <div class = "gallery">
                         <a href="./Photos/gallery/${lastName}/${element.image}">
-                            <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}">
+                            <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}" alt ="${element.description}">
                         </a>
                     </div>
                     <div class="info_media">

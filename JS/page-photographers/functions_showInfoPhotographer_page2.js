@@ -28,7 +28,7 @@ export function addInfoOfPhotographer() {
                     <ul id="tagsList${element.tags}"></ul>
                 </div>
                 <div id ="id-photo">
-                    <img src="/Photos/gallery/Photographers-Photos/${element.portrait}">
+                    <img src="/Photos/gallery/Photographers-Photos/${element.portrait}"alt ="${element.description}">
                 </div>`
             let showTagsList = document.getElementById("tagsList" + element.tags);
             element.tags.forEach(allTags => {

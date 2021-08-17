@@ -9,7 +9,7 @@
         "tagline": "Voir le beau dans le quotidien",
         "price": 400,
         "portrait": "MimiKeel.jpg",
-        "description": "portrait du photographe Mimi Keel" 
+        "description": "Portrait du photographe Mimi Keel" 
       },
       {
         "name": "Ellie-Rose Wilkens",
@@ -77,7 +77,7 @@
         "likes": 62,
         "date": "2011-12-08",
         "price": 55,
-        "description": "femme brune en tenue de survêtement jaune au bord de la mer"  
+        "description": "Photo d'une femme brune en tenue de survêtement jaune au bord de la mer"  
       },
       {
         "id": 8520927,
@@ -88,7 +88,7 @@
         "likes": 11,
         "date": "2011-11-06",
         "price": 55,
-        "description": "femme blonde en pantalon et top court avec des motifs sur le theme de la jungle, accroupie au milieu d'un pont" 
+        "description": "Photo d'une femme blonde vêtue de motifs sur le theme de la jungle, accroupie au milieu d'un pont" 
       },
       {
         "id": 9025895,
@@ -143,7 +143,7 @@
         "likes": 24,
         "date": "2011-12-08",
         "price": 100,
-        "description": "video d'une sculpture de cheval en bois" 
+        "description": "Vidéo d'une sculpture de cheval en bois" 
        
       },
       {
@@ -291,7 +291,7 @@
         "likes": 23,
         "date": "2017-03-18",
         "price": 45,
-        "description": "video vue du ciel, d'une montagne rocheuse" 
+        "description": "Vidéo vue du ciel, d'une montagne rocheuse" 
       },
       {
         "id": 343423425,
@@ -302,7 +302,7 @@
         "likes": 101,
         "date": "2017-04-03",
         "price": 45,
-        "description": "photo de baigneurs dans une source chaude " 
+        "description": "Photo de baigneurs dans une source chaude " 
       },
       {
         "id": 73434243,
@@ -479,7 +479,7 @@
         "likes": 142,
         "date": "2019-08-23",
         "price": 60,
-        "description": "video de chevaux sauvages" 
+        "description": "Vidéo de chevaux sauvages" 
       },
       {
         "id": 95234343,
@@ -590,7 +590,7 @@
         "likes": 57,
         "date": "2020-01-20",
         "price": 65,
-        "description": "video vue du ciel de l'autoroute de Buenos Aires " 
+        "description": "Video vue du ciel de l'autoroute de Buenos Aires " 
       
       },
       {
@@ -614,7 +614,7 @@
         "likes": 150,
         "date": "2018-02-30",
         "price": 70,
-        "description": "video d'une danseuse aérienne " 
+        "description": "Video d'une danseuse aérienne " 
        
       },
       {
