@@ -42,7 +42,7 @@ export class Lightbox {
     constructor(url, images) {
         this.element = this.buildDOM(url);
         this.images = images;
-        this.loadImage(url);
+        this.loadMedia(url);
         this.onKeyUp = this.onKeyUp.bind(this);
         document.body.appendChild(this.element);
         disableBodyScroll(this.element);
@@ -55,26 +55,26 @@ export class Lightbox {
     * @param {string} url URL de l'image 
     */
 
-    loadImage(url) {
+    loadMedia(url) {
 
-        this.url = null
-        const container = this.element.querySelector(".lightbox__container");
        
-        if(".jpg") {
+       
+        if(url.includes(".jpg")) {
+            this.url = null
+            const container = this.element.querySelector(".lightbox__container");
             container.innerHTML = "";
             const image = new Image();
-            image.onload = () => {
-                container.appendChild(image);
-                this.url = url;
-            }
+            this.url = url;
+            container.appendChild(image);
             image.src = url;
-        } else if (".mp4"){
-            container.innerHTML = "";
+        }    
+        if (url.includes(".mp4")){
             const video = document.createElement("video");
-            video.onload = () => {
-                container.appendChild(video);
-                this.url = url;
-            }
+            const container = this.element.querySelector(".lightbox__container");
+            container.innerHTML = "";
+            container.appendChild(video);
+            this.url = url;
+            video.controls = true;
             video.src = url;
         }
        
