@@ -111,7 +111,7 @@ const listLinksA = document.querySelectorAll('.links-filter');
 
 }
 
-export function backToMain (){
+export function goToMain (){
 const  body = document.querySelector("body");
 console.log(body)
 
@@ -125,15 +125,11 @@ console.log(body)
 
     function showLinksGoToMain (){
         const divGoToContent = document.getElementById("go-to-content");
-        const linkGotToContent = document.querySelector(".link_go-to-content");
-        console.log(linkGotToContent);
-        
-        console.log(divGoToContent)
-
         body.onscroll = function() {
             divGoToContent.style.display = "block";
           };
-    }
-
-    showLinksGoToMain();
+      
 }
+showLinksGoToMain();
+}
+

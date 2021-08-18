@@ -32,10 +32,37 @@ body ul {
   padding: 5px;
   border-radius: 5px;
   display: none;
+  z-index: 10000;
+  -webkit-animation-name: linkOpen;
+          animation-name: linkOpen;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
 }
 
 #go-to-content > a {
   color: #000;
+}
+
+@-webkit-keyframes linkOpen {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes linkOpen {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*header*/
