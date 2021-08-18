@@ -4,7 +4,15 @@ import { getUrl_tag } from "../page-photographers/let-and-const_page-photographe
 
 //fonction pour ajouter la liste des photographes
 export function addPhotographersList() {
+    let getTag = "";
+    (function () {
+        // on extrait l id
+        getTag = getUrl_tag.slice(6);
 
+
+    })();
+
+    if (getTag === ""){
     /*boucle for pour ajouter les articles des photographes*/
     photographersList.forEach(element => {
         /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
@@ -33,6 +41,43 @@ export function addPhotographersList() {
                 ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
         })
     });
+   }else{
+    container.innerHTML = "";
+    /*boucle for pour ajouter les articles des photographes*/
+    photographersList.forEach(element => {
+        console.log(element.tags)
+        if (element.tags.includes(getTag)) {
+
+            /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
+            container.innerHTML +=
+                `<article id="${element.id}">
+       <section class="photograph">
+           <a id ="go-to-photograph-page" href="page-photographers.html?id-${element.id}">
+               <img src="/Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
+               <h2>${element.name}</h2>
+           </a>
+       </section>
+       <section class="infos-photograph">
+           <p>${element.country}, ${element.city}</p>
+           <p>${element.tagline}</p>
+           <p>${element.price}€/jour</p>
+       </section>
+       <section class="tag-links">
+           <ul id="tagList${element.tags}"></ul>
+       </section>
+   </article>`;
+
+            /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
+            let listOfTags = document.getElementById("tagList" + element.tags);
+            element.tags.forEach(photographersTags => {
+                listOfTags.innerHTML +=
+                    ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
+            })
+        }
+
+    });
+}
+
 }
 
 //fonction pour ajouter les tags de chaques photographes
@@ -149,52 +194,4 @@ export function goToMain() {
     }
     showLinksGoToMain();
 }
-
-export function showTagsSelected() {
-
-    let getTag = "";
-    (function () {
-        // on extrait l id
-        getTag = getUrl_tag.slice(6);
-
-
-    })();
-    container.innerHTML = "";
-    /*boucle for pour ajouter les articles des photographes*/
-    photographersList.forEach(element => {
-        console.log(element.tags)
-        if (element.tags.includes(getTag)) {
-
-            /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
-            container.innerHTML +=
-                `<article id="${element.id}">
-       <section class="photograph">
-           <a id ="go-to-photograph-page" href="page-photographers.html?id-${element.id}">
-               <img src="/Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
-               <h2>${element.name}</h2>
-           </a>
-       </section>
-       <section class="infos-photograph">
-           <p>${element.country}, ${element.city}</p>
-           <p>${element.tagline}</p>
-           <p>${element.price}€/jour</p>
-       </section>
-       <section class="tag-links">
-           <ul id="tagList${element.tags}"></ul>
-       </section>
-   </article>`;
-
-            /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
-            let listOfTags = document.getElementById("tagList" + element.tags);
-            element.tags.forEach(photographersTags => {
-                listOfTags.innerHTML +=
-                    ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
-            })
-        }
-
-    });
-
-
-}
-
 

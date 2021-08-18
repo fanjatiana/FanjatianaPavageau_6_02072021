@@ -1,5 +1,5 @@
 import {addPhotographersList, addPhotographersTags,showPhotographersListFiltered } from "./functions_index.js";
-import { showTagsSelected } from "./functions_index.js";
+//import { showTagsSelected } from "./functions_index.js";
 
 /**********************************************Requête pour l'affichage de la liste de photographes********************************************************/
 
@@ -35,7 +35,7 @@ const getPhotographersList= async (data, response) => {
 getPhotographersList();
 
 
-const getShowSelectionPage2= async (data, response) => {
+/*const getShowSelectionPage2= async (data, response) => {
     response = await fetch("./JS/data.json")
     data = await response.json()
     .catch(function error (err) {
@@ -46,7 +46,7 @@ const getShowSelectionPage2= async (data, response) => {
     showTagsSelected();
    
 }
-getShowSelectionPage2();
+getShowSelectionPage2();*/
 
 
 /***********************************************************************************************************************/
