@@ -60,7 +60,7 @@ export function addPhotographersTags() {
 //fonction pour filtrer et afficher la liste des photographes filtrée
 export function showPhotographersListFiltered() {
 /*on vient appliquer un addEventListener sur les liens de la navigation et on les relie à la fonction filtre, pour afficher les éléments filtrés*/
-const listLinksA = document.querySelectorAll('.links-filter');
+const listLinksA = document.querySelectorAll('.links');
         (function(){
             listLinksA.forEach(navLinks => {
                 let filter = navLinks.innerHTML.replace("#", "");
@@ -107,10 +107,25 @@ const listLinksA = document.querySelectorAll('.links-filter');
                 })
             }
         })
+
+
+        const listLinksAFilter = document.querySelectorAll('.links');
+        (function(){
+            listLinksAFilter.forEach(navLinks => {
+                let resultFilter = navLinks.innerHTML.replace("#", "");
+                navLinks.addEventListener('click', event => {
+                    addNavFilter(resultFilter)
+                    event.preventDefault();
+                })
+            });
+        })(); 
+
     }
 
 }
 
+
+//reste à appeler cette fonction dans getData_index et faire fonctionner les filtres
 export function goToMain (){
 const  body = document.querySelector("body");
 console.log(body)
