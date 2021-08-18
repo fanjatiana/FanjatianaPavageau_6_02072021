@@ -92,6 +92,18 @@ getNavFilter();
 
 
 
+/*const getShowSelectionPage2= async (data, response) => {
+    response = await fetch("./JS/data.json")
+    data = await response.json()
+    .catch(function error (err) {
+        // Une erreur est survenue
+        alert(err);
+    });  
+   
+    showTagsSelected();
+   
+}
+getShowSelectionPage2();*/
 
 
 

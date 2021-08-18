@@ -1,5 +1,6 @@
 import { photographersList, container } from "./let-and-const_index.js";
 import { getUrl_tag } from "../page-photographers/let-and-const_page-photographers.js";
+//import { taglinksOfThisPhotographer } from "../page-photographers/functions_showInfoPhotographer_page2.js";
 
 //fonction pour ajouter la liste des photographes
 export function addPhotographersList() {
@@ -158,7 +159,7 @@ export function showTagsSelected() {
 
 
     })();
-    window.onload = container.innerHTML = "";
+    container.innerHTML = "";
     /*boucle for pour ajouter les articles des photographes*/
     photographersList.forEach(element => {
         console.log(element.tags)
@@ -195,3 +196,5 @@ export function showTagsSelected() {
 
 
 }
+
+
