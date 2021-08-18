@@ -1,4 +1,4 @@
-import { showPhotograph, titlePagePhotograph, getUrl_id } from "./let-and-const_page-photographers.js";
+import { showPhotograph, titlePagePhotograph, getUrl_id, getUrl_tag } from "./let-and-const_page-photographers.js";
 import { photographersList } from "../page-index/let-and-const_index.js";
 
 
@@ -33,23 +33,28 @@ export function addInfoOfPhotographer() {
             let showTagsList = document.getElementById("tagsList" + element.tags);
             element.tags.forEach(allTags => {
                 showTagsList.innerHTML +=
-                    `<li class ="tags"><a class = "links" href="#"> #${allTags}</a></li>`
+                    `<li class ="tags"><a class = "links" href="index.html?tags-${allTags}"> #${allTags}</a></li>`
             })
 
+            
 
              //évènement au click des tags de la liste des photographe pour affocher la liste des photographes filtrés en fonction du theme choisi
-        const taglinksOfThisPhotographer = document.querySelectorAll('.links');
+            
+             
+      /* const taglinksOfThisPhotographer = document.querySelectorAll('.links');
         console.log(taglinksOfThisPhotographer);
         (function(){
             taglinksOfThisPhotographer.forEach(navLinks => {
                 //let resultFilter = navLinks.innerHTML.replace("#", "");
                 navLinks.addEventListener('click', event => {
-                    window.location.assign("index.html");
+                    
+                    showTagsSelected()
+                    
                     //addNavFilter(resultFilter)
                     event.preventDefault();
                 })
             });
-        })()
+        })()*/
         
         
             //ajout du nom du photographe en tant que titre de la page

@@ -1,4 +1,5 @@
-import { photographersList,container } from "./let-and-const_index.js";
+import { photographersList, container } from "./let-and-const_index.js";
+import { getUrl_tag } from "../page-photographers/let-and-const_page-photographers.js";
 
 //fonction pour ajouter la liste des photographes
 export function addPhotographersList() {
@@ -59,22 +60,22 @@ export function addPhotographersTags() {
 
 //fonction pour filtrer et afficher la liste des photographes filtrée
 export function showPhotographersListFiltered() {
-/*on vient appliquer un addEventListener sur les liens de la navigation et on les relie à la fonction filtre, pour afficher les éléments filtrés*/
-const listLinksA = document.querySelectorAll('.links');
-        (function(){
-            listLinksA.forEach(navLinks => {
-                let filter = navLinks.innerHTML.replace("#", "");
-                navLinks.addEventListener('click', event => {
-                    addNavFilter(filter)
-                    event.preventDefault();
-                })
-            });
-        })();     
+    /*on vient appliquer un addEventListener sur les liens de la navigation et on les relie à la fonction filtre, pour afficher les éléments filtrés*/
+    const listLinksA = document.querySelectorAll('.links');
+    (function () {
+        listLinksA.forEach(navLinks => {
+            let filter = navLinks.innerHTML.replace("#", "");
+            navLinks.addEventListener('click', event => {
+                addNavFilter(filter)
+                event.preventDefault();
+            })
+        });
+    })();
 
-        //fonction affichage des photographes filtrés
+    //fonction affichage des photographes filtrés
     function addNavFilter(filter) {
         /* on vide la div container des articles*/
-        container.innerHTML = "";
+        document.getElementById("container").innerHTML = "";
 
         /*boucle forEach pour appliquer la fonction filtre sur les tags de chaque photographes puis on ajoute la liste des photographes filtrées dans le html*/
         photographersList.forEach(photograph => {
@@ -110,7 +111,7 @@ const listLinksA = document.querySelectorAll('.links');
 
         //évènement au click des tags de la liste des photographe pour affocher la liste des photographes filtrés en fonction du theme choisi
         const listLinksAFilter = document.querySelectorAll('.links');
-        (function(){
+        (function () {
             listLinksAFilter.forEach(navLinks => {
                 let resultFilter = navLinks.innerHTML.replace("#", "");
                 navLinks.addEventListener('click', event => {
@@ -118,7 +119,7 @@ const listLinksA = document.querySelectorAll('.links');
                     event.preventDefault();
                 })
             });
-        })(); 
+        })();
 
     }
 
@@ -126,25 +127,71 @@ const listLinksA = document.querySelectorAll('.links');
 
 
 //reste à appeler cette fonction dans getData_index et faire fonctionner les filtres
-export function goToMain (){
-const  body = document.querySelector("body");
-console.log(body)
+export function goToMain() {
+    const body = document.querySelector("body");
+    console.log(body)
 
     //ajout de la div : aller au contenu
-    body.innerHTML += 
-    `<div id ="go-to-content">
+    body.innerHTML +=
+        `<div id ="go-to-content">
         <a class="link_go-to-content" href = "#gallery-photographers" title = "cliquez pour passer au contenu">
             <h4>Passer au contenu</h4>
         </a>
     </div>`
 
-    function showLinksGoToMain (){
+    function showLinksGoToMain() {
         const divGoToContent = document.getElementById("go-to-content");
-        body.onscroll = function() {
+        body.onscroll = function () {
             divGoToContent.style.display = "block";
-          };
-      
-}
-showLinksGoToMain();
+        };
+
+    }
+    showLinksGoToMain();
 }
 
+export function showTagsSelected() {
+
+    let getTag = "";
+    (function () {
+        // on extrait l id
+        getTag = getUrl_tag.slice(6);
+
+
+    })();
+    window.onload = container.innerHTML = "";
+    /*boucle for pour ajouter les articles des photographes*/
+    photographersList.forEach(element => {
+        console.log(element.tags)
+        if (element.tags.includes(getTag)) {
+
+            /*on cré un bloc de code dans le html qui affichera les photos et infos des photographes*/
+            container.innerHTML +=
+                `<article id="${element.id}">
+       <section class="photograph">
+           <a id ="go-to-photograph-page" href="page-photographers.html?id-${element.id}">
+               <img src="/Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
+               <h2>${element.name}</h2>
+           </a>
+       </section>
+       <section class="infos-photograph">
+           <p>${element.country}, ${element.city}</p>
+           <p>${element.tagline}</p>
+           <p>${element.price}€/jour</p>
+       </section>
+       <section class="tag-links">
+           <ul id="tagList${element.tags}"></ul>
+       </section>
+   </article>`;
+
+            /*on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes*/
+            let listOfTags = document.getElementById("tagList" + element.tags);
+            element.tags.forEach(photographersTags => {
+                listOfTags.innerHTML +=
+                    ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`
+            })
+        }
+
+    });
+
+
+}

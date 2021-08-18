@@ -1,4 +1,5 @@
 import {addPhotographersList, addPhotographersTags,showPhotographersListFiltered } from "./functions_index.js";
+import { showTagsSelected } from "./functions_index.js";
 
 /**********************************************Requête pour l'affichage de la liste de photographes********************************************************/
 
@@ -28,9 +29,24 @@ const getPhotographersList= async (data, response) => {
     });
      
     addPhotographersList();
+  
    
 }
 getPhotographersList();
+
+
+const getShowSelectionPage2= async (data, response) => {
+    response = await fetch("./JS/data.json")
+    data = await response.json()
+    .catch(function error (err) {
+        // Une erreur est survenue
+        alert(err);
+    });  
+   
+    showTagsSelected();
+   
+}
+getShowSelectionPage2();
 
 
 /***********************************************************************************************************************/
@@ -45,7 +61,7 @@ const getPhotographersTags= async (data, response) => {
         // Une erreur est survenue
         alert(err);
     });
-
+  
     addPhotographersTags();
     
 }
@@ -65,7 +81,9 @@ const getMenuFilter= async (data, response) => {
         // Une erreur est survenue
         alert(err);
     });  
+  
     showPhotographersListFiltered();
+   
     
    
 }
