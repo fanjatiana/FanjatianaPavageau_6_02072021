@@ -36,6 +36,22 @@ export function addInfoOfPhotographer() {
                     `<li class ="tags"><a class = "links" href="#"> #${allTags}</a></li>`
             })
 
+
+             //évènement au click des tags de la liste des photographe pour affocher la liste des photographes filtrés en fonction du theme choisi
+        const taglinksOfThisPhotographer = document.querySelectorAll('.links');
+        console.log(taglinksOfThisPhotographer);
+        (function(){
+            taglinksOfThisPhotographer.forEach(navLinks => {
+                //let resultFilter = navLinks.innerHTML.replace("#", "");
+                navLinks.addEventListener('click', event => {
+                    window.location.assign("index.html");
+                    //addNavFilter(resultFilter)
+                    event.preventDefault();
+                })
+            });
+        })()
+        
+        
             //ajout du nom du photographe en tant que titre de la page
             titlePagePhotograph.innerHTML += element.name;
         };

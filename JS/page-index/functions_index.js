@@ -108,7 +108,7 @@ const listLinksA = document.querySelectorAll('.links');
             }
         })
 
-
+        //évènement au click des tags de la liste des photographe pour affocher la liste des photographes filtrés en fonction du theme choisi
         const listLinksAFilter = document.querySelectorAll('.links');
         (function(){
             listLinksAFilter.forEach(navLinks => {

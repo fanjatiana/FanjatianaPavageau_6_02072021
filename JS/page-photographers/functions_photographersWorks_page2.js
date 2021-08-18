@@ -3,6 +3,7 @@ import { newGetId } from "./functions_showInfoPhotographer_page2.js";
 import { photographersList } from "../page-index/let-and-const_index.js";
 
 
+
 //recupérer la liste des noms et prénoms des photographes dans le fichier json (photographers.name) puis découpage en 2 tableau et récupération des noms de familles avec la methode split
 export let lastName = "";
 (function () {
