@@ -1,4 +1,4 @@
-import {addPhotographersList, addPhotographersTags,showPhotographersListFiltered } from "./functions_index.js";
+import {addPhotographersList, addPhotographersTags,showPhotographersListFiltered, backToMain } from "./functions_index.js";
 
 /**********************************************Requête pour l'affichage de la liste de photographes********************************************************/
 
@@ -27,7 +27,8 @@ const getPhotographersList= async (data, response) => {
         alert(err);
     });
 
-    addPhotographersList();   
+    addPhotographersList();
+    backToMain();   
 }
 getPhotographersList();
 

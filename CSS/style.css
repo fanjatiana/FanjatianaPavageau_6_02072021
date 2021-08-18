@@ -24,6 +24,20 @@ body ul {
   list-style-type: none;
 }
 
+#go-to-content {
+  position: fixed;
+  top: 2%;
+  left: 50%;
+  background: #D3573C;
+  padding: 5px;
+  border-radius: 5px;
+  display: none;
+}
+
+#go-to-content > a {
+  color: #000;
+}
+
 /*header*/
 #banner {
   display: -webkit-box;

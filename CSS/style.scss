@@ -23,6 +23,19 @@ body{
     }
 }
 
+#go-to-content{
+    position: fixed;
+    top: 2%;
+    left: 50%;
+    background:$color-secondary-bg;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+    > a{
+        color:#000;
+    }
+}
+
 /*header*/
 #banner {
     display: flex;

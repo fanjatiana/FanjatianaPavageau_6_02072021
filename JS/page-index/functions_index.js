@@ -110,3 +110,30 @@ const listLinksA = document.querySelectorAll('.links-filter');
     }
 
 }
+
+export function backToMain (){
+const  body = document.querySelector("body");
+console.log(body)
+
+    //ajout de la div : aller au contenu
+    body.innerHTML += 
+    `<div id ="go-to-content">
+        <a class="link_go-to-content" href = "#gallery-photographers" title = "cliquez pour passer au contenu">
+            <h4>Passer au contenu</h4>
+        </a>
+    </div>`
+
+    function showLinksGoToMain (){
+        const divGoToContent = document.getElementById("go-to-content");
+        const linkGotToContent = document.querySelector(".link_go-to-content");
+        console.log(linkGotToContent);
+        
+        console.log(divGoToContent)
+
+        body.onscroll = function() {
+            divGoToContent.style.display = "block";
+          };
+    }
+
+    showLinksGoToMain();
+}
