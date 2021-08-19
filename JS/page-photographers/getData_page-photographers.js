@@ -1,7 +1,7 @@
 // import des constantes de DOM-constantes
 import { addInfoOfPhotographer, showModal,controlForm, } from "./functions_showInfoPhotographer_page2.js";
 import { Lightbox } from "./LightBox/lightbox.js";
-import { addCounterLiker, addImages,addVideo, incrementMediaLikes} from "./functions_photographersWorks_page2.js";
+import { addCounterLiker, addImages,addVideo} from "./functions_photographersWorks_page2.js";
 import { addMenuSortBy, showMediaByDate, showMediaByLikes, showMediaByABC} from "./functions_navFilter_page2.js";
 
 
@@ -55,7 +55,7 @@ addVideo();
 addCounterLiker();
 
 //fonction pour afficher l'incrémentation des likes au clic des coeurs
-incrementMediaLikes();
+//incrementMediaLikes();
 
 //fonction pour afficher la lightBox
 Lightbox.init();

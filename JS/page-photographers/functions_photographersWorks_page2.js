@@ -108,30 +108,34 @@ export function addCounterLiker() {
     </div>`
     })();  
 
+
+    function incrementMediaLikes (){
+
+
+        const buttonHearts = document.querySelectorAll(".likes_media");
+       
+        
+        buttonHearts.forEach(heart => {
+            
+            heart.addEventListener("click", function () {
+                
+             
+                let arrayValue = heart.previousElementSibling;
+                let likeCount = Number(arrayValue.innerText);
+                console.log(likeCount)
+                document.querySelectorAll(".nb-likes").forEach(element => {
+                    element.innerHTML = likeCount+1;
+                    
+                });
+          
+    
+            });
+    
+    
+        })
+    
+
+}
+incrementMediaLikes();
 }
 
-//fonction pour l'incrémentation des likes
-
-export function incrementMediaLikes (){
-
-
-    const buttonHearts = document.querySelectorAll(".likes_media");
-    const nbLikes = document.querySelectorAll(".nb-likes");
-
-
-    buttonHearts.forEach(heart => {
-
-        heart.addEventListener("click", function () {
-
-            let arrayValue = heart.previousElementSibling;
-            let likeCount = Number(arrayValue.innerText);
-            likeCount++;
-            console.log(likeCount)
-
-            nbLikes.innerHTML = likeCount;
-
-        });
-
-
-    })
-}
