@@ -78,6 +78,8 @@ export function addPhotographersList() {
     });
 }
 
+
+
 }
 
 //fonction pour ajouter les tags de chaques photographes
@@ -172,26 +174,30 @@ export function showPhotographersListFiltered() {
 }
 
 
+
+
 //reste à appeler cette fonction dans getData_index et faire fonctionner les filtres
 export function goToMain() {
     const body = document.querySelector("body");
     console.log(body)
 
     //ajout de la div : aller au contenu
-    body.innerHTML +=
+    body.insertAdjacentHTML("afterbegin",
         `<div id ="go-to-content">
         <a class="link_go-to-content" href = "#gallery-photographers" title = "cliquez pour passer au contenu">
             <h4>Passer au contenu</h4>
         </a>
-    </div>`
+    </div>`);
 
-    function showLinksGoToMain() {
+   
+        function showLinksGoToMain() {
         const divGoToContent = document.getElementById("go-to-content");
         body.onscroll = function () {
             divGoToContent.style.display = "block";
+            
         };
 
     }
+
     showLinksGoToMain();
 }
-

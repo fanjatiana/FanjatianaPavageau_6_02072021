@@ -32,7 +32,7 @@ body ul {
   padding: 5px;
   border-radius: 5px;
   display: none;
-  z-index: 10000;
+  z-index: 0;
   -webkit-animation-name: linkOpen;
           animation-name: linkOpen;
   -webkit-animation-duration: 0.6s;
