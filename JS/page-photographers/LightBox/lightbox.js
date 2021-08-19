@@ -119,7 +119,7 @@ export class Lightbox {
             if (i === this.images.length - 1) {
                 i = -1;
             }
-            this.loadImage(this.images[i + 1]);
+            this.loadMedia(this.images[i + 1]);
         }
 
         prev(e){
@@ -128,7 +128,7 @@ export class Lightbox {
             if (i === 0) {
                 i = this.images.length;
             }
-            this.loadImage(this.images[i - 1]);
+            this.loadMedia(this.images[i - 1]);
         }
 
         /**
