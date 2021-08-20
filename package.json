@@ -1,0 +1,26 @@
+{
+  "name": "fanjatianapavageau_6_02072021",
+  "version": "1.0.0",
+  "description": "projet 6 FishEye",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^7.32.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanjatiana/FanjatianaPavageau_6_02072021.git"
+  },
+  "keywords": [
+    "Hakhil44!"
+  ],
+  "author": "Pavageau.F",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fanjatiana/FanjatianaPavageau_6_02072021/issues"
+  },
+  "homepage": "https://github.com/fanjatiana/FanjatianaPavageau_6_02072021#readme"
+}

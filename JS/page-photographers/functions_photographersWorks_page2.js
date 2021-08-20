@@ -4,7 +4,7 @@ import { photographersList } from "../page-index/let-and-const_index.js";
 
 
 
-//recupérer la liste des noms et prénoms des photographes dans le fichier json (photographers.name) puis découpage en 2 tableau et récupération des noms de familles avec la methode split
+//recupérer la liste des noms et prénoms des photographes dans le fichier json (photographers.name) puis découpage en 2 tableaux et récupération des noms de familles avec la méthode split
 export let lastName = "";
 (function () {
     for (let namePhotograph of photographersList) {
@@ -61,9 +61,9 @@ export function addVideo() {
             </div>   
         </article>`
         }
-    }
-
+    } 
 }
+
 
 //fonction pour afficher le compteur like
 
@@ -71,7 +71,7 @@ export function addCounterLiker() {
     /****************************************************partie compteur prix/jour********************************/
     let totalPrice = [];
 
-    //on recupere tous les prix du photographe associé et on les ajoute dans un tableau
+    //on recupere tous les prix du photographe  et on les ajoute dans un tableau
     photographersList.forEach(value => {
         if (value.id === newGetId) {
             totalPrice.push(value.price);
@@ -84,7 +84,7 @@ export function addCounterLiker() {
         priceOfPhotographers += parseFloat(totalPrice[price])
     }
 
-    //on recupere tous les likes du photographe associé et on les ajoute dans un tableau
+    //on recupere tous les likes du photographeet on les ajoute dans un tableau
     let totalLikes = [];
     photographersMedia.forEach(value => {
         if (value.photographerId === newGetId) {
@@ -107,35 +107,24 @@ export function addCounterLiker() {
     <p>${priceOfPhotographers}€ / jour</p>
     </div>`
     })();  
+ 
+   
 
-
+    //fonction incrémentation des likes et du compteur de likes
     function incrementMediaLikes (){
-
-
         const buttonHearts = document.querySelectorAll(".likes_media");
-       
-        
         buttonHearts.forEach(heart => {
-            
             heart.addEventListener("click", function () {
-                
-             
                 let arrayValue = heart.previousElementSibling;
+                console.log(arrayValue)
                 let likeCount = Number(arrayValue.innerText);
-                console.log(likeCount)
-                document.querySelectorAll(".nb-likes").forEach(element => {
-                    element.innerHTML = likeCount+1;
-                    
-                });
-          
-    
+                likeCount += 1;
+                arrayValue.innerHTML = "";
+                arrayValue.innerHTML = `${likeCount}`;
+                document.getElementById("total-likes").innerHTML = `${likesOfPhotographers++}<i class="fas fa-heart"></i>`;
             });
-    
-    
         })
-    
-
-}
-incrementMediaLikes();
+    }
+    incrementMediaLikes();
 }
 
