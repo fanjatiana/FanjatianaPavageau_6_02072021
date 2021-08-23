@@ -31,8 +31,12 @@ export function addImages() {
                     </div>
                     <div class="info_media">
                         <h3>${element.title}</h3>
-                        <p class= "nb-likes">${element.likes}</p>
-                        <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
+                        <div class ="like">
+                            <p class="nb-likes">${element.likes}</p>
+                            <button class ="likes_media" type="button" aria-label="button-like">
+                                <i class="fas fa-heart "></i>
+                            </button>
+                        </div>    
                     </div>
              </article>`
         }
@@ -45,19 +49,26 @@ export function addVideo() {
     //ajout des vidéos
     for (let info of photographersMedia) {
         if (info.photographerId === newGetId && info.video) {
+            console.log(info.track)
             document.getElementById("works-list").innerHTML +=
                 `<article id ="${info.photographerId}">
             <div class="gallery">
                 <a href="./Photos/gallery/${lastName}/${info.video}">
                     <video controls width="500">
+                    ${info.title}
                         <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
+                        <track kind="subtitles" src="./Photos/gallery/${lastName}/${info.track}" srclang="fr" label="francais">
                     </video>
                 </a>
             </div>
             <div class="info_media">
                 <h3>${info.title}</h3>
-                <p class="nb-likes">${info.likes}</p>
-                <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
+                <div class ="like">
+                    <p class="nb-likes">${info.likes}</p>
+                    <button class ="likes_media" type="button" aria-label="button-like">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>    
             </div>   
         </article>`
         }

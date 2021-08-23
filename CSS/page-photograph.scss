@@ -198,21 +198,35 @@ ul {
     align-items:baseline;
     > h3{
         font-size: 1.5rem;
-        color: $color-primary;
+        color: $color-primary-bg;
     }
     & p{
-        color: $color-primary;
+        color: #000;
         font-weight: bold;
         > a {
             text-decoration: none;
             margin-left: 0.5em;
-            & .fa-heart{
-                color: $color-primary;
-            }
+            
         }
         
     }
 }
+.like{
+    display: flex;
+    justify-content: space-around;
+    
+    .likes_media{
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        > .fa-heart{
+         color: $color-primary-bg;
+         font-size: 1.3em;
+        }
+     }
+}
+
+
 
 .pictures-list{
     width: 500px;

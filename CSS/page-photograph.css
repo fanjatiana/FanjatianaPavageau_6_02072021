@@ -218,11 +218,11 @@ ul > .tags {
 
 .info_media > h3 {
   font-size: 1.5rem;
-  color: #D3573C;
+  color: #901C1C;
 }
 
 .info_media p {
-  color: #D3573C;
+  color: #000;
   font-weight: bold;
 }
 
@@ -231,8 +231,23 @@ ul > .tags {
   margin-left: 0.5em;
 }
 
-.info_media p > a .fa-heart {
-  color: #D3573C;
+.like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.like .likes_media {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.like .likes_media > .fa-heart {
+  color: #901C1C;
+  font-size: 1.3em;
 }
 
 .pictures-list {

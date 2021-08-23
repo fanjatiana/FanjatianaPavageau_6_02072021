@@ -143,7 +143,8 @@
         "likes": 24,
         "date": "2011-12-08",
         "price": 100,
-        "description": "Vidéo d'une sculpture de cheval en bois" 
+        "description": "Vidéo d'une sculpture de cheval en bois",
+        "track": "video_galindo.vtt"  
        
       },
       {
@@ -279,7 +280,8 @@
         "likes": 52,
         "date": "2016-06-12",
         "price": 70,
-        "description": "Photo d'un chiot jouant sur la plage devant un coucher de soleil" 
+        "description": "Photo d'un chiot jouant sur la plage devant un coucher de soleil",
+        "track": "video_dubois.vtt"  
       },
   
       {
@@ -291,7 +293,8 @@
         "likes": 23,
         "date": "2017-03-18",
         "price": 45,
-        "description": "Vidéo vue du ciel, d'une montagne rocheuse" 
+        "description": "Vidéo vue du ciel, d'une montagne rocheuse",
+        "track": "video_bradford.vtt"  
       },
       {
         "id": 343423425,
@@ -479,7 +482,7 @@
         "likes": 142,
         "date": "2019-08-23",
         "price": 60,
-        "description": "Vidéo de chevaux sauvages" 
+        "track": "video_keel.vtt" 
       },
       {
         "id": 95234343,
@@ -590,7 +593,8 @@
         "likes": 57,
         "date": "2020-01-20",
         "price": 65,
-        "description": "Video vue du ciel de l'autoroute de Buenos Aires " 
+        "description": "Video vue du ciel de l'autoroute de Buenos Aires ",
+        "track": "video_nikolic.vtt"  
       
       },
       {
@@ -614,7 +618,8 @@
         "likes": 150,
         "date": "2018-02-30",
         "price": 70,
-        "description": "Video d'une danseuse aérienne " 
+        "description": "Video d'une danseuse aérienne", 
+        "track": "video_wilkens.vtt" 
        
       },
       {
