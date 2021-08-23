@@ -22,8 +22,8 @@ export function addInfoOfPhotographer() {
 
             //on ajoute le contenu html avec les données de chaques photographes correspondant à l Id de l'url
             showPhotograph.innerHTML +=
-                `<div id = "presentation ${element.id}">
-                    <h1>${element.name}</h1>
+                `<div id = "${element.id}" class="presentation">
+                    <h2>${element.name}</h2>
                         <p>${element.city}, ${element.country}</p>
                         <p>${element.tagline}</p>
                     <ul id="tagsList${element.tags}"></ul>
@@ -45,31 +45,6 @@ export function addInfoOfPhotographer() {
         };
     })
 }
-
-
-    /*évènement au click des tags de la liste des photographe pour affocher la liste des photographes filtrés en fonction du theme choisi
-            
-             
-       const taglinksOfThisPhotographer = document.querySelectorAll('.links');
-       console.log(taglinksOfThisPhotographer);
-        (function(){
-            taglinksOfThisPhotographer.forEach(navLinks => {
-                //let resultFilter = navLinks.innerHTML.replace("#", "");
-                navLinks.addEventListener('click', event => {
-                    window.location.assign("index.html");
-                    
-                    
-                    //addNavFilter(resultFilter)
-                    event.preventDefault();
-                })
-            });
-        })();*/
-        
-        
-
-
-
-
 
 
 export const taglinksOfThisPhotographer = document.querySelectorAll('.links');

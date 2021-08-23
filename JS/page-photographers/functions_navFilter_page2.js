@@ -9,7 +9,7 @@ export function addMenuSortBy() {
     //ajout du contenu html
     (function () {
         worksFilter.innerHTML +=
-            `<h2>Trier par</h2>
+            `<h3>Trier par</h3>
 <div id="list-filter">
 <div id="click-for-show" >
     <a href="" class = "by-popular">Popularité
@@ -87,7 +87,7 @@ export function showMediaByDate() {
                             </a>    
                         </div>
                         <div class="info_media">
-                            <h3>${objet.title}</h3>
+                            <h4>${objet.title}</h4>
                             <p class= "nb-likes">${objet.likes}</p>
                             <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
                         </div>
@@ -105,7 +105,7 @@ export function showMediaByDate() {
                     </a>    
                 </div>
                 <div class="info_media">
-                    <h3>${objet.title}</h3>
+                    <h4>${objet.title}</h4>
                     <p class="nb-likes">${objet.likes}</p>
                     <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
                 </div>   
@@ -161,7 +161,7 @@ export function showMediaByLikes() {
                         </a>
                     </div>
                     <div class="info_media">
-                        <h3>${valueLikes.title}</h3>
+                        <h4>${valueLikes.title}</h4>
                         <p class= "nb-likes">${valueLikes.likes}</p>
                         <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
                     </div>
@@ -179,7 +179,7 @@ export function showMediaByLikes() {
                 </a>
             </div>
             <div class="info_media">
-                <h3>${valueLikes.title}</h3>
+                <h4>${valueLikes.title}</h4>
                 <p class="nb-likes">${valueLikes.likes}</p>
                 <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
             </div>   
@@ -233,7 +233,7 @@ export function showMediaByABC() {
                             </a>
                                 </div>
                         <div class="info_media">
-                            <h3>${infoTitle.title}</h3>
+                            <h4>${infoTitle.title}</h4>
                             <p class= "nb-likes">${infoTitle.likes}</p>
                             <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
                         </div>
@@ -251,7 +251,7 @@ export function showMediaByABC() {
                     </a>    
                 </div>
                 <div class="info_media">
-                    <h3>${infoTitle.title}</h3>
+                    <h4>${infoTitle.title}</h4>
                     <p class="nb-likes">${infoTitle.likes}</p>
                     <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
                 </div>   
