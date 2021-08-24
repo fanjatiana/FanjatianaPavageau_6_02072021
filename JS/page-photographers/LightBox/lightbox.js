@@ -148,7 +148,7 @@ export class Lightbox {
             <button class="lightbox__prev">précédent</button>
             <div class="lightbox__container"></div>`
             dom.querySelector(".lightbox__close").addEventListener("click", this.close.bind(this));
-            dom.querySelector(".lightbox__next").addEventListener("click", this.next.bind(this))
+            dom.querySelector(".lightbox__next").addEventListener("click", this.next.bind(this));
             dom.querySelector(".lightbox__prev").addEventListener("click", this.prev.bind(this))
             return dom
         }

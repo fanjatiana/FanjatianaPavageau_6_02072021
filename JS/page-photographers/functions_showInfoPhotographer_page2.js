@@ -59,6 +59,7 @@ export function showModal() {
     function launchModal() {
         document.getElementById("modale").style.display = "block";
         document.getElementById("modale").setAttribute('aria-hidden', false);
+        document.getElementById("first").focus();
 
 
         
