@@ -256,7 +256,7 @@ ul {
 /***************************************************************************************formulaire*************************************************************/
 #modale{
     width: 600px;
-    height: 800px;
+    height: 850px;
     z-index: 2;
     position:fixed;
     left: 0px;
@@ -274,7 +274,10 @@ ul {
     }
     
     .modal-content{
-        height: 750px;
+        //height: 750px;
+        //height: auto;
+        height: auto;
+        padding: 3em 1.5em;
         padding:1.5em;
     }
     
@@ -355,7 +358,7 @@ ul {
     display: block;
     margin-top: 3px;
     margin-bottom: 10px;
-    text-align: left;
+    text-align: right;
     opacity: 1;
 
    

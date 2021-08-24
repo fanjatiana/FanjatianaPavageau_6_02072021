@@ -50,7 +50,35 @@ export function addMenuSortBy() {
         }, true)
     }
     leaveNav();
-}
+
+     //fonction affichage du menu déroulant au hover de la souris
+     function showNavkeyboard() {
+        divContentNav.addEventListener("keydown", function () {
+            sousMenu.style.display = "block";
+            arrowDown.style.display = "none";
+            chevronUp.style.display = "block";
+        })
+    }
+    showNavkeyboard();
+
+    //fonction de fermeture du menu déroulant lorsque la souris n'est plus dans le champs
+    function leaveNavKeyboard(e) {
+        divContentNav.addEventListener("keyup", function (e) {
+            if (e.key === "Escape") {
+                sousMenu.style.display = "none";
+                arrowDown.style.display = "block";
+                chevronUp.style.display = "none";
+            
+            }
+        }, true)
+    }
+    leaveNavKeyboard();
+}  
+
+
+   
+
+   
 
 //fonction pour afficher les medias par date
 export function showMediaByDate() {

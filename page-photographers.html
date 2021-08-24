@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./CSS/page-photograph.css">
     <link rel="stylesheet" href="./CSS/lightBox.css">
     <script src="https://kit.fontawesome.com/e821dcf0e0.js" crossorigin="anonymous"></script>
-    <title id = "photograph-name"></title>
+    <title id ="photograph-name"></title>
 </head>
 <body>
  
@@ -25,34 +25,33 @@
                <button id="btn">Contactez-moi</button>
            </div>
            <div id="modale">
-            <div class="content">
-                <span class="close"></span>
-                <div class="modal-content">
-                    <form name="contact" id="photographContact" action="/cible.php"  method="POST" onsubmit=" return controlValidateForm()">
-                        <h2 id="recipient-name"></h2> 
-                        <div class="info-form">
-                            <label for="first">Prénom</label>
-                            <input class="text-control info-id" type="text" id="first" name="first" minlength = "2" maxlength="30" required>
-                        </div>
-                        <div class="info-form">
-                            <label for="last">Nom</label>
-                            <input class="text-control info-id " type="text" id="last"  name="last"  minlength = "2" maxlength="30" required>
-                        </div>
-                        <div class="info-form">
-                            <label for="email">E-mail</label>
-                            <input class="text-control" type="email" id="email" name="email" value="" required/>
-                        </div>
-                        <div class="info-form">
-                            <label for="yourmessage">Votre message</label>
-                            <textarea id="yourmessage" name="yourmessage" rows="5" cols="33" required></textarea>
-                        </div>
-                        <div>
-                            <input class="btn-submit button" id="submit-form" type="button"  value="Envoyer"  />
-                        </div>
-                        </div>			
-                    </form>
+                <div class="content">
+                    <span class="close"></span>
+                    <div class="modal-content">
+                        <form name="contact" id="photographContact" action="/cible.php"  method="POST" onsubmit="return controlValidateForm()">
+                            <h2 id="recipient-name"></h2> 
+                            <div class="info-form">
+                                <label for="first">Prénom</label>
+                                <input class="text-control info-id" type="text" id="first" name="first" minlength = "2" maxlength="30" required>
+                            </div>
+                            <div class="info-form">
+                                <label for="last">Nom</label>
+                                <input class="text-control info-id " type="text" id="last"  name="last"  minlength = "2" maxlength="30" required>
+                            </div>
+                            <div class="info-form">
+                                <label for="email">E-mail</label>
+                                <input class="text-control" type="email" id="email" name="email" value="" required/>
+                            </div>
+                            <div class="info-form">
+                                <label for="yourmessage">Votre message</label>
+                                <textarea id="yourmessage" name="yourmessage" rows="5" cols="33" required></textarea>
+                            </div>
+                            <div>
+                                <input class="btn-submit button" id="submit-form" type="button"  value="Envoyer"  />
+                            </div>		
+                        </form>
+                    </div>	
                 </div>
-            </div>
            </div>
        </section>
        <section id="filter-sort-by"></section>

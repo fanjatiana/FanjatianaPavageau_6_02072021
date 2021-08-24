@@ -92,20 +92,20 @@ export function controlForm() {
         infoGuest.forEach(info => {
             if (info.validity.valueMissing) {
                 info.closest(".info-form").setAttribute("data-error", "Veuillez remplir le formulaire");
-                info.style.borderColor = "#f70707";
+                info.style.border = "#f70707 3px solid";
 
             } else if (info.value.length < 2) {
                 info.closest(".info-form").setAttribute("data-error", "Veuillez entrer entre 2 et 30 caractères pour valider ce champ ");
-                info.style.borderColor = "#f70707";
+                info.style.border = "#f70707 3px solid";
 
             } else if (!regexNameAndLastName.test(info.value)) {
                 info.closest(".info-form").setAttribute("data-error", " Ecrivez en miniscule ou majuscule , pas de nombre, seuls caractères autorisés: . - ' et espaces");
-                info.style.borderColor = "#f70707";
+                info.style.border = "#f70707 3px solid";
 
 
             } else {
                 info.closest(".info-form").setAttribute("data-error", "");
-                info.style.borderColor = "";
+                info.style.border = "green 3px solid";
                 count++
             }
         });
@@ -117,15 +117,16 @@ export function controlForm() {
     const controlEmail = () => {
         if (infoEmail.validity.valueMissing) {
             infoEmail.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
-            infoEmail.style.borderColor = "#f70707";
+            infoEmail.style.border = "#f70707 3px solid";
 
         } else if (!regexEmail.test(infoEmail.value)) {
             infoEmail.closest(".info-form").setAttribute("data-error", "Veuillez rentrer une adresse email valide (par exemple: monemail@yahoo.com");
-            infoEmail.style.borderColor = "#f70707";
+            infoEmail.style.border = "#f70707 3px solid";
 
         } else {
             infoEmail.closest(".info-form").setAttribute("data-error", "");
-            infoEmail.style.borderColor = "";
+            infoEmail.style.border = "green 3px solid";
+
             return true;
         }
 
@@ -134,11 +135,11 @@ export function controlForm() {
     const controlMessage = () => {
         if (message.value == "") {
             message.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
-            message.style.borderColor = "#f70707";
-
+            message.style.border = "#f70707 3px solid";
+     
         } else {
             message.closest(".info-form").setAttribute("data-error", "");
-            message.style.borderColor = "";
+            message.style.border = "green 3px solid";
             return true;
         }
     }
