@@ -51,17 +51,38 @@ export const taglinksOfThisPhotographer = document.querySelectorAll('.links');
 //fonction pour afficher et fermer le formulaire de contact
 export function showModal() {
 
+   
+    
+      
+
     //fonction affichage  du formulaire
     function launchModal() {
         document.getElementById("modale").style.display = "block";
+        document.getElementById("modale").setAttribute('aria-hidden', false);
+
+
+        
     }
     document.getElementById("btn").addEventListener("click", launchModal);
 
     //fonction fermeture du formulaire 
     const closeModal = () => {
         document.getElementById("modale").style.display = "none";
+        document.getElementById("modale").setAttribute('aria-hidden', true);
+
+        
     }
     document.querySelector(".close").addEventListener("click", closeModal);
+
+    
+    
+    document.getElementById("modale").addEventListener("keydown", function(e){
+        if(e.key === "Escape"){
+   closeModal();
+        }
+    });
+
+    
 
 
     //fonction pour ajouter le nom du photographe dans le formulaire

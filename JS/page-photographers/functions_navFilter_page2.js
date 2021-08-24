@@ -53,7 +53,7 @@ export function addMenuSortBy() {
 
      //fonction affichage du menu déroulant au hover de la souris
      function showNavkeyboard() {
-        divContentNav.addEventListener("keydown", function () {
+        divContentNav.addEventListener("keydown", function (e) {
             sousMenu.style.display = "block";
             arrowDown.style.display = "none";
             chevronUp.style.display = "block";
@@ -116,8 +116,12 @@ export function showMediaByDate() {
                         </div>
                         <div class="info_media">
                             <h4>${objet.title}</h4>
-                            <p class= "nb-likes">${objet.likes}</p>
-                            <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
+                            <div class ="like">
+                                <p class= "nb-likes">${objet.likes}</p>
+                                <button class ="likes_media" type="button" aria-label="button-like">
+                                    <i class="fas fa-heart "></i>
+                                </button>
+                            </div>    
                         </div>
                  </article>`
                 }
@@ -134,8 +138,12 @@ export function showMediaByDate() {
                 </div>
                 <div class="info_media">
                     <h4>${objet.title}</h4>
-                    <p class="nb-likes">${objet.likes}</p>
-                    <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
+                    <div class ="like">
+                        <p class="nb-likes">${objet.likes}</p>
+                        <button class ="likes_media" type="button" aria-label="button-like">
+                            <i class="fas fa-heart "></i>
+                        </button>
+                    </div>
                 </div>   
             </article>`
                 }
@@ -190,8 +198,12 @@ export function showMediaByLikes() {
                     </div>
                     <div class="info_media">
                         <h4>${valueLikes.title}</h4>
-                        <p class= "nb-likes">${valueLikes.likes}</p>
-                        <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
+                        <div class ="like">
+                            <p class= "nb-likes">${valueLikes.likes}</p>
+                            <button class ="likes_media" type="button" aria-label="button-like">
+                                <i class="fas fa-heart "></i>
+                            </button>
+                        </div>    
                     </div>
              </article>`
                 }
@@ -208,8 +220,12 @@ export function showMediaByLikes() {
             </div>
             <div class="info_media">
                 <h4>${valueLikes.title}</h4>
-                <p class="nb-likes">${valueLikes.likes}</p>
-                <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
+                <div class ="like">
+                    <p class="nb-likes">${valueLikes.likes}</p>
+                    <button class ="likes_media" type="button" aria-label="button-like">
+                        <i class="fas fa-heart "></i>
+                    </button>
+                </div>    
             </div>   
         </article>`
                 }
@@ -262,8 +278,12 @@ export function showMediaByABC() {
                                 </div>
                         <div class="info_media">
                             <h4>${infoTitle.title}</h4>
-                            <p class= "nb-likes">${infoTitle.likes}</p>
-                            <button class = "likes_media"><i class="fas fa-heart "></i></bouton>
+                            <div class ="like">
+                                <p class= "nb-likes">${infoTitle.likes}</p>
+                                <button class ="likes_media" type="button" aria-label="button-like">
+                                    <i class="fas fa-heart "></i>
+                                </button>
+                            </div>
                         </div>
                  </article>`
                 }
@@ -280,8 +300,12 @@ export function showMediaByABC() {
                 </div>
                 <div class="info_media">
                     <h4>${infoTitle.title}</h4>
-                    <p class="nb-likes">${infoTitle.likes}</p>
-                    <button class ="likes_media"><i class="fas fa-heart"></i></bouton>
+                    <div class ="like">
+                        <p class="nb-likes">${infoTitle.likes}</p>
+                        <button class ="likes_media" type="button" aria-label="button-like">
+                            <i class="fas fa-heart "></i>
+                        </button>
+                    </div>
                 </div>   
             </article>`
                 }

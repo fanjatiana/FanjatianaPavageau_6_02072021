@@ -1,4 +1,5 @@
 import {enableBodyScroll, disableBodyScroll} from "./body-scroll-lock.js";
+import { addImages, addVideo } from "../functions_photographersWorks_page2.js";
 
 
 
@@ -67,6 +68,7 @@ export class Lightbox {
             this.url = url;
             container.appendChild(image);
             image.src = url;
+            //image.setAttribute("data-alt","")
         }    
         if (url.includes(".mp4")){
             const video = document.createElement("video");

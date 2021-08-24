@@ -297,7 +297,7 @@ ul > .tags {
 
 #modale > .content {
   width: 100%;
-  height: 800px;
+  height: 100%;
   background-color: #db8876;
   border-radius: 5px;
 }
@@ -305,7 +305,6 @@ ul > .tags {
 #modale .modal-content {
   height: auto;
   padding: 3em 1.5em;
-  padding: 1.5em;
 }
 
 #photographContact {
@@ -357,27 +356,9 @@ ul > .tags {
   height: 60px;
   opacity: 1;
   cursor: pointer;
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7);
-}
-
-.close:before, .close:after {
-  position: absolute;
-  left: 15px;
-  content: " ";
-  height: 60px;
-  width: 3px;
-  background-color: #fff;
-}
-
-.close:before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.close:after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  font-size: 3em;
+  border: none;
+  background-color: transparent;
 }
 
 #yourmessage {
