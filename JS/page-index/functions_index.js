@@ -19,7 +19,7 @@ export function addPhotographersList() {
            <section class="photograph">
                <a id="go-to-photographer-page" href="page-photographers.html?id-${element.id}">
                    <img src="/Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
-                   <h3>${element.name}</h3>
+                   <h2>${element.name}</h2>
                </a>
            </section>
            <section class="infos-photograph">
@@ -52,7 +52,7 @@ export function addPhotographersList() {
        <section class="photograph">
            <a id ="go-to-photographer-page" href="page-photographers.html?id-${element.id}">
                <img src="/Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
-               <h3>${element.name}</h3>
+               <h2>${element.name}</h2>
            </a>
        </section>
        <section class="infos-photograph">
@@ -131,9 +131,9 @@ export function showPhotographersListFiltered() {
                 container.innerHTML +=
                     `<article id="${photograph.id}">
             <section class="photograph">
-                <a id ="photographersFiltered-to-photograph-page" href="page-photographers.html?id-${photograph.id}">
+                <a id ="go-to-photographer-page" href="page-photographers.html?id-${photograph.id}">
                     <img src="/Photos/gallery/Photographers-Photos/${photograph.portrait}" alt="${photograph.description}">
-                    <h3>${photograph.name}</h3>
+                    <h2>${photograph.name}</h2>
                 </a>
             </section>
             <section class="infos-photograph">
@@ -183,7 +183,7 @@ export function goToMain() {
     body.insertAdjacentHTML("afterbegin",
         `<div id ="go-to-content">
         <a class="link_go-to-content" href = "#gallery-photographers" title = "cliquez pour passer au contenu">
-            <h4>Passer au contenu</h4>
+            <h3>Passer au contenu</h3>
         </a>
     </div>`);
 

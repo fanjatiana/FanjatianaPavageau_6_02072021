@@ -1,18 +1,19 @@
 @import "varialbes.scss";
 
 
-
-/*propriétés css générales*/
 *{
     font-size: 1rem;
     padding: 0;
     margin: 0;  
 }
 body{
-    position:relative;
+    width: 100%;
+    position: relative;
+   
     p {
         text-align: center;
-        margin: 5px auto;
+        line-height: 1.5em;
+       
     }
     a{
         text-decoration: none;
@@ -22,11 +23,12 @@ body{
         
     }
 }
-
+/*bloc passer au contenu*/
 #go-to-content{
     position: fixed;
-    top: 2%;
+    top: 1%;
     left: 50%;
+    margin-left: -100px;
     background:#DB8876;
     padding: 5px;
     border-radius: 5px;
@@ -51,64 +53,74 @@ body{
   
   }
 
-/*header*/
+  /*header*/
 #banner {
     display: flex;
     width: 90%;
-    height: 200px;
-    align-items: center;
-    justify-content: space-between;
+    margin : 20px auto;
+    //height: 200px;
+    //align-items: center;
+    //justify-content: space-between;
     flex-wrap: wrap;
-    margin: auto;
-    &.logo{
-        width: 20%;
+    & .logo{
+
+        margin: 50px auto;
     }
     .nav-tag-links{
-        width: 80%;
+        width: 100%;
+        margin: 2em auto;
     }
+    
 }
 
+
 .links-list{
+    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     & li {
-        margin: 0 5px;
+        margin: 0.2em;
         border: 0.5px #C4C4C4 solid;
         border-radius: 11px;
         padding : 2px 10px;
         > a{
             color: $color-primary-bg;
             font-weight: bold;
+            font-size: 0.8em;
         }
     }
 }
 
 /*main*/
 #gallery-photographers {
-    width: 95%;
-    margin:auto;
+    width: 90%;
+    margin: 5em auto;
+
 }
 
 /*titre de la gallerie*/
 #index-title{
     position: absolute;
-    top: 75px;
-    left: 80%;
-    & h2{
+    top: 130px;
+    left: 0%;
+    right: 0%;
+    text-align: center;
+    & h1{
         color:$color-primary-bg;
-        font-size: 2rem;
+        font-size: 1.3rem;
     }    
 }
 
 /*div container*/
 #container {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: column;
+   align-content: space-around;
     width: 100%;
     & article{
-        width: 20%;
-        margin : 30px 90px;   
+        width: 90%;
+        margin: 20px auto; 
     }
 }
 
@@ -118,15 +130,21 @@ body{
 .photograph {
     display: flex;
     justify-content: center;
-    img {
-        width: 300px;
-        height:300px;
+    width: 100%;
+    
+}
+
+#go-to-photographer-page{
+    text-align: center;
+    & img {
+        width: 200px;
+        height:200px;
         border-radius: 50%;
         text-align: center;
         object-fit: cover;
     }
-    h3{
-        font-size: 2rem;
+    & h2{
+        font-size: 1.6rem;
         text-align: center;
         line-height: 46.87px;
         color: $color-primary;
@@ -153,11 +171,13 @@ body{
 
 /*liens tag des photographes*/
 .tag-links{
+    margin-top: 0.3em;
     > ul{
     display: flex;
         justify-content: center;
+        flex-wrap: wrap;
     & li{
-        margin: 0 0.1em;
+        margin: 0.2em;
         border: 0.5px #C4C4C4 solid;
         border-radius: 20px;
         padding : 2px 10px;
@@ -165,10 +185,9 @@ body{
     & a{
         color: $color-primary-bg;
         font-weight: bold;
+        font-size: 0.8em;
         }
     }
     
 }    
-
-
 
