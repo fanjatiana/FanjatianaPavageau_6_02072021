@@ -1,4 +1,6 @@
 /*variables*/
+
+@import "../css_variables/variables.scss";
 * li {
   list-style-type: none;
 }
