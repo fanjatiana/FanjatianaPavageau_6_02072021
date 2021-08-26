@@ -26,10 +26,17 @@ export class Lightbox {
         const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'));
        console.log(links);
         const gallery = links.map(link => link.getAttribute("href"))
-        console.log(gallery)
+        const arrayTitle = links.map(link =>link.getAttribute("title"));
+        console.log(arrayTitle)
             links.forEach(link => link.addEventListener("click", e => {
                 e.preventDefault();
-                new Lightbox(e.currentTarget.getAttribute('href'), gallery);
+                new Lightbox(
+                    e.currentTarget.getAttribute('href'),
+                    gallery,
+                    e.currentTarget.getAttribute('title'),
+                    arrayTitle,
+                    );
+                
             }));
     }
 
@@ -40,10 +47,12 @@ export class Lightbox {
      * @param {string[]} images chemins des images de la lightbox
      */
 
-    constructor(url, images) {
+    constructor(url, images, title, arrayTitle) {
         this.element = this.buildDOM(url);
         this.images = images;
-        this.loadMedia(url);
+        this.title = title;
+        this.arrayTitle = arrayTitle;
+        this.loadMedia(url, title);
         this.onKeyUp = this.onKeyUp.bind(this);
         document.body.appendChild(this.element);
         disableBodyScroll(this.element);
@@ -56,7 +65,7 @@ export class Lightbox {
     * @param {string} url URL de l'image 
     */
 
-    loadMedia(url) {
+    loadMedia(url, title) {
 
        
        
@@ -64,10 +73,14 @@ export class Lightbox {
             this.url = null
             const container = this.element.querySelector(".lightbox__container");
             container.innerHTML = "";
-            const image = new Image();
+            const image = new Image(); /*document.createElement("image")*/
+            const text = document.createElement("p");
             this.url = url;
+            this.title = title;
             container.appendChild(image);
             image.src = url;
+            container.appendChild(text);
+            text.innerHTML = title;
             //image.setAttribute("data-alt","")
         }    
         if (url.includes(".mp4")){
@@ -80,8 +93,6 @@ export class Lightbox {
             video.src = url;
         }  
     }
-
-   
 
 
     /**
@@ -118,10 +129,18 @@ export class Lightbox {
         next(e){
             e.preventDefault();
             let i = this.images.findIndex(image => image === this.url);
-            if (i === this.images.length - 1) {
+            let t = this.arrayTitle.findIndex(element => element === this.title);
+            console.log(t)
+            if (
+                i === this.images.length - 1 
+                && t === this.arrayTitle.length -1
+                ) {
                 i = -1;
+                t = -1;
             }
-            this.loadMedia(this.images[i + 1]);
+            this.loadMedia(this.images[i + 1],this.arrayTitle[t + 1]);
+            
+
         }
 
         prev(e){

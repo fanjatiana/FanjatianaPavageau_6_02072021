@@ -105,7 +105,7 @@ export function showMediaByDate() {
                     works.innerHTML +=
                         `<article id ="${objet.photographerId}">
                         <div class = "gallery">
-                            <a href="./Photos/gallery/${lastName}/${objet.image}">
+                            <a href="./Photos/gallery/${lastName}/${objet.image}" title="${objet.title}">
                                 <img class="pictures-list" src = "./Photos/gallery/${lastName}/${objet.image}" alt ="${objet.description}">
                             </a>    
                         </div>
@@ -125,7 +125,7 @@ export function showMediaByDate() {
                     works.innerHTML +=
                         `<article id ="${objet.photographerId}">
                 <div class = "gallery">
-                    <a href="./Photos/gallery/${lastName}/${objet.video}">
+                    <a href="./Photos/gallery/${lastName}/${objet.video}" title="${objet.title}">
                         <video controls width="500">
                             <source src="./Photos/gallery/${lastName}/${objet.video}" type="video/mp4">
                         </video>
@@ -187,7 +187,7 @@ export function showMediaByLikes() {
                     works.innerHTML +=
                         `<article id ="${valueLikes.photographerId}">
                     <div class = "gallery">
-                        <a href="./Photos/gallery/${lastName}/${valueLikes.image}">
+                        <a href="./Photos/gallery/${lastName}/${valueLikes.image}" value="${valueLikes.title}">
                             <img class="pictures-list" src = "./Photos/gallery/${lastName}/${valueLikes.image}" alt ="${valueLikes.description}">
                         </a>
                     </div>
@@ -207,7 +207,7 @@ export function showMediaByLikes() {
                     works.innerHTML +=
                         `<article id ="${valueLikes.photographerId}">
             <div class = "gallery">
-                <a href="./Photos/gallery/${lastName}/${valueLikes.video}">
+                <a href="./Photos/gallery/${lastName}/${valueLikes.video}" value="${valueLikes.title}">
                     <video controls width="500">
                         <source src="./Photos/gallery/${lastName}/${valueLikes.video}" type="video/mp4">
                     </video>
@@ -267,7 +267,7 @@ export function showMediaByABC() {
                     works.innerHTML +=
                         `<article id ="${infoTitle.photographerId}">
                         <div class = "gallery">
-                            <a href="./Photos/gallery/${lastName}/${infoTitle.image}">
+                            <a href="./Photos/gallery/${lastName}/${infoTitle.image}" title="${infoTitle.title}">
                                 <img class="pictures-list" src = "./Photos/gallery/${lastName}/${infoTitle.image}"alt ="${infoTitle.description}">
                             </a>
                                 </div>
@@ -287,7 +287,7 @@ export function showMediaByABC() {
                     works.innerHTML +=
                         `<article id ="${infoTitle.photographerId}">
                 <div class = "gallery">
-                    <a href="./Photos/gallery/${lastName}/${infoTitle.video}">
+                    <a href="./Photos/gallery/${lastName}/${infoTitle.video}" title="${infoTitle.title}">
                         <video controls width="500">
                             <source src="./Photos/gallery/${lastName}/${infoTitle.video}" type="video/mp4">
                         </video>

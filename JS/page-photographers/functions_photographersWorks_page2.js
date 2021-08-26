@@ -25,7 +25,7 @@ export function addImages() {
             document.getElementById("works-list").innerHTML +=
                 `<article id ="${element.photographerId}">
                     <div class = "gallery">
-                        <a href="./Photos/gallery/${lastName}/${element.image}">
+                        <a href="./Photos/gallery/${lastName}/${element.image}" title="${element.title}">
                             <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}" alt ="${element.description}">
                         </a>
                     </div>
@@ -53,7 +53,7 @@ export function addVideo() {
             document.getElementById("works-list").innerHTML +=
                 `<article id ="${info.photographerId}">
             <div class="gallery">
-                <a href="./Photos/gallery/${lastName}/${info.video}">
+                <a href="./Photos/gallery/${lastName}/${info.video}" title="${info.title}">
                     <video controls width="500">
                     ${info.title}
                         <source src="./Photos/gallery/${lastName}/${info.video}" type="video/mp4">
