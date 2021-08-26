@@ -30,7 +30,7 @@ export function addImages() {
                         </a>
                     </div>
                     <div class="info_media">
-                        <h3>${element.title}</h3>
+                        <h2>${element.title}</h2>
                         <div class ="like">
                             <p class="nb-likes">${element.likes}</p>
                             <button class ="likes_media" type="button" aria-label="button-like">
@@ -62,7 +62,7 @@ export function addVideo() {
                 </a>
             </div>
             <div class="info_media">
-                <h3>${info.title}</h3>
+                <h2>${info.title}</h2>
                 <div class ="like">
                     <p class="nb-likes">${info.likes}</p>
                     <button class ="likes_media" type="button" aria-label="button-like">

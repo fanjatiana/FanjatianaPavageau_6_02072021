@@ -23,7 +23,7 @@ export function addInfoOfPhotographer() {
             //on ajoute le contenu html avec les données de chaques photographes correspondant à l Id de l'url
             showPhotograph.innerHTML +=
                 `<div id = "${element.id}" class="presentation">
-                    <h2>${element.name}</h2>
+                    <h1>${element.name}</h1>
                         <p>${element.city}, ${element.country}</p>
                         <p>${element.tagline}</p>
                     <ul id="tagsList${element.tags}"></ul>
