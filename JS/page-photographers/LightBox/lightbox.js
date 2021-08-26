@@ -84,13 +84,20 @@ export class Lightbox {
             //image.setAttribute("data-alt","")
         }    
         if (url.includes(".mp4")){
-            const video = document.createElement("video");
+            
             const container = this.element.querySelector(".lightbox__container");
             container.innerHTML = "";
+            const video = document.createElement("video");
             container.appendChild(video);
             this.url = url;
-            video.controls = true;
+            this.title = title;
             video.src = url;
+            video.controls = true;
+            const textVideo = document.createElement("p");
+            container.appendChild(textVideo);
+            textVideo.innerHTML = title;
+            
+        
         }  
     }
 
@@ -146,10 +153,12 @@ export class Lightbox {
         prev(e){
             e.preventDefault();
             let i = this.images.findIndex(image => image === this.url);
-            if (i === 0) {
+            let t = this.arrayTitle.findIndex(element => element === this.title); 
+            if (i === 0 && t === 0) {
                 i = this.images.length;
+                t = this.arrayTitle.length;
             }
-            this.loadMedia(this.images[i - 1]);
+            this.loadMedia(this.images[i - 1], this.arrayTitle[t - 1]);
         }
 
         /**
