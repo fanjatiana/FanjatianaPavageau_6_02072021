@@ -24,20 +24,28 @@ import { addImages, addVideo } from "../functions_photographersWorks_page2.js";
 export class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'));
-       console.log(links);
+        const baliseImg = Array.from(document.querySelectorAll("img"));
+       console.log(baliseImg);
         const gallery = links.map(link => link.getAttribute("href"))
         const arrayTitle = links.map(link =>link.getAttribute("title"));
+        const arrayAlt = baliseImg.map(img => img.getAttribute("alt"));
+        console.log(arrayAlt);
+
         console.log(arrayTitle)
             links.forEach(link => link.addEventListener("click", e => {
                 e.preventDefault();
+                console.log(e.currentTarget.firstElementChild.getAttribute("alt"))
                 new Lightbox(
                     e.currentTarget.getAttribute('href'),
                     gallery,
                     e.currentTarget.getAttribute('title'),
                     arrayTitle,
+                    e.currentTarget.firstElementChild.getAttribute("alt"),
+                    arrayAlt
                     );
                 
             }));
+
     }
 
 
@@ -47,12 +55,14 @@ export class Lightbox {
      * @param {string[]} images chemins des images de la lightbox
      */
 
-    constructor(url, images, title, arrayTitle) {
+    constructor(url, images, title, arrayTitle, alt , arrayAlt) {
         this.element = this.buildDOM(url);
         this.images = images;
         this.title = title;
         this.arrayTitle = arrayTitle;
-        this.loadMedia(url, title);
+        this.alt = alt;
+        this.arrayAlt = arrayAlt;
+        this.loadMedia(url, title, alt);
         this.onKeyUp = this.onKeyUp.bind(this);
         document.body.appendChild(this.element);
         disableBodyScroll(this.element);
@@ -65,7 +75,7 @@ export class Lightbox {
     * @param {string} url URL de l'image 
     */
 
-    loadMedia(url, title) {
+    loadMedia(url, title, alt) {
 
        
        
@@ -81,7 +91,10 @@ export class Lightbox {
             image.src = url;
             container.appendChild(text);
             text.innerHTML = title;
-            //image.setAttribute("data-alt","")
+            
+            //ajout attribut alt
+            image.alt = alt;
+            console.log(alt)
         }    
         if (url.includes(".mp4")){
             
@@ -137,15 +150,18 @@ export class Lightbox {
             e.preventDefault();
             let i = this.images.findIndex(image => image === this.url);
             let t = this.arrayTitle.findIndex(element => element === this.title);
+            let a = this.arrayAlt.findIndex(attribute => attribute === this.alt)
             console.log(t)
             if (
                 i === this.images.length - 1 
                 && t === this.arrayTitle.length -1
+                && a === this.arrayAlt.length -1
                 ) {
                 i = -1;
                 t = -1;
+                a = -1;
             }
-            this.loadMedia(this.images[i + 1],this.arrayTitle[t + 1]);
+            this.loadMedia(this.images[i + 1],this.arrayTitle[t + 1], this.arrayAlt[a + 1]);
             
 
         }
@@ -153,12 +169,14 @@ export class Lightbox {
         prev(e){
             e.preventDefault();
             let i = this.images.findIndex(image => image === this.url);
-            let t = this.arrayTitle.findIndex(element => element === this.title); 
+            let t = this.arrayTitle.findIndex(element => element === this.title);
+            let a = this.arrayAlt.findIndex(attribute => attribute === this.alt)
             if (i === 0 && t === 0) {
                 i = this.images.length;
                 t = this.arrayTitle.length;
+                a = this.arrayAlt.length;
             }
-            this.loadMedia(this.images[i - 1], this.arrayTitle[t - 1]);
+            this.loadMedia(this.images[i - 1], this.arrayTitle[t - 1],this.arrayAlt[a - 1]);
         }
 
         /**
