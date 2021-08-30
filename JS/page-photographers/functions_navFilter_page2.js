@@ -131,7 +131,7 @@ export function showMediaByDate() {
                         `<article id ="${objet.photographerId}">
                 <div class = "gallery">
                     <a href="./Photos/gallery/${lastName}/${objet.video}" title="${objet.title}">
-                        <video controls width="500">
+                        <video alt="${objet.description}">
                             <source src="./Photos/gallery/${lastName}/${objet.video}" type="video/mp4">
                         </video>
                     </a>    
@@ -214,7 +214,7 @@ export function showMediaByLikes() {
                         `<article id ="${valueLikes.photographerId}">
             <div class = "gallery">
                 <a href="./Photos/gallery/${lastName}/${valueLikes.video}" value="${valueLikes.title}">
-                    <video controls width="500">
+                    <video alt="${valueLikes.description}">>
                         <source src="./Photos/gallery/${lastName}/${valueLikes.video}" type="video/mp4">
                     </video>
                 </a>
@@ -295,7 +295,7 @@ export function showMediaByABC() {
                         `<article id ="${infoTitle.photographerId}">
                 <div class = "gallery">
                     <a href="./Photos/gallery/${lastName}/${infoTitle.video}" title="${infoTitle.title}">
-                        <video controls width="500">
+                        <video alt="${infoTitle.description}">
                             <source src="./Photos/gallery/${lastName}/${infoTitle.video}" type="video/mp4">
                         </video>
                     </a>    

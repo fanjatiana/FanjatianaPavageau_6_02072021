@@ -1,5 +1,6 @@
 import {enableBodyScroll, disableBodyScroll} from "./body-scroll-lock.js";
 import { addImages, addVideo } from "../functions_photographersWorks_page2.js";
+import { works } from "../let-and-const_page-photographers.js";
 
 
 
@@ -24,15 +25,13 @@ import { addImages, addVideo } from "../functions_photographersWorks_page2.js";
 export class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'));
-        const baliseImg = Array.from(document.querySelectorAll("img"));
-
+        const baliseImg = Array.from(works.querySelectorAll("img"));
         const gallery = links.map(link => link.getAttribute("href"))
         const arrayTitle = links.map(link =>link.getAttribute("title"));
-        const arrayAlt = baliseImg.map(img => img.getAttribute("alt"));
-  
+        let arrayAlt = links.map(img => img.firstElementChild.getAttribute("alt"));
+        console.log(arrayAlt)
             links.forEach(link => link.addEventListener("click", e => {
                 e.preventDefault();
-                console.log(e.currentTarget.firstElementChild.getAttribute("alt"))
                 new Lightbox(
                     e.currentTarget.getAttribute('href'),
                     gallery,
@@ -53,13 +52,13 @@ export class Lightbox {
      * @param {string[]} images chemins des images de la lightbox
      */
 
-    constructor(url, images, title, arrayTitle, alt , arrayAlt) {
+    constructor(url, images, title, baliseTitle, alt , baliseAlt) {
         this.element = this.buildDOM(url);
         this.images = images;
         this.title = title;
-        this.arrayTitle = arrayTitle;
+        this.baliseTitle = baliseTitle;
         this.alt = alt;
-        this.arrayAlt = arrayAlt;
+        this.baliseAlt = baliseAlt;
         this.loadMedia(url, title, alt);
         this.onKeyUp = this.onKeyUp.bind(this);
         document.body.appendChild(this.element);
@@ -74,45 +73,41 @@ export class Lightbox {
     */
 
     loadMedia(url, title, alt) {
-
-       
-       
-        if(url.includes(".jpg")) {
-            this.url = null
-            const container = this.element.querySelector(".lightbox__container");
-            container.innerHTML = "";
+        if(url.includes('.jpg')) {
+            this.url = null;
             const image = new Image(); /*document.createElement("image")*/
+            const container = this.element.querySelector(".lightbox__container");
+            const text = document.createElement("p");
+            
+           
+            container.innerHTML = "";
+            this.alt = alt;
+          
             this.url = url;
-            container.appendChild(image);
+            this.title = title;
+            image.alt = alt;
             image.src = url;
 
-
-            const text = document.createElement("p");
-            this.title = title;
+            container.appendChild(image);
             container.appendChild(text);
             text.innerHTML = title;
-            
-            //ajout attribut alt
-            image.alt = alt;
-            console.log(alt)
         }    
-        if (url.includes(".mp4")){
+        
+        
+        if(url.includes('.mp4')){
             const video = document.createElement("video");
+            const textVideo = document.createElement("p");
             const container = this.element.querySelector(".lightbox__container");
             container.innerHTML = "";
-         
-            container.appendChild(video);
             this.url = url;
+            this.title = title;
+            this.alt = alt;
+            container.appendChild(video);
             video.controls = true;
             video.src = url;
-
-
-            const textVideo = document.createElement("p");
+            video.alt = alt;
             container.appendChild(textVideo);
-            this.title = title;
             textVideo.innerHTML = title;
-            
-        
         }  
     }
 
@@ -150,35 +145,43 @@ export class Lightbox {
 
         next(e){
             e.preventDefault();
-            let i = this.images.findIndex(image => image === this.url);
-            let t = this.arrayTitle.findIndex(element => element === this.title);
-            let a = this.arrayAlt.findIndex(attribute => attribute === this.alt)
-            console.log(t)
-            if (
-                i === this.images.length - 1 
-                && t === this.arrayTitle.length -1
-                && a === this.arrayAlt.length -1
-                ) {
-                i = -1;
-                t = -1;
-                a = -1;
+            let nextImg = this.images.findIndex((image) => image === this.url);
+            let nextTitle = this.baliseTitle.findIndex((element) => element === this.title);
+            let nextAlt = this.baliseAlt.findIndex((attribute) => attribute === this.alt);
+            console.log(nextImg)
+            console.log(nextTitle)
+            console.log(nextAlt)
+            if ((nextImg === this.images.length -1) && 
+                (nextTitle === this.baliseTitle.length -1) &&
+                (nextAlt  === this.baliseAlt.length -1 )) {
+                nextImg = -1
+                nextTitle = -1
+                nextAlt = -1
+              
             }
-            this.loadMedia(this.images[i + 1],this.arrayTitle[t + 1], this.arrayAlt[a + 1]);
-            
-
+            this.loadMedia(
+                this.images[nextImg + 1],
+                this.baliseTitle[nextTitle + 1],
+                this.baliseAlt[nextAlt + 1 ]
+                );
         }
 
         prev(e){
             e.preventDefault();
-            let i = this.images.findIndex(image => image === this.url);
-            let t = this.arrayTitle.findIndex(element => element === this.title);
-            let a = this.arrayAlt.findIndex(attribute => attribute === this.alt)
-            if (i === 0 && t === 0 && a === 0) {
-                i = this.images.length;
-                t = this.arrayTitle.length;
-                a = this.arrayAlt.length;
+
+            let prevImg = this.images.findIndex((image) => image === this.url);
+            let prevTitle = this.baliseTitle.findIndex((element) => element === this.title);
+            let prevAlt = this.baliseAlt.findIndex((attribute) => attribute === this.alt);
+            console.log(prevImg)
+            console.log(prevTitle)
+            console.log(prevAlt)
+            if (prevImg  === 0 && prevTitle === 0 && prevAlt === 0) {
+                prevImg = this.images.length;
+                prevTitle = this.baliseTitle.length;
+                prevAlt = this.baliseAlt.length;
             }
-            this.loadMedia(this.images[i - 1], this.arrayTitle[t - 1],this.arrayAlt[a - 1]);
+
+            this.loadMedia(this.images[prevImg - 1], this.baliseTitle[prevTitle - 1], this.baliseAlt[prevAlt -1]);
         }
 
         /**
