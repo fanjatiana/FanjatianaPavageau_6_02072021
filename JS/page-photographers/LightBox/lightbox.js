@@ -122,7 +122,7 @@ export class Lightbox {
             this.close(e);
         } else if (e.key === "ArrowLeft") {
             this.prev(e);
-        } else if (e.key === "ArrowRigth") {
+        } else if (e.key === "ArrowRight") {
             this.next(e);
         }
     }    
