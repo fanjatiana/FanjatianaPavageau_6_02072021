@@ -3,112 +3,49 @@ import { newGetId } from "./functions_showInfoPhotographer_page2.js";
 import { addCounterLiker, lastName } from "./functions_photographersWorks_page2.js";
 import { Lightbox } from "./LightBox/lightbox.js";
 
-//function ajout du bloc de filtre :  trier par
+
+
+
+//function pour ajouter  le bloc de filtre :  trier par
 export function addMenuSortBy() {
-
-    //ajout du contenu html
     (function () {
-        worksFilter.innerHTML +=
-            `<h3>Trier par</h3>
-<div id="list-filter">
-<div id="click-for-show" >
-    <a href="" class = "by-popular">Popularité
-        <i class="fas fa-chevron-down"></i>
-        <i class="fas fa-chevron-up"></i>
-    </a>
-</div>
-<div class="sous-menu" >
-    <div><a class="sort_by_date menu-hidden"  href="">Date</a></div>
-    <div><a class = "sort_by_title menu-hidden" href="">Titre</a></div>
-<div>
-</div>`
+        worksFilter.innerHTML += `<label for="list-filter">Trier par</label>
+    <select name="filter" id="list-filter">
+        <option class="by-popular" value="Popularité">Popularité</option>
+        <option class="sort_by_date" value="Date">Date</option>
+        <option class="sort_by_title"  value="Titre">Titre</option>
+        </select>`
     })();
+}
+
+    export function filter() {
+
+        //fonction de trie par Dates
+        function sortByDate() {
+            let arrayDate = [];
+            //fonction pour récuperer toutes les dates des médias correspondant à l id du photographe, et on les ajoute dans un tableau
+            (function () {
+                photographersMedia.forEach(valueDate => {
+                    if (valueDate.photographerId === newGetId) {
+                        //arrayDate.push(valueDate.date)
+                        arrayDate.push(valueDate)
+                    }
+                });
+            })();
 
 
-    const arrowDown = document.querySelector(".fa-chevron-down");
-    const chevronUp = document.querySelector(".fa-chevron-up")
-    const sousMenu = document.querySelector(".sous-menu");
-    const divContentNav = document.getElementById("list-filter");
+            //fonction pour organiser les médias du photographes en fonction des dates (de la plus récente à la plus ancienne)
+            function toOrderMediaByDate() {
+                const date = e => e.date;
+                let orderByDate = [];
+                console.log(orderByDate)
+                orderByDate = arrayDate.sort(date).reverse();
 
-    //fonction affichage du menu déroulant au hover de la souris
-    function showNav() {
-        divContentNav.addEventListener("mouseover", function () {
-            sousMenu.style.display = "block";
-            arrowDown.style.display = "none";
-            chevronUp.style.display = "block";
-        })
-    }
-    showNav();
-
-    //fonction de fermeture du menu déroulant lorsque la souris n'est plus dans le champs
-    function leaveNav() {
-        divContentNav.addEventListener("mouseleave", function () {
-            sousMenu.style.display = "none";
-            arrowDown.style.display = "block";
-            chevronUp.style.display = "none";
-
-        }, true)
-    }
-    leaveNav();
-
-     //fonction affichage du menu déroulant au hover de la souris
-     function showNavkeyboard() {
-        divContentNav.addEventListener("keydown", function (e) {
-            sousMenu.style.display = "block";
-            arrowDown.style.display = "none";
-            chevronUp.style.display = "block";
-        })
-    }
-    showNavkeyboard();
-
-    //fonction de fermeture du menu déroulant lorsque la souris n'est plus dans le champs
-    function leaveNavKeyboard(e) {
-        divContentNav.addEventListener("keyup", function (e) {
-            if (e.key === "Escape") {
-                sousMenu.style.display = "none";
-                arrowDown.style.display = "block";
-                chevronUp.style.display = "none";
-            
-            }
-        }, true)
-    }
-    leaveNavKeyboard();
-}  
-
-
-   
-
-   
-
-//fonction pour afficher les medias par date
-export function showMediaByDate() {
-
-    //fonction de trie des dates dans le fichier JSON
-    function sortByDate() {
-
-        let arrayDate = [];
-        //fonction pour récuperer toutes les dates des médias correspondant à l id du photographe, et on les ajoute dans un tableau
-        (function () {
-            photographersMedia.forEach(valueDate => {
-                if (valueDate.photographerId === newGetId) {
-                    //arrayDate.push(valueDate.date)
-                    arrayDate.push(valueDate)
-                }
-            });
-        })();
-
-
-        //fonction pour organiser les médias du photographes en fonction des dates (de la plus récente à la plus ancienne)
-        function toOrderMediaByDate() {
-            const date = e => e.date;
-            let orderByDate = [];
-            orderByDate = arrayDate.sort(date).reverse();
-
-            orderByDate.forEach(objet => {
-                //on affiche toutes les images liées à l'Id du photographe
-                if (objet.photographerId === newGetId && objet.image) {
-                    works.innerHTML +=
-                        `<article id ="${objet.photographerId}">
+                orderByDate.forEach(objet => {
+                    //on affiche toutes les images liées à l'Id du photographe
+                    if (objet.photographerId === newGetId && objet.image) {
+                        works.innerHTML +=
+                            `<article id ="${objet.photographerId}">
                         <div class = "gallery">
                             <a href="./Photos/gallery/${lastName}/${objet.image}" title="${objet.title}">
                                 <img class="pictures-list" src = "./Photos/gallery/${lastName}/${objet.image}" alt ="${objet.description}">
@@ -124,11 +61,11 @@ export function showMediaByDate() {
                             </div>    
                         </div>
                  </article>`
-                }
-                //on affiche toutes les vidéos liées à l Id du photographe
-                if (objet.photographerId === newGetId && objet.video) {
-                    works.innerHTML +=
-                        `<article id ="${objet.photographerId}">
+                    }
+                    //on affiche toutes les vidéos liées à l Id du photographe
+                    if (objet.photographerId === newGetId && objet.video) {
+                        works.innerHTML +=
+                            `<article id ="${objet.photographerId}">
                 <div class = "gallery">
                     <a href="./Photos/gallery/${lastName}/${objet.video}" title="${objet.title}">
                         <video alt="${objet.description}">
@@ -146,52 +83,39 @@ export function showMediaByDate() {
                     </div>
                 </div>   
             </article>`
-                }
-            });
-        }
-        toOrderMediaByDate();
-    }
-
-    //affichage de la gallerie triée  par date au clic du lien : Date
-    document.querySelector(".sort_by_date").addEventListener("click", function (event) {
-        works.innerHTML = "";
-        event.preventDefault();
-        sortByDate();
-        addCounterLiker();
-        Lightbox.init();
-    })
-}
-
-//fonction afficher les medias par likes
-export function showMediaByLikes() {
-
-    //fonction de trie des likes dans le fichier JSON
-    const sortByLikes = () => {
-        //fonction pour récuperer toutes les likes des médias correspondant à l id du photographe, et on les ajoute dans un tableau
-        let arrayLikes = [];
-        (function () {
-            photographersMedia.forEach(nbLikes => {
-                if (nbLikes.photographerId === newGetId) {
-                    arrayLikes.push(nbLikes);
-                }
-            });
-        })();
-
-
-        //fonction pour organiser les médias du photographes en fonction des likes (ordre décroissant)
-        function orderMediaByPop() {
-
-            //fonction pour ranger les likes dans l'ordre décroissant
-            const byLikes = (a, b) => {
-                return b.likes - a.likes
+                    }
+                });
             }
-            let orderByLikes = arrayLikes.sort(byLikes);
+            toOrderMediaByDate();
+        }
 
-            orderByLikes.forEach(valueLikes => {
-                //on affiche toutes les images liées à l'Id du photographe
-                if (valueLikes.photographerId === newGetId && valueLikes.image) {
-                    works.innerHTML +=
-                        `<article id ="${valueLikes.photographerId}">
+
+        //fonction de trie des likes dans le fichier JSON
+        const sortByLikes = () => {
+            //fonction pour récuperer toutes les likes des médias correspondant à l id du photographe, et on les ajoute dans un tableau
+            let arrayLikes = [];
+            (function () {
+                photographersMedia.forEach(nbLikes => {
+                    if (nbLikes.photographerId === newGetId) {
+                        arrayLikes.push(nbLikes);
+                    }
+                });
+            })();
+
+            //fonction pour organiser les médias du photographes en fonction des likes (ordre décroissant)
+            function orderMediaByPop() {
+
+                //fonction pour ranger les likes dans l'ordre décroissant
+                const byLikes = (a, b) => {
+                    return b.likes - a.likes
+                }
+                let orderByLikes = arrayLikes.sort(byLikes);
+
+                orderByLikes.forEach(valueLikes => {
+                    //on affiche toutes les images liées à l'Id du photographe
+                    if (valueLikes.photographerId === newGetId && valueLikes.image) {
+                        works.innerHTML +=
+                            `<article id ="${valueLikes.photographerId}">
                     <div class = "gallery">
                         <a href="./Photos/gallery/${lastName}/${valueLikes.image}" value="${valueLikes.title}">
                             <img class="pictures-list" src = "./Photos/gallery/${lastName}/${valueLikes.image}" alt ="${valueLikes.description}">
@@ -207,11 +131,11 @@ export function showMediaByLikes() {
                         </div>    
                     </div>
              </article>`
-                }
-                //on affiche toutes les vidéos liées à l Id du photographe
-                if (valueLikes.photographerId === newGetId && valueLikes.video) {
-                    works.innerHTML +=
-                        `<article id ="${valueLikes.photographerId}">
+                    }
+                    //on affiche toutes les vidéos liées à l Id du photographe
+                    if (valueLikes.photographerId === newGetId && valueLikes.video) {
+                        works.innerHTML +=
+                            `<article id ="${valueLikes.photographerId}">
             <div class = "gallery">
                 <a href="./Photos/gallery/${lastName}/${valueLikes.video}" value="${valueLikes.title}">
                     <video alt="${valueLikes.description}">>
@@ -229,50 +153,38 @@ export function showMediaByLikes() {
                 </div>    
             </div>   
         </article>`
+                    }
+                });
+            }
+            orderMediaByPop();
+        }
+
+
+        //fonction de trie des titres dans le fichier JSON
+        const sortByABC = () => {
+            let arrayMediaTitle = [];
+            //fonction pour récuperer tous les titres des médias correspondant à l id du photographe, et on les ajoute dans un tableau
+            photographersMedia.forEach(titleMedia => {
+                if (titleMedia.photographerId === newGetId) {
+                    arrayMediaTitle.push(titleMedia)
                 }
             });
-        }
-        orderMediaByPop();
-    }
 
-    //affichage de la gallerie triée par popularité au clic du lien : Popularité
-    document.querySelector(".by-popular").addEventListener("click", function (event) {
-        works.innerHTML = "";
-        event.preventDefault();
-        sortByLikes();
-        addCounterLiker();
-        Lightbox.init();
-    })
-}
+            //fonction pour organiser les médias du photographes en fonction des titres (ordre alphabétique)
+            function toOrderMediaByABC() {
+                let orderByTitle = arrayMediaTitle.sort(function compare(a, b) {
+                    if (a.title < b.title)
+                        return -1;
+                    if (a.title > b.title)
+                        return 1;
+                    return 0;
+                });
 
-//fonction afficher les medias par ordre alphabétique
-export function showMediaByABC() {
-
-    //fonction de trie des titres dans le fichier JSON
-    const sortByABC = () => {
-        let arrayMediaTitle = [];
-        //fonction pour récuperer tous les titres des médias correspondant à l id du photographe, et on les ajoute dans un tableau
-        photographersMedia.forEach(titleMedia => {
-            if (titleMedia.photographerId === newGetId) {
-                arrayMediaTitle.push(titleMedia)
-            }
-        });
-
-        //fonction pour organiser les médias du photographes en fonction des titres (ordre alphabétique)
-        function toOrderMediaByABC() {
-            let orderByTitle = arrayMediaTitle.sort(function compare(a, b) {
-                if (a.title < b.title)
-                    return -1;
-                if (a.title > b.title)
-                    return 1;
-                return 0;
-            });
-
-            orderByTitle.forEach(infoTitle => {
-                if (infoTitle.photographerId === newGetId && infoTitle.image) {
-                    //on affiche toutes les images liées à l'Id du photographe
-                    works.innerHTML +=
-                        `<article id ="${infoTitle.photographerId}">
+                orderByTitle.forEach(infoTitle => {
+                    if (infoTitle.photographerId === newGetId && infoTitle.image) {
+                        //on affiche toutes les images liées à l'Id du photographe
+                        works.innerHTML +=
+                            `<article id ="${infoTitle.photographerId}">
                         <div class = "gallery">
                             <a href="./Photos/gallery/${lastName}/${infoTitle.image}" title="${infoTitle.title}">
                                 <img class="pictures-list" src = "./Photos/gallery/${lastName}/${infoTitle.image}"alt ="${infoTitle.description}">
@@ -288,11 +200,11 @@ export function showMediaByABC() {
                             </div>
                         </div>
                  </article>`
-                }
-                //on affiche toutes les vidéos liées à l Id du photographe
-                if (infoTitle.photographerId === newGetId && infoTitle.video) {
-                    works.innerHTML +=
-                        `<article id ="${infoTitle.photographerId}">
+                    }
+                    //on affiche toutes les vidéos liées à l Id du photographe
+                    if (infoTitle.photographerId === newGetId && infoTitle.video) {
+                        works.innerHTML +=
+                            `<article id ="${infoTitle.photographerId}">
                 <div class = "gallery">
                     <a href="./Photos/gallery/${lastName}/${infoTitle.video}" title="${infoTitle.title}">
                         <video alt="${infoTitle.description}">
@@ -310,26 +222,45 @@ export function showMediaByABC() {
                     </div>
                 </div>   
             </article>`
-                }
-            });
+                    }
+                });
+            }
+            toOrderMediaByABC();
         }
-        toOrderMediaByABC();
-    }
 
-    //affichage de la gallerie triée par ordre alphabétique au clic du lien : Titre
-    document.querySelector(".sort_by_title").addEventListener("click", function (event) {
-        works.innerHTML = "";
-        event.preventDefault();
-        sortByABC();
-        addCounterLiker();
-        Lightbox.init();
 
-    })
+
+        const buttonSelect = document.querySelector("select");
+
+        //on applique un evenement au click sur le bouton select pour pouvoir afficher le contenu filtré
+        buttonSelect.addEventListener("click", function () {
+            if (buttonSelect.value === "Popularité") {
+                works.innerHTML = "";
+                sortByLikes();
+                addCounterLiker();
+                Lightbox.init();
+
+            } else if (buttonSelect.value === "Titre") {
+                //affichage de la gallerie triée par ordre alphabétique au clic du lien : Titre
+                works.innerHTML = "";
+                sortByABC();
+                addCounterLiker();
+                Lightbox.init();
+
+            } else if (buttonSelect.value = "Date") {
+                //affichage de la gallerie triée  par date au clic du lien : Date
+                works.innerHTML = "";
+                sortByDate();
+                addCounterLiker();
+                Lightbox.init();
+
+            }
+
+        })
+
+    
+
 }
-
-
-
-
 
 
 

@@ -2,9 +2,9 @@
 import { addInfoOfPhotographer, showModal,controlForm, } from "./functions_showInfoPhotographer_page2.js";
 import { Lightbox } from "./LightBox/lightbox.js";
 import { addCounterLiker, addImages,addVideo} from "./functions_photographersWorks_page2.js";
-import { addMenuSortBy, showMediaByDate, showMediaByLikes, showMediaByABC} from "./functions_navFilter_page2.js";
+import { addMenuSortBy,filter } from "./functions_navFilter_page2.js";
 
-
+//showMediaByDate, showMediaByLikes, showMediaByABC
 
 
 /***********************************************************************************************************************/
@@ -78,13 +78,14 @@ const getNavFilter = async (data, response) => {
 
 //ajout du menu déroulant : trier par
   addMenuSortBy();
-
+  filter();
+/*
 //fonction : trier par popularité
 showMediaByLikes();
 //fonction : trier par date
 showMediaByDate();
 //fonction : trier par Titre
-showMediaByABC();
+showMediaByABC();*/
 
 }
 getNavFilter();
