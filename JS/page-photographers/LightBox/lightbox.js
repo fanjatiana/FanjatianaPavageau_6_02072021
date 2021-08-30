@@ -25,13 +25,11 @@ export class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'));
         const baliseImg = Array.from(document.querySelectorAll("img"));
-       console.log(baliseImg);
+
         const gallery = links.map(link => link.getAttribute("href"))
         const arrayTitle = links.map(link =>link.getAttribute("title"));
         const arrayAlt = baliseImg.map(img => img.getAttribute("alt"));
-        console.log(arrayAlt);
-
-        console.log(arrayTitle)
+  
             links.forEach(link => link.addEventListener("click", e => {
                 e.preventDefault();
                 console.log(e.currentTarget.firstElementChild.getAttribute("alt"))
@@ -84,11 +82,13 @@ export class Lightbox {
             const container = this.element.querySelector(".lightbox__container");
             container.innerHTML = "";
             const image = new Image(); /*document.createElement("image")*/
-            const text = document.createElement("p");
             this.url = url;
-            this.title = title;
             container.appendChild(image);
             image.src = url;
+
+
+            const text = document.createElement("p");
+            this.title = title;
             container.appendChild(text);
             text.innerHTML = title;
             
@@ -97,17 +97,19 @@ export class Lightbox {
             console.log(alt)
         }    
         if (url.includes(".mp4")){
-            
+            const video = document.createElement("video");
             const container = this.element.querySelector(".lightbox__container");
             container.innerHTML = "";
-            const video = document.createElement("video");
+         
             container.appendChild(video);
             this.url = url;
-            this.title = title;
-            video.src = url;
             video.controls = true;
+            video.src = url;
+
+
             const textVideo = document.createElement("p");
             container.appendChild(textVideo);
+            this.title = title;
             textVideo.innerHTML = title;
             
         
@@ -171,7 +173,7 @@ export class Lightbox {
             let i = this.images.findIndex(image => image === this.url);
             let t = this.arrayTitle.findIndex(element => element === this.title);
             let a = this.arrayAlt.findIndex(attribute => attribute === this.alt)
-            if (i === 0 && t === 0) {
+            if (i === 0 && t === 0 && a === 0) {
                 i = this.images.length;
                 t = this.arrayTitle.length;
                 a = this.arrayAlt.length;
@@ -185,7 +187,7 @@ export class Lightbox {
          * @return {HTMLElement} 
          */
 
-        buildDOM(url) {
+        buildDOM() {
             const dom = document.createElement('div');
             dom.classList.add('lightbox');
             dom.innerHTML = `<button
