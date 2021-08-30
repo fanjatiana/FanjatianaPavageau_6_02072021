@@ -1,6 +1,6 @@
 import { photographersMedia, worksFilter, works } from "./let-and-const_page-photographers.js";
 import { newGetId } from "./functions_showInfoPhotographer_page2.js";
-import { lastName } from "./functions_photographersWorks_page2.js";
+import { addCounterLiker, lastName } from "./functions_photographersWorks_page2.js";
 import { Lightbox } from "./LightBox/lightbox.js";
 
 //function ajout du bloc de filtre :  trier par
@@ -157,6 +157,7 @@ export function showMediaByDate() {
         works.innerHTML = "";
         event.preventDefault();
         sortByDate();
+        addCounterLiker();
         Lightbox.init();
     })
 }
@@ -239,6 +240,7 @@ export function showMediaByLikes() {
         works.innerHTML = "";
         event.preventDefault();
         sortByLikes();
+        addCounterLiker();
         Lightbox.init();
     })
 }
@@ -319,6 +321,7 @@ export function showMediaByABC() {
         works.innerHTML = "";
         event.preventDefault();
         sortByABC();
+        addCounterLiker();
         Lightbox.init();
 
     })
