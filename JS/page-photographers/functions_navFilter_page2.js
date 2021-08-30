@@ -8,24 +8,29 @@ export function addMenuSortBy() {
 
     //ajout du contenu html
     (function () {
-        worksFilter.innerHTML +=`<label for ="filter-sort-by">Trier par</label>
-        <select name ="sort-by" id="filter-sort-by" class="list-filter">
-            <option id="sort-by" class="by-popular" value = "0">Popularité</option>
-            <option value="1" class="sort_by_date">Date</option>
-            <option value="2" class="sort_by_title">Titre</option>
-        </select>`
+        worksFilter.innerHTML +=
+            `<h3>Trier par</h3>
+<div id="list-filter">
+<div id="click-for-show" >
+    <a href="" class = "by-popular">Popularité
+        <i class="fas fa-chevron-down"></i>
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+<div class="sous-menu" >
+    <div><a class="sort_by_date menu-hidden"  href="">Date</a></div>
+    <div><a class = "sort_by_title menu-hidden" href="">Titre</a></div>
+<div>
+</div>`
     })();
 
-    //<i class="fas fa-chevron-down"></i>
-                //<i class="fas fa-chevron-up"></i>
 
     const arrowDown = document.querySelector(".fa-chevron-down");
     const chevronUp = document.querySelector(".fa-chevron-up")
     const sousMenu = document.querySelector(".sous-menu");
-    const divContentNav = document.querySelector("list-filter");
-    console.log(divContentNav)
+    const divContentNav = document.getElementById("list-filter");
 
-    /*fonction affichage du menu déroulant au hover de la souris
+    //fonction affichage du menu déroulant au hover de la souris
     function showNav() {
         divContentNav.addEventListener("mouseover", function () {
             sousMenu.style.display = "block";
@@ -44,9 +49,9 @@ export function addMenuSortBy() {
 
         }, true)
     }
-    leaveNav();*/
+    leaveNav();
 
-     /*fonction affichage du menu déroulant au hover de la souris
+     //fonction affichage du menu déroulant au hover de la souris
      function showNavkeyboard() {
         divContentNav.addEventListener("keydown", function (e) {
             sousMenu.style.display = "block";
@@ -67,7 +72,7 @@ export function addMenuSortBy() {
             }
         }, true)
     }
-    leaveNavKeyboard();*/
+    leaveNavKeyboard();
 }  
 
 
@@ -318,6 +323,8 @@ export function showMediaByABC() {
 
     })
 }
+
+
 
 
 
