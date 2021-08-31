@@ -7,16 +7,32 @@
   text-decoration: none;
 }
 
+* p {
+  line-height: 1.3rem;
+}
+
 body {
-  width: 90%;
+  width: 100%;
   z-index: 1;
   position: relative;
   margin: auto;
+  font-size: 1rem;
 }
 
 /**************************************************************************header*******************************************/
 #banner {
-  margin: 2em 0 3em;
+  width: 95%;
+  text-align: left;
+  margin: auto;
+}
+
+.logo img {
+  width: 50%;
+}
+
+/******************************************************************main******************************************/
+main {
+  width: 100%;
 }
 
 /******************************************************** 1ere section :  show-id-photograph*****************************************************/
@@ -30,81 +46,80 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 95%;
+  margin: auto;
 }
 
-/*************div 1 : presentation********/
+#show-id-photograph > .btn-contact {
+  position: fixed;
+  bottom: 7%;
+  left: 50%;
+  margin-left: -50px;
+}
+
+#show-id-photograph > .btn-contact > button {
+  background-color: #901C1C;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  padding: 5px;
+}
+
 .presentation {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  width: 80%;
 }
 
-.presentation h1 {
+.presentation > h1 {
   color: #D3573C;
-  font-size: 3rem;
-  margin-top: 0;
-  margin-bottom: 0.3em;
+  margin-bottom: 0;
+  font-size: 1rem;
 }
 
 .presentation p:nth-child(2) {
   color: #901C1C;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.presentation p:nth-child(3) {
+  color: gray;
   margin-top: 0;
+  font-size: 0.8rem;
 }
 
 ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-left: 0;
 }
 
-ul > .tags {
-  margin: 0 0.3em;
-}
-
-/*liens tags*/
-.links {
-  border: 0.5px #ebebeb solid;
-  border-radius: 0.8em;
-  padding: 0.2em 0.8em;
+ul a {
   color: #901C1C;
-  font-weight: bold;
+  border: 0.3px solid grey;
+  border-radius: 11px;
+  padding: 2px;
+  font-size: 0.7rem;
 }
 
-/*********div 2 : photo du photograph************/
 #id-photo {
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
+  width: 50%;
 }
 
 #id-photo img {
-  width: 300px;
-  height: 300px;
-  border-radius: 100%;
-}
-
-/************div 3 : bouton contactez-moi************/
-.btn-contact {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
-}
-
-.btn-contact > button {
-  background-color: #901C1C;
-  color: #FFF;
-  padding: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 0.4em;
-  cursor: pointer;
+  width: 100%;
+  border-radius: 50%;
 }
 
 /*****************************************************************************section filtre************************************************************/
 #filter-sort-by {
+  width: 100%;
+  margin: auto;
   margin-bottom: 30px;
+  display: none;
 }
 
 select {
@@ -121,113 +136,38 @@ select:hover {
   opacity: 0.9;
 }
 
-/**********************************************************************section gallery photographe******************************************************/
-.info_media {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-}
-
-.info_media > h3 {
-  font-size: 1.5rem;
-  color: #901C1C;
-}
-
-.info_media p {
-  color: #000;
-  font-weight: bold;
-}
-
-.info_media p > a {
-  text-decoration: none;
-  margin-left: 0.5em;
-}
-
-.like {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.like .likes_media {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.like .likes_media > .fa-heart {
-  color: #901C1C;
-  font-size: 1.3em;
-}
-
-.pictures-list {
-  width: 500px;
-  height: 500px;
-}
-
-/*********************************************************************bloc compteur de likes******************************************************************/
-#like_counter {
-  width: 300px;
-  height: 55px;
-  background-color: #D3573C;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-}
-
-#like_counter > p {
-  color: #000;
-  font-size: 1.3em;
-  padding: 0;
-}
-
 /***************************************************************************************formulaire*************************************************************/
 #modale {
-  width: 600px;
-  background-color: #db8876;
-  height: 850px;
+  width: 100%;
+  background-color: #fff;
+  height: 100%;
   z-index: 2;
   position: fixed;
   left: 0px;
   right: 0px;
   top: 0;
   bottom: 0;
-  margin: auto;
   display: none;
-}
-
-#modale > .content {
-  width: 100%;
-  height: 100%;
-  background-color: #db8876;
-  border-radius: 5px;
+  /* > .content{
+        width: 100%;
+        height: 100%;
+        background-color: #db8876;
+        border-radius: 5px;
+    }*/
 }
 
 #modale .modal-content {
   height: auto;
-  padding: 3em 1.5em;
+  padding: 2em 1.5em;
+  background: #db8876;
+  margin-top: 50px;
+  width: 80%;
+  margin: 8% auto;
+  border-radius: 8px;
 }
 
 #photographContact {
-  height: 730px;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -251,46 +191,47 @@ select:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 20px;
 }
 
 #photographContact div > label {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 #photographContact div .text-control {
-  height: 50px;
-  font-size: 1.8rem;
+  height: 20px;
+  font-size: 1rem;
 }
 
 #photographContact h2 {
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
 .close {
   position: absolute;
   right: 15px;
-  top: 15px;
-  width: 60px;
-  height: 60px;
+  top: 55px;
+  width: 30px;
+  height: 30px;
   opacity: 1;
   cursor: pointer;
-  font-size: 3em;
+  font-size: 2em;
   border: none;
   background-color: transparent;
 }
 
 #yourmessage {
-  font-size: 1.5rem;
+  font-size: 1rem;
   overflow-y: scroll;
 }
 
 .btn-submit {
-  width: 30%;
-  height: 50px;
+  width: 50%;
+  height: 30px;
   background-color: #901C1C;
   color: #FFF;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-radius: 5px;
 }
 
@@ -298,11 +239,10 @@ select:hover {
 .info-form[data-error]::after {
   content: attr(data-error);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.6rem;
   color: #FFF;
   display: block;
   margin-top: 3px;
-  margin-bottom: 10px;
   text-align: right;
   opacity: 1;
 }
@@ -313,5 +253,93 @@ select:hover {
 
 .info-form[data-error-visible="true"] .text-control {
   border: 5px solid #4b0aff;
+}
+
+/**********************************************************************section gallery photographe******************************************************/
+#works-list {
+  width: 95%;
+  margin: auto;
+}
+
+#works-list > article {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#works-list > article video {
+  height: 150px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.gallery {
+  height: 150px;
+  border-radius: 5px;
+  border-radius: 8px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+
+.info_media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.info_media > h2 {
+  font-size: 0.8rem;
+  color: #901C1C;
+  width: 80%;
+}
+
+.like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  width: 20%;
+}
+
+.like > p {
+  color: #901C1C;
+  font-size: 0.8rem;
+}
+
+.like button {
+  border: none;
+  background-color: transparent;
+}
+
+.like button > i {
+  color: #901C1C;
+}
+
+#like_counter {
+  width: 95%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #D3573C;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 /*# sourceMappingURL=page-photograph.css.map */
