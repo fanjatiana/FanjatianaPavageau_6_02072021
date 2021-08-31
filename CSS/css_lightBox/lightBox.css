@@ -62,7 +62,8 @@
   margin-top: -14px;
   z-index: 50;
   opacity: .8;
-  text-indent: -4000px;
+  text-indent: -10000px;
+  font-size: 0;
 }
 
 .lightbox__prev {
@@ -79,10 +80,11 @@
   height: 34px;
   color: #ec0e0e;
   position: fixed;
-  text-indent: -4000px;
+  text-indent: -10000px;
   top: 20px;
   right: 20px;
   z-index: 1500;
+  font-size: 0;
 }
 
 .lightbox__container {
@@ -104,14 +106,20 @@
   min-height: auto;
   margin: auto;
   width: 80%;
+  height: 100%;
 }
 
 .lightbox__container > img,
 .lightbox__container video {
   max-width: 100%;
-  max-height: 100vh;
+  max-height: 80vh;
   -webkit-animation: lightboxIn 0.5s;
           animation: lightboxIn 0.5s;
+}
+
+.lightbox__container p {
+  font-size: 1.8rem;
+  color: #D3573C;
 }
 
 /* .lightbox__loader{
