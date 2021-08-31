@@ -22,8 +22,8 @@
                <button id="btn" type="button"  aria-haspopup="modale" aria-controls="modale">Contactez-moi</button>
            </div>
            <div id="modale" aria-labelledby="formulaire de contact" aria-describedby="formulaire de contact du photographe" aria-modal="true" aria-hidden="true" tabindex="-1">
-                <div class="content">
-                    <button class="close" type="button"  aria-label="Fermer" title="Fermer ce formulaire de contact" data-dismiss="modale">X</button>
+   
+                    <button class="close" id= "btnForm-close" type="button"  aria-label="Fermer" title="Fermer ce formulaire de contact" data-dismiss="modale">X</button>
                     <div class="modal-content">
                         <form name="contact" id="photographContact" action="/cible.php"  method="POST" onsubmit="return controlValidateForm()">
                             <h2 id="recipient-name"></h2> 
@@ -48,7 +48,7 @@
                             </div>		
                         </form>
                     </div>	
-                </div>
+               
            </div>
        </section>
        <section id="filter-sort-by"></section>

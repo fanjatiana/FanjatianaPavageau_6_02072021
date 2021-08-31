@@ -37,9 +37,9 @@ export function addInfoOfPhotographer() {
                     `<li class ="tags"><a class = "links" href="index.html?tags-${allTags}"> #${allTags}</a></li>`
             })
 
-            
 
-         
+
+
             //ajout du nom du photographe en tant que titre de la page
             titlePagePhotograph.innerHTML += element.name;
         };
@@ -51,19 +51,61 @@ export const taglinksOfThisPhotographer = document.querySelectorAll('.links');
 //fonction pour afficher et fermer le formulaire de contact
 export function showModal() {
 
-   
-    
-      
+
+
+
 
     //fonction affichage  du formulaire
     function launchModal() {
         document.getElementById("modale").style.display = "block";
         document.getElementById("modale").setAttribute('aria-hidden', false);
-        document.getElementById("first").focus();
+
+        const btnClose = document.getElementById("btnForm-close");
+        const textarea = document.getElementById("yourmessage");
+        console.log(btnClose)
+        console.log(textarea)
+        let arrayElementForm = [...document.querySelectorAll("input"), textarea, btnClose];
 
 
-        
-    }
+
+        console.log(arrayElementForm);
+
+        const firstFocus = arrayElementForm[0];
+        firstFocus.focus();
+
+
+        const lastFocus = arrayElementForm[3];
+        console.log(lastFocus);
+
+
+
+        arrayElementForm.forEach(elementFocus => {
+            if (elementFocus.addEventListener) {
+                elementFocus.addEventListener("keydown", function (event) {
+                    const pressTab = event.key === "Tab";
+
+                    if (!pressTab) {
+                        return;
+                    }
+
+                    if (event.shiftKey) {
+                        if (event.target === firstFocus) {
+                            event.preventDefault();
+                            console.log(lastFocus.focus())
+                    
+                        }
+                    
+
+                }else if (event.target === lastFocus) {
+                    event.preventDefault();
+                    firstFocus.focus();
+                }
+            
+            })
+
+        }
+    })
+}
     document.getElementById("btn").addEventListener("click", launchModal);
 
     //fonction fermeture du formulaire 
@@ -71,19 +113,19 @@ export function showModal() {
         document.getElementById("modale").style.display = "none";
         document.getElementById("modale").setAttribute('aria-hidden', true);
 
-        
+
     }
     document.querySelector(".close").addEventListener("click", closeModal);
 
-    
-    
-    document.getElementById("modale").addEventListener("keydown", function(e){
-        if(e.key === "Escape"){
-   closeModal();
+
+
+    document.getElementById("modale").addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            closeModal();
         }
     });
 
-    
+
 
 
     //fonction pour ajouter le nom du photographe dans le formulaire
@@ -158,7 +200,7 @@ export function controlForm() {
         if (message.value == "") {
             message.closest(".info-form").setAttribute("data-error", "Veuillez remplir ce champ");
             message.style.border = "#f70707 3px solid";
-     
+
         } else {
             message.closest(".info-form").setAttribute("data-error", "");
             message.style.border = "green 3px solid";
