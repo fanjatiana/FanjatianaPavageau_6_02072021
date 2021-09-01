@@ -1,0 +1,103 @@
+@media  screen and (min-width: 360px){
+
+    #presentation{
+        > h1{
+            font-size: 1.5rem;
+        }
+    }
+
+    #id-photo {
+        width: 40%;
+        height: 150px;
+        > img{ 
+            width: 120px;
+            height: 120px;
+        }
+    } 
+    
+    .gallery{
+          & img{
+            object-position: 50% 25%;
+          }
+      }
+}
+
+@media  screen and (min-width: 414px){
+    .gallery{
+        height: 225px;
+        & img{
+        height: 225px;
+        }
+    }
+}
+
+
+
+
+@media  screen and (min-width: 1024px){
+    #banner {
+        width: 90%;
+    }
+
+    .logo{
+        & img{
+            width: 30%;
+        }
+    }
+
+    main{
+        width: 90%;
+        margin:auto;
+    }
+
+    #show-id-photograph{
+        align-items: baseline;
+        > .btn-contact{
+            position: static;
+            order :2;
+            width: 20%;
+            > button{
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .presentation {
+        order : 1;
+        width: 50%;
+        > h1{
+            font-size: 2rem;
+        }
+        & p:nth-child(2){
+            font-size: 1.1rem;
+        }
+    }
+
+    #id-photo{
+        order : 3;
+        width: 30%;
+        text-align: center;
+        align-self: flex-start;
+        height: 180px;
+        > img{
+            height: 180px;
+            width: 180px;
+        }
+    }
+    #works-list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        > article{
+            width: 30%;
+        }
+    }
+   
+    #like_counter{
+        width: 20%;
+        position: fixed;
+        bottom: 0;
+        right: 5%;
+    }
+  
+}    

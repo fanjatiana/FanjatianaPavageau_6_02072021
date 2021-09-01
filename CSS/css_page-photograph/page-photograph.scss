@@ -31,7 +31,7 @@ body{
 #banner{
     width: 95%;
     text-align: left;
-    margin:auto;
+    margin:1em auto 1em;
 }
 
 .logo{
@@ -52,7 +52,7 @@ main{
     justify-content: space-between;
     align-items: flex-start;
     width: 95%;
-    margin:auto;
+    margin:0 auto 2em;
     > .btn-contact{
         position: fixed;
         bottom: 7%;
@@ -72,7 +72,7 @@ main{
 }
 
 .presentation{
-    width: 80%;
+    width: 60%;
     > h1{
         color:$color-primary;
         margin-bottom: 0;
@@ -80,20 +80,27 @@ main{
     }
     & p:nth-child(2){ 
         color: $color-primary-bg;
-        font-size:1rem;
+        font-size:0.9rem;
         margin:0;
     }
     & p:nth-child(3){
         color:gray;
         margin-top:0;
+        margin-bottom: 0;
         font-size: 0.8rem;
     }
 }
 
 ul{
     display: flex;
-    justify-content: space-around;
+    //justify-content: space-between;
    padding-left:0;
+   margin-top:0;
+   flex-wrap: wrap;
+   & li{
+       margin-top: 5px;
+       margin-right: 0.3em;
+   }
    & a{
        color: $color-primary-bg;
        border: 0.3px solid grey;
@@ -105,8 +112,10 @@ ul{
 
 #id-photo{
     width: 50%;
+    height: 160px;
    & img {
-       width: 100%;
+    width: 100px;
+    height: 100px;
        border-radius: 50%;
    }
 }
@@ -267,15 +276,16 @@ display: none;
     }
 
   .gallery{
-    height: 150px;
+    height: 200px;
     border-radius: 5px;
 
     border-radius: 8px;
       & img{
           width: 100%;
-          height: 150px;
+          height: 200px;
           object-fit:cover;
           border-radius : 5px;
+          object-position: 50% 10%;
       }
   }
 

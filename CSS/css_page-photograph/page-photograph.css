@@ -23,7 +23,7 @@ body {
 #banner {
   width: 95%;
   text-align: left;
-  margin: auto;
+  margin: 1em auto 1em;
 }
 
 .logo img {
@@ -47,7 +47,7 @@ main {
       -ms-flex-align: start;
           align-items: flex-start;
   width: 95%;
-  margin: auto;
+  margin: 0 auto 2em;
 }
 
 #show-id-photograph > .btn-contact {
@@ -67,7 +67,7 @@ main {
 }
 
 .presentation {
-  width: 80%;
+  width: 60%;
 }
 
 .presentation > h1 {
@@ -78,13 +78,14 @@ main {
 
 .presentation p:nth-child(2) {
   color: #901C1C;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
 }
 
 .presentation p:nth-child(3) {
   color: gray;
   margin-top: 0;
+  margin-bottom: 0;
   font-size: 0.8rem;
 }
 
@@ -92,9 +93,15 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   padding-left: 0;
+  margin-top: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+ul li {
+  margin-top: 5px;
+  margin-right: 0.3em;
 }
 
 ul a {
@@ -107,10 +114,12 @@ ul a {
 
 #id-photo {
   width: 50%;
+  height: 160px;
 }
 
 #id-photo img {
-  width: 100%;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 
@@ -273,17 +282,19 @@ select:hover {
 }
 
 .gallery {
-  height: 150px;
+  height: 200px;
   border-radius: 5px;
   border-radius: 8px;
 }
 
 .gallery img {
   width: 100%;
-  height: 150px;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
+  -o-object-position: 50% 10%;
+     object-position: 50% 10%;
 }
 
 .info_media {
