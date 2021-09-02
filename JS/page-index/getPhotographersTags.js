@@ -4,11 +4,9 @@ export const getPhotographersTags = async () => {
     // Une erreur est survenue
     alert(err);
   });
-
   const photographersList = data.photographers;
 
-  function addPhotographersTags() {
-    /*on cré un  tableau vide et on utilise des boucles pour rechercher et recupérer toute la liste des tags qu'on va ajouter dans ce tableau*/
+    // on recupère dans le JSON la liste des tags qu'on va ajouter dans un tableau
     let tagsArray = [];
     photographersList.forEach((tags) => {
       let arrayList = tags.tags;
@@ -16,11 +14,13 @@ export const getPhotographersTags = async () => {
         tagsArray.push(tagName);
       }
     });
-    /*on supprime les tags doublons du tableau*/
+
+    //on supprime les tags doublons du tableau
     let uniqueSet = new Set(tagsArray);
     let backToArrayTags = [...uniqueSet];
 
-    /*on affiche le nouveau tableau des tags et on les ajoute en tant que liens dans la partie navigation (nav) du html. Pour celà on cré une boucle for*/
+    /*on affiche le nouveau tableau des tags 
+    et on les ajoute en tant que liens dans la partie navigation (nav) du html*/
     const baliseUL = document.querySelector(".links-list");
 
     backToArrayTags.forEach((element) => {
@@ -29,5 +29,3 @@ export const getPhotographersTags = async () => {
     });
   }
 
-  addPhotographersTags();
-};

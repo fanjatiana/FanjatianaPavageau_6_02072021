@@ -24,10 +24,12 @@ export function addContent(container, element) {
   });
 }
 
-//fonction générique pour créer un evenement au click des liens tags
+/*fonction générique
+on vient appliquer un addEventListener sur les liens de la navigation 
+et on les relie à la fonction addNavfiltre, pour afficher les éléments filtrés*/
 export function linksListener(addNavFilter) {
   const listLinksAFilter = document.querySelectorAll(".links");
-  (function () {
+  console.log(listLinksAFilter)
     listLinksAFilter.forEach((navLinks) => {
       let resultFilter = navLinks.innerHTML.replace("#", "");
       navLinks.addEventListener("click", (event) => {
@@ -35,5 +37,5 @@ export function linksListener(addNavFilter) {
         event.preventDefault();
       });
     });
-  })();
+ 
 }

@@ -8,7 +8,7 @@ export let newGetId = "";
   newGetId = Number(getId);
 })();
 
-export function addImage(element,lastName) {
+export function addImage(element, lastName) {
   document.getElementById("works-list").innerHTML += `<article>
                       <div class = "gallery">
                           <a href="./Photos/gallery/${lastName}/${element.image}" title="${element.title}">
@@ -27,11 +27,8 @@ export function addImage(element,lastName) {
                </article>`;
 }
 
-
-export function addVideo(element,lastName) {
-    document.getElementById(
-        "works-list"
-      ).innerHTML += `<article">
+export function addVideo(element, lastName) {
+  document.getElementById("works-list").innerHTML += `<article">
           <div class="gallery">
               <a href="./Photos/gallery/${lastName}/${element.video}" title="${element.title}">
                   <video controls width="500">
@@ -52,3 +49,5 @@ export function addVideo(element,lastName) {
           </div>   
       </article>`;
 }
+
+

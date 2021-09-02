@@ -1,4 +1,3 @@
-
 //id de la balise title du fichier html : nom du photographe en titre de page html
 export const titlePagePhotograph = document.getElementById("photograph-name");
 
@@ -14,21 +13,4 @@ export const works = document.getElementById("works-list");
 //on recherche l id dans l url
 export let getUrl_id = window.location.search;
 
-export let getUrl_tag = window.location.search
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
+export let getUrl_tag = window.location.search;

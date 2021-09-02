@@ -1,9 +1,7 @@
-
 import { getUrl_id } from "./let-and-const_page-photographers.js";
 import { works, worksFilter } from "./let-and-const_page-photographers.js";
 import { Lightbox } from "./LightBox/lightbox.js";
-import { addImage,addVideo} from "./functions_page-photographers.js";
-
+import { addImage, addVideo } from "./functions_page-photographers.js";
 
 export const getNavFilter = async () => {
   const response = await fetch("./JS/data.json");
@@ -74,12 +72,12 @@ export const getNavFilter = async () => {
           //on affiche toutes les images liées à l'Id du photographe
 
           if (element.photographerId === newGetId && element.image) {
-              addImage(element,lastName)
+            addImage(element, lastName);
           }
 
           //on affiche toutes les vidéos liées à l Id du photographe
           if (element.photographerId === newGetId && element.video) {
-              addVideo(element,lastName);
+            addVideo(element, lastName);
           }
         });
       }
@@ -109,11 +107,11 @@ export const getNavFilter = async () => {
         orderByLikes.forEach((element) => {
           //on affiche toutes les images liées à l'Id du photographe
           if (element.photographerId === newGetId && element.image) {
-            addImage(element,lastName)
+            addImage(element, lastName);
           }
           //on affiche toutes les vidéos liées à l Id du photographe
           if (element.photographerId === newGetId && element.video) {
-            addVideo(element,lastName)
+            addVideo(element, lastName);
           }
         });
       }
@@ -141,11 +139,11 @@ export const getNavFilter = async () => {
         orderByTitle.forEach((element) => {
           if (element.photographerId === newGetId && element.image) {
             //on affiche toutes les images liées à l'Id du photographe
-            addImage(element,lastName);
+            addImage(element, lastName);
           }
           //on affiche toutes les vidéos liées à l Id du photographe
           if (element.photographerId === newGetId && element.video) {
-            addVideo(element,lastName);
+            addVideo(element, lastName);
           }
         });
       }
@@ -160,19 +158,16 @@ export const getNavFilter = async () => {
         works.innerHTML = "";
         sortByLikes();
         Lightbox.init();
-    
       } else if (buttonSelect.value === "Titre") {
         //affichage de la gallerie triée par ordre alphabétique au clic du lien : Titre
         works.innerHTML = "";
         sortByABC();
         Lightbox.init();
-      
       } else if ((buttonSelect.value = "Date")) {
         //affichage de la gallerie triée  par date au clic du lien : Date
         works.innerHTML = "";
         sortByDate();
         Lightbox.init();
-        
       }
     });
   }
