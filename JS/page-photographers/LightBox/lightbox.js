@@ -1,7 +1,7 @@
 import { enableBodyScroll, disableBodyScroll } from "./body-scroll-lock.js";
-import { addImages, addVideo } from "../functions_photographersWorks_page2.js";
-import { works } from "../let-and-const_page-photographers.js";
 
+import { works } from "../let-and-const_page-photographers.js";
+//import {addImages, addVideo} from "../getPhotographerWorks.js"
 
 
 /*works.innerHTML +=

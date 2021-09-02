@@ -1,9 +1,4 @@
 
-//fetch to Json
-let response = await fetch("./JS/data.json")
-let data = await response.json();
-
-
 //id de la balise title du fichier html : nom du photographe en titre de page html
 export const titlePagePhotograph = document.getElementById("photograph-name");
 
@@ -21,8 +16,7 @@ export let getUrl_id = window.location.search;
 
 export let getUrl_tag = window.location.search
 
-//on recupère la nodeliste des medias des photographes dans le Json
-export const photographersMedia = data.media;
+
 
  
 

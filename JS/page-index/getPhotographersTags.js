@@ -1,6 +1,6 @@
-export const getPhotographersTags = async (data) => {
+export const getPhotographersTags = async () => {
   const response = await fetch("./JS/data.json");
-  data = await response.json().catch(function error(err) {
+  const data = await response.json().catch(function error(err) {
     // Une erreur est survenue
     alert(err);
   });

@@ -1,8 +1,8 @@
 import { addContent, linksListener } from "./functions_index.js";
 
-export const getMenuFilter = async (data) => {
+export const getMenuFilter = async () => {
   const response = await fetch("./JS/data.json");
-  data = await response.json().catch(function error(err) {
+  const data = await response.json().catch(function error(err) {
     // Une erreur est survenue
     alert(err);
   });
