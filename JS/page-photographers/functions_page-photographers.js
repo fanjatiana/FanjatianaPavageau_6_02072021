@@ -1,15 +1,15 @@
-import { getUrl_id } from "./let-and-const_page-photographers.js";
+// eslint-disable-next-line import/extensions
+import { getUrlId } from './const_page-photographers.js';
 
-export let newGetId = "";
-(function () {
-  // on extrait l id
-  let getId = getUrl_id.slice(4);
-  //on modifie type de GetId string--> number
-  newGetId = Number(getId);
-})();
+// eslint-disable-next-line import/no-mutable-exports
+export let newGetId = '';
+// on extrait l id
+const getId = getUrlId.slice(4);
+// on modifie type de GetId string--> number
+newGetId = Number(getId);
 
 export function addImage(element, lastName) {
-  document.getElementById("works-list").innerHTML += `<article>
+  document.getElementById('works-list').innerHTML += `<article>
                       <div class = "gallery">
                           <a href="./Photos/gallery/${lastName}/${element.image}" title="${element.title}">
                               <img class="pictures-list" src = "./Photos/gallery/${lastName}/${element.image}" alt ="${element.description}">
@@ -28,7 +28,7 @@ export function addImage(element, lastName) {
 }
 
 export function addVideo(element, lastName) {
-  document.getElementById("works-list").innerHTML += `<article">
+  document.getElementById('works-list').innerHTML += `<article">
           <div class="gallery">
               <a href="./Photos/gallery/${lastName}/${element.video}" title="${element.title}">
                   <video controls width="500">
@@ -49,5 +49,3 @@ export function addVideo(element, lastName) {
           </div>   
       </article>`;
 }
-
-
