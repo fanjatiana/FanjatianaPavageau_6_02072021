@@ -49,3 +49,48 @@ export function addVideo(element, lastName) {
           </div>   
       </article>`;
 }
+
+
+export const infoLikesAndPrice = (totalPrice) =>{
+ 
+  // on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
+  let priceOfPhotographers = 0;
+  for (let price = 0; price < totalPrice.length; price += 1) {
+    priceOfPhotographers += parseFloat(totalPrice[price]);
+  }
+
+  const hearts = document.querySelectorAll('.likes_media');
+  let numberOfLikes = []
+  hearts.forEach((icon) => {
+      const arrayValue = icon.previousElementSibling;
+      let totalMediaLike = Number(arrayValue.innerText);
+      numberOfLikes.push(totalMediaLike)
+
+  })  
+let likesOfPhotographers = 0;
+  for (let nbLike = 0; nbLike < numberOfLikes.length; nbLike += 1) {
+    likesOfPhotographers += parseFloat(numberOfLikes[nbLike]);
+  }
+
+  // ajout du bloc compteur de like
+  document.getElementById('works-list').innerHTML += `<div id="like_counter">
+        <p id="total-likes">${likesOfPhotographers}<i class="fas fa-heart"></i></p>
+        <p>${priceOfPhotographers}€ / jour</p>
+        </div>`;
+
+  // fonction incrémentation des likes et du compteur de likes
+
+  const buttonHearts = document.querySelectorAll('.likes_media');
+  buttonHearts.forEach((heart) => {
+    heart.addEventListener('click', () => {
+      const arrayValue = heart.previousElementSibling;
+      let likeCount = Number(arrayValue.innerText);
+      likeCount += 1;
+      arrayValue.innerHTML = '';
+      arrayValue.innerHTML = `${likeCount}`;
+      document.getElementById(
+        'total-likes',
+      ).innerHTML = `${likesOfPhotographers += 1}<i class="fas fa-heart"></i>`;
+    });
+  });
+}

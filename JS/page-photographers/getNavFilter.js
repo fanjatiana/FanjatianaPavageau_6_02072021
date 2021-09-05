@@ -6,6 +6,7 @@ import {
   addImage,
   addVideo,
   newGetId,
+  infoLikesAndPrice
 } from './functions_page-photographers.js';
 
 export const getNavFilter = async () => {
@@ -120,6 +121,16 @@ export const getNavFilter = async () => {
     });
   };
 
+     // on recupere tous les prix du photographe  et on les ajoute dans un tableau
+     const totalPrice = [];
+     photographersList.forEach((value) => {
+       if (value.id === newGetId) {
+         totalPrice.push(value.price);
+       }
+     });
+  
+  
+
   // on applique un évènement au click sur le bouton select pour pouvoir afficher le contenu filtré
   const buttonSelect = document.querySelector('select');
 
@@ -128,16 +139,19 @@ export const getNavFilter = async () => {
       works.innerHTML = '';
       sortByLikes();
       Lightbox.init();
+      infoLikesAndPrice(totalPrice);
     } else if (buttonSelect.value === 'Titre') {
       // affichage de la gallerie triée par ordre alphabétique au clic du lien : Titre
       works.innerHTML = '';
       sortByABC();
       Lightbox.init();
+      infoLikesAndPrice(totalPrice);
     } else if ((buttonSelect.value === 'Date')) {
       // affichage de la gallerie triée  par date au clic du lien : Date
       works.innerHTML = '';
       sortByDate();
       Lightbox.init();
+      infoLikesAndPrice(totalPrice);
     }
   });
 };
