@@ -9,9 +9,7 @@ export const getPhotographersTags = async () => {
 
   // on recupère dans le JSON la liste des tags qu'on va ajouter dans un tableau
   const tagsArray = [];
-  photographersList.forEach((tags) => {
-    tagsArray.push(...tags.tags);
-  });
+  photographersList.map((tags) => tagsArray.push(...tags.tags));
 
   // on supprime les tags doublons du tableau
   const uniqueSet = new Set(tagsArray);

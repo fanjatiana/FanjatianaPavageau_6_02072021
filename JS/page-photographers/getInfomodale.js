@@ -32,9 +32,11 @@ export const getInfoModale = async () => {
     textarea,
     btnClose,
   ];
-  const firstFocus = arrayElementForm[0];
+  const firstFocus = arrayElementForm[5];
   firstFocus.focus();
   const lastFocus = arrayElementForm[3];
+  console.log(arrayElementForm)
+
 
   arrayElementForm.forEach((elementFocus) => {
     if (elementFocus.addEventListener) {
