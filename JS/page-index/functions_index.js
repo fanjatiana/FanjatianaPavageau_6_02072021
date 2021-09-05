@@ -26,15 +26,4 @@ export function addContent(element) {
   });
 }
 
-// fonction générique pour créer un evenement au click des liens tags
-export function linksListener(addNavFilter) {
-  const listLinksAFilter = document.querySelectorAll('.links');
 
-  listLinksAFilter.forEach((navLinks) => {
-    const resultFilter = navLinks.innerHTML.replace('#', '');
-    navLinks.addEventListener('click', (event) => {
-      addNavFilter(resultFilter);
-      event.preventDefault();
-    });
-  });
-}

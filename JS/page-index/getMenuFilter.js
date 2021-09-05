@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-import { addContent, linksListener } from './functions_index.js';
+import { addContent } from './functions_index.js';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getMenuFilter = async () => {
@@ -10,10 +10,20 @@ export const getMenuFilter = async () => {
   });
   const photographersList = data.photographers;
 
-  function showPhotographersListFiltered() {
+
     /* on vient appliquer un addEventListener sur les liens de la navigation
     et on les relie à la fonction filtre, pour afficher les éléments filtrés */
-    linksListener(addNavFilter);
+   
+      const listLinksAFilter = document.querySelectorAll('.links');
+    
+      listLinksAFilter.forEach((navLinks) => {
+        const resultFilter = navLinks.innerHTML.replace('#', '');
+        navLinks.addEventListener('click', (event) => {
+          addNavFilter(resultFilter);
+          event.preventDefault();
+        });
+      })
+ 
 
     // fonction affichage des photographes filtrés
     function addNavFilter(filter) {
@@ -28,10 +38,7 @@ export const getMenuFilter = async () => {
         }
       });
 
-      /* évènement au click des tags de la liste des photographe
-      pour affocher la liste des photographes filtrés en fonction du theme choisi */
-      linksListener(addNavFilter);
+    
     }
-  }
-  showPhotographersListFiltered();
+
 };
