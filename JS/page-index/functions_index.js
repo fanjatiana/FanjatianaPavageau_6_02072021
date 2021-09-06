@@ -6,7 +6,7 @@ export function addContent(element) {
   ).innerHTML += `<article id="${element.id}">
           <section class="photograph">
               <a id="go-to-photographer-page" href="page-photographers.html?id-${element.id}">
-                  <img src="/Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
+                  <img src="Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
                   <h2>${element.name}</h2>
               </a>
           </section>
