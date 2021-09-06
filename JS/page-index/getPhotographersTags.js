@@ -2,7 +2,7 @@
 
 // eslint-disable-next-line import/prefer-default-export
 export const getPhotographersTags = async () => {
-  const response = await fetch('./JS/data.json');
+  const response = await fetch('/JS/data.json');
   const data = await response.json().catch((err) => {
     // Une erreur est survenue
     err();
