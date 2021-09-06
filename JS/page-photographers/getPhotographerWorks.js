@@ -9,10 +9,10 @@ import {
 } from './functions_page-photographers.js';
 
 export const getPhotographersWorks = async () => {
-  const response = await fetch('../JS/data.json');
-  const data = await response.json().catch((err) => {
+  const response = await fetch('./JS/data.json');
+  const data = await response.json().catch((error) => {
     // Une erreur est survenue
-    err();
+    console.log(error);
   });
 
   const photographersList = data.photographers;

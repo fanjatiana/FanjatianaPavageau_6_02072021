@@ -6,10 +6,10 @@ import { addContent } from './functions_index.js';
 import { getUrlTag } from '../page-photographers/const_page-photographers.js';
 
 export const getPhotographersList = async () => {
-  const response = await fetch('../JS/data.json');
-  const data = await response.json().catch((err) => {
+  const response = await fetch('./JS/data.json');
+  const data = await response.json().catch((error) => {
     // Une erreur est survenue
-    err();
+    console.log(error);
   });
   const photographersList = data.photographers;
 
