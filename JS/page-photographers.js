@@ -1,8 +1,8 @@
 /* eslint-disable import/extensions */
-import { getInfoPhotographer } from './getInfoPhotographer.js';
-import { getPhotographersWorks } from './getPhotographerWorks.js';
-import { getNavFilter } from './getNavFilter.js';
-import { getInfoModale } from './getInfomodale.js';
+import { getInfoPhotographer } from './page-photographers/getInfoPhotographer.js';
+import { getPhotographersWorks } from './page-photographers/getPhotographerWorks.js';
+import { getNavFilter } from './page-photographers/getNavFilter.js';
+import { getInfoModale } from './page-photographers/getInfomodale.js';
 
 // Requête pour afficher les informations des photographes
 getInfoPhotographer();

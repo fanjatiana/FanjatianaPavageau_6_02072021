@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
-import { getPhotographersList } from './getPhotographerList.js';
-import { getPhotographersTags } from './getPhotographersTags.js';
-import { getMenuFilter } from './getMenuFilter.js';
+import { getPhotographersList } from './page-index/getPhotographerList.js';
+import { getPhotographersTags } from './page-index/getPhotographersTags.js';
+import { getMenuFilter } from './page-index/getMenuFilter.js';
 
 // Requête pour afficher la liste des photographes au chargement de la page
 getPhotographersList();
