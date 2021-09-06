@@ -31,7 +31,7 @@ export const getInfoModale = async () => {
     }
   });
 
-  // AJOUT DU NOM DU PHOTOGRAPHE DANS LE FORMULAIRE EN FONCTION DE SON ID
+  // Ajout du nom du photographe dans le formulaire de contact en fonction de son ID
   const titleName = document.getElementById('recipient-name');
   photographersList.forEach((element) => {
     if (element.id === newGetId) {

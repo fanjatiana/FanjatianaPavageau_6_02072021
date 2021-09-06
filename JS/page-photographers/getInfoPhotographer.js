@@ -6,8 +6,7 @@ import {
 } from './const_page-photographers.js';
 import { newGetId } from './functions_page-photographers.js';
 
-// REQUETE POUR AFFICHER LES INFOS
-
+// Requête pour afficher les informations du photographe
 export const getInfoPhotographer = async () => {
   const response = await fetch('./JS/data.json');
   const data = await response.json().catch((err) => {
@@ -18,7 +17,6 @@ export const getInfoPhotographer = async () => {
   const photographersList = data.photographers;
 
   // on ajoute les informations des photographes en debut de page
-
   // on va rechercher dans le Json l'id correspondant à la variable newGetId avec la methode find
   photographersList.find((element) => {
     if (element.id === newGetId) {

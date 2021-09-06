@@ -1,19 +1,22 @@
 // eslint-disable-next-line import/extensions
 import { disableBodyScroll } from './LightBox/body-scroll-lock.js';
 
-export function launchModal() {
+// fonction pour l'ouverture du formulaire
+export const launchModal = () => {
   document.getElementById('modale').style.display = 'block';
   document.getElementById('modale').setAttribute('aria-hidden', false);
   disableBodyScroll(document.querySelector('main'));
   document.getElementById('first').focus();
-}
+};
 
+// fonction pour la fermeture du formulaire
 export const closeModal = () => {
   document.getElementById('modale').style.display = 'none';
   document.getElementById('modale').setAttribute('aria-hidden', true);
 };
 
-export function accessModalKeyboard() {
+// fonction pour l'accessibilité du formulaire au clavier
+export const accessModalKeyboard = () => {
   const btnClose = document.getElementById('btnForm-close');
   const textarea = document.getElementById('yourmessage');
 
@@ -44,9 +47,9 @@ export function accessModalKeyboard() {
       });
     }
   });
-}
+};
 
-/* fonction controle de la validité des champs nom et prénom */
+/* fonction de controle de la validité des champs nom et prénom */
 export const controlInput = (infoGuest, regexNameAndLastName) => {
   let count = 0;
 
@@ -86,7 +89,7 @@ export const controlInput = (infoGuest, regexNameAndLastName) => {
   return false;
 };
 
-// fonction controle de la validité du champs email
+// fonction de controle de la validité du champs email
 export const controlEmail = (infoEmail, regexEmail) => {
   if (infoEmail.validity.valueMissing) {
     infoEmail
@@ -109,7 +112,7 @@ export const controlEmail = (infoEmail, regexEmail) => {
   return false;
 };
 
-// fonction controle de la validité du message entrant
+// fonction de controle de la validité du message entrant
 export const controlMessage = (message) => {
   if (message.value === '') {
     message

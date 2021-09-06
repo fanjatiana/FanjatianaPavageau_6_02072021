@@ -6,7 +6,7 @@ import {
   addImage,
   addVideo,
   newGetId,
-  infoLikesAndPrice
+  infoLikesAndPrice,
 } from './functions_page-photographers.js';
 
 export const getNavFilter = async () => {
@@ -41,7 +41,7 @@ export const getNavFilter = async () => {
       </select>`;
 
   // fonction de trie par Dates
-  function sortByDate() {
+  const sortByDate = () => {
     const arrayDate = [];
     /* on recupère toutes les dates des médias correspondant à l id du photographe,
      et on les ajoute dans un tableau */
@@ -66,7 +66,7 @@ export const getNavFilter = async () => {
         addVideo(element, lastName);
       }
     });
-  }
+  };
 
   // fonction de trie des likes dans le fichier JSON
   const sortByLikes = () => {
@@ -121,15 +121,13 @@ export const getNavFilter = async () => {
     });
   };
 
-     // on recupere tous les prix du photographe  et on les ajoute dans un tableau
-     const totalPrice = [];
-     photographersList.forEach((value) => {
-       if (value.id === newGetId) {
-         totalPrice.push(value.price);
-       }
-     });
-  
-  
+  // on recupere tous les prix du photographe  et on les ajoute dans un tableau
+  const totalPrice = [];
+  photographersList.forEach((value) => {
+    if (value.id === newGetId) {
+      totalPrice.push(value.price);
+    }
+  });
 
   // on applique un évènement au click sur le bouton select pour pouvoir afficher le contenu filtré
   const buttonSelect = document.querySelector('select');

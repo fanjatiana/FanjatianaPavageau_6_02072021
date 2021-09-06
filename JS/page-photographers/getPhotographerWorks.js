@@ -33,9 +33,6 @@ export const getPhotographersWorks = async () => {
   // on affiche la gallerie des médias liées à l id affiché dans l'url
 
   // ajout des images et video
-
-
-
   photographersMedia.forEach((element) => {
     if (element.photographerId === newGetId && element.image) {
       addImage(element, lastName);
@@ -45,15 +42,16 @@ export const getPhotographersWorks = async () => {
     return false;
   });
 
-   // on recupere tous les prix du photographe  et on les ajoute dans un tableau
-   const totalPrice = [];
-   photographersList.forEach((value) => {
-     if (value.id === newGetId) {
-       totalPrice.push(value.price);
-     }
-   });
+  // on recupere tous les prix du photographe  et on les ajoute dans un tableau
+  const totalPrice = [];
+  photographersList.forEach((value) => {
+    if (value.id === newGetId) {
+      totalPrice.push(value.price);
+    }
+  });
+  // ajout du compteur de likes et de prix
+  infoLikesAndPrice(totalPrice);
 
-   infoLikesAndPrice(totalPrice);
   // on affiche la lightBox au click des médias
   Lightbox.init();
 };

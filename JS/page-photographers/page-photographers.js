@@ -1,17 +1,17 @@
-import { getInfoPhotographer } from "./getInfoPhotographer.js";
-import { getPhotographersWorks } from "./getPhotographerWorks.js";
-import { getNavFilter } from "./getNavFilter.js";
-import { getInfoModale } from "./getInfomodale.js";
+/* eslint-disable import/extensions */
+import { getInfoPhotographer } from './getInfoPhotographer.js';
+import { getPhotographersWorks } from './getPhotographerWorks.js';
+import { getNavFilter } from './getNavFilter.js';
+import { getInfoModale } from './getInfomodale.js';
 
-//REQUETE POUR AFFICHER LES INFOS + FORMULAIRE DE CONTACT DU PHOTOGRAPHE
-
+// Requête pour afficher les informations des photographes
 getInfoPhotographer();
+
+// Requête pour le fonctionnement du formulaire
 getInfoModale();
 
-//REQUETE POUR AFFICHER LA GALLERIE DES MEDIAS ET LA LIGHTBOX DU PHOTOGRAPHE
-
+// Reqête pour afficher la gallerie des photographes + lightBox
 getPhotographersWorks();
 
-//REQUETE POUR AFFICHER LE MENU DEROULANT ET LES MEDIAS FILTRES DU PHOTOGRAPHE*/
-
+// Requête pour le fonctionnement du filtre : trier par; et pour l'affichage de la gallerie filtrée
 getNavFilter();
