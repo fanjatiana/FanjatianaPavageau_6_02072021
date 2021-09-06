@@ -7,7 +7,7 @@ import {
 } from './function_modale.js';
 
 export const getInfoModale = async () => {
-  const response = await fetch('./JS/data.json');
+  const response = await fetch('../JS/data.json');
   const data = await response.json().catch((err) => {
     // Une erreur est survenue
     err();

@@ -10,7 +10,7 @@ import {
 } from './functions_page-photographers.js';
 
 export const getNavFilter = async () => {
-  const response = await fetch('./JS/data.json');
+  const response = await fetch('../JS/data.json');
   const data = await response.json().catch((err) => {
     // Une erreur est survenue
     err();

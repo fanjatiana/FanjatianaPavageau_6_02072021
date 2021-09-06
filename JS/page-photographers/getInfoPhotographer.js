@@ -8,7 +8,7 @@ import { newGetId } from './functions_page-photographers.js';
 
 // Requête pour afficher les informations du photographe
 export const getInfoPhotographer = async () => {
-  const response = await fetch('./JS/data.json');
+  const response = await fetch('../JS/data.json');
   const data = await response.json().catch((err) => {
     // Une erreur est survenue
     err();

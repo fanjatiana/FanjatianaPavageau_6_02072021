@@ -6,7 +6,7 @@ import { addContent } from './functions_index.js';
 import { getUrlTag } from '../page-photographers/const_page-photographers.js';
 
 export const getPhotographersList = async () => {
-  const response = await fetch('./JS/data.json');
+  const response = await fetch('../JS/data.json');
   const data = await response.json().catch((err) => {
     // Une erreur est survenue
     err();
