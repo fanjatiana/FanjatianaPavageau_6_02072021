@@ -1,3 +1,5 @@
+// requête pour afficher la liste des photographes au chargement de la page
+
 /* eslint-disable import/extensions */
 /* eslint-disable import/prefer-default-export */
 import { addContent } from './functions_index.js';
@@ -28,18 +30,19 @@ export const getPhotographersList = async () => {
     divGoToContent.style.display = 'block';
   };
 
-  // fonction pour récupérer le tag dans l'url
+  /* fonction pour récupérer le tag dans l'url :
+   on extrait le nom du tag avec la méthode slice */
   let getTag = '';
-  // on extrait l id
   getTag = getUrlTag.slice(6);
 
-  // Affichage de la liste des photographes au chargement de la page en fonction de l'url
+  // Affichage de la liste des photographes au chargement de la page (si absence de tags dans l url)
   if (getTag === '') {
     photographersList.forEach((element) => {
       addContent(element);
     });
 
-    // Affichage de  la liste des photographes en fonction du tag situé dans l'url
+    /* Affichage de  la liste des photographes en
+    fonction du tag situé dans l'url (selectionné depuis la page photographes) */
   } else {
     document.getElementById('container').innerHTML = '';
     photographersList.forEach((element) => {

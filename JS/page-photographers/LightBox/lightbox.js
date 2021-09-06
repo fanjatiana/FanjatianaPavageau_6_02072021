@@ -7,10 +7,12 @@ export class Lightbox {
     const links = Array.from(
       document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'),
     );
-
     const gallery = links.map((link) => link.getAttribute('href'));
     const arrayTitle = links.map((link) => link.getAttribute('title'));
     const arrayAlt = links.map((img) => img.firstElementChild.getAttribute('alt'));
+
+    /* on applique un évènement au clic sur les liens
+    pour récupérer les attributs de l'élément ciblié */
     links.forEach((link) => link.addEventListener('click', (e) => {
       e.preventDefault();
 
@@ -25,6 +27,7 @@ export class Lightbox {
     }));
   }
 
+  // on cré un constructore pour créer un nouvel objet de la LightBox
   constructor(url, images, title, baliseTitle, alt, baliseAlt) {
     this.element = this.buildDOM(url);
     this.images = images;
@@ -109,6 +112,7 @@ export class Lightbox {
     }
   }
 
+  // fonction pour fermer la modale
   close(e) {
     e.preventDefault();
     this.element.classList.add('fadeOut');
@@ -119,6 +123,7 @@ export class Lightbox {
     document.removeEventListener('keyup', this.onKeyUp);
   }
 
+  // fonction pour faire défiler la gallerie vers la droite et revenir sur la première photo/vidéo
   next(e) {
     e.preventDefault();
     let nextImg = this.images.findIndex((image) => image === this.url);
@@ -144,6 +149,7 @@ export class Lightbox {
     );
   }
 
+  // fonction pour faire défiler la gallerie vers la gauche et revenir sur la première photo/vidéo
   prev(e) {
     e.preventDefault();
 
@@ -167,6 +173,8 @@ export class Lightbox {
     );
   }
 
+  /* fonction pour ajouter les boutons de navigation dans le DOM
+et ajout d'un évènement au clic de ces boutons */
   buildDOM() {
     const dom = document.createElement('div');
     dom.classList.add('lightbox');

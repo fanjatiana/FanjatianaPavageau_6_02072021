@@ -1,14 +1,16 @@
+// fonctions génériques pour la page des photographes
+
 // eslint-disable-next-line import/extensions
 import { getUrlId } from './const_page-photographers.js';
 
+// on extrait l id de l'url et on modifie type de GetId string--> number
 // eslint-disable-next-line import/no-mutable-exports
 export let newGetId = '';
-// on extrait l id
 const getId = getUrlId.slice(4);
-// on modifie type de GetId string--> number
 newGetId = Number(getId);
 
-export function addImage(element, lastName) {
+// fonction pour afficher les images dans la gallerie
+export const addImage = (element, lastName) => {
   document.getElementById('works-list').innerHTML += `<article>
                       <div class = "gallery">
                           <a href="./Photos/gallery/${lastName}/${element.image}" title="${element.title}">
@@ -25,9 +27,10 @@ export function addImage(element, lastName) {
                           </div>    
                       </div>
                </article>`;
-}
+};
 
-export function addVideo(element, lastName) {
+// fonction pour afficher les vidéos dans la gallerie
+export const addVideo = (element, lastName) => {
   document.getElementById('works-list').innerHTML += `<article">
           <div class="gallery">
               <a href="./Photos/gallery/${lastName}/${element.video}" title="${element.title}">
@@ -48,38 +51,38 @@ export function addVideo(element, lastName) {
               </div>    
           </div>   
       </article>`;
-}
+};
 
-
-export const infoLikesAndPrice = (totalPrice) =>{
- 
-  // on effectue une boucle pour parcourir le tableau et on calcule les valeurs totales
-  let priceOfPhotographers = 0;
+// fonction pour afficher le compteur de likes et du prix journalier des photographes
+export const infoLikesAndPrice = (totalPrice) => {
+  // calcule (avec la méthode reduce) du prix journalier des photographes
+  let totalPriceOfPhotographers = 0;
   for (let price = 0; price < totalPrice.length; price += 1) {
-    priceOfPhotographers += parseFloat(totalPrice[price]);
+    const sumPrice = (a, b) => a + b;
+    totalPriceOfPhotographers = totalPrice.reduce((sumPrice));
   }
 
+  // calcule (avec la méthode reduce) du nombre totale des likes du photographes
   const hearts = document.querySelectorAll('.likes_media');
-  let numberOfLikes = []
+  const numberOfLikes = [];
   hearts.forEach((icon) => {
-      const arrayValue = icon.previousElementSibling;
-      let totalMediaLike = Number(arrayValue.innerText);
-      numberOfLikes.push(totalMediaLike)
-
-  })  
-let likesOfPhotographers = 0;
+    const arrayValue = icon.previousElementSibling;
+    const totalMediaLike = Number(arrayValue.innerText);
+    numberOfLikes.push(totalMediaLike);
+  });
+  let totalLikesOfPhotographers = 0;
   for (let nbLike = 0; nbLike < numberOfLikes.length; nbLike += 1) {
-    likesOfPhotographers += parseFloat(numberOfLikes[nbLike]);
+    const sumLikes = (a, b) => a + b;
+    totalLikesOfPhotographers = numberOfLikes.reduce((sumLikes));
   }
 
   // ajout du bloc compteur de like
   document.getElementById('works-list').innerHTML += `<div id="like_counter">
-        <p id="total-likes">${likesOfPhotographers}<i class="fas fa-heart"></i></p>
-        <p>${priceOfPhotographers}€ / jour</p>
+        <p id="total-likes">${totalLikesOfPhotographers}<i class="fas fa-heart"></i></p>
+        <p>${totalPriceOfPhotographers}€ / jour</p>
         </div>`;
 
-  // fonction incrémentation des likes et du compteur de likes
-
+  // incrémentation des likes et du compteur de likes
   const buttonHearts = document.querySelectorAll('.likes_media');
   buttonHearts.forEach((heart) => {
     heart.addEventListener('click', () => {
@@ -90,7 +93,7 @@ let likesOfPhotographers = 0;
       arrayValue.innerHTML = `${likeCount}`;
       document.getElementById(
         'total-likes',
-      ).innerHTML = `${likesOfPhotographers += 1}<i class="fas fa-heart"></i>`;
+      ).innerHTML = `${totalLikesOfPhotographers += 1}<i class="fas fa-heart"></i>`;
     });
   });
-}
+};

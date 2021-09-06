@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 // fonction générique pour ajouter la liste des photographes et leurs tags associés
 export function addContent(element) {
   document.getElementById(
@@ -25,5 +26,3 @@ export function addContent(element) {
     listOfTags.innerHTML += ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`;
   });
 }
-
-

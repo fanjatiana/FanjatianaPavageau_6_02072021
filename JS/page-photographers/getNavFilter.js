@@ -138,21 +138,18 @@ export const getNavFilter = async () => {
     if (buttonSelect.value === 'Popularité') {
       works.innerHTML = '';
       sortByLikes();
-     
       infoLikesAndPrice(totalPrice);
       Lightbox.init();
     } else if (buttonSelect.value === 'Titre') {
       // affichage de la gallerie triée par ordre alphabétique au clic du lien : Titre
       works.innerHTML = '';
       sortByABC();
-  
       infoLikesAndPrice(totalPrice);
       Lightbox.init();
     } else if ((buttonSelect.value === 'Date')) {
       // affichage de la gallerie triée  par date au clic du lien : Date
       works.innerHTML = '';
       sortByDate();
-
       infoLikesAndPrice(totalPrice);
       Lightbox.init();
     }

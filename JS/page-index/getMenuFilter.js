@@ -1,3 +1,5 @@
+// requête pour filtrer la liste des photographes
+
 // eslint-disable-next-line import/extensions
 import { addContent } from './functions_index.js';
 
@@ -10,35 +12,26 @@ export const getMenuFilter = async () => {
   });
   const photographersList = data.photographers;
 
+  /* fonction pour afficher les photographes filtrés en fonction des tags:
+  on va chercher dans le Json les photographes qui ont le tag sélèctionnné
+  puis on ajoute la liste des photographes filtrées dans le html */
+  const tagsFilter = (filter) => {
+    document.getElementById('container').innerHTML = '';
+    photographersList.forEach((photograph) => {
+      if (photograph.tags.includes(filter)) {
+        addContent(photograph);
+      }
+    });
+  };
 
-    /* on vient appliquer un addEventListener sur les liens de la navigation
-    et on les relie à la fonction filtre, pour afficher les éléments filtrés */
-   
-      const listLinksAFilter = document.querySelectorAll('.links');
-    
-      listLinksAFilter.forEach((navLinks) => {
-        const resultFilter = navLinks.innerHTML.replace('#', '');
-        navLinks.addEventListener('click', (event) => {
-          addNavFilter(resultFilter);
-          event.preventDefault();
-        });
-      })
- 
-
-    // fonction affichage des photographes filtrés
-    function addNavFilter(filter) {
-      // on vide la div container des articles
-      document.getElementById('container').innerHTML = '';
-
-      /* boucle forEach pour appliquer la fonction filtre sur les tags de chaque photographes
-      puis on ajoute la liste des photographes filtrées dans le html */
-      photographersList.forEach((photograph) => {
-        if (photograph.tags.includes(filter)) {
-          addContent(photograph);
-        }
-      });
-
-    
-    }
-
+  /* on applique un listener sur les liens des tags
+(tags de la navigation et les tags des photographes) */
+  const allTags = document.querySelectorAll('.links');
+  allTags.forEach((tags) => {
+    const resultFilter = tags.innerHTML.replace('#', ''); // suppression des # des tags du tableau pour pouvoir effectuer la comparaison dans le JSON
+    tags.addEventListener('click', (event) => {
+      tagsFilter(resultFilter);
+      event.preventDefault();
+    });
+  });
 };

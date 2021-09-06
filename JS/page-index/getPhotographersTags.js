@@ -1,3 +1,5 @@
+// requête pour afficher les tags des photographes
+
 // eslint-disable-next-line import/prefer-default-export
 export const getPhotographersTags = async () => {
   const response = await fetch('./JS/data.json');
