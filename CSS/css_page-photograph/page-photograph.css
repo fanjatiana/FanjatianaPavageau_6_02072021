@@ -197,6 +197,11 @@ select:hover {
   width: 100%;
 }
 
+#photographContact > h1 {
+  font-size: 1.5rem;
+  margin: 50px 15px 10px;
+}
+
 #photographContact div {
   width: 90%;
   display: -webkit-box;
@@ -219,11 +224,6 @@ select:hover {
   font-size: 1rem;
   border-radius: 5px;
   border: none;
-}
-
-#photographContact h2 {
-  font-size: 1.5rem;
-  margin: 50px 15px 10px;
 }
 
 .close {
