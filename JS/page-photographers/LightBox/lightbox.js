@@ -178,6 +178,8 @@ et ajout d'un évènement au clic de ces boutons */
   buildDOM() {
     const dom = document.createElement('div');
     dom.classList.add('lightbox');
+    document.querySelector('main').setAttribute('aria-hidden', 'true');
+    dom.setAttribute('aria-hidden', 'false');
     dom.innerHTML = `<button
             class="lightbox__close">fermer</button>
             <button class="lightbox__next">suivant</button>

@@ -52,32 +52,33 @@ export const accessModalKeyboard = () => {
 /* fonction de controle de la validité des champs nom et prénom */
 export const controlInput = (infoGuest, regexNameAndLastName) => {
   let count = 0;
-
   infoGuest.forEach((input) => {
+    const inputNameAndLastName = input;
     if (input.validity.valueMissing) {
-      input
+      inputNameAndLastName
         .closest('.info-form')
         .setAttribute('data-error', 'Veuillez remplir le formulaire');
-      input.style.border = '#f70707 3px solid';
+      inputNameAndLastName.style.border = '#f70707 3px solid';
     } else if (input.value.length < 2) {
-      input
+      inputNameAndLastName
         .closest('.info-form')
         .setAttribute(
           'data-error',
           'Veuillez entrer entre 2 et 30 caractères pour valider ce champ ',
         );
-      input.style.border = '#f70707 3px solid';
+      inputNameAndLastName.style.border = '#f70707 3px solid';
     } else if (!regexNameAndLastName.test(input.value)) {
-      input
+      inputNameAndLastName
         .closest('.info-form')
         .setAttribute(
           'data-error',
           " Ecrivez en miniscule ou majuscule , pas de nombre, seuls caractères autorisés: . - ' et espaces",
         );
-      input.style.border = '#f70707 3px solid';
+      inputNameAndLastName.style.border = '#f70707 3px solid';
     } else {
-      input.closest('.info-form').setAttribute('data-error', '');
-      input.style.border = 'green 3px solid';
+      inputNameAndLastName.closest('.info-form').setAttribute('data-error', '');
+      inputNameAndLastName.style.border = 'green 3px solid';
+      inputNameAndLastName.setAttribute('aria-invalid', 'false');
       count += 1;
     }
   });
@@ -91,22 +92,24 @@ export const controlInput = (infoGuest, regexNameAndLastName) => {
 
 // fonction de controle de la validité du champs email
 export const controlEmail = (infoEmail, regexEmail) => {
+  const email = infoEmail;
   if (infoEmail.validity.valueMissing) {
-    infoEmail
+    email
       .closest('.info-form')
       .setAttribute('data-error', 'Veuillez remplir ce champ');
-    infoEmail.style.border = '#f70707 3px solid';
+    email.style.border = '#f70707 3px solid';
   } else if (!regexEmail.test(infoEmail.value)) {
-    infoEmail
+    email
       .closest('.info-form')
       .setAttribute(
         'data-error',
         'Veuillez rentrer une adresse email valide (par exemple: monemail@yahoo.com',
       );
-    infoEmail.style.border = '#f70707 3px solid';
+    email.style.border = '#f70707 3px solid';
   } else {
-    infoEmail.closest('.info-form').setAttribute('data-error', '');
-    infoEmail.style.border = 'green 3px solid';
+    email.closest('.info-form').setAttribute('data-error', '');
+    email.setAttribute('aria-invalid', 'false');
+    email.style.border = 'green 3px solid';
     return true;
   }
   return false;
@@ -114,14 +117,16 @@ export const controlEmail = (infoEmail, regexEmail) => {
 
 // fonction de controle de la validité du message entrant
 export const controlMessage = (message) => {
+  const inputEmail = message;
   if (message.value === '') {
-    message
+    inputEmail
       .closest('.info-form')
       .setAttribute('data-error', 'Veuillez remplir ce champ');
-    message.style.border = '#f70707 3px solid';
+    inputEmail.style.border = '#f70707 3px solid';
   } else {
-    message.closest('.info-form').setAttribute('data-error', '');
-    message.style.border = 'green 3px solid';
+    inputEmail.closest('.info-form').setAttribute('data-error', '');
+    inputEmail.style.border = 'green 3px solid';
+    inputEmail.setAttribute('aria-invalid', 'false');
     return true;
   }
   return false;

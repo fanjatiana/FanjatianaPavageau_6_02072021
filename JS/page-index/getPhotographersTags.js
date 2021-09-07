@@ -23,6 +23,6 @@ export const getPhotographersTags = async () => {
 
   backToArrayTags.forEach((element) => {
     const tagsTheme = element;
-    baliseUL.innerHTML += `<li><a class = "links links-filter" href="">#${tagsTheme}</a></li>`;
+    baliseUL.innerHTML += `<li><a class="links links-filter" href="" title="lien tag pour filtrer la liste des photographes">#${tagsTheme}</a></li>`;
   });
 };

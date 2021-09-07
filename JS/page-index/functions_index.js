@@ -5,7 +5,7 @@ export function addContent(element) {
     'container',
   ).innerHTML += `<article id="${element.id}">
           <section class="photograph">
-              <a id="go-to-photographer-page" href="page-photographers.html?id-${element.id}">
+              <a id="go-to-photographer-page" href="page-photographers.html?id-${element.id}" title="lien vers la page du photographe">
                   <img src="Photos/gallery/Photographers-Photos/${element.portrait}" alt="${element.description}">
                   <h2>${element.name}</h2>
               </a>
@@ -23,6 +23,6 @@ export function addContent(element) {
   /* on effectue une boucle forEach pour ajouter les liens des tags associés aux photographes */
   const listOfTags = document.getElementById(`tagList${element.tags}`);
   element.tags.forEach((photographersTags) => {
-    listOfTags.innerHTML += ` <li class = "tags" "><a class = "links" href="#">#${photographersTags}</a></li>`;
+    listOfTags.innerHTML += ` <li class="tags"><a class="links" href="#" title="tag du photographe">#${photographersTags}</a></li>`;
   });
 }

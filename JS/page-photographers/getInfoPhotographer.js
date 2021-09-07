@@ -31,7 +31,7 @@ export const getInfoPhotographer = async () => {
                 </div>`;
       const showTagsList = document.getElementById(`tagsList${element.tags}`);
       element.tags.forEach((allTags) => {
-        showTagsList.innerHTML += `<li class ="tags"><a class = "links" href="index.html?tags-${allTags}"> #${allTags}</a></li>`;
+        showTagsList.innerHTML += `<li class="tags"><a class="links" href="index.html?tags-${allTags}" title="lien tag,retour vers les photographes tagés"> #${allTags}</a></li>`;
       });
 
       // ajout du nom du photographe en tant que titre de la page
