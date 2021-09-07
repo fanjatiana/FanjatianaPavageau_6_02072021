@@ -18,7 +18,7 @@ export const getPhotographersList = async () => {
   body.insertAdjacentHTML(
     'afterbegin',
     `<div id ="go-to-content">
-            <a class="link_go-to-content" href = "#gallery-photographers" title = "cliquez pour passer au contenu">
+            <a class="link_go-to-content" href="#gallery-photographers" title="cliquez pour passer au contenu">
                 <h3>Passer au contenu</h3>
             </a>
         </div>`,

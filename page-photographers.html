@@ -20,12 +20,12 @@
     </header>
     <main aria-hidden="false">
        <section id="show-id-photograph">
-           <div class = "btn-contact">
+           <div class="btn-contact">
                <button id="btn" type="button"  aria-controls="modale">Contactez-moi</button>
            </div>
            <div id="modale" role="dialog" aria-labelledby="formulaire" aria-describedby="formulaire" aria-modal="true" aria-hidden="true" tabindex="-1">
                 <div class="modal-content" id="formulaire">
-                    <button class="close" id= "btnForm-close" type="button"  aria-label="Fermer" title="Fermer ce formulaire de contact" data-dismiss="modale">X</button>
+                    <button class="close" id="btnForm-close" type="button"  aria-label="Fermer" title="Fermer ce formulaire de contact" data-dismiss="modale">X</button>
                     <form name="contact" id="photographContact" action="/cible.php"  method="POST" onsubmit="return controlValidateForm()">
                         <h1 id="recipient-name">Contactez-moi</h1> 
                         <div class="info-form">
@@ -34,7 +34,7 @@
                         </div>
                         <div class="info-form">
                             <label for="last">Nom</label>
-                            <input class="text-control info-id " type="text" id="last" aria-invalid="true"   name="last"  minlength = "2" maxlength="30" required aria-required="true">
+                            <input class="text-control info-id " type="text" id="last" aria-invalid="true"   name="last"  minlength= "2" maxlength="30" required aria-required="true">
                         </div>
                         <div class="info-form">
                             <label for="email">E-mail</label>
@@ -52,7 +52,7 @@
             </div>
        </section>
        <section id="filter-sort-by"></section>
-       <section id ="works-list"></section>
+       <section id="works-list"></section>
     </main>
     <script src="JS/data.json"></script>
     <script type="module" src="JS/page-photographers.js"></script>

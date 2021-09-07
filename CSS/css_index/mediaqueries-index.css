@@ -3,7 +3,7 @@
         left: 20%;
     }
 }    */
-@media screen and (min-width: 384px) {
+@media screen and (min-width: 364px) {
   #banner > .logo {
     margin: 20px 0;
   }
@@ -46,8 +46,16 @@
 }
 
 @media screen and (min-width: 1024px) {
+  #banner .nav-tag-links {
+    width: 50%;
+    margin: 1.8em 0;
+  }
   #container > article {
     width: 30%;
+  }
+  #index-title {
+    left: 70%;
+    width: 20%;
   }
   #index-title > h1 {
     font-size: 1.5rem;
@@ -57,12 +65,11 @@
 @media screen and (min-width: 1295px) {
   #banner .nav-tag-links {
     width: 60%;
-    margin: 1.8em 0;
   }
-  #banner .nav-tag-links li {
+  #banner li {
     padding: 2px 5px;
   }
-  #banner .nav-tag-links li a {
+  #banner li a {
     font-size: 1em;
   }
   #index-title {
@@ -71,6 +78,9 @@
 }
 
 @media screen and (min-width: 2100px) {
+  #banner .nav-tag-links {
+    width: 80%;
+  }
   #container > article {
     width: 20%;
   }

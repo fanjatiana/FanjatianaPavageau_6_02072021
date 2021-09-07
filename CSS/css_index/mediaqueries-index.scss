@@ -7,7 +7,7 @@
 }    */
 
 
-@media  screen and (min-width: 384px){
+@media  screen and (min-width: 364px){
     
     #banner{
         >.logo{
@@ -58,7 +58,12 @@
 
 
 @media  screen and (min-width: 1024px){
-
+    #banner{
+        & .nav-tag-links{
+            width: 50%;
+            margin: 1.8em 0;
+        }
+    }        
     #container{
         > article{
             width: 30%;
@@ -67,6 +72,8 @@
     }
 
     #index-title{
+        left: 70%;
+        width: 20%;
         > h1{
             font-size: 1.5rem;
         }
@@ -76,14 +83,14 @@
     #banner{
         & .nav-tag-links{
             width: 60%;
-            margin: 1.8em 0;
-            & li{
-                padding: 2px 5px;
-                & a{
-                    font-size: 1em;
-                }
+        }
+        & li{
+            padding: 2px 5px;
+            & a{
+                font-size: 1em;
             }
         }
+        
     }
 
     #index-title{
@@ -96,6 +103,11 @@
 
 @media  screen and (min-width: 2100px){
 
+    #banner{
+        & .nav-tag-links{
+            width: 80%;
+        }
+    }    
     #container{
         > article{
             width: 20%;
