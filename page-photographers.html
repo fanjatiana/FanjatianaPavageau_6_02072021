@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="CSS/css_page-photograph/mediaqueries-page-photograph.css"/>
     <link rel="stylesheet" href="CSS/variables.css">
     <script src="https://kit.fontawesome.com/e821dcf0e0.js" crossorigin="anonymous"></script>
-    <title id="photograph-name"></title>
+    <title id="photograph-name">page du photographe:</title>
 </head>
 <body>
     <header id="banner">
@@ -21,13 +21,13 @@
     <main aria-hidden="false">
        <section id="show-id-photograph">
            <div class = "btn-contact">
-               <button id="btn" type="button"  aria-haspopup="modale" aria-controls="modale">Contactez-moi</button>
+               <button id="btn" type="button"  aria-controls="modale">Contactez-moi</button>
            </div>
            <div id="modale" role="dialog" aria-labelledby="formulaire" aria-describedby="formulaire" aria-modal="true" aria-hidden="true" tabindex="-1">
                 <div class="modal-content" id="formulaire">
                     <button class="close" id= "btnForm-close" type="button"  aria-label="Fermer" title="Fermer ce formulaire de contact" data-dismiss="modale">X</button>
                     <form name="contact" id="photographContact" action="/cible.php"  method="POST" onsubmit="return controlValidateForm()">
-                        <h1 id="recipient-name"></h1> 
+                        <h1 id="recipient-name">Contactez-moi</h1> 
                         <div class="info-form">
                             <label for="first">Prénom</label>
                             <input class="text-control info-id" type="text" id="first" aria-invalid="true" name="first" minlength = "2" maxlength="30" required aria-required="true">
@@ -56,6 +56,6 @@
     </main>
     <script src="JS/data.json"></script>
     <script type="module" src="JS/page-photographers.js"></script>
-    <script type="module" src="JS/page-photographers/LightBox/lightbox.js" defer></script>
+    <script type="module" src="JS/page-photographers/LightBox/lightbox.js"></script>
 </body>
 </html>

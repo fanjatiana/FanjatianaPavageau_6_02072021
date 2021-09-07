@@ -35,7 +35,7 @@ export const getInfoModale = async () => {
   const titleName = document.getElementById('recipient-name');
   photographersList.forEach((element) => {
     if (element.id === newGetId) {
-      titleName.innerHTML = `Contactez-moi<br>${element.name}`;
+      titleName.append(element.name);
     }
   });
 
