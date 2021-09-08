@@ -12,5 +12,5 @@ export const works = document.getElementById('works-list');
 
 // on recherche l id dans l url
 export const getUrlId = window.location.search;
-
+// on recherche le tag dans l url
 export const getUrlTag = window.location.search;

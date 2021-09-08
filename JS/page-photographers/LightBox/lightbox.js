@@ -105,7 +105,6 @@ export class Lightbox {
         firstButton.focus();
       }
     }
-
     if (!btnLightBox.includes(document.activeElement)) {
       e.preventDefault();
       firstButton.focus();

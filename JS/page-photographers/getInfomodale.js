@@ -6,6 +6,7 @@ import {
   launchModal, closeModal, accessModalKeyboard, controlInput, controlEmail, controlMessage,
 } from './function_modale.js';
 
+// requête pour le fonctionnement du formulaire
 export const getInfoModale = async () => {
   const response = await fetch('./JS/data.json');
   const data = await response.json().catch((error) => {

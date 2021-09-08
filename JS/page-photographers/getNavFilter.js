@@ -9,6 +9,7 @@ import {
   infoLikesAndPrice,
 } from './functions_page-photographers.js';
 
+// requête pour la partie filtre de la page des photographes
 export const getNavFilter = async () => {
   const response = await fetch('./JS/data.json');
   const data = await response.json().catch((error) => {
@@ -32,7 +33,6 @@ export const getNavFilter = async () => {
   });
 
   // ajout du menu déroulant : trier par
-
   worksFilter.innerHTML += `<label for="list-filter">Trier par</label>
   <select name="filter" id="list-filter">
       <option class="by-popular" value="Popularité">Popularité</option>

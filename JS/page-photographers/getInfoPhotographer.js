@@ -13,7 +13,6 @@ export const getInfoPhotographer = async () => {
     // Une erreur est survenue
     console.log(error);
   });
-
   const photographersList = data.photographers;
 
   // on ajoute les informations des photographes en debut de page
