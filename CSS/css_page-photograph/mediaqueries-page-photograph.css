@@ -27,6 +27,15 @@
   #show-id-photograph > .btn-contact {
     margin-left: -100px;
   }
+  #photographContact > h1 {
+    font-size: 2rem;
+  }
+  #submit-form {
+    width: 60%;
+    height: 40px;
+    font-size: 1.2rem;
+    margin: 2em auto;
+  }
 }
 
 @media screen and (min-width: 414px) {
@@ -151,10 +160,10 @@
     right: 5%;
   }
   #modale .modal-content {
-    height: 90%;
+    height: 850px;
     background: #db8876;
     width: 50%;
-    margin: 30px auto;
+    margin: 10px auto;
     border-radius: 5px;
   }
   .close {
@@ -162,9 +171,15 @@
     height: 50px;
     font-size: 2.5rem;
   }
-  #photographContact > h2 {
+  #photographContact {
+    height: 100%;
+  }
+  #photographContact > h1 {
     font-size: 3rem;
-    margin: 80px 25px 10px;
+    margin: 20px 25px 10px;
+  }
+  #photographContact div {
+    margin: 0.3em auto;
   }
   #photographContact div > label {
     font-size: 1.5rem;
@@ -259,6 +274,9 @@
   .like > p,
   .like i {
     font-size: 1rem;
+  }
+  #like_counter {
+    max-width: 540px;
   }
 }
 
