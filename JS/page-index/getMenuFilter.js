@@ -1,7 +1,7 @@
 // requête pour filtrer la liste des photographes
 
 // eslint-disable-next-line import/extensions
-import { addContent } from './functions_index.js';
+import { addContent, showDivGotToContent } from './functions_index.js';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getMenuFilter = async () => {
@@ -24,6 +24,7 @@ export const getMenuFilter = async () => {
       document.getElementById('container').innerHTML = '';
       photographersList.forEach((photograph) => {
         if (photograph.tags.includes(filter)) {
+          showDivGotToContent();
           addContent(photograph);
           listenerTagsFilter();
         }
@@ -32,6 +33,7 @@ export const getMenuFilter = async () => {
     allTags.forEach((tags) => {
       const resultFilter = tags.innerHTML.replace('#', ''); // suppression des # des tags du tableau pour pouvoir effectuer la comparaison dans le JSON
       tags.addEventListener('click', (event) => {
+        showDivGotToContent();
         tagsFilter(resultFilter);
         event.preventDefault();
       });

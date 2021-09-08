@@ -2,7 +2,7 @@
 
 /* eslint-disable import/extensions */
 /* eslint-disable import/prefer-default-export */
-import { addContent } from './functions_index.js';
+import { addContent, showDivGotToContent } from './functions_index.js';
 import { getUrlTag } from '../page-photographers/const_page-photographers.js';
 
 export const getPhotographersList = async () => {
@@ -13,22 +13,8 @@ export const getPhotographersList = async () => {
   });
   const photographersList = data.photographers;
 
-  // ajout de la div : passer au contenu dans le html
-  const body = document.querySelector('body');
-  body.insertAdjacentHTML(
-    'afterbegin',
-    `<div id ="go-to-content">
-            <a class="link_go-to-content" href="#gallery-photographers" title="cliquez pour passer au contenu">
-                <h3>Passer au contenu</h3>
-            </a>
-        </div>`,
-  );
-
-  // évènement d'apparition de la div au scroll de la page
-  const divGoToContent = document.getElementById('go-to-content');
-  body.onscroll = () => {
-    divGoToContent.style.display = 'block';
-  };
+  // fonction pour créer et afficher la div : aller au contenu
+  showDivGotToContent();
 
   /* fonction pour récupérer le tag dans l'url :
    on extrait le nom du tag avec la méthode slice */

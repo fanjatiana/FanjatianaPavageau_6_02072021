@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 // fonction générique pour ajouter la liste des photographes et leurs tags associés
-export function addContent(element) {
+export const addContent = (element) => {
   document.getElementById(
     'container',
   ).innerHTML += `<article id="${element.id}">
@@ -25,4 +25,23 @@ export function addContent(element) {
   element.tags.forEach((photographersTags) => {
     listOfTags.innerHTML += ` <li class="tags"><a class="links" href="#" title="tag du photographe">#${photographersTags}</a></li>`;
   });
-}
+};
+
+// ajout de la div : passer au contenu dans le html
+export const showDivGotToContent = () => {
+  const body = document.querySelector('body');
+  body.insertAdjacentHTML(
+    'afterbegin',
+    `<div id ="go-to-content">
+            <a class="link_go-to-content" href="#gallery-photographers" title="cliquez pour passer au contenu">
+                <h3>Passer au contenu</h3>
+            </a>
+        </div>`,
+  );
+
+  // évènement d'apparition de la div au scroll de la page
+  const divGoToContent = document.getElementById('go-to-content');
+  body.onscroll = () => {
+    divGoToContent.style.display = 'block';
+  };
+};
