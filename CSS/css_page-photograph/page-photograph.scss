@@ -1,5 +1,6 @@
 @import '../variables.scss';
 *{
+    font-family: 'DM Sans', sans-serif;
     li{
         list-style-type: none;
     }
@@ -192,25 +193,28 @@ display: none;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: space-around;
+   
         width: 100%;
     > h1 {
-        font-size: 1.5rem;
-        margin: 50px 15px 10px; 
+        font-size: 1.7rem;
+        margin: 80px 15px 20px; 
     }    
     & div{
         width: 90%;
         display: flex;
         flex-direction: column;
-        margin:auto;
+        margin:1em auto;
         > label{
-            font-size: 1rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
         }
         & .text-control{
             height: 40px;
             font-size: 1rem;
             border-radius: 5px;
+            border:none;
+        }
+        & textarea{
             border:none;
         }
     }    
@@ -250,8 +254,8 @@ display: none;
 .info-form[data-error]::after {
     content: attr(data-error);
     font-weight: bold;
-    font-size: 0.6rem;
-    color: #FFF;
+    font-size:0.8rem;
+    color:rgb(158, 3, 3);
     display: block;
     margin-top: 3px;
    //margin-bottom: 10px;
@@ -286,7 +290,7 @@ display: none;
             width: 100%;
             margin-bottom:10px;
             & video{
-                height: 200px;
+                height: 100%;
                 width: 100%;
                 border-radius: 5px;
             }
@@ -301,10 +305,10 @@ display: none;
     border-radius: 8px;
       & img{
           width: 100%;
-          height: 200px;
+          height: 100%;
           object-fit:cover;
           border-radius : 5px;
-          object-position: 50% 10%;
+         // object-position: 50% 10%;
       }
   }
 

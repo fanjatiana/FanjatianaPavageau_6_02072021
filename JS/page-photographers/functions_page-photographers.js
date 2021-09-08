@@ -31,10 +31,10 @@ export const addImage = (element, lastName) => {
 
 // fonction pour afficher les vidéos dans la gallerie
 export const addVideo = (element, lastName) => {
-  document.getElementById('works-list').innerHTML += `<article">
+  document.getElementById('works-list').innerHTML += `<article>
           <div class="gallery">
               <a href="Photos/gallery/${lastName}/${element.video}" title="${element.title}">
-                  <video controls width="500">
+                  <video controls>
                   ${element.title}
                       <source src="./Photos/gallery/${lastName}/${element.video}" type="video/mp4">
                       <track kind="subtitles" src="./Photos/gallery/${lastName}/${element.track}" srclang="fr" label="francais">

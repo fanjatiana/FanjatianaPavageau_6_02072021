@@ -1,10 +1,22 @@
 @media  screen and (min-width: 360px){
 
-    #presentation{
+    .presentation{
         > h1{
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
+        & p:nth-child(2) {
+            font-size: 1rem;
+        }
+        & p:nth-child(3){
+            font-size: 0.9rem;
+        } 
+       
     }
+    .links {
+        font-size: 0.8rem;
+    }
+   
+  
 
     #id-photo {
         width: 40%;
@@ -15,11 +27,11 @@
         }
     } 
     
-    .gallery{
+    /*.gallery{
           & img{
             object-position: 50% 25%;
           }
-      }
+      }*/
 
       #show-id-photograph{
         > .btn-contact {
@@ -42,7 +54,16 @@
         > h2 {
         font-size: 2rem;
     }  
-}  
+    }
+    .info_media > h2 {
+        font-size: 1rem;
+    }  
+
+    .like{
+        > p, i{
+            font-size: 1rem;
+        }
+    }
 }
 
 

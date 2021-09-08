@@ -57,7 +57,7 @@ export const controlInput = (infoGuest, regexNameAndLastName) => {
     if (input.validity.valueMissing) {
       inputNameAndLastName
         .closest('.info-form')
-        .setAttribute('data-error', 'Veuillez remplir le formulaire');
+        .setAttribute('data-error', 'Veuillez compléter ce champ');
       inputNameAndLastName.style.border = '#f70707 3px solid';
     } else if (input.value.length < 2) {
       inputNameAndLastName
@@ -96,7 +96,7 @@ export const controlEmail = (infoEmail, regexEmail) => {
   if (infoEmail.validity.valueMissing) {
     email
       .closest('.info-form')
-      .setAttribute('data-error', 'Veuillez remplir ce champ');
+      .setAttribute('data-error', 'Veuillez compléter ce champ');
     email.style.border = '#f70707 3px solid';
   } else if (!regexEmail.test(infoEmail.value)) {
     email
@@ -121,7 +121,7 @@ export const controlMessage = (message) => {
   if (message.value === '') {
     inputEmail
       .closest('.info-form')
-      .setAttribute('data-error', 'Veuillez remplir ce champ');
+      .setAttribute('data-error', 'Veuillez compléter ce champ');
     inputEmail.style.border = '#f70707 3px solid';
   } else {
     inputEmail.closest('.info-form').setAttribute('data-error', '');
