@@ -15,23 +15,27 @@ export const getMenuFilter = async () => {
   /* fonction pour afficher les photographes filtrés en fonction des tags:
   on va chercher dans le Json les photographes qui ont le tag sélèctionnné
   puis on ajoute la liste des photographes filtrées dans le html */
-  const tagsFilter = (filter) => {
-    document.getElementById('container').innerHTML = '';
-    photographersList.forEach((photograph) => {
-      if (photograph.tags.includes(filter)) {
-        addContent(photograph);
-      }
-    });
-  };
 
   /* on applique un listener sur les liens des tags
 (tags de la navigation et les tags des photographes) */
-  const allTags = document.querySelectorAll('.links');
-  allTags.forEach((tags) => {
-    const resultFilter = tags.innerHTML.replace('#', ''); // suppression des # des tags du tableau pour pouvoir effectuer la comparaison dans le JSON
-    tags.addEventListener('click', (event) => {
-      tagsFilter(resultFilter);
-      event.preventDefault();
+  const listenerTagsFilter = () => {
+    const allTags = document.querySelectorAll('.links');
+    const tagsFilter = (filter) => {
+      document.getElementById('container').innerHTML = '';
+      photographersList.forEach((photograph) => {
+        if (photograph.tags.includes(filter)) {
+          addContent(photograph);
+          listenerTagsFilter();
+        }
+      });
+    };
+    allTags.forEach((tags) => {
+      const resultFilter = tags.innerHTML.replace('#', ''); // suppression des # des tags du tableau pour pouvoir effectuer la comparaison dans le JSON
+      tags.addEventListener('click', (event) => {
+        tagsFilter(resultFilter);
+        event.preventDefault();
+      });
     });
-  });
+  };
+  listenerTagsFilter();
 };
