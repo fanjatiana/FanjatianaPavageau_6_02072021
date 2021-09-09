@@ -42,19 +42,11 @@
         font-size: 1rem;
       }
     }
-    
   }
 
-  .close{
+  .close {
     font-size: 2rem;
   }
-
-
-   
-
- 
-
-  
 
   #submit-form {
     width: 60%;
@@ -79,14 +71,14 @@
       margin: 10px 15px 10px;
     }
     & div {
-      margin : 1em auto;
-      > label{
+      margin: 1em auto;
+      > label {
         font-size: 1rem;
       }
     }
   }
 
-  #submit-form{
+  #submit-form {
     margin: 0.3em auto;
   }
 
@@ -102,8 +94,6 @@
       font-size: 1rem;
     }
   }
-
-
 }
 
 /* desktop */
@@ -220,7 +210,7 @@
   .info-form[data-error]::after {
     content: attr(data-error);
     font-size: 0.8rem;
-  }  
+  }
   .close {
     width: 50px;
     height: 50px;
@@ -246,10 +236,10 @@
 
   #yourmessage {
     font-size: 1.1rem;
-  }  
+  }
 
-  #submit-form{
-    margin:0.8em auto;
+  #submit-form {
+    margin: 0.8em auto;
   }
 
   .btn-submit {
@@ -279,25 +269,23 @@
     }
   }
 
-  #modale{
+  #modale {
     overflow: scroll;
-    & .modal-content{
+    & .modal-content {
       max-height: 855px;
       max-width: 655px;
       margin: 1.5em auto;
     }
   }
-
 }
 
 @media screen and (min-width: 1440px) {
- 
-  #modale{
-    & .modal-content{
+  #modale {
+    & .modal-content {
       margin: 4em auto;
     }
   }
-} 
+}
 
 @media screen and (min-width: 1920px) {
   p {
