@@ -1,364 +1,335 @@
-@media  screen and (min-width: 360px){
+/* mobile */
 
-    .presentation{
-        > h1{
-            font-size: 1.6rem;
-        }
-        & p:nth-child(2) {
-            font-size: 1rem;
-        }
-        & p:nth-child(3){
-            font-size: 0.9rem;
-        } 
-       
+@media screen and (min-width: 360px) {
+  .presentation {
+    > h1 {
+      font-size: 1.6rem;
     }
-    .links {
-        font-size: 0.8rem;
+    & p:nth-child(2) {
+      font-size: 1rem;
     }
-   
-  
-
-    #id-photo {
-        width: 40%;
-        height: 150px;
-        > img{ 
-            width: 120px;
-            height: 120px;
-        }
-    } 
-    
-    /*.gallery{
-          & img{
-            object-position: 50% 25%;
-          }
-      }*/
-
-      #show-id-photograph{
-        > .btn-contact {
-    
-            margin-left: -100px;
-          
-        }
-      } 
-
-    #photographContact { 
-        > h1 {
-            font-size: 2rem;
-        }
+    & p:nth-child(3) {
+      font-size: 0.9rem;
     }
+  }
 
-    #submit-form{
-        width: 60%;
-        height: 40px;
-        font-size: 1.2rem;
-        margin: 2em auto;
+  .links {
+    font-size: 0.8rem;
+  }
 
-    }  
-}
-
-@media  screen and (min-width: 414px){
-    .gallery{
-        height: 225px;
-        & img{
-        height: 225px;
-        }
+  #id-photo {
+    width: 40%;
+    height: 150px;
+    > img {
+      width: 120px;
+      height: 120px;
     }
+  }
 
-    #photographContact {
-        > h2 {
-        font-size: 2rem;
-    }  
+  #show-id-photograph {
+    > .btn-contact {
+      margin-left: -100px;
     }
-    .info_media > h2 {
-        font-size: 1rem;
-    }  
+  }
 
-    .like{
-        > p, i{
-            font-size: 1rem;
-        }
+  #photographContact {
+    > h1 {
+      font-size: 2rem;
     }
-}
+  }
 
-
-
-
-@media  screen and (min-width: 1024px){
-   p{
-       line-height: 2.5rem;
-   }
-   
-    #banner {
-        width: 90%;
-    }
-
-    .logo{
-       width: 200px;
-    }
-
-    main{
-        width: 90%;
-        margin:auto;
-    }
-
-    #show-id-photograph{
-        align-items: baseline;
-        background-color: #FAFAFA;
-        width: 100%;
-        padding: 30px 0;
-        border-radius: 8px;
-        > .btn-contact{
-            position: static;
-            order :2;
-            width: 150px;
-            
-            > button{
-                font-size: 1rem;
-                padding: 15px;
-                cursor: pointer;
-
-            }
-        }
-    }
-
-    .presentation {
-        order : 1;
-        width: 50%;
-        margin-left: 20px;
-        > h1{
-            font-size: 3rem;
-        }
-        & p:nth-child(2){
-            font-size: 1.1rem;
-        }
-    }
-
-    #id-photo{
-        order : 3;
-        width: 30%;
-        text-align: center;
-        align-self: flex-end;
-        height: 180px;
-        > img{
-            height: 180px;
-            width: 180px;
-        }
-    }
-
-    #filter-sort-by{
-        display: block;
-        width: 100%;
-        margin:0 auto 1em;
-        & select{
-            border:none;
-            cursor: pointer;
-        }
-    }    
-    #works-list{
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        width: 100%;
-        > article{
-            width: 250px;
-            & video{
-                height: 200px;
-                width: 250px;
-            }
-        }
-    }
-   
-
-    .gallery{
-        height: 200px;
-        width: 250px;
-       & img{
-            height: 200px;
-            width: 250px;
-        }
-    }
-    #like_counter{
-        width: 30%;
-        position: fixed;
-        bottom: 0;
-        right: 5%;
-    }
-
-    #modale{
-       & .modal-content {
-            height: 850px;
-            background: #db8876;
-            width: 50%;
-            margin: 10px auto;
-            border-radius: 5px;
-        }
-    } 
-
-    .close {
-        width: 50px;
-        height: 50px;
-        font-size: 2.5rem;
-    }
-
-    #photographContact{
-        height: 100%;
-        > h1 {
-            font-size: 3rem;
-            margin: 20px 25px 10px;
-        } 
-        & div{
-            margin:0.3em auto;
-            > label{
-                font-size: 1.5rem;
-                margin: 10px 0;
-            }
-        }
-    }
-    .btn-submit{
-        width: 30%;
-        height: 50px; 
-        margin: 20px 0;      
-    }
-
-
-
-}    
-
-@media  screen and (min-width: 1130px){
-#modale .modal-content {
-    max-height: 855px;
-    max-width: 555px;
-}
-}
-
-@media  screen and (min-width: 1280px){
-
-    .gallery{
-        height: 300px;
-        width: 350px;
-       & img{
-       
-            height: 300px;
-            width: 350px;
-        }
-       
-        
-    }
-
-    #works-list{
-        > article{
-            width: 350px;
-            & video{
-                height: 300px;
-                width: 350px;
-            }
-        }
-       
-}
-
-}
-
-@media  screen and (min-width: 1920px){
-
-    p{
-        font-size: 1.3rem;
-    }
-
-
-    .logo{
-        img{
-            width: 100%;
-        }
-    }
-
-
-    .presentation{
-        > h1{
-            font-size: 3rem;
-        }
-        & p:nth-child(2){
-            font-size: 1.3rem;
-        }
-        & p:nth-child(3){
-            font-size: 1rem;
-        }
-    }
-
-    ul{
-        & a{
-            font-size: 0.8rem;
-        }
-    }
-    .gallery{
-        height: 400px;
-        width: 450px;
-       & img{
-       
-            height: 400px;
-            width: 450px;
-        }
-       
-        
-    }
-
-    #works-list{
-        > article{
-            width: 450px;
-            & video{
-                height: 400px;
-                width: 450px;
-            }
-        }
-       
-}
-
-#id-photo{
-  height: 280px;
-  > img{
-    height: 280px;
-    width: 280px;
+  #submit-form {
+    width: 60%;
+    height: 40px;
+    font-size: 1.2rem;
+    margin: 2em auto;
   }
 }
 
-#show-id-photograph{
-    & .btn-contact{
-        width: 250px;
-       & button{
-            font-size: 1.5rem;
-            padding: 20px;
-        }
-        
+@media screen and (min-width: 414px) {
+  .gallery {
+    height: 225px;
+    & img {
+      height: 225px;
     }
+  }
 
-   
-} 
-
-.info_media{
-    width: 450px;
-    > h2{
-        font-size: 1rem;
+  #photographContact {
+    > h2 {
+      font-size: 2rem;
     }
+  }
+
+  .info_media {
+    > h2 {
+      font-size: 1rem;
+    }
+  }
+
+  .like {
+    > p,
+    i {
+      font-size: 1rem;
+    }
+  }
 }
 
-.like{
+/* desktop */
+@media screen and (min-width: 1024px) {
+  p {
+    line-height: 2.5rem;
+  }
+
+  #banner {
+    width: 90%;
+  }
+
+  .logo {
+    width: 200px;
+  }
+
+  main {
+    width: 90%;
+    margin: auto;
+  }
+
+  #show-id-photograph {
+    align-items: baseline;
+    background-color: #fafafa;
+    width: 100%;
+    padding: 30px 0;
+    border-radius: 8px;
+    > .btn-contact {
+      position: static;
+      order: 2;
+      width: 150px;
+      > button {
+        font-size: 1rem;
+        padding: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .presentation {
+    order: 1;
+    width: 50%;
+    margin-left: 20px;
+    > h1 {
+      font-size: 3rem;
+    }
+    & p:nth-child(2) {
+      font-size: 1.1rem;
+    }
+  }
+
+  #id-photo {
+    order: 3;
+    width: 30%;
+    text-align: center;
+    align-self: flex-end;
+    height: 180px;
+    > img {
+      height: 180px;
+      width: 180px;
+    }
+  }
+
+  #filter-sort-by {
+    display: block;
+    width: 100%;
+    margin: 0 auto 1em;
+    & select {
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  #works-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    > article {
+      width: 250px;
+      & video {
+        height: 200px;
+        width: 250px;
+      }
+    }
+  }
+
+  .gallery {
+    height: 200px;
+    width: 250px;
+    & img {
+      height: 200px;
+      width: 250px;
+    }
+  }
+
+  #like_counter {
+    width: 30%;
+    position: fixed;
+    bottom: 0;
+    right: 5%;
+  }
+
+  #modale {
+    & .modal-content {
+      height: 850px;
+      background: #db8876;
+      width: 50%;
+      margin: 10px auto;
+      border-radius: 5px;
+    }
+  }
+
+  .close {
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
+  }
+
+  #photographContact {
+    height: 100%;
+    > h1 {
+      font-size: 3rem;
+      margin: 20px 25px 10px;
+    }
+    & div {
+      margin: 0.3em auto;
+      > label {
+        font-size: 1.5rem;
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .btn-submit {
+    width: 30%;
+    height: 50px;
+    margin: 20px 0;
+  }
+}
+
+@media screen and (min-width: 1130px) {
+  #modale .modal-content {
+    max-height: 855px;
+    max-width: 555px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .gallery {
+    height: 300px;
+    width: 350px;
+    & img {
+      height: 300px;
+      width: 350px;
+    }
+  }
+
+  #works-list {
+    > article {
+      width: 350px;
+      & video {
+        height: 300px;
+        width: 350px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  p {
+    font-size: 1.3rem;
+  }
+
+  .logo {
+    img {
+      width: 100%;
+    }
+  }
+
+  .presentation {
+    > h1 {
+      font-size: 3rem;
+    }
+    & p:nth-child(2) {
+      font-size: 1.3rem;
+    }
+    & p:nth-child(3) {
+      font-size: 1rem;
+    }
+    & ul {
+      & a {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .gallery {
+    height: 400px;
+    width: 450px;
+    & img {
+      height: 400px;
+      width: 450px;
+    }
+  }
+
+  #works-list {
+    > article {
+      width: 450px;
+      & video {
+        height: 400px;
+        width: 450px;
+      }
+    }
+  }
+
+  #id-photo {
+    height: 280px;
+    > img {
+      height: 280px;
+      width: 280px;
+    }
+  }
+
+  #show-id-photograph {
+    & .btn-contact {
+      width: 250px;
+      & button {
+        font-size: 1.5rem;
+        padding: 20px;
+      }
+    }
+  }
+
+  .info_media {
+    width: 450px;
+    > h2 {
+      font-size: 1rem;
+    }
+  }
+
+  .like {
     > p,
     & i {
-        font-size: 1rem;
+      font-size: 1rem;
     }
-}
+  }
 
-#like_counter{
+  #like_counter {
     max-width: 540px;
+  }
 }
 
-}    
-
-
-@media  screen and (min-width: 2500px){
-    body{
-        max-width: 2499px;
-        max-height: 2160px;
-        margin:auto;
-    }
-
-}    
+/* grand écran */
+@media screen and (min-width: 2500px) {
+  body {
+    max-width: 2499px;
+    max-height: 2160px;
+    margin: auto;
+  }
+}

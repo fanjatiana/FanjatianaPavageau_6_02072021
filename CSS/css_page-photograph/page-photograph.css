@@ -1,6 +1,6 @@
 /*variables*/
 * {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 * li {
@@ -23,7 +23,7 @@ body {
   font-size: 1rem;
 }
 
-/**************************************************************************header*******************************************/
+/* header */
 #banner {
   width: 95%;
   text-align: left;
@@ -38,12 +38,12 @@ body {
   width: 100%;
 }
 
-/******************************************************************main******************************************/
+/* main */
 main {
   width: 100%;
 }
 
-/******************************************************** 1ere section :  show-id-photograph*****************************************************/
+/* 1ere section : show-id-photograph */
 #show-id-photograph {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -77,6 +77,7 @@ main {
   width: 100%;
 }
 
+/* informations sur le photographe */
 .presentation {
   width: 60%;
 }
@@ -100,6 +101,7 @@ main {
   font-size: 0.7rem;
 }
 
+/* tags du photographe */
 ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,7 +119,7 @@ ul .tags {
 
 ul .tags > .links {
   color: #901C1C;
-  border: 0.3px solid #C4C4C4;
+  border: 0.3px solid #c4c4c4;
   border-radius: 11px;
   padding: 2px 10px;
   font-size: 0.7rem;
@@ -125,9 +127,10 @@ ul .tags > .links {
 
 ul .tags > .links:hover {
   background-color: #901C1C;
-  color: #FFF;
+  color: #fff;
 }
 
+/* photo du photographe */
 #id-photo {
   width: 50%;
   height: 160px;
@@ -140,7 +143,7 @@ ul .tags > .links:hover {
   border-radius: 50%;
 }
 
-/*****************************************************************************section filtre************************************************************/
+/* section filtre */
 #filter-sort-by {
   width: 100%;
   margin: auto;
@@ -162,7 +165,7 @@ select:hover {
   opacity: 0.9;
 }
 
-/***************************************************************************************formulaire*************************************************************/
+/* formulaire */
 #modale {
   width: 100%;
   background-color: #fff;
@@ -174,12 +177,6 @@ select:hover {
   top: 0;
   bottom: 0;
   display: none;
-  /* > .content{
-        width: 100%;
-        height: 100%;
-        background-color: #db8876;
-        border-radius: 5px;
-    }*/
 }
 
 #modale .modal-content {
@@ -189,6 +186,7 @@ select:hover {
   width: 100%;
 }
 
+/* champs du formulaire */
 #photographContact {
   height: 90%;
   display: -webkit-box;
@@ -237,6 +235,7 @@ select:hover {
   border: none;
 }
 
+/* bouton de fermeture */
 .close {
   position: absolute;
   right: 15px;
@@ -248,26 +247,28 @@ select:hover {
   font-size: 2em;
   border: none;
   background-color: transparent;
-  color: #FFF;
+  color: #fff;
 }
 
+/* champ : votre message */
 #yourmessage {
   font-size: 1rem;
   overflow-y: scroll;
 }
 
+/* bouton d'envoie */
 .btn-submit {
   width: 50%;
   height: 30px;
   background-color: #901C1C;
-  color: #FFF;
+  color: #fff;
   font-size: 1rem;
   border-radius: 5px;
   margin: auto;
   border: none;
 }
 
-/*champs de saisi*/
+/*message d'erreur des champs de saisi*/
 .info-form[data-error]::after {
   content: attr(data-error);
   font-weight: bold;
@@ -279,13 +280,7 @@ select:hover {
   opacity: 1;
 }
 
-/*.info-form[data-error-visible="true"]::after {
-    opacity: 1;
-  }*/
-/*.info-form[data-error-visible="true"] .text-control {
-    border: 5px solid rgb(75, 10, 255);
-  }*/
-/**********************************************************************section gallery photographe******************************************************/
+/* section gallery photographe */
 #works-list {
   width: 95%;
   margin: auto;
@@ -369,7 +364,7 @@ select:hover {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  background-color: #DB8876;
+  background-color: #db8876;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }

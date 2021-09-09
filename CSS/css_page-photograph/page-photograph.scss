@@ -1,362 +1,314 @@
-@import '../variables.scss';
+@import "../variables.scss";
 
-*{
-    font-family: 'DM Sans', sans-serif;
-    li{
-        list-style-type: none;
-    }
-    a{ 
-        text-decoration: none;  
-    }
+* {
+  font-family: "DM Sans", sans-serif;
+  li {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+  }
 
-    p{
-        line-height: 1.3rem;
-    }
-
-   
+  p {
+    line-height: 1.3rem;
+  }
 }
 
+body {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  margin: auto;
+  font-size: 1rem;
+}
 
+/* header */
 
-body{
+#banner {
+  width: 95%;
+  text-align: left;
+  margin: 1em auto 1em;
+}
+
+.logo {
+  width: 120px;
+  & img {
     width: 100%;
-    z-index: 1;
-    position: relative;
-    margin:auto;
-    font-size: 1rem;
-
+  }
 }
 
-/**************************************************************************header*******************************************/
-
-#banner{
-    width: 95%;
-    text-align: left;
-    margin:1em auto 1em;
+/* main */
+main {
+  width: 100%;
 }
 
-.logo{
-    width: 120px;
-    & img{
-        width: 100%;
-    }
-}
-
-/******************************************************************main******************************************/
-main{
-    width: 100%;
-}
-
-
-/******************************************************** 1ere section :  show-id-photograph*****************************************************/
-#show-id-photograph{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 95%;
-    margin:0 auto 2em;
-    > .btn-contact{
-        position: fixed;
-        bottom: 5%;
-        left: 50%;
-        margin-left: -60px;
-        width: 50%;
-        > button{
-            background-color: $color-primary-bg;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            padding:5px;
-            font-weight: bold;
-            width: 100%;
-        }
-       
-    }
-    
-}
-
-.presentation{
-    width: 60%;
-    > h1{
-        color:$color-primary;
-        margin-bottom: 0;
-        font-size: 1rem;
-    }
-    & p:nth-child(2){ 
-        color: $color-primary-bg;
-        font-size:0.8rem;
-        margin:0;
-    }
-    & p:nth-child(3){
-        color:#525252 ;
-        margin-top:0;
-        margin-bottom: 0;
-        font-size: 0.7rem;
-    }
-}
-
-ul{
-    display: flex;
-    //justify-content: space-between;
-   padding-left:0;
-   margin-top:0;
-   flex-wrap: wrap;
-   & .tags{
-       margin-top: 5px;
-       margin-right: 0.3em;
-       > .links{
-        color: $color-primary-bg;
-        border: 0.3px solid #C4C4C4;
-        border-radius: 11px;
-        padding:2px 10px;
-        font-size: 0.7rem;
-        &:hover{
-         background-color:$color-primary-bg;
-         color: #FFF ;
-      
-        }
-        
-        }
-    }
-   
-}
-
-
-
-#id-photo{
+/* 1ere section : show-id-photograph */
+#show-id-photograph {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 95%;
+  margin: 0 auto 2em;
+  > .btn-contact {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    margin-left: -60px;
     width: 50%;
-    height: 160px;
-    text-align: right;
-   & img {
+    > button {
+      background-color: $color-primary-bg;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      padding: 5px;
+      font-weight: bold;
+      width: 100%;
+    }
+  }
+}
+
+/* informations sur le photographe */
+.presentation {
+  width: 60%;
+  > h1 {
+    color: $color-primary;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+  & p:nth-child(2) {
+    color: $color-primary-bg;
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  & p:nth-child(3) {
+    color: #525252;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0.7rem;
+  }
+}
+
+/* tags du photographe */
+ul {
+  display: flex;
+  padding-left: 0;
+  margin-top: 0;
+  flex-wrap: wrap;
+  & .tags {
+    margin-top: 5px;
+    margin-right: 0.3em;
+    > .links {
+      color: $color-primary-bg;
+      border: 0.3px solid #c4c4c4;
+      border-radius: 11px;
+      padding: 2px 10px;
+      font-size: 0.7rem;
+      &:hover {
+        background-color: $color-primary-bg;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* photo du photographe */
+#id-photo {
+  width: 50%;
+  height: 160px;
+  text-align: right;
+  & img {
     width: 100px;
     height: 100px;
-       border-radius: 50%;
-   }
+    border-radius: 50%;
+  }
 }
 
-/*****************************************************************************section filtre************************************************************/
-#filter-sort-by{
+/* section filtre */
+#filter-sort-by {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 30px;
+  display: none;
+}
+select {
+  width: 150px;
+  font-size: 1em;
+  height: 50px;
+  background: $color-primary-bg;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+select:hover {
+  opacity: 0.9;
+}
+
+/* formulaire */
+#modale {
+  width: 100%;
+  background-color: #fff;
+  height: 100%;
+  z-index: 2;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0;
+  bottom: 0;
+  display: none;
+  & .modal-content {
+    position: relative;
+    height: 100%;
+    background: #db8876;
     width: 100%;
-    margin:auto;
-    margin-bottom: 30px;
-    display: none;
-}
-    select {
-        width: 150px;
-        font-size: 1em;
-        height: 50px;
-        background: $color-primary-bg;
-        color:#fff;
-        border-radius: 5px;
-        padding: 5px 10px;
-
-    }
-    select:hover{
-       opacity: 0.9;  
-    }
-
-/***************************************************************************************formulaire*************************************************************/
-#modale{
-    width: 100%;
-background-color: #fff;
-height: 100%;
-z-index: 2;
-position: fixed;
-left: 0px;
-right: 0px;
-top: 0;
-bottom: 0;
-display: none;
-  
-   /* > .content{
-        width: 100%;
-        height: 100%;
-        background-color: #db8876;
-        border-radius: 5px;
-    }*/
-    
-    .modal-content{
-        position:relative;
-        height:100%;
-        //padding: 1em 1.5em;
-        background: #db8876;
-        width: 100%;
-        //margin: 30% auto;
-        //border-radius: 8px;
-       
-    }
-    
+  }
 }
 
-#photographContact{
-    height: 90%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-   
-        width: 100%;
-    > h1 {
-        font-size: 1.7rem;
-        margin: 10px 15px 20px; 
-    }    
-    & div{
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        margin:1em auto;
-        > label{
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        & .text-control{
-            height: 40px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border:none;
-        }
-        & textarea{
-            border:none;
-        }
-    }    
-}    
+/* champs du formulaire */
+#photographContact {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  > h1 {
+    font-size: 1.7rem;
+    margin: 10px 15px 20px;
+  }
+  & div {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 1em auto;
+    > label {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    & .text-control {
+      height: 40px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+    & textarea {
+      border: none;
+    }
+  }
+}
 
-
+/* bouton de fermeture */
 .close {
-    position: absolute;
-    right: 15px;
-    top: 5px;
-    width: 40px;
-    height: 40px;
-    opacity: 1;
-    cursor: pointer;
-    font-size: 2em;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  cursor: pointer;
+  font-size: 2em;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+
+/* champ : votre message */
+#yourmessage {
+  font-size: 1rem;
+  overflow-y: scroll;
+}
+
+/* bouton d'envoie */
+.btn-submit {
+  width: 50%;
+  height: 30px;
+  background-color: $color-primary-bg;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: auto;
+  border: none;
+}
+
+/*message d'erreur des champs de saisi*/
+.info-form[data-error]::after {
+  content: attr(data-error);
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: rgb(158, 3, 3);
+  display: block;
+  margin-top: 3px;
+  text-align: right;
+  opacity: 1;
+}
+
+/* section gallery photographe */
+
+#works-list {
+  width: 95%;
+  margin: auto;
+  > article {
+    width: 100%;
+    margin-bottom: 10px;
+    & video {
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+}
+
+.gallery {
+  height: 200px;
+  border-radius: 5px;
+  border-radius: 8px;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    // object-position: 50% 10%;
+  }
+}
+
+.info_media {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  > h2 {
+    font-size: 0.8rem;
+    color: $color-primary-bg;
+    width: 80%;
+  }
+}
+
+.like {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 20%;
+  > p {
+    color: $color-primary-bg;
+    font-size: 0.8rem;
+  }
+  & button {
     border: none;
     background-color: transparent;
-    color:#FFF;
-}
-#yourmessage{
-    font-size: 1rem;
-    overflow-y: scroll;
-}
-.btn-submit{
-    
-    width: 50%;
-    height: 30px;
-    background-color: $color-primary-bg;
-    color: #FFF;
-    font-size: 1rem;
-    border-radius: 5px;
-    margin:auto;
-    border:none;
+    cursor: pointer;
+    > i {
+      color: $color-primary-bg;
+    }
+  }
 }
 
-/*champs de saisi*/
-.info-form[data-error]::after {
-    content: attr(data-error);
-    font-weight: bold;
-    font-size:0.8rem;
-    color:rgb(158, 3, 3);
-    display: block;
-    margin-top: 3px;
-   //margin-bottom: 10px;
-    text-align: right;
-    opacity: 1;
-
-   
-    
+#like_counter {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  background-color: #db8876;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  & .fas {
+    margin-left: 0.5em;
   }
-
-  /*.info-form[data-error-visible="true"]::after {
-    opacity: 1;
-  }*/
-  /*.info-form[data-error-visible="true"] .text-control {
-    border: 5px solid rgb(75, 10, 255);
-  }*/
-  
-
-
-
-
-
-
-
-
-    /**********************************************************************section gallery photographe******************************************************/
-
-    #works-list{
-        width: 95%;
-        margin:auto;
-        > article{
-            width: 100%;
-            margin-bottom:10px;
-            & video{
-                height: 100%;
-                width: 100%;
-                border-radius: 5px;
-            }
-            
-        }
-    }
-
-  .gallery{
-    height: 200px;
-    border-radius: 5px;
-
-    border-radius: 8px;
-      & img{
-          width: 100%;
-          height: 100%;
-          object-fit:cover;
-          border-radius : 5px;
-         // object-position: 50% 10%;
-      }
-  }
-
-  .info_media{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    > h2{
-        font-size: 0.8rem;
-        color: $color-primary-bg;
-        width: 80%;
-    }  
-
-    
-    }
-
-    .like{
-        display: flex;
-        justify-content: space-around;
-        align-items: baseline;
-        width: 20%;
-        > p {
-            color: $color-primary-bg;
-            font-size: 0.8rem;
-        }
-       
-        & button{
-            border:none;
-            background-color: transparent;
-            cursor: pointer;
-            > i{
-                color : $color-primary-bg;
-             
-            }
-        
-    }    
-  }
-
-#like_counter{
-    width: 95%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    background-color: #DB8876;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    & .fas {
-        margin-left: 0.5em;
-    }
 }

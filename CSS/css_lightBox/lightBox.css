@@ -1,24 +1,4 @@
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #FFF;
-  padding: 1px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-}
-
-.lightbox::-webkit-scrollbar-track {
-  background-color: #000;
-}
-
-.lightbox::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-}
-
+@charset "UTF-8";
 .lightbox {
   position: fixed;
   top: 0;
@@ -35,7 +15,7 @@
 }
 
 .lightbox button {
-  opacity: .5;
+  opacity: 0.5;
   cursor: pointer;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
@@ -45,10 +25,30 @@
   opacity: 1;
 }
 
+@-webkit-keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* effet de changement d'opacité */
 .fadeOut {
   opacity: 0;
 }
 
+/* boutons suivant et précédent */
 .lightbox__next,
 .lightbox__prev {
   border: none;
@@ -60,7 +60,7 @@
   right: 0;
   margin-top: 50px;
   z-index: 50;
-  opacity: .8;
+  opacity: 0.8;
   text-indent: -10000px;
   font-size: 0;
 }
@@ -72,6 +72,7 @@
           transform: rotate(180deg);
 }
 
+/* croix de fermeture de la lightBox */
 .lightbox__close {
   border: none;
   background: url("/img/cross.svg") center center/100% 100% no-repeat transparent;
@@ -117,40 +118,6 @@
 
 .lightbox__container p {
   font-size: 1.8rem;
-  color: #D3573C;
-}
-
-/* .lightbox__loader{
-        width: 100px;
-        height: 100px;
-        opacity: .5;
-       background: url(/img/loader.svg) center center / 100% 100% no-repeat;
-        z-index: 20000;
-        position: absolute;
-        top:50%;
-        bottom: 50%;
-
-    }*/
-/* #lightbox__gallery{
-        margin:auto;
-        img{
-            width: 100%;
-        }
-    }*/
-@-webkit-keyframes lightboxIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  color: #d3573c;
 }
 /*# sourceMappingURL=lightBox.css.map */

@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* mobile */
 @media screen and (min-width: 360px) {
   .presentation > h1 {
     font-size: 1.6rem;
@@ -19,11 +21,6 @@
     width: 120px;
     height: 120px;
   }
-  /*.gallery{
-          & img{
-            object-position: 50% 25%;
-          }
-      }*/
   #show-id-photograph > .btn-contact {
     margin-left: -100px;
   }
@@ -51,11 +48,13 @@
   .info_media > h2 {
     font-size: 1rem;
   }
-  .like > p, .like i {
+  .like > p,
+  .like i {
     font-size: 1rem;
   }
 }
 
+/* desktop */
 @media screen and (min-width: 1024px) {
   p {
     line-height: 2.5rem;
@@ -74,7 +73,7 @@
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     width: 100%;
     padding: 30px 0;
     border-radius: 8px;
@@ -233,7 +232,7 @@
   .presentation p:nth-child(3) {
     font-size: 1rem;
   }
-  ul a {
+  .presentation ul a {
     font-size: 0.8rem;
   }
   .gallery {
@@ -280,6 +279,7 @@
   }
 }
 
+/* grand écran */
 @media screen and (min-width: 2500px) {
   body {
     max-width: 2499px;

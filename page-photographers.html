@@ -22,9 +22,9 @@
         </div>
     </header>
     <main aria-hidden="false">
-       <section id="show-id-photograph">
+        <section id="show-id-photograph">
            <div class="btn-contact">
-               <button id="btn" type="button"  aria-controls="modale">Contactez-moi</button>
+               <button id="btn" type="button"  arial-label="accéder au formulaire de contact" aria-controls="modale">Contactez-moi</button>
            </div>
            <div id="modale" role="dialog" aria-labelledby="formulaire" aria-describedby="formulaire" aria-modal="true" aria-hidden="true" tabindex="-1">
                 <div class="modal-content" id="formulaire">
@@ -48,14 +48,15 @@
                             <textarea id="yourmessage" name="yourmessage" rows="5" cols="33" aria-invalid="true" required aria-required="true"></textarea>
                         </div>
                         <div>
+                            <label for="submit-form"></label>
                             <input class="btn-submit button" id="submit-form" type="button"  value="Envoyer"  />
                         </div>		
                     </form>
                 </div>	
             </div>
-       </section>
-       <section id="filter-sort-by"></section>
-       <section id="works-list"></section>
+        </section>
+        <section id="filter-sort-by"></section>
+        <section id="works-list"></section>
     </main>
     <script src="JS/data.json"></script>
     <script type="module" src="JS/page-photographers.js"></script>

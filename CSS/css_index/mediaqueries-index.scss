@@ -1,168 +1,126 @@
- 
-
 /*@media  screen and (min-width: 360px){
     #index-title{
         left: 20%;
     }
 }    */
 
-
-@media  screen and (min-width: 364px){
-    
-    #banner{
-        >.logo{
-            margin: 20px 0;
-            & img{
-                width: 90%;
-            }
-        }
+/* mobile */
+@media screen and (min-width: 364px) {
+  #banner {
+    > .logo {
+      margin: 20px 0;
+      & img {
+        width: 90%;
+      }
     }
-    #index-title{
-        top: 30px;
-        left: 50%;
-    
-        > h1{
-            font-size: 1rem;
-        }
+  }
+
+  #index-title {
+    top: 30px;
+    left: 50%;
+    > h1 {
+      font-size: 1rem;
     }
-            
-    #go-to-photographer-page{
-        & img{
-            width: 250px;
-            height: 250px;
-        }
+  }
+
+  #go-to-photographer-page {
+    & img {
+      width: 250px;
+      height: 250px;
     }
-
-    
-}  
-    
-
-@media  screen and (min-width: 600px){
-    #index-title{
-        left:55%;
-    }
-
-    #container{
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        width: 100%;
-        margin:auto;
-
-        > article{
-            width: 40%;
-
-        }
-    }
-
-  
+  }
 }
 
+@media screen and (min-width: 600px) {
+  #index-title {
+    left: 55%;
+  }
 
-@media  screen and (min-width: 1024px){
-    #banner{
-        & .nav-tag-links{
-            width: 50%;
-            margin: 1.8em 0;
-        }
-    }        
-    #container{
-        > article{
-            width: 30%;
+  #container {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
 
-        }
+    > article {
+      width: 40%;
     }
-
-    #index-title{
-        left: 70%;
-        width: 20%;
-        > h1{
-            font-size: 1.5rem;
-        }
-    }
-}    
-    @media  screen and (min-width: 1295px){
-    #banner{
-        & .nav-tag-links{
-            width: 60%;
-        }
-        & li{
-            padding: 2px 5px;
-            & a{
-                font-size: 1em;
-            }
-        }
-        
-    }
-
-    #index-title{
-
-        left: 75%;
-    
-    }
-    
+  }
 }
 
-@media  screen and (min-width: 2100px){
-
-    #banner{
-        & .nav-tag-links{
-            width: 80%;
-        }
-    }    
-    #container{
-        > article{
-            width: 20%;
-        }
+/* desktop */
+@media screen and (min-width: 1024px) {
+  #banner {
+    & .nav-tag-links {
+      width: 50%;
+      margin: 1.8em 0;
     }
+  }
+
+  #container {
+    > article {
+      width: 30%;
+    }
+  }
+
+  #index-title {
+    left: 70%;
+    width: 20%;
+    > h1 {
+      font-size: 1.5rem;
+    }
+  }
 }
 
-@media  screen and (min-width: 2500px){
-    body{
-        max-width: 2500px;
-        margin: auto;
+@media screen and (min-width: 1295px) {
+  #banner {
+    & .nav-tag-links {
+      width: 60%;
     }
-
-    #container{
-        > article{
-            width: 15%;
-        }
+    & li {
+      padding: 2px 5px;
+      & a {
+        font-size: 1em;
+      }
     }
-
-    #banner{
-        margin-top: 30px;
-        > .nav-tag-links {
-            margin: 1.8em auto;
-    }
+  }
+  #index-title {
+    left: 75%;
+  }
 }
-}    
 
-/*@media  screen and (min-width: 2000px){
-    body{
-        max-width: 2000px;
-        margin:auto;
-       
+@media screen and (min-width: 2100px) {
+  #banner {
+    & .nav-tag-links {
+      width: 80%;
     }
-} 
-    
-@media  screen and (max-width: 1200px){
-    #index-title{
-        left: 82%;
-        top:30px;
-        & h1{
-            font-size: 1.5rem;
-            
-        }
-       
+  }
+  #container {
+    > article {
+      width: 20%;
     }
+  }
+}
 
-    #banner {
-        &.logo{
-            width: 20%;
-        }
-        .nav-tag-links{
-            margin:auto;
-        }
-       
+/* grand écran */
+
+@media screen and (min-width: 2500px) {
+  body {
+    max-width: 2500px;
+    margin: auto;
+  }
+
+  #container {
+    > article {
+      width: 15%;
     }
-}*/
+  }
+
+  #banner {
+    margin-top: 30px;
+    > .nav-tag-links {
+      margin: 1.8em auto;
+    }
+  }
+}

@@ -1,139 +1,96 @@
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #FFF ;
-    padding: 1px;
-}
-
-::-webkit-scrollbar-thumb{
-    border-radius : 4px
-}
-.lightbox::-webkit-scrollbar-track {
-    background-color: #000 ;
-
-}
-
-.lightbox::-webkit-scrollbar-thumb{
-    background: rgba(255,255,255,0.3)
-}
-
+// propriétés générales de la lightBox
 .lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-  
-    z-index: 10;
-    overflow: auto;
-    animation: lightboxIn 0.5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 10;
+  overflow: auto;
+  animation: lightboxIn 0.5s;
+  transition: opacity 0.3s;
+  & button {
+    opacity: 0.5;
+    cursor: pointer;
     transition: opacity 0.3s;
-  
-    & button{
-        opacity: .5;
-        cursor: pointer;
-        transition: opacity 0.3s;
-    }
-    & button:hover{
-        opacity: 1;
-    }
-
-   
-    
+  }
+  & button:hover {
+    opacity: 1;
+  }
 }
 
-.fadeOut{
+@keyframes lightboxIn {
+  from {
     opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+/* effet de changement d'opacité */
+.fadeOut {
+  opacity: 0;
+}
+
+/* boutons suivant et précédent */
 .lightbox__next,
-    .lightbox__prev{
-        border : none;
-        background: url('/img/arrow.svg') center center / 24px 40px no-repeat;
-        width:8%;
-        height: 80%;
-        position:fixed;
-        top: 0;
-        right: 0;
-        margin-top : 50px;
-        z-index: 50;
-        opacity: .8;
-        text-indent: -10000px;
-        font-size: 0;  
-    }
+.lightbox__prev {
+  border: none;
+  background: url("/img/arrow.svg") center center / 24px 40px no-repeat;
+  width: 8%;
+  height: 80%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 50px;
+  z-index: 50;
+  opacity: 0.8;
+  text-indent: -10000px;
+  font-size: 0;
+}
 
-    
-    .lightbox__prev{
-        right: auto;
-        left: 0;
-        transform: rotate(180deg);
-    } 
+.lightbox__prev {
+  right: auto;
+  left: 0;
+  transform: rotate(180deg);
+}
 
+/* croix de fermeture de la lightBox */
+.lightbox__close {
+  border: none;
+  background: url("/img/cross.svg") center center / 100% 100% no-repeat
+    transparent;
+  width: 34px;
+  height: 34px;
+  position: fixed;
+  text-indent: -10000px;
+  top: 20px;
+  right: 20px;
+  z-index: 1500;
+  font-size: 0;
+}
 
-    .lightbox__close{
-        border : none;
-        background: url('/img/cross.svg')center center / 100% 100% no-repeat transparent;
-        width: 34px;
-        height: 34px;
-        position: fixed;
-        text-indent: -10000px;
-        top:20px;
-        right: 20px;
-        z-index: 1500;
-        font-size: 0;
-
-    }
-
-
-    .lightbox__container{
-        margin-left: 50px;
-        margin-right: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: auto;
-        margin:auto;
-        width: 80%;
-        height: 100%;
-        > img,
-        video{
-            max-width: 100%;
-            max-height: 80vh;
-            animation: lightboxIn 0.5s;
-        }
-        & p{
-            font-size: 1.8rem;
-            color: #D3573C;
-        }
-        
-        
-    }
-
-   /* .lightbox__loader{
-        width: 100px;
-        height: 100px;
-        opacity: .5;
-       background: url(/img/loader.svg) center center / 100% 100% no-repeat;
-        z-index: 20000;
-        position: absolute;
-        top:50%;
-        bottom: 50%;
-
-    }*/
-
-   /* #lightbox__gallery{
-        margin:auto;
-        img{
-            width: 100%;
-        }
-    }*/
-
-
-    @keyframes lightboxIn{
-        from{opacity:0;}
-        to {opacity: 1;}
-    }
+.lightbox__container {
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  margin: auto;
+  width: 80%;
+  height: 100%;
+  > img,
+  video {
+    max-width: 100%;
+    max-height: 80vh;
+    animation: lightboxIn 0.5s;
+  }
+  & p {
+    font-size: 1.8rem;
+    color: #d3573c;
+  }
+}
