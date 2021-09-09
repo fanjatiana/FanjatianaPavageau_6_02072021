@@ -25,6 +25,13 @@
     margin-left: -100px;
   }
   #photographContact > h1 {
+    font-size: 1.5rem;
+  }
+  #photographContact div .text-control {
+    height: 40px;
+    font-size: 1rem;
+  }
+  .close {
     font-size: 2rem;
   }
   #submit-form {
@@ -35,15 +42,27 @@
   }
 }
 
-@media screen and (min-width: 414px) {
+@media screen and (min-width: 411px) {
   .gallery {
     height: 225px;
   }
   .gallery img {
     height: 225px;
+    -o-object-position: 0 35%;
+       object-position: 0 35%;
   }
-  #photographContact > h2 {
+  #photographContact > h1 {
     font-size: 2rem;
+    margin: 10px 15px 10px;
+  }
+  #photographContact div {
+    margin: 1em auto;
+  }
+  #photographContact div > label {
+    font-size: 1rem;
+  }
+  #submit-form {
+    margin: 0.3em auto;
   }
   .info_media > h2 {
     font-size: 1rem;
@@ -159,11 +178,15 @@
     right: 5%;
   }
   #modale .modal-content {
-    height: 850px;
+    height: 755px;
     background: #db8876;
-    width: 50%;
+    width: 555px;
     margin: 10px auto;
     border-radius: 5px;
+  }
+  .info-form[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.8rem;
   }
   .close {
     width: 50px;
@@ -182,19 +205,20 @@
   }
   #photographContact div > label {
     font-size: 1.5rem;
-    margin: 10px 0;
+  }
+  #photographContact div .text-control {
+    font-size: 1.1rem;
+  }
+  #yourmessage {
+    font-size: 1.1rem;
+  }
+  #submit-form {
+    margin: 0.8em auto;
   }
   .btn-submit {
     width: 30%;
     height: 50px;
     margin: 20px 0;
-  }
-}
-
-@media screen and (min-width: 1130px) {
-  #modale .modal-content {
-    max-height: 855px;
-    max-width: 555px;
   }
 }
 
@@ -213,6 +237,20 @@
   #works-list > article video {
     height: 300px;
     width: 350px;
+  }
+  #modale {
+    overflow: scroll;
+  }
+  #modale .modal-content {
+    max-height: 855px;
+    max-width: 655px;
+    margin: 1.5em auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #modale .modal-content {
+    margin: 4em auto;
   }
 }
 
@@ -259,6 +297,7 @@
   }
   #show-id-photograph .btn-contact {
     width: 250px;
+    margin-left: -400px;
   }
   #show-id-photograph .btn-contact button {
     font-size: 1.5rem;

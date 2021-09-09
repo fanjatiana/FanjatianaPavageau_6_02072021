@@ -108,7 +108,7 @@ body ul {
 /* tags du menu de navigation */
 .links-filter {
   margin: 0.2em;
-  color: #901C1C;
+  color: #901c1c;
   font-size: 0.8em;
 }
 
@@ -121,7 +121,7 @@ body ul {
 }
 
 .links:hover {
-  background-color: #901C1C;
+  background-color: #901c1c;
   color: #fff;
   border-radius: 11px;
 }
@@ -142,7 +142,7 @@ body ul {
 }
 
 #index-title h1 {
-  color: #901C1C;
+  color: #901c1c;
   font-size: 1.3rem;
 }
 
@@ -195,7 +195,7 @@ body ul {
   font-size: 1.6rem;
   text-align: center;
   line-height: 46.87px;
-  color: #D3573C;
+  color: #d3573c;
 }
 
 /*infos des photographes*/
@@ -216,7 +216,7 @@ body ul {
 }
 
 .infos-photograph p:nth-child(1) {
-  color: #901C1C;
+  color: #901c1c;
 }
 
 .infos-photograph p:nth-child(3) {
@@ -244,7 +244,7 @@ body ul {
 }
 
 .tag-links > ul a {
-  color: #901C1C;
+  color: #901c1c;
   font-weight: bold;
   font-size: 0.8em;
 }
