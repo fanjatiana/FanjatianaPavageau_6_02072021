@@ -79,6 +79,7 @@ export const controlInput = (infoGuest, regexNameAndLastName) => {
       inputNameAndLastName.closest('.info-form').setAttribute('data-error', '');
       inputNameAndLastName.style.border = 'green 3px solid';
       inputNameAndLastName.setAttribute('aria-invalid', 'false');
+      console.log(inputNameAndLastName.value);
       count += 1;
     }
   });
@@ -110,6 +111,7 @@ export const controlEmail = (infoEmail, regexEmail) => {
     email.closest('.info-form').setAttribute('data-error', '');
     email.setAttribute('aria-invalid', 'false');
     email.style.border = 'green 3px solid';
+    console.log(email.value);
     return true;
   }
   return false;
@@ -127,6 +129,7 @@ export const controlMessage = (message) => {
     inputEmail.closest('.info-form').setAttribute('data-error', '');
     inputEmail.style.border = 'green 3px solid';
     inputEmail.setAttribute('aria-invalid', 'false');
+    console.log(inputEmail.value);
     return true;
   }
   return false;
