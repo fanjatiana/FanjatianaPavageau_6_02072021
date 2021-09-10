@@ -1,5 +1,33 @@
 @charset "UTF-8";
 /* mobile */
+@media screen and (min-width: 320px) {
+  #photographContact > h1 {
+    font-size: 2rem;
+    margin: 30px 15px;
+  }
+  #photographContact .info-form {
+    margin: 20px auto;
+  }
+  #photographContact .info-form > label {
+    font-size: 1.1rem;
+  }
+  #photographContact .info-form input {
+    height: 40px;
+    font-size: 1rem;
+  }
+  #photographContact .info-form textarea {
+    height: 150px;
+    font-size: 1rem;
+  }
+  #photographContact .btn-submit-form {
+    margin: 20px auto;
+  }
+  .btn-submit {
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
 @media screen and (min-width: 360px) {
   .presentation > h1 {
     font-size: 1.6rem;
@@ -25,7 +53,7 @@
     margin-left: -100px;
   }
   #photographContact > h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   #photographContact div .text-control {
     height: 40px;
@@ -179,7 +207,6 @@
   }
   #modale .modal-content {
     height: 755px;
-    background: #db8876;
     width: 555px;
     margin: 60px auto;
     border-radius: 5px;

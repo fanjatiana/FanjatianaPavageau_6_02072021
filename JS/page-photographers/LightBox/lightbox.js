@@ -85,10 +85,11 @@ export class Lightbox {
     const focusOnElement = Array.from(
       document.querySelectorAll('.lightbox > button, .lightbox__container > video'),
     );
-    console.log(focusOnElement);
 
-    const firstButton = focusOnElement[0]; // on recupère le premier bouton qui portera le focus
-    const lastButton = focusOnElement[focusOnElement.length - 1]; // on récupère le dernier bouton qui portera le focus
+    // on recupère le premier bouton qui portera le focus
+    const firstButton = focusOnElement[0];
+    // on récupère le dernier bouton qui portera le focus
+    const lastButton = focusOnElement[focusOnElement.length - 1];
     if (e.key === 'Escape') {
       this.close(e);
     } else if (e.key === 'ArrowLeft') {
@@ -106,7 +107,8 @@ export class Lightbox {
         firstButton.focus();
       }
 
-      if (!focusOnElement.includes(document.activeElement)) { // vérifie si aucun boutton n'a le focus, si "true" alors :
+      // vérifie si aucun boutton n'a le focus, si "true" alors :
+      if (!focusOnElement.includes(document.activeElement)) {
         e.preventDefault();
         firstButton.focus();
       }
