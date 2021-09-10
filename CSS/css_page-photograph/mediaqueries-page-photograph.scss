@@ -202,8 +202,10 @@
       height: 755px;
       background: #db8876;
       width: 555px;
-      margin: 10px auto;
+      margin: 60px auto;
       border-radius: 5px;
+      padding-bottom: 10px;
+    
     }
   }
 
@@ -223,7 +225,7 @@
       font-size: 3rem;
       margin: 20px 25px 10px;
     }
-    & div {
+    & .info-form {
       margin: 0.3em auto;
       > label {
         font-size: 1.5rem;
@@ -275,6 +277,8 @@
       max-height: 855px;
       max-width: 655px;
       margin: 1.5em auto;
+      overflow-y: initial;
+      padding-bottom: 10px;
     }
   }
 }
@@ -370,6 +374,14 @@
   #like_counter {
     max-width: 540px;
   }
+
+  #modale {
+    & .modal-content {
+      padding-bottom: 1.5em;
+   
+    }  
+  }  
+
 }
 
 /* grand écran */

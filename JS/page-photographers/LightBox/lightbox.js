@@ -39,7 +39,7 @@ export class Lightbox {
     this.onKeyUp = this.onKeyUp.bind(this);
     document.body.appendChild(this.element);
     disableBodyScroll(this.element);
-    document.addEventListener('keyup', this.onKeyUp);
+    document.addEventListener('keydown', this.onKeyUp);
   }
 
   // ajout des images et viéos avec leurs attribus alt et title dans la lightBox au click des urls
@@ -82,12 +82,13 @@ export class Lightbox {
 
   /* accessibilité clavier des flèches de navigation et de la croix de fermeture de la lightBox */
   onKeyUp(e) {
-    const btnLightBox = Array.from(
-      document.querySelectorAll('.lightbox > button'),
+    const focusOnElement = Array.from(
+      document.querySelectorAll('.lightbox > button, .lightbox__container > video'),
     );
+    console.log(focusOnElement);
 
-    const firstButton = btnLightBox[0]; // on recupère le premier bouton qui portera le focus
-    const lastButton = btnLightBox[2]; // on récupère le dernier bouton qui portera le focus
+    const firstButton = focusOnElement[0]; // on recupère le premier bouton qui portera le focus
+    const lastButton = focusOnElement[focusOnElement.length - 1]; // on récupère le dernier bouton qui portera le focus
     if (e.key === 'Escape') {
       this.close(e);
     } else if (e.key === 'ArrowLeft') {
@@ -104,10 +105,11 @@ export class Lightbox {
         e.preventDefault();
         firstButton.focus();
       }
-    }
-    if (!btnLightBox.includes(document.activeElement)) {
-      e.preventDefault();
-      firstButton.focus();
+
+      if (!focusOnElement.includes(document.activeElement)) { // vérifie si aucun boutton n'a le focus, si "true" alors :
+        e.preventDefault();
+        firstButton.focus();
+      }
     }
   }
 

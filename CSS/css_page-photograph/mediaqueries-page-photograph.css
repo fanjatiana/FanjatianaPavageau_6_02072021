@@ -181,8 +181,9 @@
     height: 755px;
     background: #db8876;
     width: 555px;
-    margin: 10px auto;
+    margin: 60px auto;
     border-radius: 5px;
+    padding-bottom: 10px;
   }
   .info-form[data-error]::after {
     content: attr(data-error);
@@ -200,13 +201,13 @@
     font-size: 3rem;
     margin: 20px 25px 10px;
   }
-  #photographContact div {
+  #photographContact .info-form {
     margin: 0.3em auto;
   }
-  #photographContact div > label {
+  #photographContact .info-form > label {
     font-size: 1.5rem;
   }
-  #photographContact div .text-control {
+  #photographContact .info-form .text-control {
     font-size: 1.1rem;
   }
   #yourmessage {
@@ -245,6 +246,8 @@
     max-height: 855px;
     max-width: 655px;
     margin: 1.5em auto;
+    overflow-y: initial;
+    padding-bottom: 10px;
   }
 }
 
@@ -315,6 +318,9 @@
   }
   #like_counter {
     max-width: 540px;
+  }
+  #modale .modal-content {
+    padding-bottom: 1.5em;
   }
 }
 
