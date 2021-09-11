@@ -16,26 +16,27 @@ export const getMenuFilter = async () => {
   on va chercher dans le Json les photographes qui ont le tag sélèctionnné
   puis on ajoute la liste des photographes filtrées dans le html */
 
-  /* on applique un listener sur les liens des tags
-(tags de la navigation et les tags des photographes) */
   const listenerTagsFilter = () => {
     const allTags = document.querySelectorAll('.links');
+
     const tagsFilter = (filter) => {
       document.getElementById('container').innerHTML = '';
       photographersList.forEach((photograph) => {
         if (photograph.tags.includes(filter)) {
-          showDivGotToContent();
           addContent(photograph);
           listenerTagsFilter();
+          showDivGotToContent();
         }
       });
     };
+      /* on applique un listener sur les liens des tags
+(tags de la navigation et les tags des photographes) */
     allTags.forEach((tags) => {
       const resultFilter = tags.innerHTML.replace('#', ''); // suppression des # des tags du tableau pour pouvoir effectuer la comparaison dans le JSON
       tags.addEventListener('click', (event) => {
+        event.preventDefault();
         showDivGotToContent();
         tagsFilter(resultFilter);
-        event.preventDefault();
       });
     });
   };

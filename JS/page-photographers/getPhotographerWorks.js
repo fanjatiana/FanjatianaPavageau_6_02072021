@@ -24,7 +24,7 @@ export const getPhotographersWorks = async () => {
   photographersList.forEach((namePhotograph) => {
     if (namePhotograph.id === newGetId) {
       const { name } = namePhotograph; // on vient chercher dans le tableau la valeur de : name
-      const nameCut = name.split(' '); // supression des espaces
+      const nameCut = name.split(' '); // suppression de l'espace entre le nom et prénom et retourne un tableau
       const resultLastName = nameCut[1]; // on récupère la 2eme valeur du tableau : nom de famille
       lastName = resultLastName;
     }

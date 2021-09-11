@@ -27,7 +27,7 @@ export class Lightbox {
     }));
   }
 
-  // on cré un constructore pour créer un nouvel objet de la LightBox
+  // on cré un constructor pour créer un nouvel objet de la LightBox
   constructor(url, images, title, baliseTitle, alt, baliseAlt) {
     this.element = this.buildDOM(url);
     this.images = images;
@@ -120,9 +120,6 @@ export class Lightbox {
     e.preventDefault();
     this.element.classList.add('fadeOut');
     enableBodyScroll(this.element);
-    window.setTimeout(() => {
-      this.element.parentElement.removeChild(this.element);
-    }, 500);
     document.removeEventListener('keyup', this.onKeyUp);
   }
 
