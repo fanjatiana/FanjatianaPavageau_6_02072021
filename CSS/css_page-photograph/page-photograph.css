@@ -61,7 +61,7 @@ main {
 #show-id-photograph > .btn-contact {
   position: fixed;
   font-weight: bold;
-  bottom: 5%;
+  bottom: 15%;
   left: 50%;
   margin-left: -60px;
   width: 50%;

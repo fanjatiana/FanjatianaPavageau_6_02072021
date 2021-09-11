@@ -179,7 +179,7 @@
     order: 3;
     width: 30%;
     text-align: center;
-    align-self: flex-end;
+    align-self: center;
     height: 180px;
     > img {
       height: 180px;
@@ -315,6 +315,12 @@
   #modale {
     & .modal-content {
       margin: 4em auto;
+    }
+  }
+
+  #show-id-photograph {
+    > .btn-contact {
+      margin-left: -180px;
     }
   }
 }

@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+
 // fonction générique pour ajouter la liste des photographes et leurs tags associés
 export const addContent = (element) => {
   document.getElementById(

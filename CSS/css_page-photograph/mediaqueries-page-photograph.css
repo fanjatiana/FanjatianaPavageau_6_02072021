@@ -156,8 +156,9 @@
             order: 3;
     width: 30%;
     text-align: center;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     height: 180px;
   }
   #id-photo > img {
@@ -281,6 +282,9 @@
 @media screen and (min-width: 1440px) {
   #modale .modal-content {
     margin: 4em auto;
+  }
+  #show-id-photograph > .btn-contact {
+    margin-left: -180px;
   }
 }
 
