@@ -207,11 +207,11 @@
     right: 5%;
   }
   #modale .modal-content {
-    height: 755px;
+    height: 805px;
     width: 555px;
     margin: 60px auto;
     border-radius: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 40px;
   }
   .info-form[data-error]::after {
     content: attr(data-error);
