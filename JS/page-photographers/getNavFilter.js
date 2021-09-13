@@ -3,8 +3,8 @@
 import { works, worksFilter } from './const_page-photographers.js';
 import { Lightbox } from './LightBox/lightbox.js';
 import {
-  addImage,
-  addVideo,
+  //addImage,
+  //addVideo,
   newGetId,
   infoLikesAndPrice,
 } from './functions_page-photographers.js';
@@ -60,10 +60,10 @@ export const getNavFilter = async () => {
     // on affiche toutes les images/videos rangées par date et liées à l'Id du photographe
     orderByDate.forEach((element) => {
       if (element.photographerId === newGetId && element.image) {
-        addImage(element, lastName);
+        //addImage(element, lastName);
       }
       if (element.photographerId === newGetId && element.video) {
-        addVideo(element, lastName);
+        //addVideo(element, lastName);
       }
     });
   };
@@ -86,10 +86,10 @@ export const getNavFilter = async () => {
     // on affiche toutes les images/vidéos liées à l'Id du photographe
     orderByLikes.forEach((element) => {
       if (element.photographerId === newGetId && element.image) {
-        addImage(element, lastName);
+        //addImage(element, lastName);
       }
       if (element.photographerId === newGetId && element.video) {
-        addVideo(element, lastName);
+        //addVideo(element, lastName);
       }
     });
   };
@@ -113,10 +113,10 @@ export const getNavFilter = async () => {
     // on affiche toutes les images et vidéos liées à l'Id du photographe
     orderByTitle.forEach((element) => {
       if (element.photographerId === newGetId && element.image) {
-        addImage(element, lastName);
+        //addImage(element, lastName);
       }
       if (element.photographerId === newGetId && element.video) {
-        addVideo(element, lastName);
+        //addVideo(element, lastName);
       }
     });
   };

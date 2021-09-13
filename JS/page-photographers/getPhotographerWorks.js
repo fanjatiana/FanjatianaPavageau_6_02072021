@@ -1,12 +1,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/prefer-default-export */
 import { Lightbox } from './LightBox/lightbox.js';
-import {
-  newGetId,
-  addImage,
-  addVideo,
-  infoLikesAndPrice,
-} from './functions_page-photographers.js';
+import { newGetId, infoLikesAndPrice } from './functions_page-photographers.js';
 
 export const getPhotographersWorks = async () => {
   const response = await fetch('./JS/data.json');
@@ -31,13 +26,89 @@ export const getPhotographersWorks = async () => {
   });
 
   // on affiche la gallerie des médias liées à l id affiché dans l'url
+  const imagesFactory = (image, title, description, likes) => {
+    const addImage = () => {
+      document.getElementById('works-list').innerHTML += `<article>
+                        <div class="gallery">
+                            <a href="Photos/gallery/${lastName}/${image}" title="${title}">
+                                <img class="pictures-list" src="./Photos/gallery/${lastName}/${image}" alt="${description}">
+                            </a>
+                        </div>
+                        <div class="info_media">
+                            <h2>${title}</h2>
+                            <div class ="like">
+                                <p class="nb-likes">${likes}</p>
+                                <button class ="likes_media" type="button" aria-label="button-like">
+                                    <i class="fas fa-heart "></i>
+                                </button>
+                            </div>    
+                        </div>
+                 </article>`;
+    };
+
+    return {
+      image,
+      title,
+      description,
+      likes,
+      addImage,
+    };
+  };
+
+  // on affiche la gallerie des médias liées à l id affiché dans l'url
+  const videoFactory = (video, title, track, likes) => {
+    const addVideo = () => {
+      document.getElementById('works-list').innerHTML += `<article>
+            <div class="gallery">
+                <a href="Photos/gallery/${lastName}/${video}" title="${title}">
+                    <video>
+                    ${title}
+                        <source src="./Photos/gallery/${lastName}/${video}" type="video/mp4">
+                        <track kind="subtitles" src="./Photos/gallery/${lastName}/${track}" srclang="fr" label="francais">
+                    </video>
+                </a>
+            </div>
+            <div class="info_media">
+                <h2>${title}</h2>
+                <div class="like">
+                    <p class="nb-likes">${likes}</p>
+                    <button class="likes_media" type="button" aria-label="button-like">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>    
+            </div>   
+        </article>`;
+    };
+
+    return {
+      video,
+      title,
+      track,
+      likes,
+      addVideo,
+    };
+  };
 
   // ajout des images et video
   photographersMedia.forEach((element) => {
     if (element.photographerId === newGetId && element.image) {
-      addImage(element, lastName);
+      const buildInfosImages = imagesFactory(
+        element.image,
+        element.title,
+        element.description,
+        element.likes,
+      );
+      const galleryImage = buildInfosImages.addImage;
+      galleryImage();
     } else if (element.photographerId === newGetId && element.video) {
-      addVideo(element, lastName);
+      const buildInfosVideos = videoFactory(
+        element.video,
+        element.title,
+        element.track,
+        element.likes,
+      );
+      const galleryVideo = buildInfosVideos.addVideo;
+      galleryVideo();
     }
     return false;
   });

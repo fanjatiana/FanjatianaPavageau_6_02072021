@@ -9,49 +9,7 @@ export let newGetId = '';
 const getId = getUrlId.slice(4);
 newGetId = Number(getId);
 
-// fonction pour afficher les images dans la gallerie
-export const addImage = (element, lastName) => {
-  document.getElementById('works-list').innerHTML += `<article>
-                      <div class="gallery">
-                          <a href="Photos/gallery/${lastName}/${element.image}" title="${element.title}">
-                              <img class="pictures-list" src="./Photos/gallery/${lastName}/${element.image}" alt="${element.description}">
-                          </a>
-                      </div>
-                      <div class="info_media">
-                          <h2>${element.title}</h2>
-                          <div class ="like">
-                              <p class="nb-likes">${element.likes}</p>
-                              <button class ="likes_media" type="button" aria-label="button-like">
-                                  <i class="fas fa-heart "></i>
-                              </button>
-                          </div>    
-                      </div>
-               </article>`;
-};
 
-// fonction pour afficher les vidéos dans la gallerie
-export const addVideo = (element, lastName) => {
-  document.getElementById('works-list').innerHTML += `<article>
-          <div class="gallery">
-              <a href="Photos/gallery/${lastName}/${element.video}" title="${element.title}">
-                  <video>
-                  ${element.title}
-                      <source src="./Photos/gallery/${lastName}/${element.video}" type="video/mp4">
-                      <track kind="subtitles" src="./Photos/gallery/${lastName}/${element.track}" srclang="fr" label="francais">
-                  </video>
-              </a>
-          </div>
-          <div class="info_media">
-              <h2>${element.title}</h2>
-              <div class="like">
-                  <p class="nb-likes">${element.likes}</p>
-                  <button class="likes_media" type="button" aria-label="button-like">
-                      <i class="fas fa-heart"></i>
-                  </button>
-              </div>    
-          </div>   
-      </article>`;
-};
 
 // fonction pour afficher le compteur de likes et du prix journalier des photographes
 export const infoLikesAndPrice = (totalPrice) => {
