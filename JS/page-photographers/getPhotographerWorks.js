@@ -2,6 +2,7 @@
 /* eslint-disable import/prefer-default-export */
 import { Lightbox } from './LightBox/lightbox.js';
 import { newGetId, infoLikesAndPrice } from './functions_page-photographers.js';
+import { MediasFactory } from './factory_medias.js';
 
 export const getPhotographersWorks = async () => {
   const response = await fetch('./JS/data.json');
@@ -25,171 +26,13 @@ export const getPhotographersWorks = async () => {
     }
   });
 
-  class Image {
-    constructor(media) {
-      Object.assign(this, media);
-    }
-
-    build() {
-      return `<article>
-   <div class="gallery">
-       <a href="Photos/gallery/${lastName}/${this.image}" title="${this.title}">
-           <img class="pictures-list" src="./Photos/gallery/${lastName}/${this.image}" alt="${this.description}">
-       </a>
-   </div>
-   <div class="info_media">
-       <h2>${this.title}</h2>
-       <div class ="like">
-           <p class="nb-likes">${this.likes}</p>
-           <button class ="likes_media" type="button" aria-label="button-like">
-               <i class="fas fa-heart "></i>
-           </button>
-       </div>    
-   </div>
-</article>`;
-    }
-  }
-
-  class Video {
-    constructor(media) {
-      Object.assign(this, media);
-    }
-
-    build() {
-      return `<article>
-      <div class="gallery">
-          <a href="Photos/gallery/${lastName}/${this.video}" title="${this.title}">
-              <video>
-              ${this.title}
-                  <source src="./Photos/gallery/${lastName}/${this.video}" type="video/mp4">
-                  <track kind="subtitles" src="./Photos/gallery/${lastName}/${this.track}" srclang="fr" label="francais">
-              </video>
-          </a>
-      </div>
-      <div class="info_media">
-          <h2>${this.title}</h2>
-          <div class="like">
-              <p class="nb-likes">${this.likes}</p>
-              <button class="likes_media" type="button" aria-label="button-like">
-                  <i class="fas fa-heart"></i>
-              </button>
-          </div>    
-      </div>   
-  </article>`;
-    }
-  }
-
-  class MediaFactory {
-    static createMedia(media) {
-      let objectMedia = null;
-      if (media.image) {
-        objectMedia = new Image(media);
-      }
-      if (media.video) {
-        objectMedia = new Video(media);
-      }
-      return objectMedia;
-    }
-  }
-
+  // affichage des médias du photographe (pattern factory)
   photographersMedia.forEach((element) => {
     if (element.photographerId === newGetId) {
-      const addMedias = MediaFactory.createMedia(element);
-      document.getElementById('works-list').innerHTML += addMedias.build();
-    }  
-  });
-
-  
-
-  /* on affiche la gallerie des médias liées à l id affiché dans l'url
-  const imagesFactory = (image, title, description, likes) => {
-    const addImage = () => {
-      document.getElementById('works-list').innerHTML += `<article>
-                        <div class="gallery">
-                            <a href="Photos/gallery/${lastName}/${image}" title="${title}">
-                                <img class="pictures-list" src="./Photos/gallery/${lastName}/${image}" alt="${description}">
-                            </a>
-                        </div>
-                        <div class="info_media">
-                            <h2>${title}</h2>
-                            <div class ="like">
-                                <p class="nb-likes">${likes}</p>
-                                <button class ="likes_media" type="button" aria-label="button-like">
-                                    <i class="fas fa-heart "></i>
-                                </button>
-                            </div>
-                        </div>
-                 </article>`;
-    };
-
-    return {
-      image,
-      title,
-      description,
-      likes,
-      addImage,
-    };
-  };
-
-  // on affiche la gallerie des médias liées à l id affiché dans l'url
-  const videoFactory = (video, title, track, likes) => {
-    const addVideo = () => {
-      document.getElementById('works-list').innerHTML += `<article>
-            <div class="gallery">
-                <a href="Photos/gallery/${lastName}/${video}" title="${title}">
-                    <video>
-                    ${title}
-                        <source src="./Photos/gallery/${lastName}/${video}" type="video/mp4">
-                        <track kind="subtitles" src="./Photos/gallery/${lastName}/${track}" srclang="fr" label="francais">
-                    </video>
-                </a>
-            </div>
-            <div class="info_media">
-                <h2>${title}</h2>
-                <div class="like">
-                    <p class="nb-likes">${likes}</p>
-                    <button class="likes_media" type="button" aria-label="button-like">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                </div>
-            </div>
-        </article>`;
-    };
-
-    return {
-      video,
-      title,
-      track,
-      likes,
-      addVideo,
-    };
-  };
-
-  // ajout des images et video
-  photographersMedia.forEach((element) => {
-    if (element.photographerId === newGetId && element.image) {
-      const buildInfosImages = imagesFactory(
-        element.image,
-        element.title,
-        element.description,
-        element.likes,
-      );
-      const galleryImage = buildInfosImages.addImage;
-      galleryImage();
-    } else if (element.photographerId === newGetId && element.video) {
-      const buildInfosVideos = videoFactory(
-        element.video,
-        element.title,
-        element.track,
-        element.likes,
-      );
-      const galleryVideo = buildInfosVideos.addVideo;
-      galleryVideo();
+      const addMedias = MediasFactory.buildMedia(element);
+      document.getElementById('works-list').innerHTML += addMedias.build(lastName);
     }
-    return false;
   });
-
-  */
 
   // on recupere tous les prix du photographe  et on les ajoute dans un tableau
   const totalPrice = [];

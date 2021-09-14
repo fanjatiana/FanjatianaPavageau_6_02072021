@@ -2,12 +2,8 @@
 /* eslint-disable import/extensions */
 import { works, worksFilter } from './const_page-photographers.js';
 import { Lightbox } from './LightBox/lightbox.js';
-import {
-  //addImage,
-  //addVideo,
-  newGetId,
-  infoLikesAndPrice,
-} from './functions_page-photographers.js';
+import { newGetId, infoLikesAndPrice } from './functions_page-photographers.js';
+import { MediasFactory } from './factory_medias.js';
 
 // requête pour la partie filtre de la page des photographes
 export const getNavFilter = async () => {
@@ -57,13 +53,12 @@ export const getNavFilter = async () => {
     let orderByDate = [];
     orderByDate = arrayDate.sort(date).reverse();
 
-    // on affiche toutes les images/videos rangées par date et liées à l'Id du photographe
+    /* on affiche toutes les images/videos rangées par date
+    et liées à l'Id du photographe (pattern factory) */
     orderByDate.forEach((element) => {
-      if (element.photographerId === newGetId && element.image) {
-        //addImage(element, lastName);
-      }
-      if (element.photographerId === newGetId && element.video) {
-        //addVideo(element, lastName);
+      if (element.photographerId === newGetId) {
+        const addMedias = MediasFactory.buildMedia(element);
+        document.getElementById('works-list').innerHTML += addMedias.build(lastName);
       }
     });
   };
@@ -83,13 +78,11 @@ export const getNavFilter = async () => {
     const byLikes = (a, b) => b.likes - a.likes;
     const orderByLikes = arrayLikes.sort(byLikes);
 
-    // on affiche toutes les images/vidéos liées à l'Id du photographe
+    // on affiche toutes les images/vidéos liées à l'Id du photographe (pattern factory)
     orderByLikes.forEach((element) => {
-      if (element.photographerId === newGetId && element.image) {
-        //addImage(element, lastName);
-      }
-      if (element.photographerId === newGetId && element.video) {
-        //addVideo(element, lastName);
+      if (element.photographerId === newGetId) {
+        const addMedias = MediasFactory.buildMedia(element);
+        document.getElementById('works-list').innerHTML += addMedias.build(lastName);
       }
     });
   };
@@ -110,13 +103,11 @@ export const getNavFilter = async () => {
       return 0;
     });
 
-    // on affiche toutes les images et vidéos liées à l'Id du photographe
+    // on affiche toutes les images et vidéos liées à l'Id du photographe (pattern factory)
     orderByTitle.forEach((element) => {
-      if (element.photographerId === newGetId && element.image) {
-        //addImage(element, lastName);
-      }
-      if (element.photographerId === newGetId && element.video) {
-        //addVideo(element, lastName);
+      if (element.photographerId === newGetId) {
+        const addMedias = MediasFactory.buildMedia(element);
+        document.getElementById('works-list').innerHTML += addMedias.build(lastName);
       }
     });
   };
