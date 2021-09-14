@@ -25,7 +25,83 @@ export const getPhotographersWorks = async () => {
     }
   });
 
-  // on affiche la gallerie des médias liées à l id affiché dans l'url
+  class Image {
+    constructor(media) {
+      Object.assign(this, media);
+    }
+
+    build() {
+      return `<article>
+   <div class="gallery">
+       <a href="Photos/gallery/${lastName}/${this.image}" title="${this.title}">
+           <img class="pictures-list" src="./Photos/gallery/${lastName}/${this.image}" alt="${this.description}">
+       </a>
+   </div>
+   <div class="info_media">
+       <h2>${this.title}</h2>
+       <div class ="like">
+           <p class="nb-likes">${this.likes}</p>
+           <button class ="likes_media" type="button" aria-label="button-like">
+               <i class="fas fa-heart "></i>
+           </button>
+       </div>    
+   </div>
+</article>`;
+    }
+  }
+
+  class Video {
+    constructor(media) {
+      Object.assign(this, media);
+    }
+
+    build() {
+      return `<article>
+      <div class="gallery">
+          <a href="Photos/gallery/${lastName}/${this.video}" title="${this.title}">
+              <video>
+              ${this.title}
+                  <source src="./Photos/gallery/${lastName}/${this.video}" type="video/mp4">
+                  <track kind="subtitles" src="./Photos/gallery/${lastName}/${this.track}" srclang="fr" label="francais">
+              </video>
+          </a>
+      </div>
+      <div class="info_media">
+          <h2>${this.title}</h2>
+          <div class="like">
+              <p class="nb-likes">${this.likes}</p>
+              <button class="likes_media" type="button" aria-label="button-like">
+                  <i class="fas fa-heart"></i>
+              </button>
+          </div>    
+      </div>   
+  </article>`;
+    }
+  }
+
+  class MediaFactory {
+    static createMedia(media) {
+      let objectMedia = null;
+      if (media.image) {
+        objectMedia = new Image(media);
+      }
+      if (media.video) {
+        objectMedia = new Video(media);
+      }
+      return objectMedia;
+    }
+  }
+
+  photographersMedia.forEach((element) => {
+    if (element.photographerId === newGetId) {
+      const addMedias = MediaFactory.createMedia(element);
+      document.getElementById('works-list').innerHTML += addMedias.build();
+    }  
+  });
+
+  
+
+  /* on affiche la gallerie des médias liées à l id affiché dans l'url
   const imagesFactory = (image, title, description, likes) => {
     const addImage = () => {
       document.getElementById('works-list').innerHTML += `<article>
@@ -41,7 +117,7 @@ export const getPhotographersWorks = async () => {
                                 <button class ="likes_media" type="button" aria-label="button-like">
                                     <i class="fas fa-heart "></i>
                                 </button>
-                            </div>    
+                            </div>
                         </div>
                  </article>`;
     };
@@ -75,8 +151,8 @@ export const getPhotographersWorks = async () => {
                     <button class="likes_media" type="button" aria-label="button-like">
                         <i class="fas fa-heart"></i>
                     </button>
-                </div>    
-            </div>   
+                </div>
+            </div>
         </article>`;
     };
 
@@ -112,6 +188,8 @@ export const getPhotographersWorks = async () => {
     }
     return false;
   });
+
+  */
 
   // on recupere tous les prix du photographe  et on les ajoute dans un tableau
   const totalPrice = [];
